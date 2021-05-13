@@ -2,6 +2,7 @@
     "$schema": "https://gss-cogs.github.io/family-schemas/pipelines-schema.json",
     "family": "Climate Change",
     "github": "https://github.com/GSS-Cogs/family-climate-change",
+    "project": "https://github.com/orgs/GSS-Cogs/projects/19",
     "jenkins": {
         "base": "https://ci.floop.org.uk",
         "path": [
