@@ -1,7 +1,19 @@
 {
+    "$schema": "https://gss-cogs.github.io/family-schemas/pipelines-schema.json",
     "family": "Climate Change",
+    "github": "https://github.com/GSS-Cogs/family-climate-change",
+    "project": "https://github.com/orgs/GSS-Cogs/projects/18",
+    "jenkins": {
+        "base": "https://ci.floop.org.uk",
+        "path": [
+            "GSS_data",
+            "Climate Change"
+        ]
+    },
+    "sparql": "https://staging.gss-data.org.uk/sparql",
+    "pmd": "http://staging.gss-data.org.uk",
     "pipelines": [
-        "BEIS-2019-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-end-user",
+"BEIS-2019-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-end-user",
         "BEIS-2019-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-source",
         "BEIS-Final-UK-greenhouse-gas-emissions-national-statistics",
         "BEIS-GHG-activities",
