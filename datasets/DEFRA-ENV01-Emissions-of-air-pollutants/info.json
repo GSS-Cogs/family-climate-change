@@ -1,0 +1,22 @@
+{
+    "id": "defra-env01-emissions-of-air-pollutants",
+    "title": "ENV01 - Emissions of air pollutants",
+    "publisher": "Department for Environment Food & Rural Affairs",
+    "description": "Annual update to tables on emissions of important air pollutants in the UK.",
+    "landingPage": "https://www.gov.uk/government/statistical-data-sets/env01-emissions-of-air-pollutants",
+    "datasetNotes": [
+        "On the landing page scroll down to the bottom of the page and a tables document can be located in an ODS format , a CSV can be obtained by clicking on the link above this data set however that does not contain all the information contained in the ODS"
+    ],
+    "published": "2020-02-14",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "ODS"
+    },
+    "transform": {
+        "airtable": "recojClvLeD3zbZKR"
+    },
+    "sizingNotes": "Simple table structure with footnotes, some tabs  have 2 tables with numbers and percentages.",
+    "notes": "a CSV can be obtained by clicking on the link above this data set however that does not contain all the information contained in the ODS"
+}

@@ -1,0 +1,64 @@
+<h1>{{family}} Dataset Family</h1>
+
+<button id="toggle_all" type="button" class="btn btn-outline-primary" aria-pressed="false" autocomplete="off">
+  Toggle All
+</button>
+<table id="datasets_table" class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Publisher</th>
+        <th>Dataset</th>
+        <th>Extract Stage</th>
+        <th>Transform Stage</th>
+        <th>Tracking</th>
+        <th>Transform Status</th>
+        <th>Specification</th>
+        <th>Publish Status</th>
+        <th>Publication date</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each pipelines}}
+        <tr class="{{rowClass ../family info}}">
+            <td>{{number}}</td>
+            <td>{{info.publisher}}</td>
+            <td><a href="?{{directory}}">{{info.title}}</a></td>
+            <td>{{info.extract.stage}}</td>
+            <td>{{info.transform.stage}}</td>
+            <td>
+                {{#if info.transform.main_issue}}
+                    <a href="{{../github}}/issues/{{info.transform.main_issue}}"><img alt="GitHub issue detail" src="{{../issue_badge_base}}/{{info.transform.main_issue}}?style=plastic"></a>
+                {{/if}}
+            </td>
+            <td>
+                <a href='{{../jenkins_base}}/{{../jenkins_path}}/job/{{directory}}/'>
+                    <img src='{{../jenkins_base}}/{{../jenkins_buildicon}}{{directory}}'/>
+                </a>
+            </td>
+            <td>
+                {{#if info.spec}}
+                    <a href="{{info.spec}}"><i class="fas fa-clipboard-list"></i></a>
+                {{/if}}
+                {{#if info.jenkinsSpec}}
+                    <a href="{{info.jenkinsSpec}}"><i class="fas fa-clipboard-list"></i></a>
+                {{/if}}
+                {{#if info.flowchart}}
+                    <a href="{{info.flowchart}}"><i class="fas fa-sitemap"></i></a>
+                {{/if}}
+            <td>
+                <div>
+                    <ul class="fa-ul">
+                        {{#each datasets}}
+                            <li><span class="fa-li"><i class="fas fa-cube"></i></span><a href="{{this.uri}}">{{this.label}}</a>{{#unless @last}}, {{/unless}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </td>
+            <td data-order="{{lastModifiedMillis}}">
+                {{lastModified}}
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

@@ -1,0 +1,22 @@
+{
+    "id": "beis-final-uk-greenhouse-gas-emissions-national-statistics",
+    "title": "Final UK greenhouse gas emissions national statistics",
+    "publisher": "Department for Business, Energy and Industrial Strategy",
+    "description": "Final estimates of UK territorial greenhouse gas emissions.",
+    "landingPage": "https://www.gov.uk/government/collections/final-uk-greenhouse-gas-emissions-national-statistics",
+    "datasetNotes": [
+        "On landing page scroll down to contents click the most recent date i.e 2020, this will display a link , click the link this will open another page, scroll down to Documents and the data can be found in XLS and ODS "
+    ],
+    "published": "2020-02-04",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "XLS, ODS"
+    },
+    "transform": {
+        "airtable": "recyRy2NEH7GyMyDs"
+    },
+    "sizingNotes": "The majority of the table are of a simple structure however there numerous footnotes and  some tabs have more than 1 table in different formats.",
+    "notes": ""
+}

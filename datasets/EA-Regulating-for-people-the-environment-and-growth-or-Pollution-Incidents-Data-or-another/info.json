@@ -1,0 +1,22 @@
+{
+    "id": "ea-regulating-for-people-the-environment-and-growth-or-pollution-incidents-data-or-another",
+    "title": "Regulating for people, the environment and growth or Pollution Incidents Data or another!",
+    "publisher": "Environment Agency",
+    "description": "Data on compliance ratings, pollution inventory, pollution incidents, enforcement and waste crime for 2018.",
+    "landingPage": "https://www.gov.uk/government/publications/regulating-for-people-the-environment-and-growth",
+    "datasetNotes": [
+        "On landing page scroll down to details and click on the latest data set link this will open the page for 'Environment Agency  Year  data on regulated businesses in England' click on the first link under documents  'Pollution Incidents Data Year' a CSV document will open. "
+    ],
+    "published": "2019-10-25",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "ODS"
+    },
+    "transform": {
+        "airtable": "recuOZJs1hLSSJifA"
+    },
+    "sizingNotes": "Simple table structure available in ODS",
+    "notes": ""
+}

@@ -1,0 +1,22 @@
+{
+    "id": "ons-indicator-13-1-1-number-of-deaths-missing-persons-and-directly-affected-persons-attributed-to-disasters-per-100-000-population",
+    "title": "Indicator 13.1.1: Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population",
+    "publisher": "Office for National Statistics",
+    "description": "",
+    "landingPage": "https://sustainabledevelopment-uk.github.io/13-1-1/",
+    "datasetNotes": [
+        "On landing page, click the link to download the CSV"
+    ],
+    "published": "2019-04-29",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "recWruTTtyaJhPbVW"
+    },
+    "sizingNotes": "Simple CSV table  available to download",
+    "notes": ""
+}

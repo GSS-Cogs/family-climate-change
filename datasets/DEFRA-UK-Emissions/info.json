@@ -1,0 +1,22 @@
+{
+    "id": "defra-uk-emissions",
+    "title": "UK Emissions",
+    "publisher": "Department for Environment Food & Rural Affairs",
+    "description": "",
+    "landingPage": "https://naei.beis.gov.uk/",
+    "datasetNotes": [
+        "There are 3 XLS  spreadsheets on the landing page including 2 pivot tables.  Further analysts is required to determine what data is required and if this is the best landing page.  Licence under OGL, details can be found on this landing page.   "
+    ],
+    "published": "2019-06-11",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "XLS"
+    },
+    "transform": {
+        "airtable": "rechcZtzUPkdDxpuW"
+    },
+    "sizingNotes": "",
+    "notes": "There are 3 XLS  spreadsheets on the landing page including 2 pivot tables.  Further analysts is required to determine what data is required and if this is the best landing page.  Licence under OGL, details can be found on this landing page."
+}
