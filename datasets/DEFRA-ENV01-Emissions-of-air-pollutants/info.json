@@ -15,7 +15,8 @@
         "source": "ODS"
     },
     "transform": {
-        "airtable": "recojClvLeD3zbZKR"
+        "airtable": "recojClvLeD3zbZKR",
+        "main_issue": 6
     },
     "sizingNotes": "Simple table structure with footnotes, some tabs  have 2 tables with numbers and percentages.",
     "notes": "a CSV can be obtained by clicking on the link above this data set however that does not contain all the information contained in the ODS"

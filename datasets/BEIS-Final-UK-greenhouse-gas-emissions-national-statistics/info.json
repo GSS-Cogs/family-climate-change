@@ -15,7 +15,8 @@
         "source": "XLS, ODS"
     },
     "transform": {
-        "airtable": "recyRy2NEH7GyMyDs"
+        "airtable": "recyRy2NEH7GyMyDs",
+        "main_issue": 9
     },
     "sizingNotes": "The majority of the table are of a simple structure however there numerous footnotes and  some tabs have more than 1 table in different formats.",
     "notes": ""

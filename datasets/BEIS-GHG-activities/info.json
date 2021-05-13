@@ -15,7 +15,8 @@
         "source": "CSV"
     },
     "transform": {
-        "airtable": "recHGTWJ8Ntwf8IkN"
+        "airtable": "recHGTWJ8Ntwf8IkN",
+        "main_issue": 1
     },
     "sizingNotes": "Structured table in CSV format, should be straightforward to transform into tidy data.",
     "notes": "The NAEI estimates annual pollutant emissions from 1970 to the most current publication year for the majority of pollutants. The NAEI website is produced and maintained by Ricardo Energy & Environment"

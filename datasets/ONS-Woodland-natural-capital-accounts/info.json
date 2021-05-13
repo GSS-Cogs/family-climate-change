@@ -15,7 +15,8 @@
         "source": "XLS"
     },
     "transform": {
-        "airtable": "recQjfPwqjZF3ZEEx"
+        "airtable": "recQjfPwqjZF3ZEEx",
+        "main_issue": 2
     },
     "sizingNotes": "Simple table structure with some footnotes one table has a supporting map along with the table which will need to be stripped out",
     "notes": ""

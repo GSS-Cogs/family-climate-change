@@ -15,7 +15,8 @@
         "source": "ODS"
     },
     "transform": {
-        "airtable": "recuOZJs1hLSSJifA"
+        "airtable": "recuOZJs1hLSSJifA",
+        "main_issue": 8
     },
     "sizingNotes": "Simple table structure available in ODS",
     "notes": ""

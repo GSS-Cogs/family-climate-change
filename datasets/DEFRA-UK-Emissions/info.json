@@ -15,7 +15,8 @@
         "source": "XLS"
     },
     "transform": {
-        "airtable": "rechcZtzUPkdDxpuW"
+        "airtable": "rechcZtzUPkdDxpuW",
+        "main_issue": 4
     },
     "sizingNotes": "",
     "notes": "There are 3 XLS  spreadsheets on the landing page including 2 pivot tables.  Further analysts is required to determine what data is required and if this is the best landing page.  Licence under OGL, details can be found on this landing page."

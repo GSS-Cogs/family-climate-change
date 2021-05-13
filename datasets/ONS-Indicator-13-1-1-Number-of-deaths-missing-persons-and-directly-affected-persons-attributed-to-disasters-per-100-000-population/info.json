@@ -15,7 +15,8 @@
         "source": "CSV"
     },
     "transform": {
-        "airtable": "recWruTTtyaJhPbVW"
+        "airtable": "recWruTTtyaJhPbVW",
+        "main_issue": 3
     },
     "sizingNotes": "Simple CSV table  available to download",
     "notes": ""
