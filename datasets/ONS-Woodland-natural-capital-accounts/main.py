@@ -84,3 +84,34 @@ def excelRange(bag):
 
 for tab in tabs:
     print(tab.name)
+for tab in tabs:
+    print(tab.name)
+    if tab.name == 'Physical flows':
+        columns = ['Title', 'Period', 'Measure Type' 'Service']
+        trace.start(datasetTitle, tab, columns, dist.downloadURL)
+
+        title = tab.excel_ref('A2')
+        trace.Title('Defined from cell value: {}', var=cellLoc(title))
+
+        period = tab.excel_ref('C4').expand(RIGHT).is_not_blank()
+        trace.Period('Defined from cell range: {}', var=excelRange(period))
+
+        measure_type = tab.excel_ref('B5').expand(DOWN).is_not_blank()
+        trace.Measure_Type('Defined from cell range: {}', var=excelRange(measure_type))
+
+        service = tab.excel_ref('A4').expand(DOWN).is_not_blank()
+        trace.Service('Defined from cell value: {}', var=cellLoc(service))
+
+        observations = tab.excel_ref('C5').expand(DOWN).expand(RIGHT).is_not_blank()
+
+        dimensions = [
+            HDim(title, 'Title', CLOSEST, ABOVE),
+            HDim(period, 'Period', DIRECTLY, ABOVE),
+            HDim(measure_type, 'Measure Type', DIRECTLY, LEFT),
+            HDim(service, 'Service', DIRECTLY, LEFT)
+        ]
+
+        tidy_sheet = ConversionSegment(tab, dimensions, observations)
+        trace.with_preview(tidy_sheet)
+        savepreviewhtml(tidy_sheet, fname=f'{tab.name}_Preview.html')
+        trace.store(f'combined_dataframe_table_physical_flows', tidy_sheet.topandas())
