@@ -1,0 +1,31 @@
+{
+    "python.pythonPath": "/usr/local/bin/python",
+    "githubIssues.queries": [
+
+        {
+            "label": "My Issues",
+            "query": "default"
+        },
+        {
+            "label": "Created Issues",
+            "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
+        },
+        {
+            "label": "Issues - Unassigned",
+            "query": "state:open repo:${owner}/${repository} archived:false no:assignee"
+        },
+        {
+            "label": "Issues - Needs DM",
+            "query": "state:open repo:${owner}/${repository} archived:false label:\"Needs DM\""
+        },
+        {
+            "label": "Issues - Needs DE",
+            "query": "state:open repo:${owner}/${repository} archived:false label:\"Needs DE\""
+        },
+        {
+            "label": "Issues - Needs BA",
+            "query": "state:open repo:${owner}/${repository} archived:false label:\"Needs BA\""
+        }
+    ],
+    "jupyter.jupyterServerType": "local"
+}

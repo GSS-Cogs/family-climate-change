@@ -1,0 +1,13 @@
+{
+    "image": "gsscogs/databaker:dev",
+    "extensions": [
+        "github.vscode-pull-request-github",
+        "ms-toolsai.jupyter",
+        "ms-python.vscode-pylance",
+        "ms-python.python",
+        "eamodio.gitlens"
+    ],
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ]
+}
