@@ -1,0 +1,57 @@
+Sheet Physical Flows 
+    Physical flows will need its own codelist so the data can be maintaied 
+    year to form its column as period 
+    creation of country column to effectively display country data 
+    creation of a marker column which will capture the sub-categories of physical flow 
+
+
+
+measures:
+	Measure Type: Physical flow (codelist DM will create)
+	Unit: gbp million 
+
+Table Structure:
+	Period, Country, Physical Flow, Marker, Value
+
+
+Sheet Annual Value 
+Physical flow codelist to be used also for this sheet. Also marker column to capture flows (timber etc.)
+country column to be created 
+value 
+
+measures:
+	Measure Type: Physical flow (codelist DM will create)
+	Unit: gbp million 
+
+Table Structure:
+	Period, Country,  Marker, Value
+
+
+Sheet Asset Value 
+
+Asset value sheet to follow process as previous sheets 
+
+Create Period, Country, Marker and Value column (totals?)
+
+measures:
+	Measure Type: Physical flow (codelist DM will create)
+	Unit: gbp million 
+
+Table Structure:
+	Period, Country,  Marker, Value 
+
+
+
+
+addtional Information 
+
+Methodology
+Details of methodologies for woodlands can be found in Woodland natural capital accounts methodology guide, UK: 2020. Further details on the concepts and methodologies underlying the UK natural capital accounts can be found in Principles of Natural Capital Accounting.
+
+Strengths and limitations
+
+Data quality
+
+The ecosystems services are experimental statistics. Currently, there is no single data source for the UK for the individual ecosystem services. They are calculated from data from the four countries with different timeliness.
+
+Ecosystems provide a diverse range of services and not all have been included in this publication, either owing to unavailability of data or the need for new methods of evaluation. We intend to continue to develop our ability to report on all services.
