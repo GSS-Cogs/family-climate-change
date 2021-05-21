@@ -84,8 +84,6 @@ def excelRange(bag):
 
 for tab in tabs:
     print(tab.name)
-for tab in tabs:
-    print(tab.name)
     if tab.name == 'Physical flows':
         columns = ['Title', 'Period', 'Measure Type' 'Service']
         trace.start(datasetTitle, tab, columns, dist.downloadURL)
