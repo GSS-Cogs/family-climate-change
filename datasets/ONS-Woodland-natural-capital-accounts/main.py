@@ -100,7 +100,7 @@ for tab in tabs:
         trace.Measure_Type('Defined from cell range: {}', var=excelRange(measure_type))
 
         service = tab.excel_ref('A4').expand(DOWN).is_not_blank()
-        trace.Service('Defined from cell value: {}', var=cellLoc(service))
+        trace.Service('Defined from cell range: {}', var=excelRange(service))
 
         observations = tab.excel_ref('C5').expand(DOWN).expand(RIGHT).is_not_blank()
 
@@ -115,3 +115,32 @@ for tab in tabs:
         trace.with_preview(tidy_sheet)
         savepreviewhtml(tidy_sheet, fname=f'{tab.name}_Preview.html')
         trace.store(f'combined_dataframe_table_physical_flows', tidy_sheet.topandas())
+    if tab.name == 'Annual value':
+        columns = ['Title', 'Period', 'Measure Type' 'Service']
+        trace.start(datasetTitle, tab, columns, dist.downloadURL)
+
+        title = tab.excel_ref('A2')
+        trace.Title('Defined from cell value: {}', var=cellLoc(title))
+
+        period = tab.excel_ref('B4').expand(RIGHT).is_not_blank()
+        trace.Period('Defined from cell range: {}', var=excelRange(period))
+
+        measure_type = tab.excel_ref('A4')
+        trace.Measure_Type('Defined from cell value: {}', var=cellLoc(measure_type))
+
+        service = tab.excel_ref('A5').expand(DOWN).is_not_blank()
+        trace.Service('Defined from cell range: {}', var=excelRange(service))
+
+        observations = tab.excel_ref('B5').expand(DOWN).expand(RIGHT).is_not_blank()
+
+        dimensions = [
+            HDim(title, 'Title', CLOSEST, ABOVE),
+            HDim(period, 'Period', DIRECTLY, ABOVE),
+            HDim(measure_type, 'Measure Type', CLOSEST, ABOVE),
+            HDim(service, 'Service', DIRECTLY, LEFT)
+        ]
+
+        tidy_sheet = ConversionSegment(tab, dimensions, observations)
+        trace.with_preview(tidy_sheet)
+        savepreviewhtml(tidy_sheet, fname=f'{tab.name}_Preview.html')
+        trace.store(f'combined_dataframe_table_annual_value', tidy_sheet.topandas())
