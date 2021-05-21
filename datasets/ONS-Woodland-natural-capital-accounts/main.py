@@ -5,6 +5,7 @@
 import pandas as pd
 from gssutils import *
 import json
+import string
 
 info = json.load(open('info.json'))
 landingPage = info['landingPage']
@@ -85,7 +86,7 @@ def excelRange(bag):
 for tab in tabs:
     print(tab.name)
     if tab.name == 'Physical flows':
-        columns = ['Title', 'Period', 'Measure Type' 'Service']
+        columns = ['Title', 'Period', 'Measure Type', 'Service']
         trace.start(datasetTitle, tab, columns, dist.downloadURL)
 
         title = tab.excel_ref('A2')
@@ -114,7 +115,7 @@ for tab in tabs:
         savepreviewhtml(tidy_sheet, fname=f'{tab.name}_Preview.html')
         trace.store(f'combined_dataframe_table_physical_flows', tidy_sheet.topandas())
     if tab.name == 'Annual value':
-        columns = ['Title', 'Period', 'Measure Type' 'Service']
+        columns = ['Title', 'Period', 'Measure Type', 'Service']
         trace.start(datasetTitle, tab, columns, dist.downloadURL)
 
         title = tab.excel_ref('A2')
