@@ -83,6 +83,18 @@ def excelRange(bag):
     return '{' + lowx + lowy + '-' + highx + highy + '}'
 
 
+def filter_country(column_value):
+    if column_value == 'England':
+        return 'England'
+    if column_value == 'Scotland':
+        return 'Scotland'
+    if column_value == 'Wales':
+        return 'Wales'
+    if column_value == 'Northern Ireland':
+        return 'Northern Ireland'
+    return None
+
+
 for tab in tabs:
     print(tab.name)
     if tab.name == 'Physical flows':
@@ -164,3 +176,17 @@ for tab in tabs:
         trace.with_preview(tidy_sheet)
         savepreviewhtml(tidy_sheet, fname=f'{tab.name}_Preview.html')
         trace.store(f'combined_dataframe_table_asset_value', tidy_sheet.topandas())
+
+df_tbl_physical_flows = trace.combine_and_trace(datasetTitle, 'combined_dataframe_table_physical_flows')
+trace.add_column('Value')
+trace.Value('Rename databaker column OBS to Value')
+df_tbl_physical_flows.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inplace=True)
+
+df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Physical Flow'].apply(filter_country)
+df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Country'].ffill()
+df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Country'].fillna('United Kingdom')
+
+df_tbl_physical_flows_country_idx = df_tbl_physical_flows[df_tbl_physical_flows['Physical Flow'].isin(['England', 'Scotland', 'Wales', 'Northern Ireland'])].index
+df_tbl_physical_flows.drop(df_tbl_physical_flows_country_idx , inplace=True)
+
+df_tbl_physical_flows['Period'] = pd.to_numeric(df_tbl_physical_flows['Period'], errors='coerce').astype('Int64')
