@@ -84,15 +84,16 @@ def excelRange(bag):
 
 
 def filter_country(column_value):
-    if column_value == 'England':
+    if column_value.lower() == 'england':
         return 'England'
-    if column_value == 'Scotland':
+    elif column_value.lower() == 'scotland':
         return 'Scotland'
-    if column_value == 'Wales':
+    elif column_value == 'wales':
         return 'Wales'
-    if column_value == 'Northern Ireland':
+    elif column_value.lower() == 'northern ireland':
         return 'Northern Ireland'
-    return None
+    else:
+        return None
 
 
 for tab in tabs:
@@ -190,3 +191,17 @@ df_tbl_physical_flows_country_idx = df_tbl_physical_flows[df_tbl_physical_flows[
 df_tbl_physical_flows.drop(df_tbl_physical_flows_country_idx , inplace=True)
 
 df_tbl_physical_flows['Period'] = pd.to_numeric(df_tbl_physical_flows['Period'], errors='coerce').astype('Int64')
+
+df_tbl_annual_value = trace.combine_and_trace(datasetTitle, 'combined_dataframe_table_annual_value')
+trace.add_column('Value')
+trace.Value('Rename databaker column OBS to Value')
+df_tbl_annual_value.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inplace=True)
+
+df_tbl_annual_value['Country'] = df_tbl_annual_value['Physical Flow'].apply(filter_country)
+df_tbl_annual_value['Country'] = df_tbl_annual_value['Country'].ffill()
+df_tbl_annual_value['Country'] = df_tbl_annual_value['Country'].fillna('United Kingdom')
+
+df_tbl_annual_value_country_idx = df_tbl_annual_value[df_tbl_annual_value['Physical Flow'].isin(['England', 'Scotland', 'Wales', 'Northern Ireland'])].index
+df_tbl_annual_value.drop(df_tbl_annual_value_country_idx , inplace=True)
+
+df_tbl_annual_value['Period'] = pd.to_numeric(df_tbl_annual_value['Period'], errors='coerce').astype('Int64')
