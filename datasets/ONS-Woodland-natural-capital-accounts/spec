@@ -1,17 +1,21 @@
+** this dataset is quite tricky so i imagine we will need a couple of goes to get it right but here is my initial spec ** 
+
 Sheet Physical Flows 
     Physical flows will need its own codelist so the data can be maintaied 
-    year to form its column as period 
     creation of country column to effectively display country data 
     creation of a marker column which will capture the sub-categories of physical flow 
 
-
+Dimension:
+	I think we should have a services dimension and service type dimension i.e. Woodland
+	I believe Physical Flow would be classed as a services dimension and therefore column B is the unit and therefore a codelist for these data with a name like measurements this will allow for a unit column.
+	
 
 measures:
 	Measure Type: Physical flow (codelist DM will create)
 	Unit: gbp million 
 
 Table Structure:
-	Period, Country, Physical Flow, Marker, Value
+	 Country, Physical Flow, Marker, Value
 
 
 Sheet Annual Value 
@@ -24,26 +28,26 @@ measures:
 	Unit: gbp million 
 
 Table Structure:
-	Period, Country,  Marker, Value
+	 Country,  Marker, Value
 
 
 Sheet Asset Value 
 
 Asset value sheet to follow process as previous sheets 
 
-Create Period, Country, Marker and Value column (totals?)
+Create  Country, Marker and Value column (totals?)
 
 measures:
 	Measure Type: Physical flow (codelist DM will create)
 	Unit: gbp million 
 
 Table Structure:
-	Period, Country,  Marker, Value 
+	 Country,  Marker, Value 
 
 
 
 
-addtional Information 
+Scraper Information 
 
 Methodology
 Details of methodologies for woodlands can be found in Woodland natural capital accounts methodology guide, UK: 2020. Further details on the concepts and methodologies underlying the UK natural capital accounts can be found in Principles of Natural Capital Accounting.
