@@ -86,11 +86,8 @@ def excelRange(bag):
 for tab in tabs:
     print(tab.name)
     if tab.name == 'Physical flows':
-        columns = ['Title', 'Period', 'Measure Type', 'Service']
+        columns = ['Period', 'Measure Type', 'Physical Flow']
         trace.start(datasetTitle, tab, columns, dist.downloadURL)
-
-        title = tab.excel_ref('A2')
-        trace.Title('Defined from cell value: {}', var=cellLoc(title))
 
         period = tab.excel_ref('C4').expand(RIGHT).is_not_blank()
         trace.Period('Defined from cell range: {}', var=excelRange(period))
@@ -98,16 +95,15 @@ for tab in tabs:
         measure_type = tab.excel_ref('B5').expand(DOWN).is_not_blank()
         trace.Measure_Type('Defined from cell range: {}', var=excelRange(measure_type))
 
-        service = tab.excel_ref('A4').expand(DOWN).is_not_blank()
-        trace.Service('Defined from cell range: {}', var=excelRange(service))
+        physical_flow = tab.excel_ref('A4').expand(DOWN).is_not_blank()
+        trace.Physical_Flow('Defined from cell range: {}', var=excelRange(physical_flow))
 
         observations = tab.excel_ref('C5').expand(DOWN).expand(RIGHT).is_not_blank()
 
         dimensions = [
-            HDim(title, 'Title', CLOSEST, ABOVE),
             HDim(period, 'Period', DIRECTLY, ABOVE),
             HDim(measure_type, 'Measure Type', DIRECTLY, LEFT),
-            HDim(service, 'Service', DIRECTLY, LEFT)
+            HDim(physical_flow, 'Physical Flow', DIRECTLY, LEFT)
         ]
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
