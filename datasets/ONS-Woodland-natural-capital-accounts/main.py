@@ -88,7 +88,7 @@ def filter_country(column_value):
         return 'England'
     elif column_value.lower() == 'scotland':
         return 'Scotland'
-    elif column_value == 'wales':
+    elif column_value.lower() == 'wales':
         return 'Wales'
     elif column_value.lower() == 'northern ireland':
         return 'Northern Ireland'
@@ -205,3 +205,15 @@ df_tbl_annual_value_country_idx = df_tbl_annual_value[df_tbl_annual_value['Physi
 df_tbl_annual_value.drop(df_tbl_annual_value_country_idx , inplace=True)
 
 df_tbl_annual_value['Period'] = pd.to_numeric(df_tbl_annual_value['Period'], errors='coerce').astype('Int64')
+
+df_tbl_asset_value = trace.combine_and_trace(datasetTitle, 'combined_dataframe_table_asset_value')
+trace.add_column('Value')
+trace.Value('Rename databaker column OBS to Value')
+df_tbl_asset_value.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inplace=True)
+
+df_tbl_asset_value_country_idx = df_tbl_asset_value[df_tbl_asset_value['Marker'].isin(['England', 'Scotland', 'Wales', 'Northern Ireland'])].index
+df_tbl_asset_value.drop(df_tbl_asset_value_country_idx , inplace=True)
+
+df_tbl_asset_value['Country'] = df_tbl_asset_value['Country'].fillna('United Kingdom')
+
+df_tbl_asset_value['Period'] = pd.to_numeric(df_tbl_asset_value['Period'], errors='coerce').astype('Int64')
