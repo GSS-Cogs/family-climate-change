@@ -192,6 +192,7 @@ df_tbl_physical_flows_country_idx = df_tbl_physical_flows[df_tbl_physical_flows[
 df_tbl_physical_flows.drop(df_tbl_physical_flows_country_idx , inplace=True)
 
 df_tbl_physical_flows['Period'] = pd.to_numeric(df_tbl_physical_flows['Period'], errors='coerce').astype('Int64')
+df_tbl_physical_flows['Value'] = pd.to_numeric(df_tbl_physical_flows['Value'], errors='coerce').astype('float64').replace(np.nan, 'None')
 df_tbl_physical_flows['Marker'] = df_tbl_physical_flows['Physical Flow']
 
 df_tbl_physical_flows = df_tbl_physical_flows[['Period', 'Country', 'Physical Flow', 'Marker', 'Value', 'Measure Type']]
