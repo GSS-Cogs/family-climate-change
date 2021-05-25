@@ -106,6 +106,15 @@ def convert_category_datatype(df, columns_arr):
                 raise ValueError('Failed to convert category data type for column "{}".'.format(col)) from err
 
 
+def pathify_columns(df, columns_arr):
+    for col in df.columns:
+        if col in columns_arr:
+            try:
+                df[col] = df[col].apply(lambda x: pathify(str(x)))
+            except Exception as err:
+                raise Exception('Failed to pathify column "{}".'.format(col)) from err
+
+
 for tab in tabs:
     print(tab.name)
     if tab.name == 'Physical flows':
@@ -245,3 +254,7 @@ df_tbl_asset_value = df_tbl_asset_value[['Period', 'Country', 'Physical Flow', '
 convert_category_datatype(df_tbl_physical_flows, ['Country', 'Physical Flow', 'Marker', 'Measure Type'])
 convert_category_datatype(df_tbl_annual_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type'])
 convert_category_datatype(df_tbl_asset_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type'])
+
+pathify_columns(df_tbl_physical_flows, ['Country', 'Physical Flow', 'Marker', 'Measure Type'])
+pathify_columns(df_tbl_annual_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type'])
+pathify_columns(df_tbl_asset_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type'])
