@@ -97,6 +97,15 @@ def filter_country(column_value):
         return None
 
 
+def convert_category_datatype(df, columns_arr):
+    for col in df.columns:
+        if col in columns_arr:
+            try:
+                df[col] = df[col].astype('category')
+            except ValueError as err:
+                raise ValueError('Failed to convert category data type for column "{}".'.format(col)) from err
+
+
 for tab in tabs:
     print(tab.name)
     if tab.name == 'Physical flows':
@@ -232,3 +241,7 @@ df_tbl_asset_value['Value'] = pd.to_numeric(df_tbl_asset_value['Value'], errors=
 df_tbl_asset_value['Marker'] = df_tbl_asset_value['Physical Flow']
 
 df_tbl_asset_value = df_tbl_asset_value[['Period', 'Country', 'Physical Flow', 'Marker', 'Value', 'Measure Type']]
+
+convert_category_datatype(df_tbl_physical_flows, ['Country', 'Physical Flow', 'Marker', 'Measure Type'])
+convert_category_datatype(df_tbl_annual_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type'])
+convert_category_datatype(df_tbl_asset_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type'])
