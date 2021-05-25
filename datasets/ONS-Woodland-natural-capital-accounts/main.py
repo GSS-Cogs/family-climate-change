@@ -6,6 +6,7 @@ import pandas as pd
 from gssutils import *
 import json
 import string
+import numpy as np
 
 info = json.load(open('info.json'))
 landingPage = info['landingPage']
@@ -208,6 +209,13 @@ df_tbl_annual_value_country_idx = df_tbl_annual_value[df_tbl_annual_value['Physi
 df_tbl_annual_value.drop(df_tbl_annual_value_country_idx , inplace=True)
 
 df_tbl_annual_value['Period'] = pd.to_numeric(df_tbl_annual_value['Period'], errors='coerce').astype('Int64')
+df_tbl_annual_value['Measure Type'] = df_tbl_annual_value['Measure Type'].apply(lambda x : str(x).rstrip(x[-1]))
+
+df_tbl_annual_value['Value'] = df_tbl_annual_value.apply(lambda x: None if x['Marker']=='-' else x['Value'], axis=1)
+df_tbl_annual_value['Value'] = pd.to_numeric(df_tbl_annual_value['Value'], errors='coerce').astype('float64').replace(np.nan, 'None')
+df_tbl_annual_value['Marker'] = df_tbl_annual_value['Physical Flow']
+
+df_tbl_annual_value = df_tbl_annual_value[['Period', 'Country', 'Physical Flow', 'Marker', 'Value', 'Measure Type']]
 
 df_tbl_asset_value = trace.combine_and_trace(datasetTitle, 'combined_dataframe_table_asset_value')
 trace.add_column('Value')
