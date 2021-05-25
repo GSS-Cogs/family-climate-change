@@ -191,6 +191,9 @@ df_tbl_physical_flows_country_idx = df_tbl_physical_flows[df_tbl_physical_flows[
 df_tbl_physical_flows.drop(df_tbl_physical_flows_country_idx , inplace=True)
 
 df_tbl_physical_flows['Period'] = pd.to_numeric(df_tbl_physical_flows['Period'], errors='coerce').astype('Int64')
+df_tbl_physical_flows['Marker'] = df_tbl_physical_flows['Physical Flow']
+
+df_tbl_physical_flows = df_tbl_physical_flows[['Period', 'Country', 'Physical Flow', 'Marker', 'Value', 'Measure Type']]
 
 df_tbl_annual_value = trace.combine_and_trace(datasetTitle, 'combined_dataframe_table_annual_value')
 trace.add_column('Value')
