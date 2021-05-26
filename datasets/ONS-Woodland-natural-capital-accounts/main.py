@@ -212,8 +212,11 @@ df_tbl_physical_flows.drop(df_tbl_physical_flows_country_idx , inplace=True)
 df_tbl_physical_flows['Period'] = pd.to_numeric(df_tbl_physical_flows['Period'], errors='coerce').astype('Int64')
 df_tbl_physical_flows['Value'] = pd.to_numeric(df_tbl_physical_flows['Value'], errors='coerce').astype('float64').replace(np.nan, 'None')
 df_tbl_physical_flows['Marker'] = df_tbl_physical_flows['Physical Flow']
+df_tbl_physical_flows['Unit'] = df_tbl_physical_flows['Measure Type']
+trace.add_column('Unit')
+trace.Unit("Create Unit Value based on 'Measure Type' column")
 
-df_tbl_physical_flows = df_tbl_physical_flows[['Period', 'Country', 'Physical Flow', 'Marker', 'Value', 'Measure Type']]
+df_tbl_physical_flows = df_tbl_physical_flows[['Period', 'Country', 'Physical Flow', 'Marker', 'Value', 'Measure Type', 'Unit']]
 
 df_tbl_annual_value = trace.combine_and_trace(datasetTitle, 'combined_dataframe_table_annual_value')
 trace.add_column('Value')
@@ -251,10 +254,10 @@ df_tbl_asset_value['Marker'] = df_tbl_asset_value['Physical Flow']
 
 df_tbl_asset_value = df_tbl_asset_value[['Period', 'Country', 'Physical Flow', 'Marker', 'Value', 'Measure Type']]
 
-convert_category_datatype(df_tbl_physical_flows, ['Country', 'Physical Flow', 'Marker', 'Measure Type'])
+convert_category_datatype(df_tbl_physical_flows, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
 convert_category_datatype(df_tbl_annual_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type'])
 convert_category_datatype(df_tbl_asset_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type'])
 
-pathify_columns(df_tbl_physical_flows, ['Country', 'Physical Flow', 'Marker', 'Measure Type'])
+pathify_columns(df_tbl_physical_flows, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
 pathify_columns(df_tbl_annual_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type'])
 pathify_columns(df_tbl_asset_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type'])
