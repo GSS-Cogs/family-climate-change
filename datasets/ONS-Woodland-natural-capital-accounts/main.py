@@ -253,15 +253,21 @@ df_tbl_asset_value['Country'] = df_tbl_asset_value['Country'].fillna('United Kin
 
 df_tbl_asset_value['Period'] = pd.to_numeric(df_tbl_asset_value['Period'], errors='coerce').astype('Int64')
 df_tbl_asset_value['Measure Type'] = df_tbl_asset_value['Measure Type'].apply(lambda x : str(x).rstrip(x[-1]))
+df_tbl_asset_value['Measure Type'] = df_tbl_asset_value['Measure Type'].str.replace('£', 'gbp')
 df_tbl_asset_value['Value'] = pd.to_numeric(df_tbl_asset_value['Value'], errors='coerce').astype('float64').replace(np.nan, 'None')
 df_tbl_asset_value['Marker'] = df_tbl_asset_value['Physical Flow']
+trace.add_column('Marker')
+trace.Marker("Create Marker Value based on 'Physical Flow' column")
+df_tbl_asset_value['Unit'] = 'gbp million'
+trace.add_column('Unit')
+trace.Unit('Hardcoded as gbp million')
 
-df_tbl_asset_value = df_tbl_asset_value[['Period', 'Country', 'Physical Flow', 'Marker', 'Value', 'Measure Type']]
+df_tbl_asset_value = df_tbl_asset_value[['Period', 'Country', 'Physical Flow', 'Marker', 'Value', 'Measure Type', 'Unit']]
 
 convert_category_datatype(df_tbl_physical_flows, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
 convert_category_datatype(df_tbl_annual_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
-convert_category_datatype(df_tbl_asset_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type'])
+convert_category_datatype(df_tbl_asset_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
 
 pathify_columns(df_tbl_physical_flows, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
 pathify_columns(df_tbl_annual_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
-pathify_columns(df_tbl_asset_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type'])
+pathify_columns(df_tbl_asset_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
