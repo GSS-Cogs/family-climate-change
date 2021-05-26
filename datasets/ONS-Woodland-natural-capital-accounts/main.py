@@ -271,3 +271,11 @@ convert_category_datatype(df_tbl_asset_value, ['Country', 'Physical Flow', 'Mark
 pathify_columns(df_tbl_physical_flows, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
 pathify_columns(df_tbl_annual_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
 pathify_columns(df_tbl_asset_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
+
+cubes.add_cube(scraper, df_tbl_physical_flows, datasetTitle+'-table-physical-flows')
+cubes.add_cube(scraper, df_tbl_annual_value, datasetTitle+'-table-annual-value')
+cubes.add_cube(scraper, df_tbl_asset_value, datasetTitle+'-table-asset-value')
+
+cubes.output_all()
+
+trace.render('spec_v1.html')
