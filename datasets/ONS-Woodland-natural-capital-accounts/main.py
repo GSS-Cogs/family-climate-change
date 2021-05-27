@@ -205,7 +205,12 @@ df_tbl_physical_flows.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, i
 df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Physical Flow'].apply(filter_country)
 df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Country'].ffill()
 df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Country'].fillna('United Kingdom')
-
+trace.add_column('Country')
+trace.Country('Create Country Value based on Physical flows sheet')
+country_code_dict={'United Kingdom': 'K02000001', 'England':'E92000001', 'Wales':'W92000004', 'Northern Ireland':'N92000002', 'Scotland':'S92000003'}
+df_tbl_physical_flows['Country Code'] = df_tbl_physical_flows['Country'].replace(country_code_dict)
+trace.add_column('Country Code')
+trace.Country_Code("Create Country Code Value based on 'Country' column")
 df_tbl_physical_flows_country_idx = df_tbl_physical_flows[df_tbl_physical_flows['Physical Flow'].isin(['England', 'Scotland', 'Wales', 'Northern Ireland'])].index
 df_tbl_physical_flows.drop(df_tbl_physical_flows_country_idx , inplace=True)
 
@@ -229,7 +234,11 @@ df_tbl_annual_value.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inp
 df_tbl_annual_value['Country'] = df_tbl_annual_value['Physical Flow'].apply(filter_country)
 df_tbl_annual_value['Country'] = df_tbl_annual_value['Country'].ffill()
 df_tbl_annual_value['Country'] = df_tbl_annual_value['Country'].fillna('United Kingdom')
-
+trace.add_column('Country')
+trace.Country('Create Country Value based on Annual value sheet')
+df_tbl_annual_value['Country Code'] = df_tbl_annual_value['Country'].replace(country_code_dict)
+trace.add_column('Country Code')
+trace.Country_Code("Create Country Code Value based on 'Country' column")
 df_tbl_annual_value_country_idx = df_tbl_annual_value[df_tbl_annual_value['Physical Flow'].isin(['England', 'Scotland', 'Wales', 'Northern Ireland'])].index
 df_tbl_annual_value.drop(df_tbl_annual_value_country_idx , inplace=True)
 
@@ -253,6 +262,11 @@ df_tbl_asset_value.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inpl
 df_tbl_asset_value_country_idx = df_tbl_asset_value[df_tbl_asset_value['Marker'].isin(['England', 'Scotland', 'Wales', 'Northern Ireland'])].index
 df_tbl_asset_value.drop(df_tbl_asset_value_country_idx , inplace=True)
 df_tbl_asset_value['Country'] = df_tbl_asset_value['Country'].fillna('United Kingdom')
+trace.add_column('Country')
+trace.Country('Create Country Value based on Asset value sheet')
+df_tbl_asset_value['Country Code'] = df_tbl_asset_value['Country'].replace(country_code_dict)
+trace.add_column('Country Code')
+trace.Country_Code("Create Country Code Value based on 'Country' column")
 
 df_tbl_asset_value['Period'] = pd.to_numeric(df_tbl_asset_value['Period'], errors='coerce').astype('Int64')
 df_tbl_asset_value['Value'] = pd.to_numeric(df_tbl_asset_value['Value'], errors='coerce').astype('float64').replace(np.nan, 'None')
@@ -265,13 +279,13 @@ df_tbl_asset_value['Measure Type'] = df_tbl_asset_value['Marker']
 
 df_tbl_asset_value = df_tbl_asset_value[['Period', 'Country', 'Country Code', 'Marker', 'Value', 'Measure Type', 'Unit']]
 
-convert_category_datatype(df_tbl_physical_flows, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
-convert_category_datatype(df_tbl_annual_value, ['Country', 'Marker', 'Measure Type', 'Unit'])
-convert_category_datatype(df_tbl_asset_value, ['Country', 'Marker', 'Measure Type', 'Unit'])
+convert_category_datatype(df_tbl_physical_flows, ['Country', 'Country Code', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
+convert_category_datatype(df_tbl_annual_value, ['Country', 'Country Code', 'Marker', 'Measure Type', 'Unit'])
+convert_category_datatype(df_tbl_asset_value, ['Country', 'Country Code', 'Marker', 'Measure Type', 'Unit'])
 
-pathify_columns(df_tbl_physical_flows, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
-pathify_columns(df_tbl_annual_value, ['Country', 'Marker', 'Measure Type', 'Unit'])
-pathify_columns(df_tbl_asset_value, ['Country', 'Marker', 'Measure Type', 'Unit'])
+pathify_columns(df_tbl_physical_flows, ['Country', 'Country Code', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
+pathify_columns(df_tbl_annual_value, ['Country', 'Country Code', 'Marker', 'Measure Type', 'Unit'])
+pathify_columns(df_tbl_asset_value, ['Country', 'Country Code', 'Marker', 'Measure Type', 'Unit'])
 
 cubes.add_cube(scraper, df_tbl_physical_flows, datasetTitle+'-table-physical-flows')
 cubes.add_cube(scraper, df_tbl_annual_value, datasetTitle+'-table-annual-value')
