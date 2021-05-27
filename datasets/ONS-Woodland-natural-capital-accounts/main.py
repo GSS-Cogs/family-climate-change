@@ -118,14 +118,14 @@ def pathify_columns(df, columns_arr):
 for tab in tabs:
     print(tab.name)
     if tab.name == 'Physical flows':
-        columns = ['Period', 'Measure Type', 'Physical Flow']
+        columns = ['Period', 'Unit', 'Physical Flow']
         trace.start(datasetTitle, tab, columns, dist.downloadURL)
 
         period = tab.excel_ref('C4').expand(RIGHT).is_not_blank()
         trace.Period('Defined from cell range: {}', var=excelRange(period))
 
-        measure_type = tab.excel_ref('B5').expand(DOWN).is_not_blank()
-        trace.Measure_Type('Defined from cell range: {}', var=excelRange(measure_type))
+        unit = tab.excel_ref('B5').expand(DOWN).is_not_blank()
+        trace.Unit('Defined from cell range: {}', var=excelRange(unit))
 
         physical_flow = tab.excel_ref('A4').expand(DOWN).is_not_blank()
         trace.Physical_Flow('Defined from cell range: {}', var=excelRange(physical_flow))
@@ -134,7 +134,7 @@ for tab in tabs:
 
         dimensions = [
             HDim(period, 'Period', DIRECTLY, ABOVE),
-            HDim(measure_type, 'Measure Type', DIRECTLY, LEFT),
+            HDim(unit, 'Unit', DIRECTLY, LEFT),
             HDim(physical_flow, 'Physical Flow', DIRECTLY, LEFT)
         ]
 
@@ -212,11 +212,14 @@ df_tbl_physical_flows.drop(df_tbl_physical_flows_country_idx , inplace=True)
 df_tbl_physical_flows['Period'] = pd.to_numeric(df_tbl_physical_flows['Period'], errors='coerce').astype('Int64')
 df_tbl_physical_flows['Value'] = pd.to_numeric(df_tbl_physical_flows['Value'], errors='coerce').astype('float64').replace(np.nan, 'None')
 df_tbl_physical_flows['Marker'] = df_tbl_physical_flows['Physical Flow']
-df_tbl_physical_flows['Unit'] = df_tbl_physical_flows['Measure Type']
-trace.add_column('Unit')
-trace.Unit("Create Unit Value based on 'Measure Type' column")
+trace.add_column('Marker')
+trace.Marker("Create Marker Value based on 'Physical Flow' column")
 
-df_tbl_physical_flows = df_tbl_physical_flows[['Period', 'Country', 'Physical Flow', 'Marker', 'Value', 'Measure Type', 'Unit']]
+physical_flow_dict={'Timber': 'Provisioning Services', 'Wood fuel':'Provisioning Services', 'Carbon sequestration':'Regulating Services', 'Pollution removal':'Regulating Services', 'Noise reduction':'Regulating Services', 'Recreation visits':'Cultural Services', 'Recreation (time at habitat)':'Cultural Services'}
+df_tbl_physical_flows['Physical Flow'] = df_tbl_physical_flows['Marker'].replace(physical_flow_dict)
+df_tbl_physical_flows['Measure Type'] = df_tbl_physical_flows['Marker']
+
+df_tbl_physical_flows = df_tbl_physical_flows[['Period', 'Country', 'Country Code', 'Physical Flow', 'Marker', 'Value', 'Measure Type', 'Unit']]
 
 df_tbl_annual_value = trace.combine_and_trace(datasetTitle, 'combined_dataframe_table_annual_value')
 trace.add_column('Value')
