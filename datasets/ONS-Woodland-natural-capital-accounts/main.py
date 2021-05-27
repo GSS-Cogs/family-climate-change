@@ -143,14 +143,14 @@ for tab in tabs:
         savepreviewhtml(tidy_sheet, fname=f'{tab.name}_Preview.html')
         trace.store(f'combined_dataframe_table_physical_flows', tidy_sheet.topandas())
     if tab.name == 'Annual value':
-        columns = ['Period', 'Measure Type', 'Physical Flow']
+        columns = ['Period', 'Unit', 'Physical Flow']
         trace.start(datasetTitle, tab, columns, dist.downloadURL)
 
         period = tab.excel_ref('B4').expand(RIGHT).is_not_blank()
         trace.Period('Defined from cell range: {}', var=excelRange(period))
 
-        measure_type = tab.excel_ref('A4')
-        trace.Measure_Type('Defined from cell value: {}', var=cellLoc(measure_type))
+        unit = tab.excel_ref('A4')
+        trace.Unit('Defined from cell value: {}', var=cellLoc(unit))
 
         physical_flow = tab.excel_ref('A5').expand(DOWN).is_not_blank()
         trace.Physical_Flow('Defined from cell range: {}', var=excelRange(physical_flow))
@@ -159,7 +159,7 @@ for tab in tabs:
 
         dimensions = [
             HDim(period, 'Period', DIRECTLY, ABOVE),
-            HDim(measure_type, 'Measure Type', CLOSEST, ABOVE),
+            HDim(unit, 'Unit', CLOSEST, ABOVE),
             HDim(physical_flow, 'Physical Flow', DIRECTLY, LEFT)
         ]
 
@@ -234,16 +234,16 @@ df_tbl_annual_value_country_idx = df_tbl_annual_value[df_tbl_annual_value['Physi
 df_tbl_annual_value.drop(df_tbl_annual_value_country_idx , inplace=True)
 
 df_tbl_annual_value['Period'] = pd.to_numeric(df_tbl_annual_value['Period'], errors='coerce').astype('Int64')
-df_tbl_annual_value['Measure Type'] = df_tbl_annual_value['Measure Type'].apply(lambda x : str(x).rstrip(x[-1]))
-df_tbl_annual_value['Measure Type'] = df_tbl_annual_value['Measure Type'].str.replace('£', 'gbp')
 df_tbl_annual_value['Value'] = df_tbl_annual_value.apply(lambda x: None if x['Marker']=='-' else x['Value'], axis=1)
 df_tbl_annual_value['Value'] = pd.to_numeric(df_tbl_annual_value['Value'], errors='coerce').astype('float64').replace(np.nan, 'None')
 df_tbl_annual_value['Marker'] = df_tbl_annual_value['Physical Flow']
+trace.add_column('Marker')
+trace.Marker("Create Marker Value based on 'Physical Flow' column")
 df_tbl_annual_value['Unit'] = 'gbp million'
-trace.add_column('Unit')
 trace.Unit('Hardcoded as gbp million')
+df_tbl_annual_value['Measure Type'] = df_tbl_annual_value['Marker']
 
-df_tbl_annual_value = df_tbl_annual_value[['Period', 'Country', 'Physical Flow', 'Marker', 'Value', 'Measure Type', 'Unit']]
+df_tbl_annual_value = df_tbl_annual_value[['Period', 'Country', 'Country Code', 'Marker', 'Value', 'Measure Type', 'Unit']]
 
 df_tbl_asset_value = trace.combine_and_trace(datasetTitle, 'combined_dataframe_table_asset_value')
 trace.add_column('Value')
@@ -268,11 +268,11 @@ trace.Unit('Hardcoded as gbp million')
 df_tbl_asset_value = df_tbl_asset_value[['Period', 'Country', 'Physical Flow', 'Marker', 'Value', 'Measure Type', 'Unit']]
 
 convert_category_datatype(df_tbl_physical_flows, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
-convert_category_datatype(df_tbl_annual_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
+convert_category_datatype(df_tbl_annual_value, ['Country', 'Marker', 'Measure Type', 'Unit'])
 convert_category_datatype(df_tbl_asset_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
 
 pathify_columns(df_tbl_physical_flows, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
-pathify_columns(df_tbl_annual_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
+pathify_columns(df_tbl_annual_value, ['Country', 'Marker', 'Measure Type', 'Unit'])
 pathify_columns(df_tbl_asset_value, ['Country', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
 
 cubes.add_cube(scraper, df_tbl_physical_flows, datasetTitle+'-table-physical-flows')
