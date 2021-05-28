@@ -118,7 +118,7 @@ def pathify_columns(df, columns_arr):
 for tab in tabs:
     print(tab.name)
     if tab.name == 'Physical flows':
-        columns = ['Period', 'Unit', 'Physical Flow']
+        columns = ['Period', 'Unit', 'Services', 'Service Type']
         trace.start(datasetTitle, tab, columns, dist.downloadURL)
 
         period = tab.excel_ref('C4').expand(RIGHT).is_not_blank()
@@ -127,15 +127,19 @@ for tab in tabs:
         unit = tab.excel_ref('B5').expand(DOWN).is_not_blank()
         trace.Unit('Defined from cell range: {}', var=excelRange(unit))
 
-        physical_flow = tab.excel_ref('A4').expand(DOWN).is_not_blank()
-        trace.Physical_Flow('Defined from cell range: {}', var=excelRange(physical_flow))
+        services = tab.excel_ref('A4').expand(DOWN).is_not_blank()
+        trace.Services('Defined from cell range: {}', var=excelRange(services))
+
+        service_type = 'Woodland'
+        trace.Service_Type('Hardcoded as Woodland')
 
         observations = tab.excel_ref('C5').expand(DOWN).expand(RIGHT).is_not_blank()
 
         dimensions = [
             HDim(period, 'Period', DIRECTLY, ABOVE),
             HDim(unit, 'Unit', DIRECTLY, LEFT),
-            HDim(physical_flow, 'Physical Flow', DIRECTLY, LEFT)
+            HDim(services, 'Services', DIRECTLY, LEFT),
+            HDimConst('Service Type', service_type)
         ]
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
@@ -202,7 +206,7 @@ trace.add_column('Value')
 trace.Value('Rename databaker column OBS to Value')
 df_tbl_physical_flows.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inplace=True)
 
-df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Physical Flow'].apply(filter_country)
+df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Services'].apply(filter_country)
 df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Country'].ffill()
 df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Country'].fillna('United Kingdom')
 trace.add_column('Country')
@@ -211,23 +215,24 @@ country_code_dict={'United Kingdom': 'K02000001', 'England':'E92000001', 'Wales'
 df_tbl_physical_flows['Country Code'] = df_tbl_physical_flows['Country'].replace(country_code_dict)
 trace.add_column('Country Code')
 trace.Country_Code("Create Country Code Value based on 'Country' column")
-df_tbl_physical_flows_country_idx = df_tbl_physical_flows[df_tbl_physical_flows['Physical Flow'].isin(['England', 'Scotland', 'Wales', 'Northern Ireland'])].index
+df_tbl_physical_flows_country_idx = df_tbl_physical_flows[df_tbl_physical_flows['Services'].isin(['England', 'Scotland', 'Wales', 'Northern Ireland'])].index
 df_tbl_physical_flows.drop(df_tbl_physical_flows_country_idx , inplace=True)
 
 df_tbl_physical_flows['Period'] = pd.to_numeric(df_tbl_physical_flows['Period'], errors='coerce').astype('Int64')
 df_tbl_physical_flows['Value'] = pd.to_numeric(df_tbl_physical_flows['Value'], errors='coerce').astype('float64').replace(np.nan, 'None')
-df_tbl_physical_flows['Marker'] = df_tbl_physical_flows['Physical Flow']
+df_tbl_physical_flows['Marker'] = df_tbl_physical_flows['Services']
 trace.add_column('Marker')
-trace.Marker("Create Marker Value based on 'Physical Flow' column")
+trace.Marker("Create Marker Value based on 'Services' column")
 
 physical_flow_dict={'Timber': 'Provisioning Services', 'Wood fuel':'Provisioning Services', 'Carbon sequestration':'Regulating Services', 'Pollution removal':'Regulating Services', 'Noise reduction':'Regulating Services', 'Recreation visits':'Cultural Services', 'Recreation (time at habitat)':'Cultural Services'}
-df_tbl_physical_flows['Physical Flow'] = df_tbl_physical_flows['Marker'].replace(physical_flow_dict)
-trace.Physical_Flow('Create Physical Flow Value based on on Physical flows sheet')
+df_tbl_physical_flows['Services'] = df_tbl_physical_flows['Marker'].replace(physical_flow_dict)
+trace.Services('Create Services Value based on on Physical flows sheet')
+trace.Service_Type('Hardcoded as Woodland')
 df_tbl_physical_flows['Measure Type'] = df_tbl_physical_flows['Marker']
 trace.add_column('Measure Type')
 trace.Measure_Type("Create Measure Type Value based on 'Marker' column")
 
-df_tbl_physical_flows = df_tbl_physical_flows[['Period', 'Country', 'Country Code', 'Physical Flow', 'Marker', 'Value', 'Measure Type', 'Unit']]
+df_tbl_physical_flows = df_tbl_physical_flows[['Period', 'Country', 'Country Code', 'Services', 'Service Type', 'Marker', 'Value', 'Measure Type', 'Unit']]
 
 df_tbl_annual_value = trace.combine_and_trace(datasetTitle, 'combined_dataframe_table_annual_value')
 trace.add_column('Value')
@@ -286,11 +291,11 @@ trace.Measure_Type("Create Measure Type Value based on 'Marker' column")
 
 df_tbl_asset_value = df_tbl_asset_value[['Period', 'Country', 'Country Code', 'Marker', 'Value', 'Measure Type', 'Unit']]
 
-convert_category_datatype(df_tbl_physical_flows, ['Country', 'Country Code', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
+convert_category_datatype(df_tbl_physical_flows, ['Country', 'Country Code', 'Services', 'Service Type', 'Marker', 'Measure Type', 'Unit'])
 convert_category_datatype(df_tbl_annual_value, ['Country', 'Country Code', 'Marker', 'Measure Type', 'Unit'])
 convert_category_datatype(df_tbl_asset_value, ['Country', 'Country Code', 'Marker', 'Measure Type', 'Unit'])
 
-pathify_columns(df_tbl_physical_flows, ['Country', 'Country Code', 'Physical Flow', 'Marker', 'Measure Type', 'Unit'])
+pathify_columns(df_tbl_physical_flows, ['Country', 'Country Code', 'Services', 'Service Type', 'Marker', 'Measure Type', 'Unit'])
 pathify_columns(df_tbl_annual_value, ['Country', 'Country Code', 'Marker', 'Measure Type', 'Unit'])
 pathify_columns(df_tbl_asset_value, ['Country', 'Country Code', 'Marker', 'Measure Type', 'Unit'])
 
