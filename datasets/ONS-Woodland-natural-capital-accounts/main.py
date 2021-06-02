@@ -201,6 +201,10 @@ for tab in tabs:
         savepreviewhtml(tidy_sheet, fname=f'{tab.name}_Preview.html')
         trace.store(f'combined_dataframe_table_asset_value', tidy_sheet.topandas())
 
+country_code_dict={'United Kingdom': 'K02000001', 'England':'E92000001', 'Wales':'W92000004', 'Northern Ireland':'N92000002', 'Scotland':'S92000003'}
+physical_flow_dict={'Timber': 'Provisioning Services', 'Wood fuel':'Provisioning Services', 'Carbon sequestration':'Regulating Services',
+                    'Pollution removal':'Regulating Services', 'Noise reduction':'Regulating Services', 'Recreation visits':'Cultural Services', 'Recreation (time at habitat)':'Cultural Services'}
+
 df_tbl_physical_flows = trace.combine_and_trace(datasetTitle, 'combined_dataframe_table_physical_flows')
 trace.add_column('Value')
 trace.Value('Rename databaker column OBS to Value')
@@ -211,7 +215,6 @@ df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Country'].ffill()
 df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Country'].fillna('United Kingdom')
 trace.add_column('Country')
 trace.Country('Create Country Value based on Physical flows sheet')
-country_code_dict={'United Kingdom': 'K02000001', 'England':'E92000001', 'Wales':'W92000004', 'Northern Ireland':'N92000002', 'Scotland':'S92000003'}
 df_tbl_physical_flows['Country Code'] = df_tbl_physical_flows['Country'].replace(country_code_dict)
 trace.add_column('Country Code')
 trace.Country_Code("Create Country Code Value based on 'Country' column")
@@ -224,7 +227,6 @@ df_tbl_physical_flows['Marker'] = df_tbl_physical_flows['Services']
 trace.add_column('Marker')
 trace.Marker("Create Marker Value based on 'Services' column")
 
-physical_flow_dict={'Timber': 'Provisioning Services', 'Wood fuel':'Provisioning Services', 'Carbon sequestration':'Regulating Services', 'Pollution removal':'Regulating Services', 'Noise reduction':'Regulating Services', 'Recreation visits':'Cultural Services', 'Recreation (time at habitat)':'Cultural Services'}
 df_tbl_physical_flows['Services'] = df_tbl_physical_flows['Marker'].replace(physical_flow_dict)
 trace.Services('Create Services Value based on on Physical flows sheet')
 trace.Service_Type('Hardcoded as Woodland')
