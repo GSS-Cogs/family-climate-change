@@ -234,8 +234,6 @@ df_tbl_physical_flows['Measure Type'] = df_tbl_physical_flows['Marker']
 trace.add_column('Measure Type')
 trace.Measure_Type("Create Measure Type Value based on 'Marker' column")
 
-df_tbl_physical_flows = df_tbl_physical_flows[['Period', 'Country', 'Country Code', 'Services', 'Service Type', 'Marker', 'Value', 'Measure Type', 'Unit']]
-
 df_tbl_annual_value = trace.combine_and_trace(datasetTitle, 'combined_dataframe_table_annual_value')
 trace.add_column('Value')
 trace.Value('Rename databaker column OBS to Value')
@@ -264,8 +262,6 @@ df_tbl_annual_value['Measure Type'] = df_tbl_annual_value['Marker']
 trace.add_column('Measure Type')
 trace.Measure_Type("Create Measure Type Value based on 'Marker' column")
 
-df_tbl_annual_value = df_tbl_annual_value[['Period', 'Country', 'Country Code', 'Marker', 'Value', 'Measure Type', 'Unit']]
-
 df_tbl_asset_value = trace.combine_and_trace(datasetTitle, 'combined_dataframe_table_asset_value')
 trace.add_column('Value')
 trace.Value('Rename databaker column OBS to Value')
@@ -291,7 +287,9 @@ df_tbl_asset_value['Measure Type'] = df_tbl_asset_value['Marker']
 trace.add_column('Measure Type')
 trace.Measure_Type("Create Measure Type Value based on 'Marker' column")
 
-df_tbl_asset_value = df_tbl_asset_value[['Period', 'Country', 'Country Code', 'Marker', 'Value', 'Measure Type', 'Unit']]
+df_tbl_physical_flows = df_tbl_physical_flows[['Period', 'Country', 'Country Code', 'Services', 'Service Type', 'Measure Type', 'Unit', 'Marker', 'Value']]
+df_tbl_annual_value = df_tbl_annual_value[['Period', 'Country', 'Country Code', 'Measure Type', 'Unit',  'Marker', 'Value']]
+df_tbl_asset_value = df_tbl_asset_value[['Period', 'Country', 'Country Code', 'Measure Type', 'Unit', 'Marker', 'Value']]
 
 convert_category_datatype(df_tbl_physical_flows, ['Country', 'Country Code', 'Services', 'Service Type', 'Marker', 'Measure Type', 'Unit'])
 convert_category_datatype(df_tbl_annual_value, ['Country', 'Country Code', 'Marker', 'Measure Type', 'Unit'])
