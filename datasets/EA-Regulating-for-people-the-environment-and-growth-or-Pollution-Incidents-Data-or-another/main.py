@@ -107,3 +107,37 @@ for tab in tabs:
     reported_date = tab.filter('Reported Date').expand(DOWN).is_not_blank()
     trace.Reported_Date('Defined from cell range: {}', var=excelRange(reported_date))
 
+    incident_operational_area = tab.filter('Incident Operational Area').expand(DOWN).is_not_blank()
+    trace.Incident_Operational_Area('Defined from cell range: {}', var=excelRange(incident_operational_area))
+
+    grid_ref_confirmed = tab.filter('Grid Ref (Confirmed)').expand(DOWN).is_not_blank()
+    trace.Grid_Ref_Confirmed('Defined from cell range: {}', var=excelRange(grid_ref_confirmed))
+
+    ep_incident = tab.filter('EP Incident (Y/N)?').expand(DOWN).is_not_blank()
+    trace.EP_Incident('Defined from cell range: {}', var=excelRange(ep_incident))
+
+    impact_level = tab.filter('Air Env Impact Level').expand(RIGHT).is_not_blank() & tab.filter('Water Env Impact Level').expand(LEFT).is_not_blank()
+    trace.Impact_Level('Defined from cell range: {}', var=excelRange(impact_level))
+
+    incident_county = tab.filter('Incident County').expand(DOWN).is_not_blank()
+    trace.Incident_County('Defined from cell range: {}', var=excelRange(incident_county))
+
+    incident_district = tab.filter('Incident District').expand(DOWN).is_not_blank()
+    trace.Incident_District('Defined from cell range: {}', var=excelRange(incident_district))
+
+    incident_unitary = tab.filter('Incident Unitary').expand(DOWN).is_not_blank()
+    trace.Incident_Unitary('Defined from cell range: {}', var=excelRange(incident_unitary))
+
+    observations = tab.filter('Air Env Impact Level').expand(DOWN).expand(RIGHT).is_not_blank() & tab.filter('Water Env Impact Level').expand(DOWN).expand(LEFT).is_not_blank()
+
+    dimensions = [
+        HDim(event_no, 'Event No', DIRECTLY, LEFT),
+        HDim(reported_date, 'Reported Date', DIRECTLY, LEFT),
+        HDim(incident_operational_area, 'Incident Operational Area', DIRECTLY, LEFT),
+        HDim(grid_ref_confirmed, 'Grid Ref Confirmed', DIRECTLY, LEFT),
+        HDim(ep_incident, 'EP Incident', DIRECTLY, LEFT),
+        HDim(impact_level, 'Impact Level', DIRECTLY, ABOVE),
+        HDim(incident_county, 'Incident County', DIRECTLY, RIGHT),
+        HDim(incident_district, 'Incident District', DIRECTLY, RIGHT),
+        HDim(incident_unitary, 'Incident Unitary', DIRECTLY, RIGHT)
+    ]
