@@ -6,6 +6,8 @@ import pandas as pd
 from gssutils import *
 import json
 import string
+import numpy as np
+from dateutil.parser import parse
 
 info = json.load(open('info.json'))
 landingPage = info['landingPage']
@@ -33,7 +35,7 @@ tabs = loadxlstabs('data.xls')
 
 tabs_name = ['Data_for_Publication']
 columns=['Event No', 'Reported Date', 'Incident Operational Area', 'Grid Ref Confirmed', 'EP Incident', 'Impact Level',
-         'Incident County', 'Incident District', 'Incident Unitary']
+         'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit']
 
 if len(set(tabs_name)-{x.name for x in tabs}) != 0:
     raise ValueError(f'Aborting. A tab named {set(tabs_name)-{x.name for x in tabs}} required but not found')
@@ -128,6 +130,12 @@ for tab in tabs:
     incident_unitary = tab.filter('Incident Unitary').expand(DOWN).is_not_blank()
     trace.Incident_Unitary('Defined from cell range: {}', var=excelRange(incident_unitary))
 
+    measure_type = impact_level
+    trace.Measure_Type('Defined from cell range: {}', var=excelRange(measure_type))
+
+    unit = 'Impact Level'
+    trace.Unit('Hardcoded as {}', var=unit)
+
     observations = tab.filter('Air Env Impact Level').expand(DOWN).expand(RIGHT).is_not_blank() & tab.filter('Water Env Impact Level').expand(DOWN).expand(LEFT).is_not_blank()
 
     dimensions = [
@@ -139,7 +147,9 @@ for tab in tabs:
         HDim(impact_level, 'Impact Level', DIRECTLY, ABOVE),
         HDim(incident_county, 'Incident County', DIRECTLY, RIGHT),
         HDim(incident_district, 'Incident District', DIRECTLY, RIGHT),
-        HDim(incident_unitary, 'Incident Unitary', DIRECTLY, RIGHT)
+        HDim(incident_unitary, 'Incident Unitary', DIRECTLY, RIGHT),
+        HDim(measure_type, 'Measure Type', DIRECTLY, ABOVE),
+        HDimConst('Unit', unit)
     ]
 
     tidy_sheet = ConversionSegment(tab, dimensions, observations)
@@ -156,3 +166,7 @@ df.drop(df_marker_idx , inplace=True)
 
 df['Event No'] = pd.to_numeric(df['Event No'], errors='coerce').astype('Int64')
 
+df['Reported Date'] = df['Reported Date'].apply(lambda x: parse(str(x)).strftime('%Y-%m-%dT%H:%M:%S'))
+
+df['Value'] = df['Marker']
+trace.Value("Create Value based on 'Marker' column")
