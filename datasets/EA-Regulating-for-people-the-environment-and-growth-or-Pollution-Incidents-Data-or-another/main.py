@@ -151,3 +151,8 @@ df = trace.combine_and_trace(datasetTitle, 'combined_dataframe')
 trace.add_column('Value')
 trace.Value('Rename databaker column OBS to Value')
 df.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inplace=True)
+df_marker_idx = df[df['Marker'].isin(['Air Env Impact Level', 'Land Env Impact Level', 'Water Env Impact Level'])].index
+df.drop(df_marker_idx , inplace=True)
+
+df['Event No'] = pd.to_numeric(df['Event No'], errors='coerce').astype('Int64')
+
