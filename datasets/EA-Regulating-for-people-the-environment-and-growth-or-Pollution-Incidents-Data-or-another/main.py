@@ -141,3 +141,13 @@ for tab in tabs:
         HDim(incident_district, 'Incident District', DIRECTLY, RIGHT),
         HDim(incident_unitary, 'Incident Unitary', DIRECTLY, RIGHT)
     ]
+
+    tidy_sheet = ConversionSegment(tab, dimensions, observations)
+    trace.with_preview(tidy_sheet)
+    savepreviewhtml(tidy_sheet, fname=f'{tab.name}_Preview.html')
+    trace.store(f'combined_dataframe', tidy_sheet.topandas())
+
+df = trace.combine_and_trace(datasetTitle, 'combined_dataframe')
+trace.add_column('Value')
+trace.Value('Rename databaker column OBS to Value')
+df.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inplace=True)
