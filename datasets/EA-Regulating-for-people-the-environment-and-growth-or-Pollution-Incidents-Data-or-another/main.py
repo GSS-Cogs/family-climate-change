@@ -175,6 +175,19 @@ for tab in tabs:
     savepreviewhtml(tidy_sheet, fname=f'{tab.name}_Preview.html')
     trace.store(f'combined_dataframe', tidy_sheet.topandas())
 
+# Notes from tab
+notes = """
+Data limitations
+It does not include incidents relating to:
+Fisheries incidents – incidents involving illegal fishing and illegal fish movements, fish disease, fishery management activities and fish kills from non-pollution causes, including low flows and low dissolved oxygen.
+Water Resources incidents – incidents involving the quantity of a water resource.
+Waterways incidents – incidents on a waterway where we are the competent authority for navigation. 
+Flood and Coastal Risk Management incidents – for incidents which involve actual or potential flooding and land drainage works. 
+Only incidents where our investigations and response have been completed are included.  Some incidents may take an extended period of months, or exceptionally years, to be completed.
+The dataset only includes substantiated incidents and their environmental impact. These are where we have confirmation that the incident took place either by a visit from us or a partner organisation, or it is corroborated by other information.
+"""
+scraper.dataset.comment = notes
+
 df = trace.combine_and_trace(datasetTitle, 'combined_dataframe')
 trace.add_column('Value')
 trace.Value('Rename databaker column OBS to Value')
