@@ -207,3 +207,9 @@ df = df[['Event No', 'Reported Date', 'Incident Operational Area', 'Grid Ref Con
 convert_category_datatype(df, ['Incident Operational Area', 'Grid Ref Confirmed', 'EP Incident', 'Impact Level', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value'])
 
 pathify_columns(df, ['Incident Operational Area', 'Grid Ref Confirmed', 'EP Incident', 'Impact Level', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value'])
+
+cubes.add_cube(scraper, df, datasetTitle)
+
+cubes.output_all()
+
+trace.render('spec_v1.html')
