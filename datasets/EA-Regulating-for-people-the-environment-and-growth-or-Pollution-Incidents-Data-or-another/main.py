@@ -187,6 +187,7 @@ Only incidents where our investigations and response have been completed are inc
 The dataset only includes substantiated incidents and their environmental impact. These are where we have confirmation that the incident took place either by a visit from us or a partner organisation, or it is corroborated by other information.
 """
 scraper.dataset.comment = notes
+scraper.dataset.family = 'climate-change'
 
 df = trace.combine_and_trace(datasetTitle, 'combined_dataframe')
 trace.add_column('Value')
@@ -207,6 +208,8 @@ df = df[['Event No', 'Reported Date', 'Incident Operational Area', 'Grid Ref Con
 convert_category_datatype(df, ['Incident Operational Area', 'Grid Ref Confirmed', 'EP Incident', 'Impact Level', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value'])
 
 pathify_columns(df, ['Incident Operational Area', 'Grid Ref Confirmed', 'EP Incident', 'Impact Level', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value'])
+
+df.rename(columns = {'Grid Ref Confirmed': 'Grid Ref (Confirmed)', 'EP Incident': 'EP Incident (Y/N)?'}, inplace = True)
 
 cubes.add_cube(scraper, df, datasetTitle)
 
