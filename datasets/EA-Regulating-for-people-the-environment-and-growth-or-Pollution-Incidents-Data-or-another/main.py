@@ -34,7 +34,7 @@ with pd.ExcelWriter('data.xls') as writer:
 tabs = loadxlstabs('data.xls')
 
 tabs_name = ['Data_for_Publication']
-columns=['Event No', 'Reported Date', 'Incident Operational Area', 'Grid Ref Confirmed', 'EP Incident', 'Impact Level',
+columns=['Event No', 'Reported Date', 'Incident Operational Area', 'Grid Ref Confirmed', 'EP Incident', 'Impact Level Type',
          'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit']
 
 if len(set(tabs_name)-{x.name for x in tabs}) != 0:
@@ -136,8 +136,8 @@ for tab in tabs:
     ep_incident = tab.filter('EP Incident (Y/N)?').expand(DOWN).is_not_blank()
     trace.EP_Incident('Defined from cell range: {}', var=excelRange(ep_incident))
 
-    impact_level = tab.filter('Air Env Impact Level').expand(RIGHT).is_not_blank() & tab.filter('Water Env Impact Level').expand(LEFT).is_not_blank()
-    trace.Impact_Level('Defined from cell range: {}', var=excelRange(impact_level))
+    impact_level_type = tab.filter('Air Env Impact Level').expand(RIGHT).is_not_blank() & tab.filter('Water Env Impact Level').expand(LEFT).is_not_blank()
+    trace.Impact_Level_Type('Defined from cell range: {}', var=excelRange(impact_level_type))
 
     incident_county = tab.filter('Incident County').expand(DOWN).is_not_blank()
     trace.Incident_County('Defined from cell range: {}', var=excelRange(incident_county))
@@ -148,7 +148,7 @@ for tab in tabs:
     incident_unitary = tab.filter('Incident Unitary').expand(DOWN).is_not_blank()
     trace.Incident_Unitary('Defined from cell range: {}', var=excelRange(incident_unitary))
 
-    measure_type = impact_level
+    measure_type = impact_level_type
     trace.Measure_Type('Defined from cell range: {}', var=excelRange(measure_type))
 
     unit = 'Impact Level'
@@ -162,7 +162,7 @@ for tab in tabs:
         HDim(incident_operational_area, 'Incident Operational Area', DIRECTLY, LEFT),
         HDim(grid_ref_confirmed, 'Grid Ref Confirmed', DIRECTLY, LEFT),
         HDim(ep_incident, 'EP Incident', DIRECTLY, LEFT),
-        HDim(impact_level, 'Impact Level', DIRECTLY, ABOVE),
+        HDim(impact_level_type, 'Impact Level Type', DIRECTLY, ABOVE),
         HDim(incident_county, 'Incident County', DIRECTLY, RIGHT),
         HDim(incident_district, 'Incident District', DIRECTLY, RIGHT),
         HDim(incident_unitary, 'Incident Unitary', DIRECTLY, RIGHT),
@@ -203,11 +203,11 @@ df['Reported Date'] = df['Reported Date'].apply(lambda x: parse(str(x)).strftime
 df['Value'] = df['Marker']
 trace.Value("Create Value based on 'Marker' column")
 
-df = df[['Event No', 'Reported Date', 'Incident Operational Area', 'Grid Ref Confirmed', 'EP Incident', 'Impact Level', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value']]
+df = df[['Event No', 'Reported Date', 'Incident Operational Area', 'Grid Ref Confirmed', 'EP Incident', 'Impact Level Type', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value']]
 
-convert_category_datatype(df, ['Incident Operational Area', 'Grid Ref Confirmed', 'EP Incident', 'Impact Level', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value'])
+convert_category_datatype(df, ['Incident Operational Area', 'Grid Ref Confirmed', 'EP Incident', 'Impact Level Type', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value'])
 
-pathify_columns(df, ['Incident Operational Area', 'Grid Ref Confirmed', 'EP Incident', 'Impact Level', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value'])
+pathify_columns(df, ['Incident Operational Area', 'Grid Ref Confirmed', 'EP Incident', 'Impact Level Type', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value'])
 
 df.rename(columns = {'Grid Ref Confirmed': 'Grid Ref (Confirmed)', 'EP Incident': 'EP Incident (Y/N)?'}, inplace = True)
 
