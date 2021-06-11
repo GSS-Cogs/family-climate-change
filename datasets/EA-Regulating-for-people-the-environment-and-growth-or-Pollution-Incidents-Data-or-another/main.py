@@ -190,10 +190,10 @@ scraper.dataset.comment = notes
 scraper.dataset.family = 'climate-change'
 
 description = """
-This data is a snapshot taken in August 2020 for the calendar year 2019. We've made it available to members of the public for information.
-We've published data under the Environment Agency conditional licence
-If you use the information, you must meet the conditions of the licence.
-The latest environmental pollution incidents dataset is available on data.gov.uk
+This data is a snapshot taken in August 2020 for the calendar year 2019. We've made it available to members of the public for information. \n
+We've published data under the Environment Agency conditional licence \n
+If you use the information, you must meet the conditions of the licence. \n
+The latest environmental pollution incidents dataset is available on data.gov.uk \n
 If you need more current data, please contact the Environment Agency
 """
 scraper.dataset.description = scraper.dataset.description + '\n' + description
@@ -208,6 +208,7 @@ df.drop(df_marker_idx , inplace=True)
 df['Event No'] = pd.to_numeric(df['Event No'], errors='coerce').astype('Int64')
 
 df['Reported Date'] = df['Reported Date'].apply(lambda x: parse(str(x)).strftime('%Y-%m-%dT%H:%M:%S'))
+trace.Reported_Date("Format 'Reported Date' with gregorian day format")
 
 df['Value'] = df['Marker']
 trace.Value("Create Value based on 'Marker' column")
@@ -218,6 +219,8 @@ convert_category_datatype(df, ['Incident Operational Area', 'Grid Ref Confirmed'
 
 pathify_columns(df, ['Incident Operational Area', 'Grid Ref Confirmed', 'EP Incident', 'Impact Level Type', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value'])
 
+trace.Grid_Ref_Confirmed("Rename 'Grid Ref Confirmed' column to 'Grid Ref (Confirmed)'")
+trace.EP_Incident("Rename 'EP Incident' column to 'EP Incident (Y/N)?'")
 df.rename(columns = {'Grid Ref Confirmed': 'Grid Ref (Confirmed)', 'EP Incident': 'EP Incident (Y/N)?'}, inplace = True)
 
 cubes.add_cube(scraper, df, datasetTitle)
