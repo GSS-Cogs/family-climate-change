@@ -189,6 +189,15 @@ The dataset only includes substantiated incidents and their environmental impact
 scraper.dataset.comment = notes
 scraper.dataset.family = 'climate-change'
 
+description = """
+This data is a snapshot taken in August 2020 for the calendar year 2019. We've made it available to members of the public for information.
+We've published data under the Environment Agency conditional licence
+If you use the information, you must meet the conditions of the licence.
+The latest environmental pollution incidents dataset is available on data.gov.uk
+If you need more current data, please contact the Environment Agency
+"""
+scraper.dataset.description = scraper.dataset.description + '\n' + description
+
 df = trace.combine_and_trace(datasetTitle, 'combined_dataframe')
 trace.add_column('Value')
 trace.Value('Rename databaker column OBS to Value')
