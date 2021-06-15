@@ -34,7 +34,7 @@ with pd.ExcelWriter('data.xls') as writer:
 tabs = loadxlstabs('data.xls')
 
 tabs_name = ['Data_for_Publication']
-columns=['Event Number', 'Reported Date', 'Incident Operational Area', 'Grid Ref Confirmed', 'EP Incident', 'Impact Level Type',
+columns=['Event Number', 'Reported Date', 'Incident Operational Area', 'Grid Reference Confirmed', 'EP Incident', 'Impact Level Type',
          'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit']
 
 if len(set(tabs_name)-{x.name for x in tabs}) != 0:
@@ -130,8 +130,8 @@ for tab in tabs:
     incident_operational_area = tab.filter('Incident Operational Area').expand(DOWN).is_not_blank()
     trace.Incident_Operational_Area('Defined from cell range: {}', var=excelRange(incident_operational_area))
 
-    grid_ref_confirmed = tab.filter('Grid Ref (Confirmed)').expand(DOWN).is_not_blank()
-    trace.Grid_Ref_Confirmed('Defined from cell range: {}', var=excelRange(grid_ref_confirmed))
+    grid_reference_confirmed = tab.filter('Grid Ref (Confirmed)').expand(DOWN).is_not_blank()
+    trace.Grid_Reference_Confirmed('Defined from cell range: {}', var=excelRange(grid_reference_confirmed))
 
     ep_incident = tab.filter('EP Incident (Y/N)?').expand(DOWN).is_not_blank()
     trace.EP_Incident('Defined from cell range: {}', var=excelRange(ep_incident))
@@ -160,7 +160,7 @@ for tab in tabs:
         HDim(event_number, 'Event Number', DIRECTLY, LEFT),
         HDim(reported_date, 'Reported Date', DIRECTLY, LEFT),
         HDim(incident_operational_area, 'Incident Operational Area', DIRECTLY, LEFT),
-        HDim(grid_ref_confirmed, 'Grid Ref Confirmed', DIRECTLY, LEFT),
+        HDim(grid_reference_confirmed, 'Grid Reference Confirmed', DIRECTLY, LEFT),
         HDim(ep_incident, 'EP Incident', DIRECTLY, LEFT),
         HDim(impact_level_type, 'Impact Level Type', DIRECTLY, ABOVE),
         HDim(incident_county, 'Incident County', DIRECTLY, RIGHT),
@@ -213,15 +213,15 @@ trace.Reported_Date("Format 'Reported Date' with gregorian day format")
 df['Value'] = df['Marker']
 trace.Value("Create Value based on 'Marker' column")
 
-df = df[['Event Number', 'Reported Date', 'Incident Operational Area', 'Grid Ref Confirmed', 'EP Incident', 'Impact Level Type', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value']]
+df = df[['Event Number', 'Reported Date', 'Incident Operational Area', 'Grid Reference Confirmed', 'EP Incident', 'Impact Level Type', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value']]
 
-convert_category_datatype(df, ['Incident Operational Area', 'Grid Ref Confirmed', 'EP Incident', 'Impact Level Type', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value'])
+convert_category_datatype(df, ['Incident Operational Area', 'Grid Reference Confirmed', 'EP Incident', 'Impact Level Type', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value'])
 
-pathify_columns(df, ['Incident Operational Area', 'Grid Ref Confirmed', 'EP Incident', 'Impact Level Type', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value'])
+pathify_columns(df, ['Incident Operational Area', 'Grid Reference Confirmed', 'EP Incident', 'Impact Level Type', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value'])
 
-trace.Grid_Ref_Confirmed("Rename 'Grid Ref Confirmed' column to 'Grid Ref (Confirmed)'")
+trace.Grid_Reference_Confirmed("Rename 'Grid Reference Confirmed' column to 'Grid Reference (Confirmed)'")
 trace.EP_Incident("Rename 'EP Incident' column to 'EP Incident (Y/N)?'")
-df.rename(columns = {'Grid Ref Confirmed': 'Grid Ref (Confirmed)', 'EP Incident': 'EP Incident (Y/N)?'}, inplace = True)
+df.rename(columns = {'Grid Reference Confirmed': 'Grid Reference (Confirmed)', 'EP Incident': 'EP Incident (Y/N)?'}, inplace = True)
 
 cubes.add_cube(scraper, df, datasetTitle)
 
