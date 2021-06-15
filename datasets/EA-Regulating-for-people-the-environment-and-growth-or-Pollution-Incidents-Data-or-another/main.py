@@ -208,7 +208,7 @@ df.drop(df_marker_idx , inplace=True)
 df['Event Number'] = pd.to_numeric(df['Event Number'], errors='coerce').astype('Int64')
 
 df['Reported Date'] = df['Reported Date'].apply(lambda x: parse(str(x)).strftime('%Y-%m-%dT%H:%M:%S'))
-trace.Reported_Date("Format 'Reported Date' with gregorian day format")
+trace.Reported_Date("Format 'Reported Date' column with gregorian day format")
 
 df['Value'] = df['Marker']
 trace.Value("Create Value based on 'Marker' column")
