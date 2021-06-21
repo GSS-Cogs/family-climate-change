@@ -17,7 +17,7 @@
             "value": "http://reference.data.gov.uk/id/{+period}",
             "codelist": false
         },
-        "Geography Code": {
+        "Geographic Coverage": {
             "description": "Geological area in which the data relates"
         },
         "Nc Sector": {
