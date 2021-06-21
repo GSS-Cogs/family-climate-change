@@ -7,6 +7,41 @@
     "datasetNotes": [
         "On landing page scroll down to datasets under \"documents\" heading."
     ],
+    "columns": {
+        "Period": {
+            "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+            "value": "http://reference.data.gov.uk/id/{+period}",
+            "codelist": false
+        },
+        "Geographic Coverage": {
+            "description": "Geological area in which the data relates"
+        },
+        "Nc Sector": {
+            "description": "NC Sector",
+            "value": "http://gss-data.org.uk/def/energy/concept/nc-sectors/{nc_sector}",
+            "codelist": "http://gss-data.org.uk/def/energy/concept-scheme/nc-sectors"
+        },
+        "Nc Sub Sector": {
+            "description": "NC Sub Sector",
+            "value": "http://gss-data.org.uk/def/energy/concept/nc-sectors/{nc_sub_sector}",
+            "codelist": "http://gss-data.org.uk/def/energy/concept-scheme/nc-sectors"
+        },
+        "Nc Category": {
+            "description": "NC Category",
+            "value": "http://gss-data.org.uk/def/energy/concept/nc-sectors/{nc_category}",
+            "codelist": "http://gss-data.org.uk/def/energy/concept-scheme/nc-sectors"
+        },
+        "NC Fuel group": {
+            "description": "NC Fuel Group",
+            "value": "http://gss-data.org.uk/def/energy/concept/nc-sectors/{nc_fuel}",
+            "codelist": "http://gss-data.org.uk/def/energy/concept-scheme/nc-sectors"
+        },
+          "Value": {
+            "unit": "http://gss-data.org.uk/def/concept/measurement-units/emission",
+            "measure": "http://gss-data.org.uk/def/measure/gas-emissions",
+            "datatype": "double"
+        }
+    },     
     "published": "2021-02-02",
     "families": [
         "Climate Change"
