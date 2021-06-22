@@ -7,6 +7,12 @@
     "datasetNotes": [
         "On landing page scroll down to datasets under \"documents\" heading."
     ],
+    "transform": {
+    "stage": [
+        "Priority"
+    ],
+    "airtable": "recjaGc2rHadU5iHo",
+    "main_issue": 5,
     "columns": {
 
         "Geographic Coverage": {
@@ -45,14 +51,9 @@
     "extract": {
         "source": "CSV",
         "stage": "Prioritized"
-    },
-    "transform": {
-        "stage": [
-            "Priority"
-        ],
-        "airtable": "recjaGc2rHadU5iHo",
-        "main_issue": 5
+   
     },
     "sizingNotes": "Straightforward data CSV form.",
     "notes": "Priority dataset for Climate Change Platform project."
+}
 }
