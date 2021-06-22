@@ -8,11 +8,7 @@
         "On landing page scroll down to datasets under \"documents\" heading."
     ],
     "columns": {
-        "Period": {
-            "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-            "value": "http://reference.data.gov.uk/id/{+period}",
-            "codelist": false
-        },
+
         "Geographic Coverage": {
             "description": "Geological area in which the data relates"
         },
