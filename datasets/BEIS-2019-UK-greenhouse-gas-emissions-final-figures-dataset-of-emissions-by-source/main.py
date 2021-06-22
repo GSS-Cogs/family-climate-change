@@ -28,12 +28,22 @@ distribution = metadata.distributions[-2]
 title = distribution.title
 metadata.dataset.title = title
 
-df = distribution.as_pandas(encoding='ISO-8859-1')
+df = distribution.as_pandas(encoding='ISO-8859-1').fillna(' ')
 
 df.drop(df.columns[df.columns.str.contains('Unnamed',case = False)],axis = 1, inplace = True)
 df.rename(columns={'TerritoryName' : 'Geography Code', 'EmissionUnits' : 'Emission Units'}, inplace=True)
 
 df['Emission'] = df['Emission'].astype(float).round(5)
+
+print(df.columns.values.tolist())
+
+for col in df.columns.values.tolist():
+    if col in ['GHG', 'GHG Grouped', 'IPCC Code', 'Year', 'Emission']: 
+        continue
+    try:
+        df[col] = df[col].apply(pathify)
+    except Exception as err:
+        raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
 cubes.add_cube(metadata, df, metadata.dataset.title)
 cubes.output_all()
