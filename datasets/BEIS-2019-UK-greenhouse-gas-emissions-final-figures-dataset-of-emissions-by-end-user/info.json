@@ -15,8 +15,25 @@
     "main_issue": 5,
     "columns": {
 
-        "Geographic Coverage": {
-            "description": "Geological area in which the data relates"
+        "GHG" : {
+        "description": "Green House Gas Type",
+        "value": "http://gss-data.org.uk/def/energy/concept/ghg/{ghg}"
+        },
+        "GHG Grouped" : {
+            "description": "Green House Gas Type",
+            "value": "http://gss-data.org.uk/def/energy/concept/ghg_grouped/{ghg_grouped}"
+        },
+        "IPCC Code" : {
+            "description": "",
+            "value": "http://gss-data.org.uk/def/energy/concept/ipcc_code/{ipcc_code}"
+        },    
+        "Year" : {
+            "description": "",
+            "value": "http://gss-data.org.uk/def/energy/concept/year/{year}"
+        },        
+        "Emmission Units" : {
+            "description": "",
+            "value": "http://gss-data.org.uk/def/energy/concept/emission_unit/{emission_unit}"        
         },
         "Nc Sector": {
             "description": "NC Sector",
@@ -33,12 +50,24 @@
             "value": "http://gss-data.org.uk/def/energy/concept/nc-sectors/{nc_category}",
             "codelist": "http://gss-data.org.uk/def/energy/concept-scheme/nc-sectors"
         },
-        "NC Fuel group": {
-            "description": "NC Fuel Group",
+        "Source" : {
+            "description": "",
+            "value": "http://gss-data.org.uk/def/energy/concept/source/{source}"
+        },    
+        "Nc Fuel": {
+            "description": "",
             "value": "http://gss-data.org.uk/def/energy/concept/nc-sectors/{nc_fuel}",
             "codelist": "http://gss-data.org.uk/def/energy/concept-scheme/nc-sectors"
         },
-          "Value": {
+        "Nc Fuel Group" : {
+            "description": "",
+            "value": "http://gss-data.org.uk/def/energy/concept/nc-sectors/{nc-fuel-group}"
+        }, 
+        "Activity Name" : {
+        "description": "",
+        "value": "http://gss-data.org.uk/def/energy/concept/activity-name/{activity-name}"
+        },
+        "Value": {
             "unit": "http://gss-data.org.uk/def/concept/measurement-units/mt-gwp-co2-ar4",
             "measure": "http://gss-data.org.uk/def/measure/gas-emissions",
             "datatype": "double"
