@@ -19,9 +19,10 @@
     "airtable": "recqrEhStypoIrWJ2",
     "main_issue": 7,
     "columns": {
-        "GHG" : {
-            "description": "Green House Gas Type",
-            "value": "http://gss-data.org.uk/def/energy/concept/ghg/{ghg}"
+      
+            "GHG" : {
+                "description": "Green House Gas Type",
+                "value": "http://gss-data.org.uk/def/energy/concept/ghg/{ghg}"
             },
             "GHG Grouped" : {
                 "description": "Green House Gas Type",
@@ -68,8 +69,8 @@
                 "value": "http://gss-data.org.uk/def/energy/concept/nc-sectors/{nc-fuel-group}"
             }, 
             "Activity Name" : {
-            "description": "",
-            "value": "http://gss-data.org.uk/def/energy/concept/activity-name/{activity-name}"
+                "description": "",
+                "value": "http://gss-data.org.uk/def/energy/concept/activity-name/{activity-name}"
             },
             "Value": {
                 "unit": "http://gss-data.org.uk/def/concept/measurement-units/mt-gwp-co2-ar4",
