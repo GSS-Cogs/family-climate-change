@@ -81,13 +81,7 @@
     "extract": {
         "source": "CSV",
         "stage": "Prioritized"
-    },
-    "transform": {
-        "stage": [
-            "Priority"
-        ],
-        "airtable": "recqrEhStypoIrWJ2",
-        "main_issue": 7
+  
     },
     "sizingNotes": "Straightforward data CSV form.",
     "notes": "Priority dataset for Climate Change Platform project."
