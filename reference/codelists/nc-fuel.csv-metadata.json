@@ -5,9 +5,9 @@
             "@language": "en"
         }
     ],
-    "@id": "http://gss-data.org.uk/def/energy/concept-scheme/nc-fuel",
+    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-fuel",
     "prov:hadDerivation": {
-        "@id": "http://gss-data.org.uk/def/energy/concept-scheme/nc-fuel",
+        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-fuel",
         "@type": [
             "skos:ConceptScheme",
             "http://publishmydata.com/pmdcat#ConceptScheme"
@@ -43,7 +43,7 @@
                 "name": "parent",
                 "datatype": "string",
                 "propertyUrl": "skos:broader",
-                "valueUrl": "http://gss-data.org.uk/def/energy/concept/measurement-units/{+parent}"
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/measurement-units/{+parent}"
             },
             {
                 "titles": "Source",
@@ -64,22 +64,22 @@
         "primaryKey": [
             "path"
         ],
-        "aboutUrl": "http://gss-data.org.uk/def/energy/concept/measurement-units/{+path}"
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/measurement-units/{+path}"
     },
     "rdfs:label": "GSS EDVP measurement units",
     "dc:title": "GSS EDVP measurement units",
     "rdfs:seeAlso": [
         {
-            "@id": "http://gss-data.org.uk/def/energy/concept-scheme/measurement-units/dataset",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units/dataset",
             "@type": [
                 "dcat:Dataset",
                 "http://publishmydata.com/pmdcat#Dataset"
             ],
             "http://publishmydata.com/pmdcat#datasetContents": {
-                "@id": "http://gss-data.org.uk/def/energy/concept-scheme/measurement-units"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units"
             },
             "http://publishmydata.com/pmdcat#graph": {
-                "@id": "http://gss-data.org.uk/def/energy/concept-scheme/measurement-units"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units"
             },
             "dc:modified": {
                 "@type": "dateTime",
@@ -96,17 +96,17 @@
         {
             "@id": "http://gss-data.org.uk/catalog/vocabularies",
             "dcat:record": {
-                "@id": "http://gss-data.org.uk/def/energy/concept-scheme/measurement-units/catalog-record"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units/catalog-record"
             }
         },
         {
-            "@id": "http://gss-data.org.uk/def/energy/concept-scheme/measurement-units/catalog-record",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units/catalog-record",
             "@type": "dcat:CatalogRecord",
             "foaf:primaryTopic": {
-                "@id": "http://gss-data.org.uk/def/energy/concept-scheme/measurement-units/dataset"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units/dataset"
             },
             "http://publishmydata.com/pmdcat#metadataGraph": {
-                "@id": "http://gss-data.org.uk/def/energy/concept-scheme/measurement-units"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units"
             },
             "dc:title": "GSS EDVP measurement units Catalog Record",
             "rdfs:label": "GSS EDVP measurement units Catalog Record",
