@@ -35,10 +35,10 @@ try:
 except:
     i = 0  
 
-try:    
-    del df['EmissionUnits']
-except:
-    i = 0  
+##try:    
+  ##  del df['EmissionUnits']
+##except:
+   ## i = 0  
 
 df.drop(df.columns[df.columns.str.contains('Unnamed',case = False)],axis = 1, inplace = True)
 ##df.rename(columns={'EmissionUnits' : 'Emission Units'}, inplace=True)
