@@ -85,7 +85,7 @@
                 "description": "",
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/activity-name",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/activity-name/{activity_name}",
-                "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-sectors"
+                "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name"
             },
             "Value": {
                 "unit": "http://gss-data.org.uk/def/concept/measurement-units/mt-gwp-co2-ar4",
