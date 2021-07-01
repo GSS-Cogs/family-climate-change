@@ -1,0 +1,430 @@
+Label,Notation,Parent Notation,Sort Priority
+Agriculture - stationary combustion,agriculture - stationary combustion,,1
+Cement - decarbonising,cement - decarbonising,,2
+Shipping - coastal,shipping - coastal,,3
+Coke production,coke production,,4
+Collieries - combustion,collieries - combustion,,5
+Deep-mined coal,deep-mined coal,,6
+Domestic combustion,domestic combustion,,7
+Fishing vessels,fishing vessels,,8
+Gas leakage,gas leakage,,9
+Gas production,gas production,,10
+Blast furnaces,blast furnaces,,11
+Sinter production,sinter production,,12
+Incineration,incineration,,13
+Iron and steel - combustion plant,iron and steel - combustion plant,,14
+Landfill,landfill,,15
+Lime production - non decarbonising,lime production - non decarbonising,,16
+Miscellaneous industrial/commercial combustion,miscellaneous industrial/commercial combustion,,17
+Nuclear fuel production,nuclear fuel production,,18
+Upstream Oil Production - flaring,upstream oil production - flaring,,19
+Upstream Oil Production - process emissions,upstream oil production - process emissions,,20
+Upstream Oil Production - fuel combustion,upstream oil production - fuel combustion,,21
+Open-cast coal,open-cast coal,,22
+Other industrial combustion,other industrial combustion,,23
+Power stations,power stations,,24
+Public sector combustion,public sector combustion,,25
+Railways - stationary combustion,railways - stationary combustion,,26
+Refineries - combustion,refineries - combustion,,27
+Sewage sludge decomposition,sewage sludge decomposition,,28
+Solid smokeless fuel production,solid smokeless fuel production,,29
+Chemical industry - general,chemical industry - general,,30
+Agriculture - mobile machinery,agriculture - mobile machinery,,31
+Aircraft -  military,aircraft -  military,,32
+Aircraft - support vehicles,aircraft - support vehicles,,33
+Autogenerators,autogenerators,,34
+House and garden machinery,house and garden machinery,,35
+Glass - general,glass - general,,36
+Industrial off-road mobile machinery,industrial off-road mobile machinery,,37
+Shipping - naval,shipping - naval,,38
+Cement production - combustion,cement production - combustion,,39
+Bread baking,bread baking,,40
+Adipic acid production,adipic acid production,,41
+Primary aluminium production - general,primary aluminium production - general,,42
+Ammonia production - feedstock use of gas,ammonia production - feedstock use of gas,,43
+Ammonia production - combustion,ammonia production - combustion,,44
+Electric arc furnaces,electric arc furnaces,,45
+Field burning,field burning,,46
+Iron and steel - flaring,iron and steel - flaring,,47
+Electronics and shoes,electronics and shoes,,48
+Magnesium cover gas,magnesium cover gas,,49
+Upstream Oil Production - Onshore Oil Loading,upstream oil production - onshore oil loading,,50
+Basic oxygen furnaces,basic oxygen furnaces,,51
+Electrical insulation,electrical insulation,,52
+Halocarbons production - by-product,halocarbons production - by-product,,53
+Halocarbons production - fugitive,halocarbons production - fugitive,,54
+Nitric acid production,nitric acid production,,55
+Coal storage and transport,coal storage and transport,,56
+Railways - intercity,railways - intercity,,57
+Railways - regional,railways - regional,,58
+Railways - freight,railways - freight,,59
+Upstream Oil Production - Offshore Oil Loading,upstream oil production - offshore oil loading,,60
+Upstream Oil Production - Oil terminal storage,upstream oil production - oil terminal storage,,61
+Aircraft - domestic take off and landing,aircraft - domestic take off and landing,,62
+Lime production - decarbonising,lime production - decarbonising,,63
+Non-aerosol products - household products,non-aerosol products - household products,,64
+Primary aluminium production - PFC emissions,primary aluminium production - pfc emissions,,65
+Incineration - sewage sludge,incineration - sewage sludge,,66
+Incineration - clinical waste,incineration - clinical waste,,67
+Incineration - chemical waste,incineration - chemical waste,,68
+Petroleum processes,petroleum processes,,69
+Brick manufacture - Fletton,brick manufacture - fletton,,70
+Upstream oil and gas production - combustion at gas separation plant,upstream oil and gas production - combustion at gas separation plant,,71
+Upstream Oil Production - Offshore Well Testing,upstream oil production - offshore well testing,,72
+Upstream Oil Production - venting,upstream oil production - venting,,73
+Accidental fires - vehicles,accidental fires - vehicles,,74
+Chemical industry - titanium dioxide,chemical industry - titanium dioxide,,75
+Chemical industry - carbon black,chemical industry - carbon black,,76
+Chemical industry - ethylene,chemical industry - ethylene,,77
+Chemical industry - methanol,chemical industry - methanol,,78
+Chemical industry - soda ash,chemical industry - soda ash,,79
+Accidental fires - dwellings,accidental fires - dwellings,,80
+Accidental fires - other buildings,accidental fires - other buildings,,81
+Agricultural engines,agricultural engines,,82
+Industrial engines,industrial engines,,83
+Marine engines,marine engines,,84
+Ladle arc furnaces,ladle arc furnaces,,85
+Other emissive applications of Soda Ash,other emissive applications of soda ash,,86
+Unknown applications of Sodium Bicarbonate,unknown applications of sodium bicarbonate,,87
+Other emissive applications of  Sodium Bicarbonate,other emissive applications of  sodium bicarbonate,,88
+Aircraft - domestic cruise,aircraft - domestic cruise,,89
+Road transport - cars - rural driving,road transport - cars - rural driving,,90
+Road transport - LGVs - rural driving,road transport - lgvs - rural driving,,91
+Road transport - buses and coaches - rural driving,road transport - buses and coaches - rural driving,,92
+Road transport - HGV articulated - rural driving,road transport - hgv articulated - rural driving,,93
+Road transport - HGV rigid - rural driving,road transport - hgv rigid - rural driving,,94
+Road transport - motorcycle (>50cc  4st) - rural driving,road transport - motorcycle (>50cc  4st) - rural driving,,95
+Road transport - cars - urban driving,road transport - cars - urban driving,,96
+Road transport - LGVs - urban driving,road transport - lgvs - urban driving,,97
+Road transport - buses and coaches - urban driving,road transport - buses and coaches - urban driving,,98
+Road transport - HGV articulated - urban driving,road transport - hgv articulated - urban driving,,99
+Road transport - HGV rigid - urban driving,road transport - hgv rigid - urban driving,,100
+Road transport - mopeds (<50cc 2st) - urban driving,road transport - mopeds (<50cc 2st) - urban driving,,101
+Road transport - motorcycle (>50cc  2st) - urban driving,road transport - motorcycle (>50cc  2st) - urban driving,,102
+Road transport - motorcycle (>50cc  4st) - urban driving,road transport - motorcycle (>50cc  4st) - urban driving,,103
+Road transport - cars - motorway driving,road transport - cars - motorway driving,,104
+Road transport - LGVs - motorway driving,road transport - lgvs - motorway driving,,105
+Road transport - buses and coaches - motorway driving,road transport - buses and coaches - motorway driving,,106
+Road transport - HGV articulated - motorway driving,road transport - hgv articulated - motorway driving,,107
+Road transport - HGV rigid - motorway driving,road transport - hgv rigid - motorway driving,,108
+Road transport - motorcycle (>50cc  4st) - motorway driving,road transport - motorcycle (>50cc  4st) - motorway driving,,109
+Road transport - cars - cold start,road transport - cars - cold start,,110
+Road transport - LGVs - cold start,road transport - lgvs - cold start,,111
+Road vehicle engines,road vehicle engines,,112
+Closed Coal Mines,closed coal mines,,113
+Forest Land remaining Forest Land - Carbon stock change,forest land remaining forest land - carbon stock change,,114
+Cropland converted to Forest Land - Carbon stock change,cropland converted to forest land - carbon stock change,,115
+Forest Land remaining Forest Land - Biomass Burning - Wildfires,forest land remaining forest land - biomass burning - wildfires,,116
+Cropland remaining Cropland - Living biomass carbon stock change,cropland remaining cropland - living biomass carbon stock change,,117
+Forest Land converted to Cropland - Carbon stock change,forest land converted to cropland - carbon stock change,,118
+Forest Land converted to Cropland - Biomass Burning - Controlled Burning,forest land converted to cropland - biomass burning - controlled burning,,119
+Grassland remaining Grassland - Carbon stock change,grassland remaining grassland - carbon stock change,,120
+Forest Land converted to Grassland - Carbon stock change,forest land converted to grassland - carbon stock change,,121
+Forest Land converted to Grassland - Biomass Burning - Controlled Burning,forest land converted to grassland - biomass burning - controlled burning,,122
+Peat Extraction Remaining Peat Extraction - Carbon stock change,peat extraction remaining peat extraction - carbon stock change,,123
+Land converted for Peat Extraction - Carbon stock change,land converted for peat extraction - carbon stock change,,124
+Settlements remaining Settlements - Carbon stock change,settlements remaining settlements - carbon stock change,,125
+Forest Land converted to Settlements - Direct N2O emissions from N Mineralization/Immobilization,forest land converted to settlements - direct n2o emissions from n mineralization/immobilization,,126
+Forest Land converted to Settlements - Biomass Burning - Controlled Burning,forest land converted to settlements - biomass burning - controlled burning,,127
+Forest Land - Drainage and rewetting and other management of organic and mineral soils,forest land - drainage and rewetting and other management of organic and mineral soils,,128
+Direct N2O emission from N fertilisation of forest land,direct n2o emission from n fertilisation of forest land,,129
+Chemical Industry - ethylene dichloride,chemical industry - ethylene dichloride,,130
+Upstream Gas Production - flaring,upstream gas production - flaring,,131
+Upstream Gas Production - process emissions,upstream gas production - process emissions,,132
+Upstream Gas Production - fuel combustion,upstream gas production - fuel combustion,,133
+Upstream Gas Production - Gas terminal storage,upstream gas production - gas terminal storage,,134
+Upstream Gas Production - Offshore Well Testing,upstream gas production - offshore well testing,,135
+Upstream Gas Production - venting,upstream gas production - venting,,136
+Forest Land converted to Cropland - Direct N2O emissions from N Mineralization/Immobilization,forest land converted to cropland - direct n2o emissions from n mineralization/immobilization,,137
+Wetlands - Drainage and rewetting and other management of organic and mineral soils,wetlands - drainage and rewetting and other management of organic and mineral soils,,138
+Autogeneration - exported to grid,autogeneration - exported to grid,,139
+Non-Ferrous Metal (combustion),non-ferrous metal (combustion),,140
+Chemicals (combustion),chemicals (combustion),,141
+"Pulp, Paper and Print (combustion)","pulp, paper and print (combustion)",,142
+"Food & drink, tobacco (combustion)","food & drink, tobacco (combustion)",,143
+Sailing boats with auxiliary engines,sailing boats with auxiliary engines,,144
+"Motorboats / workboats (e.g. canal boats, dredgers, service boats, tourist boats, river boats)","motorboats / workboats (e.g. canal boats, dredgers, service boats, tourist boats, river boats)",,145
+Personal watercraft e.g. jet ski,personal watercraft e.g. jet ski,,146
+Inland goods-carrying vessels,inland goods-carrying vessels,,147
+Cropland remaining Cropland - Biomass Burning - Wildfires,cropland remaining cropland - biomass burning - wildfires,,148
+Grassland remaining Grassland - Biomass Burning - Wildfires,grassland remaining grassland - biomass burning - wildfires,,149
+Industrial Waste Water Treatment,industrial waste water treatment,,150
+Tracer gas,tracer gas,,151
+N2O use as an anaesthetic,n2o use as an anaesthetic,,152
+Airborne Warning And Control Systems,airborne warning and control systems,,153
+Electronics - NF3,electronics - nf3,,154
+Particle accelerators,particle accelerators,,155
+Sewage sludge decomposition in private systems,sewage sludge decomposition in private systems,,156
+Electronics - HFC,electronics - hfc,,157
+Composting (at household),composting (at household),,158
+Chemical industry - ethylene oxide,chemical industry - ethylene oxide,,159
+Chemical industry - acrylonitrile,chemical industry - acrylonitrile,,160
+Liming,liming,,161
+Grassland remaining Grassland - Direct N2O emissions from N Mineralization/Immobilization,grassland remaining grassland - direct n2o emissions from n mineralization/immobilization,,162
+Cropland remaining Cropland - Soils carbon stock change,cropland remaining cropland - soils carbon stock change,,163
+Grassland - Drainage and rewetting and other management of organic and mineral soils,grassland - drainage and rewetting and other management of organic and mineral soils,,164
+Settlements remaining Settlements - Direct N2O emissions from N Mineralization/Immobilization,settlements remaining settlements - direct n2o emissions from n mineralization/immobilization,,165
+Brick manufacture - all types,brick manufacture - all types,,166
+Non-ferrous metal processes,non-ferrous metal processes,,167
+Non Energy Use: chemical feedstock,non energy use: chemical feedstock,,168
+Chemical Industry – other process sources,chemical industry – other process sources,,169
+Other food - cream consumption,other food - cream consumption,,170
+Grassland converted to Forest Land - Carbon stock change,grassland converted to forest land - carbon stock change,,171
+Settlements converted to Forest Land - Carbon stock change,settlements converted to forest land - carbon stock change,,172
+Grassland converted to Cropland - Direct N2O emissions from N Mineralization/Immobilization,grassland converted to cropland - direct n2o emissions from n mineralization/immobilization,,173
+Grassland converted to Cropland - Carbon stock change,grassland converted to cropland - carbon stock change,,174
+Settlements converted to Cropland - Carbon stock change,settlements converted to cropland - carbon stock change,,175
+Forest Land converted to Grassland - Direct N2O emissions from N Mineralization/Immobilization,forest land converted to grassland - direct n2o emissions from n mineralization/immobilization,,176
+Cropland converted to Grassland - Carbon stock change,cropland converted to grassland - carbon stock change,,177
+Settlements converted to Grassland - Carbon stock change,settlements converted to grassland - carbon stock change,,178
+Forest Land converted to Settlements - Carbon stock change,forest land converted to settlements - carbon stock change,,179
+Cropland converted to Settlements - Direct N2O emissions from N Mineralization/Immobilization,cropland converted to settlements - direct n2o emissions from n mineralization/immobilization,,180
+Cropland converted to Settlements - Carbon stock change,cropland converted to settlements - carbon stock change,,181
+Grassland converted to Settlements - Direct N2O emissions from N Mineralization/Immobilization,grassland converted to settlements - direct n2o emissions from n mineralization/immobilization,,182
+Grassland converted to Settlements - Carbon stock change,grassland converted to settlements - carbon stock change,,183
+HWP Produced and Consumed Domestically - Carbon stock change,hwp produced and consumed domestically - carbon stock change,,184
+HWP Produced and Exported - Carbon stock change,hwp produced and exported - carbon stock change,,185
+LULUCF Indirect N2O - Nitrogen Leaching and Run-off,lulucf indirect n2o - nitrogen leaching and run-off,,186
+LULUCF Indirect N2O - Atmospheric Deposition,lulucf indirect n2o - atmospheric deposition,,187
+Methanol production – combustion,methanol production – combustion,,188
+Cropland converted to Forest Land - Direct N2O emissions from N Mineralization/Immobilization,cropland converted to forest land - direct n2o emissions from n mineralization/immobilization,,189
+Grassland converted to Forest Land - Direct N2O emissions from N Mineralization/Immobilization,grassland converted to forest land - direct n2o emissions from n mineralization/immobilization,,190
+Settlements converted to Forest Land - Direct N2O emissions from N Mineralization/Immobilization,settlements converted to forest land - direct n2o emissions from n mineralization/immobilization,,191
+Managed Histosols,managed histosols,,192
+F-gas handling,f-gas handling,,193
+"Mobile Air-Conditioning: MAC systems - cars, vans, cabs","mobile air-conditioning: mac systems - cars, vans, cabs",,194
+Heat supply,heat supply,,195
+Settlements - Drainage and rewetting and other management of organic and mineral soils,settlements - drainage and rewetting and other management of organic and mineral soils,,196
+Other Wetlands Remaining Other Wetlands - Carbon stock change,other wetlands remaining other wetlands - carbon stock change,,197
+Arable - Direct,arable - direct,,198
+Arable - Indirect Deposition,arable - indirect deposition,,199
+Arable - Indirect Leach,arable - indirect leach,,200
+Arable - Residue Indirect Leach,arable - residue indirect leach,,201
+Grass - Direct,grass - direct,,202
+Grass - Indirect Deposition,grass - indirect deposition,,203
+Grass - Indirect Leach,grass - indirect leach,,204
+Grass - Residue Indirect Leach,grass - residue indirect leach,,205
+Enteric,enteric,,206
+Excreta,excreta,,207
+Pig - Boar - Direct,pig - boar - direct,,208
+Pig - Boar - Indirect Deposition,pig - boar - indirect deposition,,209
+Pig - Boar - Indirect Leach,pig - boar - indirect leach,,210
+Managed Manure,managed manure,,211
+Poultry - Broilers - Direct,poultry - broilers - direct,,212
+Poultry - Broilers - Indirect Deposition,poultry - broilers - indirect deposition,,213
+Poultry - Broilers - Indirect Leach,poultry - broilers - indirect leach,,214
+Dairy - Dairy Cows - Direct,dairy - dairy cows - direct,,215
+Dairy - Dairy Cows - Indirect Deposition,dairy - dairy cows - indirect deposition,,216
+Dairy - Dairy Cows - Indirect Leach,dairy - dairy cows - indirect leach,,217
+Sheep - Ewe - Direct,sheep - ewe - direct,,218
+Sheep - Ewe - Indirect Deposition,sheep - ewe - indirect deposition,,219
+Sheep - Ewe - Indirect Leach,sheep - ewe - indirect leach,,220
+Pig - Fattening Pig 20 to 80 kg - Direct,pig - fattening pig 20 to 80 kg - direct,,221
+Pig - Fattening Pig 20 to 80 kg - Indirect Deposition,pig - fattening pig 20 to 80 kg - indirect deposition,,222
+Pig - Fattening Pig 20 to 80 kg - Indirect Leach,pig - fattening pig 20 to 80 kg - indirect leach,,223
+Pig - Fattening Pig < 20 kg - Direct,pig - fattening pig < 20 kg - direct,,224
+Pig - Fattening Pig < 20 kg - Indirect Deposition,pig - fattening pig < 20 kg - indirect deposition,,225
+Pig - Fattening Pig < 20 kg - Indirect Leach,pig - fattening pig < 20 kg - indirect leach,,226
+Pig - Fattening Pig > 80 kg - Direct,pig - fattening pig > 80 kg - direct,,227
+Pig - Fattening Pig > 80 kg - Indirect Deposition,pig - fattening pig > 80 kg - indirect deposition,,228
+Pig - Fattening Pig > 80 kg - Indirect Leach,pig - fattening pig > 80 kg - indirect leach,,229
+Pig - Gilt - Direct,pig - gilt - direct,,230
+Pig - Gilt - Indirect Deposition,pig - gilt - indirect deposition,,231
+Pig - Gilt - Indirect Leach,pig - gilt - indirect leach,,232
+Sheep - Lamb - Direct,sheep - lamb - direct,,233
+Sheep - Lamb - Indirect Deposition,sheep - lamb - indirect deposition,,234
+Sheep - Lamb - Indirect Leach,sheep - lamb - indirect leach,,235
+Poultry - Laying Hens - Direct,poultry - laying hens - direct,,236
+Poultry - Laying Hens - Indirect Deposition,poultry - laying hens - indirect deposition,,237
+Poultry - Laying Hens - Indirect Leach,poultry - laying hens - indirect leach,,238
+Poultry - Other - Direct,poultry - other - direct,,239
+Poultry - Other - Indirect Deposition,poultry - other - indirect deposition,,240
+Poultry - Other - Indirect Leach,poultry - other - indirect leach,,241
+Sheep - Ram - Direct,sheep - ram - direct,,242
+Sheep - Ram - Indirect Deposition,sheep - ram - indirect deposition,,243
+Sheep - Ram - Indirect Leach,sheep - ram - indirect leach,,244
+Pig - Sow - Direct,pig - sow - direct,,245
+Pig - Sow - Indirect Deposition,pig - sow - indirect deposition,,246
+Pig - Sow - Indirect Leach,pig - sow - indirect leach,,247
+Poultry - Turkeys - Direct,poultry - turkeys - direct,,248
+Poultry - Turkeys - Indirect Deposition,poultry - turkeys - indirect deposition,,249
+Poultry - Turkeys - Indirect Leach,poultry - turkeys - indirect leach,,250
+Fertiliser Application,fertiliser application,,251
+Other cattle - Beef females for slaughter - Direct,other cattle - beef females for slaughter - direct,,252
+Other cattle - Beef females for slaughter - Indirect Deposition,other cattle - beef females for slaughter - indirect deposition,,253
+Other cattle - Beef females for slaughter - Indirect Leach,other cattle - beef females for slaughter - indirect leach,,254
+Other cattle - Bulls for breeding - Direct,other cattle - bulls for breeding - direct,,255
+Other cattle - Bulls for breeding - Indirect Deposition,other cattle - bulls for breeding - indirect deposition,,256
+Other cattle - Bulls for breeding - Indirect Leach,other cattle - bulls for breeding - indirect leach,,257
+Other cattle - Cereal fed bull - Direct,other cattle - cereal fed bull - direct,,258
+Other cattle - Cereal fed bull - Indirect Deposition,other cattle - cereal fed bull - indirect deposition,,259
+Other cattle - Cereal fed bull - Indirect Leach,other cattle - cereal fed bull - indirect leach,,260
+Other cattle - Cows - Direct,other cattle - cows - direct,,261
+Other cattle - Cows - Indirect Deposition,other cattle - cows - indirect deposition,,262
+Other cattle - Cows - Indirect Leach,other cattle - cows - indirect leach,,263
+Cropland management,cropland management,,264
+Other cattle - Dairy Calves Female - Direct,other cattle - dairy calves female - direct,,265
+Other cattle - Dairy Calves Female - Indirect Deposition,other cattle - dairy calves female - indirect deposition,,266
+Other cattle - Dairy Calves Female - Indirect Leach,other cattle - dairy calves female - indirect leach,,267
+Other cattle - Dairy Replacements Female - Direct,other cattle - dairy replacements female - direct,,268
+Other cattle - Dairy Replacements Female - Indirect Deposition,other cattle - dairy replacements female - indirect deposition,,269
+Other cattle - Dairy Replacements Female - Indirect Leach,other cattle - dairy replacements female - indirect leach,,270
+Other cattle - Dairy In Calf Heifers - Direct,other cattle - dairy in calf heifers - direct,,271
+Other cattle - Dairy In Calf Heifers - Indirect Deposition,other cattle - dairy in calf heifers - indirect deposition,,272
+Other cattle - Dairy In Calf Heifers - Indirect Leach,other cattle - dairy in calf heifers - indirect leach,,273
+Other cattle - Heifers for breeding - Direct,other cattle - heifers for breeding - direct,,274
+Other cattle - Heifers for breeding - Indirect Deposition,other cattle - heifers for breeding - indirect deposition,,275
+Other cattle - Heifers for breeding - Indirect Leach,other cattle - heifers for breeding - indirect leach,,276
+Other cattle - Steers - Direct,other cattle - steers - direct,,277
+Other cattle - Steers - Indirect Deposition,other cattle - steers - indirect deposition,,278
+Other cattle - Steers - Indirect Leach,other cattle - steers - indirect leach,,279
+Agricultural Horses - Direct,agricultural horses - direct,,280
+Agricultural Horses - Indirect Deposition,agricultural horses - indirect deposition,,281
+Agricultural Horses - Indirect Leach,agricultural horses - indirect leach,,282
+Deer - Direct,deer - direct,,283
+Deer - Indirect Deposition,deer - indirect deposition,,284
+Deer - Indirect Leach,deer - indirect leach,,285
+Domestic Horses - Direct,domestic horses - direct,,286
+Domestic Horses - Indirect Deposition,domestic horses - indirect deposition,,287
+Domestic Horses - Indirect Leach,domestic horses - indirect leach,,288
+Goats - Direct,goats - direct,,289
+Goats - Indirect Deposition,goats - indirect deposition,,290
+Goats - Indirect Leach,goats - indirect leach,,291
+Professional Horses - Direct,professional horses - direct,,292
+Professional Horses - Indirect Deposition,professional horses - indirect deposition,,293
+Professional Horses - Indirect Leach,professional horses - indirect leach,,294
+Sewage Sludge Cake - Direct,sewage sludge cake - direct,,295
+Sewage Sludge Cake - Indirect Deposition,sewage sludge cake - indirect deposition,,296
+Sewage Sludge Cake - Indirect Leach,sewage sludge cake - indirect leach,,297
+Sewage Sludge Liquid - Direct,sewage sludge liquid - direct,,298
+Sewage Sludge Liquid - Indirect Deposition,sewage sludge liquid - indirect deposition,,299
+Sewage Sludge Liquid - Indirect Leach,sewage sludge liquid - indirect leach,,300
+Transport and distribution of refrigerants,transport and distribution of refrigerants,,301
+Anaerobic Digestion (other),anaerobic digestion (other),,302
+Total composting (non-household),total composting (non-household),,303
+Grassland converted to flooded land - Carbon stock change,grassland converted to flooded land - carbon stock change,,304
+"Stationary Air-Conditioning: AC chillers, large","stationary air-conditioning: ac chillers, large",,305
+"Stationary Air-Conditioning: Heat pumps, very small (domestic)","stationary air-conditioning: heat pumps, very small (domestic)",,306
+Digestate,digestate,,307
+Beef females for slaughter - Digestate Direct,beef females for slaughter - digestate direct,,308
+Other cattle - Beef females for slaughter - Digestate Indirect Deposition,other cattle - beef females for slaughter - digestate indirect deposition,,309
+Other cattle - Beef females for slaughter - Digestate Indirect Leach,other cattle - beef females for slaughter - digestate indirect leach,,310
+Broilers - Digestate Direct,broilers - digestate direct,,311
+Poultry - Broilers - Digestate Indirect Deposition,poultry - broilers - digestate indirect deposition,,312
+Poultry - Broilers - Digestate Indirect Leach,poultry - broilers - digestate indirect leach,,313
+Bulls for breeding - Digestate Direct,bulls for breeding - digestate direct,,314
+Other cattle - Bulls for breeding - Digestate Indirect Deposition,other cattle - bulls for breeding - digestate indirect deposition,,315
+Other cattle - Bulls for breeding - Digestate Indirect Leach,other cattle - bulls for breeding - digestate indirect leach,,316
+Cereal fed bull - Digestate Direct,cereal fed bull - digestate direct,,317
+Other cattle - Cereal fed bull - Digestate Indirect Deposition,other cattle - cereal fed bull - digestate indirect deposition,,318
+Other cattle - Cereal fed bull - Digestate Indirect Leach,other cattle - cereal fed bull - digestate indirect leach,,319
+Cows - Digestate Direct,cows - digestate direct,,320
+Other cattle - Cows - Digestate Indirect Deposition,other cattle - cows - digestate indirect deposition,,321
+Other cattle - Cows - Digestate Indirect Leach,other cattle - cows - digestate indirect leach,,322
+Dairy Calves Female - Digestate Direct,dairy calves female - digestate direct,,323
+Other cattle - Dairy Calves Female - Digestate Indirect Deposition,other cattle - dairy calves female - digestate indirect deposition,,324
+Other cattle - Dairy Calves Female - Digestate Indirect Leach,other cattle - dairy calves female - digestate indirect leach,,325
+Dairy Replacements Female - Digestate Direct,dairy replacements female - digestate direct,,326
+Other cattle - Dairy Replacements Female - Digestate Indirect Deposition,other cattle - dairy replacements female - digestate indirect deposition,,327
+Other cattle - Dairy Replacements Female - Digestate Indirect Leach,other cattle - dairy replacements female - digestate indirect leach,,328
+Dairy In Calf Heifers - Digestate Direct,dairy in calf heifers - digestate direct,,329
+Other cattle - Dairy In Calf Heifers - Digestate Indirect Deposition,other cattle - dairy in calf heifers - digestate indirect deposition,,330
+Other cattle - Dairy In Calf Heifers - Digestate Indirect Leach,other cattle - dairy in calf heifers - digestate indirect leach,,331
+Dairy Cows - Digestate Direct,dairy cows - digestate direct,,332
+Dairy - Dairy Cows - Digestate Indirect Deposition,dairy - dairy cows - digestate indirect deposition,,333
+Dairy - Dairy Cows - Digestate Indirect Leach,dairy - dairy cows - digestate indirect leach,,334
+Crop Digestates - Direct,crop digestates - direct,,335
+Crop Digestates - Indirect Deposition,crop digestates - indirect deposition,,336
+Crop Digestates - Indirect Leach,crop digestates - indirect leach,,337
+Heifers for breeding - Digestate Direct,heifers for breeding - digestate direct,,338
+Other cattle - Heifers for breeding - Digestate Indirect Deposition,other cattle - heifers for breeding - digestate indirect deposition,,339
+Other cattle - Heifers for breeding - Digestate Indirect Leach,other cattle - heifers for breeding - digestate indirect leach,,340
+Laying Hens - Digestate Direct,laying hens - digestate direct,,341
+Poultry - Laying Hens - Digestate Indirect Deposition,poultry - laying hens - digestate indirect deposition,,342
+Poultry - Laying Hens - Digestate Indirect Leach,poultry - laying hens - digestate indirect leach,,343
+Other Poultry - Digestate Direct,other poultry - digestate direct,,344
+Poultry - Other Poultry - Digestate Indirect Deposition,poultry - other poultry - digestate indirect deposition,,345
+Poultry - Other Poultry - Digestate Indirect Leach,poultry - other poultry - digestate indirect leach,,346
+Steers - Digestate Direct,steers - digestate direct,,347
+Other cattle - Steers - Digestate Indirect Deposition,other cattle - steers - digestate indirect deposition,,348
+Other cattle - Steers - Digestate Indirect Leach,other cattle - steers - digestate indirect leach,,349
+Turkeys - Digestate Direct,turkeys - digestate direct,,350
+Poultry - Turkeys - Digestate Indirect Deposition,poultry - turkeys - digestate indirect deposition,,351
+Poultry - Turkeys - Digestate Indirect Leach,poultry - turkeys - digestate indirect leach,,352
+Charcoal production,charcoal production,,353
+Non Energy Use: petroleum coke,non energy use: petroleum coke,,354
+"Transport Refrigeration: Systems for large trucks, iso-containers","transport refrigeration: systems for large trucks, iso-containers",,355
+Aerosols other than metered dose inhalers,aerosols other than metered dose inhalers,,356
+One Component Foams,one component foams,,357
+Metered dose inhalers,metered dose inhalers,,358
+Power stations - FGD,power stations - fgd,,359
+"Commercial Refrigeration: Commercial central systems, chill","commercial refrigeration: commercial central systems, chill",,360
+"Commercial Refrigeration: Commercial central systems, frozen","commercial refrigeration: commercial central systems, frozen",,361
+"Commercial Refrigeration: Commercial condensing units, frozen","commercial refrigeration: commercial condensing units, frozen",,362
+Domestic Refrigeration: Domestic freezers,domestic refrigeration: domestic freezers,,363
+Domestic Refrigeration: Domestic refrigerators and freezers,domestic refrigeration: domestic refrigerators and freezers,,364
+Transport Refrigeration: Systems for marine vessels,transport refrigeration: systems for marine vessels,,365
+Firefighting,firefighting,,366
+"Commercial Refrigeration: Commercial condensing units, chill","commercial refrigeration: commercial condensing units, chill",,367
+"Commercial Refrigeration: Commercial integral systems, chill","commercial refrigeration: commercial integral systems, chill",,368
+"Commercial Refrigeration: Commercial integral systems, frozen","commercial refrigeration: commercial integral systems, frozen",,369
+"Industrial Refrigeration: Industrial DX systems, large, chill","industrial refrigeration: industrial dx systems, large, chill",,370
+"Industrial Refrigeration: Industrial DX systems, large, frozen","industrial refrigeration: industrial dx systems, large, frozen",,371
+"Industrial Refrigeration: Industrial DX systems, mid-size, chill","industrial refrigeration: industrial dx systems, mid-size, chill",,372
+"Industrial Refrigeration: Industrial DX systems, mid-size, frozen","industrial refrigeration: industrial dx systems, mid-size, frozen",,373
+"Industrial Refrigeration: Industrial DX systems, small, chill","industrial refrigeration: industrial dx systems, small, chill",,374
+"Industrial Refrigeration: Industrial DX systems, small, frozen","industrial refrigeration: industrial dx systems, small, frozen",,375
+"Industrial Refrigeration: Industrial chillers, large","industrial refrigeration: industrial chillers, large",,376
+"Industrial Refrigeration: Industrial chillers, mid-size","industrial refrigeration: industrial chillers, mid-size",,377
+"Industrial Refrigeration: Industrial flooded systems, large, chill","industrial refrigeration: industrial flooded systems, large, chill",,378
+"Transport Refrigeration: Systems for vans, light trucks","transport refrigeration: systems for vans, light trucks",,379
+"Stationary Air-Conditioning: AC chillers, mid-size","stationary air-conditioning: ac chillers, mid-size",,380
+"Stationary Air-Conditioning: AC chillers, small","stationary air-conditioning: ac chillers, small",,381
+Road transport - all vehicles LPG use,road transport - all vehicles lpg use,,382
+"Stationary Air-Conditioning: Heat pumps, large","stationary air-conditioning: heat pumps, large",,383
+"Stationary Air-Conditioning: Heat pumps, mid-size","stationary air-conditioning: heat pumps, mid-size",,384
+"Stationary Air-Conditioning: Heat pumps, small","stationary air-conditioning: heat pumps, small",,385
+"Mobile Air-Conditioning: MAC systems - buses, trains","mobile air-conditioning: mac systems - buses, trains",,386
+Other organic residue Digestates - Direct,other organic residue digestates - direct,,387
+Other organic residue Digestates - Indirect Deposition,other organic residue digestates - indirect deposition,,388
+Other organic residue Digestates - Indirect Leach,other organic residue digestates - indirect leach,,389
+Closed foams,closed foams,,390
+"Stationary Air-Conditioning: AC VRF systems, small","stationary air-conditioning: ac vrf systems, small",,391
+Stationary Air-Conditioning: AC integral systems (e.g. window units),stationary air-conditioning: ac integral systems (e.g. window units),,392
+"Stationary Air-Conditioning: AC roof-top units, large","stationary air-conditioning: ac roof-top units, large",,393
+"Stationary Air-Conditioning: AC roof-top units, small","stationary air-conditioning: ac roof-top units, small",,394
+"Stationary Air-Conditioning: AC split systems, large","stationary air-conditioning: ac split systems, large",,395
+"Stationary Air-Conditioning: AC split systems, mid-size","stationary air-conditioning: ac split systems, mid-size",,396
+"Stationary Air-Conditioning: AC split systems, small","stationary air-conditioning: ac split systems, small",,397
+Precision cleaning,precision cleaning,,398
+Forest Land converted to Other Wetlands - Carbon stock change,forest land converted to other wetlands - carbon stock change,,399
+Cropland converted to Other Wetlands - Carbon stock change,cropland converted to other wetlands - carbon stock change,,400
+Forest Land converted to Other Wetlands - Biomass Burning - Controlled Burning,forest land converted to other wetlands - biomass burning - controlled burning,,401
+Mechanical Biological Treatment - Composting,mechanical biological treatment - composting,,402
+Mechanical Biological Treatment - Anaerobic Digestion,mechanical biological treatment - anaerobic digestion,,403
+Road transport - all vehicles biofuels use,road transport - all vehicles biofuels use,,404
+Food Digestates - Direct,food digestates - direct,,405
+Food Digestates - Indirect Deposition,food digestates - indirect deposition,,406
+Food Digestates - Indirect Leach,food digestates - indirect leach,,407
+Rail - coal,rail - coal,,408
+Boar - Digestate Direct,boar - digestate direct,,409
+Pig - Boar - Digestate Indirect Deposition,pig - boar - digestate indirect deposition,,410
+Pig - Boar - Digestate Indirect Leach,pig - boar - digestate indirect leach,,411
+Fattening Pig 20 to 80 kg - Digestate Direct,fattening pig 20 to 80 kg - digestate direct,,412
+Pig - Fattening Pig 20 to 80 kg - Digestate Indirect Deposition,pig - fattening pig 20 to 80 kg - digestate indirect deposition,,413
+Pig - Fattening Pig 20 to 80 kg - Digestate Indirect Leach,pig - fattening pig 20 to 80 kg - digestate indirect leach,,414
+Fattening Pig < 20 kg - Digestate Direct,fattening pig < 20 kg - digestate direct,,415
+Pig - Fattening Pig < 20 kg - Digestate Indirect Deposition,pig - fattening pig < 20 kg - digestate indirect deposition,,416
+Pig - Fattening Pig < 20 kg - Digestate Indirect Leach,pig - fattening pig < 20 kg - digestate indirect leach,,417
+Fattening Pig > 80 kg - Digestate Direct,fattening pig > 80 kg - digestate direct,,418
+Pig - Fattening Pig > 80 kg - Digestate Indirect Deposition,pig - fattening pig > 80 kg - digestate indirect deposition,,419
+Pig - Fattening Pig > 80 kg - Digestate Indirect Leach,pig - fattening pig > 80 kg - digestate indirect leach,,420
+Gilt - Digestate Direct,gilt - digestate direct,,421
+Pig - Gilt - Digestate Indirect Deposition,pig - gilt - digestate indirect deposition,,422
+Pig - Gilt - Digestate Indirect Leach,pig - gilt - digestate indirect leach,,423
+Sow - Digestate Direct,sow - digestate direct,,424
+Pig - Sow - Digestate Indirect Deposition,pig - sow - digestate indirect deposition,,425
+Pig - Sow - Digestate Indirect Leach,pig - sow - digestate indirect leach,,426
+Road transport - urea,road transport - urea,,427
+Flue Gas Treatment (neutralisation),flue gas treatment (neutralisation),,428
+Recreational use of N2O,recreational use of n2o,,429
