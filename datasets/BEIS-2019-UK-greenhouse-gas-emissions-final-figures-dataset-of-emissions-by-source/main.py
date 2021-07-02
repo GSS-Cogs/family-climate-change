@@ -30,7 +30,7 @@ metadata.dataset.title = title
 
 df = distribution.as_pandas(encoding='ISO-8859-1').fillna(' ')
 
-df['National Communication Sub-sector'][df['National Communication Sub-sector'] == ''] = 'Not-Applicable'
+df['National Communication Sub-sector'][df['National Communication Sub-sector'] == ''] = 'Not Applicable'
 
 try:    
     del df['TerritoryName']
