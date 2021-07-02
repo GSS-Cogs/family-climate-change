@@ -12,6 +12,8 @@
 #     name: python3
 # ---
 
+# ## BEIS-2019-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-end-user
+
 # + tags=[]
 import json
 import pandas as pd
@@ -33,14 +35,13 @@ metadata.dataset.title = title
 df = distribution.as_pandas(encoding='ISO-8859-1').fillna(' ')
 
 df.drop(df.columns[df.columns.str.contains('Unnamed',case = False)],axis = 1, inplace = True)
-df.drop('National Communication Sub-sector', axis=1, inplace=True)
 
 df.rename(columns={'TerritoryName' : 'Geography Code', 'EmissionUnits' : 'Emission Units'}, inplace=True)
 
 df['Emission'] = df['Emission'].astype(float).round(5)
 
 for col in df.columns.values.tolist():
-    if col in ['GHG', 'GHG Grouped', 'IPCC Code', 'Emission Units', 'National Communication Sub-sector', 'Year', 'Emission']: 
+    if col in ['GHG', 'GHG Grouped', 'IPCC Code', 'Emission Units', 'Year', 'Emission']: 
         continue
     try:
         df[col] = df[col].apply(pathify)
