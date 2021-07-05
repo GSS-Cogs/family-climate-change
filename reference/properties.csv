@@ -1,3 +1,13 @@
 Namespace,Label,Path,Qb Property Type,Parent Property,Source,Range,Comment
 energy,Fuel,dimension/fuel,qb:DimensionProperty,,,http://gss-data.org.uk/def/energy/concept-scheme/fuel,Fuel
 energy,Roc Per Mwh,attribute/roc-per-mwh,qb:Attribute,,,http://gss-data.org.uk/def/energy/concept-scheme/roc-per-mwh,Roc Per Mwh
+climate-change,GHG,dimension/ghg,qb:DimensionProperty,,,,
+climate-change,GHG Grouped,dimension/ghg-grouped,qb:DimensionProperty,,,,
+climate-change,IPCC Code,dimension/ipcc-code,qb:DimensionProperty,,,,
+climate-change,National Communication Sector,dimension/national-communication-sector,qb:DimensionProperty,,,,
+climate-change,National Communication Fuel,dimension/national-communication-fuel,qb:DimensionProperty,,,,
+climate-change,National Communication Sub Sector,dimension/national-communication-sub-sector,qb:DimensionProperty,,,,
+climate-change,Activity Name,dimension/activity-name,qb:DimensionProperty,,,,
+climate-change,National Communication Category,dimension/national-communication-category,qb:DimensionProperty,,,,
+climate-change,Source,dimension/source,qb:DimensionProperty,,,,
+climate-change,National Communication Fuel Group,dimension/national-communication-fuel-group,qb:DimensionProperty,,,,
