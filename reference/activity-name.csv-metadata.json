@@ -36,7 +36,7 @@
                 "name": "parent",
                 "datatype": "string",
                 "propertyUrl": "skos:broader",
-                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/measurement-units/{+parent}"
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/activity-name/{+parent}"
             },
             {
                 "titles": "Sort Priority",
@@ -49,22 +49,22 @@
         "primaryKey": [
             "path"
         ],
-        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/measurement-units/{+path}"
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/activity-name/{+path}"
     },
         "dc:title": "BEIS Greenhouse Gasses Emissions dataset",
         "rdfs:label": "BEIS Greenhouse Gasses Catalog Record",
         "rdfs:seeAlso": [
         {
-            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units/dataset",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name/dataset",
             "@type": [
                 "dcat:Dataset",
                 "http://publishmydata.com/pmdcat#Dataset"
             ],
             "http://publishmydata.com/pmdcat#datasetContents": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name"
             },
             "http://publishmydata.com/pmdcat#graph": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name"
             },
             "dc:modified": {
                 "@type": "dateTime",
@@ -81,17 +81,17 @@
         {
             "@id": "http://gss-data.org.uk/catalog/vocabularies",
             "dcat:record": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units/catalog-record"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name/catalog-record"
             }
         },
         {
-            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units/catalog-record",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name/catalog-record",
             "@type": "dcat:CatalogRecord",
             "foaf:primaryTopic": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units/dataset"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name/dataset"
             },
             "http://publishmydata.com/pmdcat#metadataGraph": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name"
             },
             "dc:title": "BEIS Greenhouse Gasses Emissions dataset",
             "rdfs:label": "BEIS Greenhouse Gasses Catalog Record",

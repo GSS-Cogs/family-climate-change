@@ -25,7 +25,7 @@
             },
             {
                 "titles": "Notation",
-                "required": false,
+                "required": true,
                 "name": "notation",
                 "datatype": "string",
                 "propertyUrl": "skos:notation"
@@ -36,11 +36,11 @@
                 "name": "parent",
                 "datatype": "string",
                 "propertyUrl": "skos:broader",
-                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/measurement-units/{+parent}"
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg/{+parent}"
             },
             {
                 "titles": "Sort Priority",
-                "required": false,
+                "required": true,
                 "name": "sort",
                 "datatype": "integer",
                 "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
@@ -49,22 +49,22 @@
         "primaryKey": [
             "notation"
         ],
-        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/measurement-units/{+path}"
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg/{+path}"
     },
     "rdfs:label": "GSS EDVP measurement units",
     "dc:title": "GSS EDVP measurement units",
     "rdfs:seeAlso": [
         {
-            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units/dataset",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg/dataset",
             "@type": [
                 "dcat:Dataset",
                 "http://publishmydata.com/pmdcat#Dataset"
             ],
             "http://publishmydata.com/pmdcat#datasetContents": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg"
             },
             "http://publishmydata.com/pmdcat#graph": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg"
             },
             "dc:modified": {
                 "@type": "dateTime",
@@ -81,17 +81,17 @@
         {
             "@id": "http://gss-data.org.uk/catalog/vocabularies",
             "dcat:record": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units/catalog-record"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg/catalog-record"
             }
         },
         {
-            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units/catalog-record",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg/catalog-record",
             "@type": "dcat:CatalogRecord",
             "foaf:primaryTopic": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units/dataset"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg/dataset"
             },
             "http://publishmydata.com/pmdcat#metadataGraph": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-units"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg"
             },
             "dc:title": "BEIS Greenhouse Gasses Emissions dataset",
             "rdfs:label": "BEIS Greenhouse Gasses Catalog Record",
