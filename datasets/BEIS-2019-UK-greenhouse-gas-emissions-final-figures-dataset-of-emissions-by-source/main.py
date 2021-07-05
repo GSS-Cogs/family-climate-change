@@ -12,6 +12,8 @@
 #     name: python3
 # ---
 
+# ## BEIS-2019-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-source
+
 import json
 import pandas as pd
 from gssutils import *
@@ -30,27 +32,19 @@ metadata.dataset.title = title
 
 df = distribution.as_pandas(encoding='ISO-8859-1').fillna(' ')
 
-df['National Communication Sub-sector'][df['National Communication Sub-sector'] == ''] = 'Not Applicable'
+df.loc[(df['National Communication Sub-sector'] == ' '), 'National Communication Sub-sector'] = 'Not Applicable'
 
-try:    
-    del df['TerritoryName']
-except:
-    i = 0  
-
-try:    
-    del df['EmissionUnits']
-except:
-    i = 0  
-
+df.drop(columns=['TerritoryName', 'EmissionUnits'], axis=1, inplace=True)
 df.drop(df.columns[df.columns.str.contains('Unnamed',case = False)],axis = 1, inplace = True)
-##df.rename(columns={'EmissionUnits' : 'Emission Units'}, inplace=True)
 
-df['Emission'] = df['Emission'].astype(float).round(5)
+df.rename(columns={'ActivityName' : 'Activity Name',
+                  'Emission' : 'Value'}, 
+            inplace=True)
 
-print(df.columns.values.tolist())
+df['Value'] = df['Value'].astype(float).round(5)
 
 for col in df.columns.values.tolist():
-    if col in ['GHG', 'GHG Grouped', 'IPCC Code', 'Year', 'Emission']: 
+    if col in ['GHG', 'GHG Grouped', 'IPCC Code', 'Year', 'Value']: 
         continue
     try:
         df[col] = df[col].apply(pathify)
