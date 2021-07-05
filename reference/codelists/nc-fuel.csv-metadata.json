@@ -13,7 +13,7 @@
             "http://publishmydata.com/pmdcat#ConceptScheme"
         ]
     },
-    "url": "measurement-units.csv",
+    "url": "nc-fuel.csv",
     "tableSchema": {
         "columns": [
             {
@@ -25,20 +25,13 @@
             },
             {
                 "titles": "Notation",
-                "required": false,
+                "required": true,
                 "name": "notation",
                 "datatype": "string",
                 "propertyUrl": "skos:notation"
             },
             {
-                "titles": "Description",
-                "required": false,
-                "name": "description",
-                "datatype": "string",
-                "propertyUrl": "rdfs:comment"
-            },
-            {
-                "titles": "Parent",
+                "titles": "Parent Notation",
                 "required": false,
                 "name": "parent",
                 "datatype": "string",
@@ -46,23 +39,22 @@
                 "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/measurement-units/{+parent}"
             },
             {
-                "titles": "Source",
-                "required": false,
-                "name": "source",
-                "datatype": "anyURI",
-                "propertyUrl": "rdfs:isDefinedBy",
-                "valueUrl": "{+source}"
-            },
-            {
                 "titles": "Sort Priority",
-                "required": false,
+                "required": true,
                 "name": "sort",
                 "datatype": "integer",
                 "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "titles": "Description",
+                "required": false,
+                "name": "description",
+                "datatype": "string",
+                "propertyUrl": "rdfs:comment"
             }
           ],
         "primaryKey": [
-            "path"
+            "notation"
         ],
         "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/measurement-units/{+path}"
     },
