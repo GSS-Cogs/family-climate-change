@@ -1,18 +1,18 @@
 Label,Notation,Parent Notation,Sort Priority
-CO2,co2,co2,1
-CH4,ch4,ch4,2
-N2O,n2o,n20,3
+CO2,co2,,1
+CH4,ch4,,2
+N2O,n2o,,3
 C2F6,c2f6,pfcs,4
-SF6,sf6,sf6,5
+SF6,sf6,,5
 HFC-134a,hfc-134a,hfcs,6
 HFC-23,hfc-23,hfcs,7
 CF4,cf4,pfcs,8
 C3F8,c3f8,pfcs,9
 PFC_C_Equiv_AR4,pfc_c_equiv_ar4,pfcs,10
 C4F8,c4f8,pfcs,11
-NF3,nf3,nf3,12
+NF3,nf3,,12
 HFC-152a,hfc-152a,hfcs,13
-HFC-32,hfc-32,hfca,14
+HFC-32,hfc-32,hfcs,14
 HFC-125,hfc-125,hfcs,15
 HFC-143a,hfc-143a,hfcs,16
 HFC-227ea,hfc-227ea,hfcs,17
@@ -20,3 +20,5 @@ C4F10,c4f10,hfcs,18
 HFC-245fa,hfc-245fa,hfcs,19
 HFC-365mfc,hfc-365mfc,hfcs,20
 HFC-43-10mee,hfc-43-10mee,hfcs,21
+HFCS,hfcs,,22
+PFCS,pfcs,,23
