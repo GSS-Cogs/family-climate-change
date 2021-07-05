@@ -58,8 +58,8 @@
         ],
         "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/nc-fuel/{+path}"
     },
-    "rdfs:label": "GSS EDVP measurement units",
-    "dc:title": "GSS EDVP measurement units",
+    "rdfs:label": "NC Fuel",
+    "dc:title": "NC Fuel",
     "rdfs:seeAlso": [
         {
             "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-fuel/dataset",
@@ -77,9 +77,9 @@
                 "@type": "dateTime",
                 "@value": "2021-05-20T11:35:12.599937"
             },
-            "rdfs:label": "GSS EDVP measurement units",
-            "dc:title": "GSS EDVP measurement units",
-            "rdfs:comment": "Dataset representing the 'GSS EDVP measurement units' code list.",
+            "rdfs:label": "NC Fuel",
+            "dc:title": "NC Fuel",
+            "rdfs:comment": "Dataset representing the 'NC Fuel' code list.",
             "dc:issued": {
                 "@type": "dateTime",
                 "@value": "2021-02-03T08:41:31.826544"
@@ -100,8 +100,8 @@
             "http://publishmydata.com/pmdcat#metadataGraph": {
                 "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-fuel"
             },
-            "dc:title": "GSS EDVP measurement units Catalog Record",
-            "rdfs:label": "GSS EDVP measurement units Catalog Record",
+            "dc:title": "NC Fuel Catalog Record",
+            "rdfs:label": "NC Fuel Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
                 "@value": "2021-02-03T08:41:31.826544"
