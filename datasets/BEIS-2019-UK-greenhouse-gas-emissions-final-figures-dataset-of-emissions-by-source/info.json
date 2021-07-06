@@ -32,7 +32,7 @@
             },
             "IPCC Code" : {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/ipcc-code",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/ipcc_code/{ipcc_code}",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/ipcc-code/{ipcc_code}",
                 "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/ipcc"
             },    
             "Year" : {
