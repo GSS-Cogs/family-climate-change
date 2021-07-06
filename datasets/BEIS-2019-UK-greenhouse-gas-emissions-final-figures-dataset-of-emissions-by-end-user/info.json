@@ -21,56 +21,61 @@
     "columns": {
 
         "GHG" : {
-            "description": "Green House Gas Type",
-            "value": "http://gss-data.org.uk/def/energy/concept/ghg/{ghg}"
+            "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/ghg", 
+            "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{ghg}",
+            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg"
         },
         "GHG Grouped" : {
-            "description": "Green House Gas Type",
-            "value": "http://gss-data.org.uk/def/energy/concept/ghg_grouped/{ghg_grouped}"
+            "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/ghg-grouped",
+            "value": "http://gss-data.org.uk/def/climate-change/concept/ghg_grouped/{ghg_grouped}",
+            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg"
         },
         "IPCC Code" : {
-            "description": "",
-            "value": "http://gss-data.org.uk/def/energy/concept/ipcc_code/{ipcc_code}"
+            "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/ipcc-code",
+            "value": "http://gss-data.org.uk/def/climate-change/concept/ipcc_code/{ipcc_code}",
+            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/ipcc"
         },    
         "Year" : {
-            "description": "",
-            "value": "http://gss-data.org.uk/def/energy/concept/year/{year}"
-        },        
-        "Emmission Units" : {
-            "description": "",
-            "value": "http://gss-data.org.uk/def/energy/concept/emission_unit/{emission_unit}"        
+            "parent": "http://purl/linked-data/sdmx/2009/dimension#refYear",
+            "value": "http://gss-data.org.uk/def/climate-change/concept/year/{year}",
+            "codelist": false 
+               
         },
-        "Nc Sector": {
-            "description": "NC Sector",
-            "value": "http://gss-data.org.uk/def/energy/concept/nc-sectors/{nc_sector}",
-            "codelist": "http://gss-data.org.uk/def/energy/concept-scheme/nc-sectors"
+        "National Communication Sector": {
+            "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
+            "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sectors/{national_communication_sector}",
+            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-sectors"
         },
-        "Nc Sub Sector": {
-            "description": "NC Sub Sector",
-            "value": "http://gss-data.org.uk/def/energy/concept/nc-sectors/{nc_sub_sector}",
-            "codelist": "http://gss-data.org.uk/def/energy/concept-scheme/nc-sectors"
+        "National Communication Sub-sector": {
+            "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sub-sector",
+            "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sectors/{national_communication_sub_sector}",
+            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-sectors"
         },
-        "Nc Category": {
-            "description": "NC Category",
-            "value": "http://gss-data.org.uk/def/energy/concept/nc-sectors/{nc_category}",
-            "codelist": "http://gss-data.org.uk/def/energy/concept-scheme/nc-sectors"
+        "National Communication Category": {
+            "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-category",
+            "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sectors/{national_communication_category}",
+            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-sectors"
         },
         "Source" : {
-            "description": "",
-            "value": "http://gss-data.org.uk/def/energy/concept/source/{source}"
+            "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/source",
+            "value": "http://gss-data.org.uk/def/climate-change/concept/source/{source}",
+            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/source"
+            
         },    
-        "Nc Fuel": {
-            "description": "",
-            "value": "http://gss-data.org.uk/def/energy/concept/nc-sectors/{nc_fuel}",
-            "codelist": "http://gss-data.org.uk/def/energy/concept-scheme/nc-sectors"
+        "National Communication Fuel": {
+            "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel",
+            "value": "http://gss-data.org.uk/def/climate-change/concept/national-communcation-sectors/{national_communication_fuel}",
+            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-fuel"
         },
-        "Nc Fuel Group" : {
-            "description": "",
-            "value": "http://gss-data.org.uk/def/energy/concept/nc-sectors/{nc-fuel-group}"
+        "National Communication Fuel Group" : {
+            "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel-group",
+            "value": "http://gss-data.org.uk/def/climate-change/concept/national-communcation-sectors/{national_communication_fuel_group}",
+            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-fuel"
         }, 
         "Activity Name" : {
-            "description": "",
-            "value": "http://gss-data.org.uk/def/energy/concept/activity-name/{activity-name}"
+            "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/activity-name",
+            "value": "http://gss-data.org.uk/def/climate-change/concept/activity-name/{activity_name}",
+            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name"
         },
         "Value": {
             "unit": "http://gss-data.org.uk/def/concept/measurement-units/mt-gwp-co2-ar4",
