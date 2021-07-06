@@ -1,0 +1,115 @@
+{
+    "@context": [
+        "http://www.w3.org/ns/csvw",
+        {
+            "@language": "en"
+        }
+    ],
+    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel",
+    "prov:hadDerivation": {
+        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel",
+        "@type": [
+            "skos:ConceptScheme",
+            "http://publishmydata.com/pmdcat#ConceptScheme"
+        ]
+    },
+    "url": "national-communication-fuel.csv",
+    "tableSchema": {
+        "columns": [
+            {
+                "titles": "Label",
+                "required": true,
+                "name": "label",
+                "datatype": "string",
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "titles": "Notation",
+                "required": true,
+                "name": "notation",
+                "datatype": "string",
+                "propertyUrl": "skos:notation"
+            },
+            {
+                "titles": "Parent Notation",
+                "required": false,
+                "name": "parent",
+                "datatype": "string",
+                "propertyUrl": "skos:broader",
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{+parent}"
+            },
+            {
+                "titles": "Sort Priority",
+                "required": true,
+                "name": "sort",
+                "datatype": "integer",
+                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "titles": "Description",
+                "required": false,
+                "name": "description",
+                "datatype": "string",
+                "propertyUrl": "rdfs:comment"
+            }
+          ],
+        "primaryKey": [
+            "notation"
+        ],
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{+notation}"
+    },
+    "rdfs:label": "NC Fuel",
+    "dc:title": "NC Fuel",
+    "rdfs:seeAlso": [
+        {
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel/dataset",
+            "@type": [
+                "dcat:Dataset",
+                "http://publishmydata.com/pmdcat#Dataset"
+            ],
+            "http://publishmydata.com/pmdcat#datasetContents": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel"
+            },
+            "http://publishmydata.com/pmdcat#graph": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-05-20T11:35:12.599937"
+            },
+            "rdfs:label": "NC Fuel",
+            "dc:title": "NC Fuel",
+            "rdfs:comment": "Dataset representing the 'NC Fuel' code list.",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-02-03T08:41:31.826544"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/catalog/vocabularies",
+            "dcat:record": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel/catalog-record"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel/catalog-record",
+            "@type": "dcat:CatalogRecord",
+            "foaf:primaryTopic": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel/dataset"
+            },
+            "http://publishmydata.com/pmdcat#metadataGraph": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel"
+            },
+            "dc:title": "NC Fuel Catalog Record",
+            "rdfs:label": "NC Fuel Catalog Record",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-02-03T08:41:31.826544"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-02-03T08:41:31.826544"
+            }
+        }
+    ]
+}
