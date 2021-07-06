@@ -56,7 +56,7 @@
         "primaryKey": [
             "notation"
         ],
-        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/nc-fuel/{+path}"
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/nc-fuel/{+notation}"
     },
     "rdfs:label": "NC Fuel",
     "dc:title": "NC Fuel",

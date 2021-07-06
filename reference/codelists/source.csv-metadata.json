@@ -49,7 +49,7 @@
         "primaryKey": [
             "notation"
         ],
-        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/source/{+path}"
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/source/{+notation}"
     },
     "rdfs:label": "BEIS measurement source",
     "dc:title": "BEIS measurement source",
