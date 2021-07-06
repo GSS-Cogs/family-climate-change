@@ -35,6 +35,9 @@ metadata.dataset.title = title
 df = distribution.as_pandas(encoding='ISO-8859-1').fillna(' ')
 
 df.loc[(df['National Communication Sub-sector'] == ' '), 'National Communication Sub-sector'] = 'Not Applicable'
+df.loc[(df['National Communication Category'] == ' '), 'National Communication Category'] = 'Not Applicable'
+df.loc[(df['National Communication Fuel'] == ' '), 'National Communication Fuel'] = 'Not Applicable'
+df.loc[(df['National Communication Fuel Group'] == ' '), 'National Communication Fuel Group'] = 'Not Applicable'
 
 df.drop(columns=['TerritoryName', 'EmissionUnits'], axis=1, inplace=True)
 df.drop(df.columns[df.columns.str.contains('Unnamed',case = False)],axis = 1, inplace = True)
