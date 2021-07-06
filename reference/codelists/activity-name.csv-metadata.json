@@ -31,7 +31,7 @@
                 "propertyUrl": "skos:notation"
             },
             {
-                "titles": "Parent",
+                "titles": "Parent Notartion",
                 "required": false,
                 "name": "parent",
                 "datatype": "string",
