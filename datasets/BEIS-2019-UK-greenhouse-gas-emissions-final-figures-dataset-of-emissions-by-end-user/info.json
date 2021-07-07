@@ -65,12 +65,12 @@
         },    
         "National Communication Fuel": {
             "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel",
-            "value": "http://gss-data.org.uk/def/climate-change/concept/national-communcation-fuel/{national_communication_fuel}",
+            "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{national_communication_fuel}",
             "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel"
         },
         "National Communication Fuel Group" : {
             "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel-group",
-            "value": "http://gss-data.org.uk/def/climate-change/concept/national-communcation-fuel/{national_communication_fuel_group}",
+            "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{national_communication_fuel_group}",
             "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel"
         }, 
         "Activity Name" : {
