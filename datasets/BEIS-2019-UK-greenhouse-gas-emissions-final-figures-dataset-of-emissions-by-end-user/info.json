@@ -70,8 +70,8 @@
         },
         "National Communication Fuel Group" : {
             "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel-group",
-            "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{national_communication_fuel_group}",
-            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel"
+            "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel-group/{national_communication_fuel_group}",
+            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel-group"
         }, 
         "Activity Name" : {
             "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/activity-name",
