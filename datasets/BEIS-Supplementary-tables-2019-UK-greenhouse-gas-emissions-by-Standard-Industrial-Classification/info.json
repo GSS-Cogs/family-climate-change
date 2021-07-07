@@ -1,0 +1,26 @@
+{
+    "id": "beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification",
+    "title": "Supplementary tables: 2019 UK greenhouse gas emissions by Standard Industrial Classification",
+    "publisher": "Department for Business, Energy and Industrial Strategy",
+    "description": "This publication provides the final estimates of UK territorial greenhouse gas emissions going back to 1990. Estimates are presented by source in February of each year. They are updated each year:\nin March, to include estimates by end-user and fuel type:\nin June, to include estimates by Standard Industrial Classification (SIC).",
+    "landingPage": "https://www.gov.uk/government/collections/final-uk-greenhouse-gas-emissions-national-statistics",
+    "datasetNotes": [
+        "On landing page scroll down to contents click the most recent date, this will display a link , click the link this will open another page, scroll down to \"Documents\" and the data can be found in XLS and ODS"
+    ],
+    "published": "2021-06-24",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "XLS, ODS",
+        "stage": "Prioritized"
+    },
+    "transform": {
+        "stage": [
+            "Priority"
+        ],
+        "airtable": "rechfzaMOUCSYT6zq"
+    },
+    "sizingNotes": "Number of tabs with largish tables but simple table structure and little footnotes.",
+    "notes": "Note this dataset is supplement to \"Final UK greenhouse gas emissions national statistics\" dataset above. Priority dataset for Climate Change Platform project."
+}

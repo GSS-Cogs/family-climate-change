@@ -1,0 +1,21 @@
+{
+    "id": "met-office-modelling-rainfall",
+    "title": "Modelling Rainfall",
+    "publisher": "Meteorological Office",
+    "description": "",
+    "datasetNotes": [
+        "No landing page for this dataset as it is a bespoke dataset supplied by Met Office directly to IDP-D as part of the Climate Change Platform project. It is a subset of the Met Office HAD large dataset."
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "recSE5QfPy874VFbH"
+    },
+    "sizingNotes": "",
+    "notes": ""
+}
