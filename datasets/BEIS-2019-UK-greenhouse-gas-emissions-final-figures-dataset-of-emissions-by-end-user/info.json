@@ -28,7 +28,7 @@
         "GHG Grouped" : {
             "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/ghg-grouped",
             "value": "http://gss-data.org.uk/def/climate-change/concept/ghg-grouped/{ghg_grouped}",
-            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg"
+            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg-grouped"
         },
         "IPCC Code" : {
             "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/ipcc-code",
