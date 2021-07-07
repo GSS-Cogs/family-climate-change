@@ -44,13 +44,6 @@
                 "name": "sort",
                 "datatype": "integer",
                 "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
-            },
-            {
-                "titles": "Description",
-                "required": false,
-                "name": "description",
-                "datatype": "string",
-                "propertyUrl": "rdfs:comment"
             }
           ],
         "primaryKey": [
