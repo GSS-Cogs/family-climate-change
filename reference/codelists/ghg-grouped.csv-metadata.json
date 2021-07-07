@@ -5,15 +5,15 @@
             "@language": "en"
         }
     ],
-    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg",
+    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg-grouped",
     "prov:hadDerivation": {
-        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg",
+        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg-grouped",
         "@type": [
             "skos:ConceptScheme",
             "http://publishmydata.com/pmdcat#ConceptScheme"
         ]
     },
-    "url": "ghg.csv",
+    "url": "ghg-grouped.csv",
     "tableSchema": {
         "columns": [
             {
@@ -36,7 +36,7 @@
                 "name": "parent",
                 "datatype": "string",
                 "propertyUrl": "skos:broader",
-                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg/{+parent}"
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg-grouped/{+parent}"
             },
             {
                 "titles": "Sort Priority",
@@ -49,22 +49,22 @@
         "primaryKey": [
             "notation"
         ],
-        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg/{+notation}"
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg-grouped/{+notation}"
     },
     "rdfs:label": "GSS BEIS measurement units",
     "dc:title": "GSS BEIS measurement units",
     "rdfs:seeAlso": [
         {
-            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg/dataset",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg-grouped/dataset",
             "@type": [
                 "dcat:Dataset",
                 "http://publishmydata.com/pmdcat#Dataset"
             ],
             "http://publishmydata.com/pmdcat#datasetContents": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg-grouped"
             },
             "http://publishmydata.com/pmdcat#graph": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg-grouped"
             },
             "dc:modified": {
                 "@type": "dateTime",
@@ -81,17 +81,17 @@
         {
             "@id": "http://gss-data.org.uk/catalog/vocabularies",
             "dcat:record": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg/catalog-record"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg-grouped/catalog-record"
             }
         },
         {
-            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg/catalog-record",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg-grouped/catalog-record",
             "@type": "dcat:CatalogRecord",
             "foaf:primaryTopic": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg/dataset"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg-grouped/dataset"
             },
             "http://publishmydata.com/pmdcat#metadataGraph": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg-grouped"
             },
             "dc:title": "BEIS Greenhouse Gasses Emissions dataset",
             "rdfs:label": "BEIS Greenhouse Gasses Catalog Record",
