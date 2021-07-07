@@ -44,17 +44,18 @@
         "National Communication Sector": {
             "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
             "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sectors/{national_communication_sector}",
-            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-sectors"
+            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector" 
+        
         },
         "National Communication Sub-sector": {
             "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sub-sector",
             "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sectors/{national_communication_sub_sector}",
-            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-sectors"
+            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector"
         },
         "National Communication Category": {
             "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-category",
             "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sectors/{national_communication_category}",
-            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-sectors"
+            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector"
         },
         "Source" : {
             "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/source",
@@ -64,13 +65,13 @@
         },    
         "National Communication Fuel": {
             "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel",
-            "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sectors/{national_communication_fuel}",
-            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-fuel"
+            "value": "http://gss-data.org.uk/def/climate-change/concept/national-communcation-sectors/{national_communication_fuel}",
+            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel"
         },
         "National Communication Fuel Group" : {
             "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel-group",
-            "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sectors/{national_communication_fuel_group}",
-            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-fuel"
+            "value": "http://gss-data.org.uk/def/climate-change/concept/national-communcation-sectors/{national_communication_fuel_group}",
+            "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel"
         }, 
         "Activity Name" : {
             "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/activity-name",
