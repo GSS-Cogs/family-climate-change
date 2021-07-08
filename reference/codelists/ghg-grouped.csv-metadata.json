@@ -25,7 +25,7 @@
             },
             {
                 "titles": "Notation",
-                "required": true,
+                "required": false,
                 "name": "notation",
                 "datatype": "string",
                 "propertyUrl": "skos:notation"
@@ -40,7 +40,7 @@
             },
             {
                 "titles": "Sort Priority",
-                "required": true,
+                "required": false,
                 "name": "sort",
                 "datatype": "integer",
                 "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
