@@ -37,9 +37,8 @@
         },    
         "Year" : {
             "parent": "http://purl/linked-data/sdmx/2009/dimension#refYear",
-            "value": "http://gss-data.org.uk/def/climate-change/concept/year/{year}",
+            "value": "http://reference.data.gov.uk/id/year/{year}",
             "codelist": false 
-               
         },
         "National Communication Sector": {
             "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
@@ -61,7 +60,6 @@
             "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/source",
             "value": "http://gss-data.org.uk/def/climate-change/concept/source/{source}",
             "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/source"
-            
         },    
         "National Communication Fuel": {
             "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel",
