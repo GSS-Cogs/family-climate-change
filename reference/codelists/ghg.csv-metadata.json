@@ -32,7 +32,7 @@
             },
             {
                 "titles": "Parent Notation",
-                "required": true,
+                "required": false,
                 "name": "parent",
                 "datatype": "string",
                 "propertyUrl": "skos:broader",
