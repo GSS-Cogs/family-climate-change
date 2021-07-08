@@ -25,14 +25,14 @@
             },
             {
                 "titles": "Notation",
-                "required": false,
+                "required": true,
                 "name": "notation",
                 "datatype": "string",
                 "propertyUrl": "skos:notation"
             },
             {
                 "titles": "Parent Notation",
-                "required": false,
+                "required": true,
                 "name": "parent",
                 "datatype": "string",
                 "propertyUrl": "skos:broader",
@@ -40,7 +40,7 @@
             },
             {
                 "titles": "Sort Priority",
-                "required": false,
+                "required": true,
                 "name": "sort",
                 "datatype": "integer",
                 "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
