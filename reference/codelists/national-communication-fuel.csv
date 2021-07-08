@@ -1,0 +1,15 @@
+Label,Notation,Parent Notation,Sort Priority
+Burning Oil,burning-oil,,1
+Coal,coal,,2
+Fuel Oil,fuel-oil,,3
+Natural Gas,natural-gas,,4
+Other emissions,other-emissions,,5
+Gas Oil,gas-oil,,6
+Other gases,other-gases,,7
+Other solid fuels,other-solid-fuels,,8
+Petroleum gases,petroleum-gases,,9
+Other petroleum products,other-petroleum-products,,10
+Orimulsion,orimulsion,,11
+Motor spirit,motor-spirit,,12
+Aviation turbine fuel,aviation-turbine-fuel,,13
+DERV,derv,,14
