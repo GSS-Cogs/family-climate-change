@@ -5,9 +5,9 @@
             "@language": "en"
         }
     ],
-    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-group",
+    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel-group",
     "prov:hadDerivation": {
-        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-group",
+        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel-group",
         "@type": [
             "skos:ConceptScheme",
             "http://publishmydata.com/pmdcat#ConceptScheme"
@@ -36,7 +36,7 @@
                 "name": "parent",
                 "datatype": "string",
                 "propertyUrl": "skos:broader",
-                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/national-communication-group/{+parent}"
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel-group/{+parent}"
             },
             {
                 "titles": "Sort Priority",
@@ -49,22 +49,22 @@
         "primaryKey": [
             "notation"
         ],
-        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/national-communication-group/{+notation}"
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel-group/{+notation}"
     },
     "rdfs:label": "NC Fuel",
     "dc:title": "NC Fuel",
     "rdfs:seeAlso": [
         {
-            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-group/dataset",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel-group/dataset",
             "@type": [
                 "dcat:Dataset",
                 "http://publishmydata.com/pmdcat#Dataset"
             ],
             "http://publishmydata.com/pmdcat#datasetContents": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-group"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel-group"
             },
             "http://publishmydata.com/pmdcat#graph": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-group"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel-group"
             },
             "dc:modified": {
                 "@type": "dateTime",
@@ -81,17 +81,17 @@
         {
             "@id": "http://gss-data.org.uk/catalog/vocabularies",
             "dcat:record": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-group/catalog-record"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel-group/catalog-record"
             }
         },
         {
-            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-group/catalog-record",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel-group/catalog-record",
             "@type": "dcat:CatalogRecord",
             "foaf:primaryTopic": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-group/dataset"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel-group/dataset"
             },
             "http://publishmydata.com/pmdcat#metadataGraph": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-group"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel-group"
             },
             "dc:title": "NC Fuel Catalog Record",
             "rdfs:label": "NC Fuel Catalog Record",
