@@ -25,7 +25,7 @@
             },
             {
                 "titles": "Notation",
-                "required": true,
+                "required": false,
                 "name": "notation",
                 "datatype": "string",
                 "propertyUrl": "skos:notation"
