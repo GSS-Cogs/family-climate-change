@@ -49,7 +49,7 @@
         "primaryKey": [
             "notation"
         ],
-        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg-grouped/{+notation}"
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/ghg-grouped/{+notation}"
     },
     "rdfs:label": "GSS BEIS measurement units",
     "dc:title": "GSS BEIS measurement units",
