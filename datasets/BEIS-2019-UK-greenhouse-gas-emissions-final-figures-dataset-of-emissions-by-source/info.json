@@ -76,8 +76,8 @@
                 "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name"
             },
             "Value": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/value",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/value/{value}",
+                "unit": "http://gss-data.org.uk/def/concept/measurement-units/mt-gwp-co2-ar4",
+                "measure": "http://gss-data.org.uk/def/measure/gas-emissions",
                 "datatype": "double"
             }
         }
