@@ -1,7 +1,7 @@
 {
     "@context": "http://www.w3.org/ns/csvw",
-    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-sectors",
-    "url": "nc-sectors.csv",
+    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector",
+    "url": "national-communication-sector.csv",
     "tableSchema": {
         "columns": [
             {
@@ -30,7 +30,7 @@
                 },
                 "required": false,
                 "propertyUrl": "skos:broader",
-                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/nc-sectors/{+parent_notation}"
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{+parent_notation}"
             },
             {
                 "titles": "Sort Priority",
@@ -54,16 +54,16 @@
             {
                 "virtual": true,
                 "propertyUrl": "skos:inScheme",
-                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-sectors"
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector"
             }
         ],
         "primaryKey": "notation",
-        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/nc-sectors/{+notation}"
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{+notation}"
     },
     "rdfs:label": "NC Sectors",
     "dc:title": "NC Sectors",
     "prov:hadDerivation": {
-        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-sectors",
+        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector",
         "@type": [
             "skos:ConceptScheme",
             "http://publishmydata.com/pmdcat#ConceptScheme"
@@ -71,7 +71,7 @@
     },
     "rdfs:seeAlso": [
         {
-            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-sectors/dataset",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector/dataset",
             "@type": [
                 "dcat:Dataset",
                 "http://publishmydata.com/pmdcat#Dataset"
@@ -79,11 +79,11 @@
             "rdfs:label": "NC Sectors",
             "dc:title": "NC Sectors",
             "http://publishmydata.com/pmdcat#datasetContents": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-sectors"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector"
             },
             "rdfs:comment": "Dataset representing the 'NC Sectors' code list.",
             "http://publishmydata.com/pmdcat#graph": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-sectors"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector"
             },
             "dc:modified": {
                 "@type": "dateTime",
@@ -97,11 +97,11 @@
         {
             "@id": "http://gss-data.org.uk/catalog/vocabularies",
             "dcat:record": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-sectors/catalog-record"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector/catalog-record"
             }
         },
         {
-            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-sectors/catalog-record",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector/catalog-record",
             "@type": "dcat:CatalogRecord",
             "dc:title": "NC Sectors Catalog Record",
             "rdfs:label": "NC Sectors Catalog Record",
@@ -110,14 +110,14 @@
                 "@value": "2020-12-23T11:58:58.120533"
             },
             "foaf:primaryTopic": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-sectors/dataset"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector/dataset"
             },
             "dc:modified": {
                 "@type": "dateTime",
                 "@value": "2020-12-23T11:59:10.942836"
             },
             "http://publishmydata.com/pmdcat#metadataGraph": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/nc-sectors"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector"
             }
         }
     ]

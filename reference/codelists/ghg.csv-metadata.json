@@ -49,10 +49,10 @@
         "primaryKey": [
             "notation"
         ],
-        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg/{+notation}"
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/ghg/{+notation}"
     },
-    "rdfs:label": "GSS EDVP measurement units",
-    "dc:title": "GSS EDVP measurement units",
+    "rdfs:label": "GSS BEIS measurement units",
+    "dc:title": "GSS BEIS measurement units",
     "rdfs:seeAlso": [
         {
             "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg/dataset",

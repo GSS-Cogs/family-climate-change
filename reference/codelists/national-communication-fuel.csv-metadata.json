@@ -5,15 +5,15 @@
             "@language": "en"
         }
     ],
-    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name",
+    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel",
     "prov:hadDerivation": {
-        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name",
+        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel",
         "@type": [
             "skos:ConceptScheme",
             "http://publishmydata.com/pmdcat#ConceptScheme"
         ]
     },
-    "url": "activity-name.csv",
+    "url": "national-communication-fuel.csv",
     "tableSchema": {
         "columns": [
             {
@@ -25,7 +25,7 @@
             },
             {
                 "titles": "Notation",
-                "required": false,
+                "required": true,
                 "name": "notation",
                 "datatype": "string",
                 "propertyUrl": "skos:notation"
@@ -36,11 +36,11 @@
                 "name": "parent",
                 "datatype": "string",
                 "propertyUrl": "skos:broader",
-                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/activity-name/{+parent}"
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{+parent}"
             },
             {
                 "titles": "Sort Priority",
-                "required": false,
+                "required": true,
                 "name": "sort",
                 "datatype": "integer",
                 "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
@@ -49,30 +49,30 @@
         "primaryKey": [
             "notation"
         ],
-        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/activity-name/{+notation}"
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{+notation}"
     },
-        "dc:title": "BEIS Greenhouse Gasses Emissions dataset",
-        "rdfs:label": "BEIS Greenhouse Gasses Catalog Record",
-        "rdfs:seeAlso": [
+    "rdfs:label": "NC Fuel",
+    "dc:title": "NC Fuel",
+    "rdfs:seeAlso": [
         {
-            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name/dataset",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel/dataset",
             "@type": [
                 "dcat:Dataset",
                 "http://publishmydata.com/pmdcat#Dataset"
             ],
             "http://publishmydata.com/pmdcat#datasetContents": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel"
             },
             "http://publishmydata.com/pmdcat#graph": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel"
             },
             "dc:modified": {
                 "@type": "dateTime",
                 "@value": "2021-05-20T11:35:12.599937"
             },
-            "rdfs:label": "BEIS Greenhouse Gas Activity",
-            "dc:title": "BEIS Greenhouse Gas Activity  ",
-            "rdfs:comment": "",
+            "rdfs:label": "NC Fuel",
+            "dc:title": "NC Fuel",
+            "rdfs:comment": "Dataset representing the 'NC Fuel' code list.",
             "dc:issued": {
                 "@type": "dateTime",
                 "@value": "2021-02-03T08:41:31.826544"
@@ -81,27 +81,27 @@
         {
             "@id": "http://gss-data.org.uk/catalog/vocabularies",
             "dcat:record": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name/catalog-record"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel/catalog-record"
             }
         },
         {
-            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name/catalog-record",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel/catalog-record",
             "@type": "dcat:CatalogRecord",
             "foaf:primaryTopic": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name/dataset"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel/dataset"
             },
             "http://publishmydata.com/pmdcat#metadataGraph": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel"
             },
-            "dc:title": "BEIS Greenhouse Gasses Emissions dataset",
-            "rdfs:label": "BEIS Greenhouse Gasses Catalog Record",
+            "dc:title": "NC Fuel Catalog Record",
+            "rdfs:label": "NC Fuel Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-06-03T08:41:31.826544"
+                "@value": "2021-02-03T08:41:31.826544"
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-06-03T08:41:31.826544"
+                "@value": "2021-02-03T08:41:31.826544"
             }
         }
     ]
