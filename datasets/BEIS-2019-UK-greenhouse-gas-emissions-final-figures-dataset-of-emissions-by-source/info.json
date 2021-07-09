@@ -78,8 +78,7 @@
             "Value": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/value",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/value/{value}",
-                "datatype": "double",
-                "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-unit"
+                "datatype": "double"
             }
         }
     },
