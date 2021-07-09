@@ -7,7 +7,7 @@
         "base": "https://ci.floop.org.uk",
         "path": [
             "GSS_data",
-            "Climate Change"
+            "ClimateChange"
         ]
     },
     "sparql": "https://staging.gss-data.org.uk/sparql",
