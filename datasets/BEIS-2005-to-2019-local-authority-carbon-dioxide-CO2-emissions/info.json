@@ -19,7 +19,8 @@
         "stage": [
             "Priority"
         ],
-        "airtable": "recDzwXjfRznebsCC"
+        "airtable": "recDzwXjfRznebsCC",
+        "main_issue": 21
     },
     "sizingNotes": "Although large table, in straightforward CSV format.",
     "notes": "Priority dataset for Climate Change Platform project."

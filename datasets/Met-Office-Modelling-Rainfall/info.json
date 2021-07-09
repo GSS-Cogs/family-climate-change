@@ -14,7 +14,8 @@
         "source": "CSV"
     },
     "transform": {
-        "airtable": "recSE5QfPy874VFbH"
+        "airtable": "recSE5QfPy874VFbH",
+        "main_issue": 22
     },
     "sizingNotes": "",
     "notes": ""

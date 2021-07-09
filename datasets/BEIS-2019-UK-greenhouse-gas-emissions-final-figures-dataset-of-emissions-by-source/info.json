@@ -11,34 +11,32 @@
     "families": [
         "Climate Change"
     ],
-
     "transform": {
-    "stage": [
-        "Priority"
-    ],
-    "airtable": "recqrEhStypoIrWJ2",
-    "main_issue": 7,
-    "columns": {
-      
-            "GHG" : {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/ghg", 
+        "stage": [
+            "Priority"
+        ],
+        "airtable": "recqrEhStypoIrWJ2",
+        "main_issue": 7,
+        "columns": {
+            "GHG": {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/ghg",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{ghg}",
                 "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg"
             },
-            "GHG Grouped" : {
+            "GHG Grouped": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/ghg-grouped",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/ghg-grouped/{ghg_grouped}",
                 "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg-grouped"
             },
-            "IPCC Code" : {
+            "IPCC Code": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/ipcc-code",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/ipcc-code/{ipcc_code}",
                 "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/ipcc-code"
-            },    
-            "Year" : {
+            },
+            "Year": {
                 "parent": "http://purl/linked-data/sdmx/2009/dimension#refYear",
                 "value": "http://reference.data.gov.uk/id/year/{year}",
-                "codelist": false 
+                "codelist": false
             },
             "National Communication Sector": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
@@ -55,22 +53,22 @@
                 "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_category}",
                 "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector"
             },
-            "Source" : {
+            "Source": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/source",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/source/{source}",
                 "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/source"
-            },    
+            },
             "National Communication Fuel": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{national_communication_fuel}",
                 "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel"
             },
-            "National Communication Fuel Group" : {
+            "National Communication Fuel Group": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel-group",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel-group/{national_communication_fuel_group}",
                 "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel-group"
-            }, 
-            "Activity Name" : {
+            },
+            "Activity Name": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/activity-name",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/activity-name/{activity_name}",
                 "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name"
@@ -83,5 +81,9 @@
         }
     },
     "sizingNotes": "Straightforward data CSV form.",
-    "notes": "Priority dataset for Climate Change Platform project."
+    "notes": "Priority dataset for Climate Change Platform project.",
+    "extract": {
+        "source": "CSV",
+        "stage": "Prioritized"
+    }
 }
