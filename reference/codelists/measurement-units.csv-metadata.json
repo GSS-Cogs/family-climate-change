@@ -83,7 +83,7 @@
         "primaryKey": [
             "path"
         ],
-        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/measurement-units/{+path}"
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/{+path}"
     },
     "rdfs:label": "GSS BEIS measurement units",
     "dc:title": "GSS BEIS measurement units",
