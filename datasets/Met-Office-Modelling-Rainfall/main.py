@@ -7,17 +7,17 @@ from typing import Union, Sequence, Any, List
 from unidecode import unidecode
 
 #%%
-def pathify(label):
-    """
-      Convert a label into something that can be used in a URI path segment.
-    """
-    return re.sub(r'-$', '',
-                  re.sub(r'-+', '-',
-                         re.sub(r'[^\w/]', '-', unidecode(label).lower())))
+#def pathify(label):
+ #   """
+  #    Convert a label into something that can be used in a URI path segment.
+   # """
+    #return re.sub(r'-$', '',
+     #             re.sub(r'-+', '-',
+      #                   re.sub(r'[^\w/]', '-', unidecode(label).lower())))
 
 
 
-pd.melt(rainfall, id_vars=['period-start'])
+#pd.melt(rainfall, id_vars=['period-start'])
 
 
 
