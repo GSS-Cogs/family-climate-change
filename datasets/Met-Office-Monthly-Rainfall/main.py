@@ -1,6 +1,8 @@
 #%%
 import re
 import pandas as pd 
+import json 
+from pathlib import Path
 from typing import Union, Sequence, Any, List
 from unidecode import unidecode
 
@@ -45,8 +47,18 @@ rainfall = rainfall.drop(columns='daycount')
 
 rainfall = pd.melt(rainfall, id_vars=['period-start'])
 
-rainfall.to_csv("monthly-rainfall.csv")
+rainfall.to_csv("monthly-rainfall.csv",index = False) 
 
 
 
+# %%
+##No scraper present so we have created this manually 
+from gssutils.csvw.mapping import CSVWMapping
+with open('info.json') as f:
+    info_json = json.load(f)
+csvw_mapping = CSVWMapping()
+csvw_mapping.set_mapping(info_json)
+csvw_mapping.set_csv(Path("monthly-rainfall.csv"))
+csvw_mapping.set_dataset_uri(f"http://gss-data.org.uk/data/gss_data/climate-change/{info_json['id']}")
+csvw_mapping.write(Path("rainfall.csv-metadata.json"))
 # %%
