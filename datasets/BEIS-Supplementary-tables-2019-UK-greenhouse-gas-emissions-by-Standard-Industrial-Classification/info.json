@@ -4,6 +4,7 @@
     "publisher": "Department for Business, Energy and Industrial Strategy",
     "description": "This publication provides the final estimates of UK territorial greenhouse gas emissions going back to 1990. Estimates are presented by source in February of each year. They are updated each year:\nin March, to include estimates by end-user and fuel type:\nin June, to include estimates by Standard Industrial Classification (SIC).",
     "landingPage": "https://www.gov.uk/government/collections/final-uk-greenhouse-gas-emissions-national-statistics",
+    "dataURL": "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/995867/SIC-final-greenhouse-gas-emissions-tables-2019.xlsx",
     "datasetNotes": [
         "On landing page scroll down to contents click the most recent date, this will display a link , click the link this will open another page, scroll down to \"Documents\" and the data can be found in XLS and ODS"
     ],
