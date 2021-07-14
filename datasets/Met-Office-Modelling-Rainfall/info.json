@@ -28,13 +28,13 @@
                 "codelist": false
             },
             "Rainfall": {
-                "unit": "http://gss-data.org.uk/def/concept/measurement-units/mililitres",
+                "unit": "http://gss-data.org.uk/def/concept/measurement-units/rainfall",
                 "measure": "http://gss-data.org.uk/def/climate-change/measure/rainfall",
                 "datatype": "double"
             }
         }
     },
-    },
-    "sizingNotes": "",
+    
+    "sizingNotes": "data supplied directly to IPD-D via Met Office",
     "notes": ""
 }
