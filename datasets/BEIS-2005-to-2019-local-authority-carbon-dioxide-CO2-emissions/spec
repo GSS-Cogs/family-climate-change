@@ -6,3 +6,4 @@
 
 ##pathify columns LA CO2 Sector,	LA CO2 Sub-sector
 
+## remove (kt CO2) from Territorial emissions (kt CO2)	Emissions within the scope of influence of LAs (kt CO2) as we can capture this as the measure type 
