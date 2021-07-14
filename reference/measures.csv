@@ -1,2 +1,3 @@
 Namespace,Path,Label,Comment,Source,Parent,Range
-climate-change,rainfall,Rainfall,Total rainfall fallen,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,rainfall,Rainfall,Total rainfall fallen,,,xsd:decimal
+gas-emissions,Gas Emissions,,,,,xsd:decimal
