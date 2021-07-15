@@ -201,7 +201,7 @@ for tab in tabs:
         savepreviewhtml(tidy_sheet, fname=f'{tab.name}_Preview.html')
         trace.store(f'combined_dataframe_table_asset_value', tidy_sheet.topandas())
 
-country_code_dict={'United Kingdom': 'K02000001', 'England':'E92000001', 'Wales':'W92000004', 'Northern Ireland':'N92000002', 'Scotland':'S92000003'}
+ons_geography_code_dict={'United Kingdom': 'K02000001', 'England':'E92000001', 'Wales':'W92000004', 'Northern Ireland':'N92000002', 'Scotland':'S92000003'}
 physical_flow_dict={'Timber': 'Provisioning Services', 'Wood fuel':'Provisioning Services', 'Carbon sequestration':'Regulating Services',
                     'Pollution removal':'Regulating Services', 'Noise reduction':'Regulating Services', 'Recreation visits':'Cultural Services', 'Recreation (time at habitat)':'Cultural Services'}
 
@@ -215,7 +215,7 @@ df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Country'].ffill()
 df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Country'].fillna('United Kingdom')
 trace.add_column('Country')
 trace.Country('Create Country Value based on country columns in Physical flows sheet')
-df_tbl_physical_flows['Country Code'] = df_tbl_physical_flows['Country'].replace(country_code_dict)
+df_tbl_physical_flows['Country Code'] = df_tbl_physical_flows['Country'].replace(ons_geography_code_dict)
 trace.add_column('Country Code')
 trace.Country_Code("Create Country Code Value based on 'Country' column")
 df_tbl_physical_flows_country_idx = df_tbl_physical_flows[df_tbl_physical_flows['Services'].isin(['England', 'Scotland', 'Wales', 'Northern Ireland'])].index
@@ -244,7 +244,7 @@ df_tbl_annual_value['Country'] = df_tbl_annual_value['Country'].ffill()
 df_tbl_annual_value['Country'] = df_tbl_annual_value['Country'].fillna('United Kingdom')
 trace.add_column('Country')
 trace.Country('Create Country Value based on country columns in Annual value sheet')
-df_tbl_annual_value['Country Code'] = df_tbl_annual_value['Country'].replace(country_code_dict)
+df_tbl_annual_value['Country Code'] = df_tbl_annual_value['Country'].replace(ons_geography_code_dict)
 trace.add_column('Country Code')
 trace.Country_Code("Create Country Code Value based on 'Country' column")
 df_tbl_annual_value_country_idx = df_tbl_annual_value[df_tbl_annual_value['Physical Flow'].isin(['England', 'Scotland', 'Wales', 'Northern Ireland'])].index
@@ -272,7 +272,7 @@ df_tbl_asset_value.drop(df_tbl_asset_value_country_idx , inplace=True)
 df_tbl_asset_value['Country'] = df_tbl_asset_value['Country'].fillna('United Kingdom')
 trace.add_column('Country')
 trace.Country('Create Country Value based on country columns in Asset value sheet')
-df_tbl_asset_value['Country Code'] = df_tbl_asset_value['Country'].replace(country_code_dict)
+df_tbl_asset_value['Country Code'] = df_tbl_asset_value['Country'].replace(ons_geography_code_dict)
 trace.add_column('Country Code')
 trace.Country_Code("Create Country Code Value based on 'Country' column")
 
