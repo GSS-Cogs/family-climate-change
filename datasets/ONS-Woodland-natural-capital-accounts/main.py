@@ -272,9 +272,9 @@ df_tbl_asset_value.drop(df_tbl_asset_value_country_idx , inplace=True)
 df_tbl_asset_value['Country'] = df_tbl_asset_value['Country'].fillna('United Kingdom')
 trace.add_column('Country')
 trace.Country('Create Country Value based on country columns in Asset value sheet')
-df_tbl_asset_value['Country Code'] = df_tbl_asset_value['Country'].replace(ons_geography_code_dict)
-trace.add_column('Country Code')
-trace.Country_Code("Create Country Code Value based on 'Country' column")
+df_tbl_asset_value['ONS Geography Code'] = df_tbl_asset_value['Country'].replace(ons_geography_code_dict)
+trace.add_column('ONS Geography Code')
+trace.ONS_Geography_Code("Create ONS Geography Code Value based on 'Country' column")
 
 df_tbl_asset_value['Period'] = pd.to_numeric(df_tbl_asset_value['Period'], errors='coerce').astype('Int64')
 df_tbl_asset_value['Value'] = pd.to_numeric(df_tbl_asset_value['Value'], errors='coerce').astype('float64').replace(np.nan, 'None')
@@ -289,11 +289,11 @@ trace.Measure_Type("Create Measure Type Value based on 'Marker' column")
 
 df_tbl_physical_flows = df_tbl_physical_flows[['Period', 'Country', 'ONS Geography Code', 'Services', 'Service Type', 'Measure Type', 'Unit', 'Marker', 'Value']]
 df_tbl_annual_value = df_tbl_annual_value[['Period', 'Country', 'ONS Geography Code', 'Measure Type', 'Unit',  'Marker', 'Value']]
-df_tbl_asset_value = df_tbl_asset_value[['Period', 'Country', 'Country Code', 'Measure Type', 'Unit', 'Marker', 'Value']]
+df_tbl_asset_value = df_tbl_asset_value[['Period', 'Country', 'ONS Geography Code', 'Measure Type', 'Unit', 'Marker', 'Value']]
 
 convert_category_datatype(df_tbl_physical_flows, ['Country', 'ONS Geography Code', 'Services', 'Service Type', 'Marker', 'Measure Type', 'Unit'])
 convert_category_datatype(df_tbl_annual_value, ['Country', 'ONS Geography Code', 'Marker', 'Measure Type', 'Unit'])
-convert_category_datatype(df_tbl_asset_value, ['Country', 'Country Code', 'Marker', 'Measure Type', 'Unit'])
+convert_category_datatype(df_tbl_asset_value, ['Country', 'ONS Geography Code', 'Marker', 'Measure Type', 'Unit'])
 
 pathify_columns(df_tbl_physical_flows, ['Country', 'Country Code', 'Services', 'Service Type', 'Marker', 'Measure Type', 'Unit'])
 pathify_columns(df_tbl_annual_value, ['Country', 'Country Code', 'Marker', 'Measure Type', 'Unit'])
