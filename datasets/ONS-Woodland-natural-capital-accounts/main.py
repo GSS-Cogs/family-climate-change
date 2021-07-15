@@ -295,9 +295,9 @@ convert_category_datatype(df_tbl_physical_flows, ['Country', 'ONS Geography Code
 convert_category_datatype(df_tbl_annual_value, ['Country', 'ONS Geography Code', 'Marker', 'Measure Type', 'Unit'])
 convert_category_datatype(df_tbl_asset_value, ['Country', 'ONS Geography Code', 'Marker', 'Measure Type', 'Unit'])
 
-pathify_columns(df_tbl_physical_flows, ['Country', 'Country Code', 'Services', 'Service Type', 'Marker', 'Measure Type', 'Unit'])
-pathify_columns(df_tbl_annual_value, ['Country', 'Country Code', 'Marker', 'Measure Type', 'Unit'])
-pathify_columns(df_tbl_asset_value, ['Country', 'Country Code', 'Marker', 'Measure Type', 'Unit'])
+pathify_columns(df_tbl_physical_flows, ['Country', 'Services', 'Service Type', 'Marker', 'Measure Type', 'Unit'])
+pathify_columns(df_tbl_annual_value, ['Country', 'Marker', 'Measure Type', 'Unit'])
+pathify_columns(df_tbl_asset_value, ['Country', 'Marker', 'Measure Type', 'Unit'])
 
 cubes.add_cube(scraper, df_tbl_physical_flows, datasetTitle+'-table-physical-flows')
 cubes.add_cube(scraper, df_tbl_annual_value, datasetTitle+'-table-annual-value')
