@@ -222,7 +222,11 @@ df_tbl_physical_flows_country_idx = df_tbl_physical_flows[df_tbl_physical_flows[
 df_tbl_physical_flows.drop(df_tbl_physical_flows_country_idx , inplace=True)
 
 df_tbl_physical_flows['Period'] = pd.to_numeric(df_tbl_physical_flows['Period'], errors='coerce').astype('Int64')
+
 df_tbl_physical_flows['Value'] = pd.to_numeric(df_tbl_physical_flows['Value'], errors='coerce').astype('float64').replace(np.nan, 'None')
+trace.Value("Change - DataMarker to 'None'")
+trace.Value("Format 'Value' column to float64 value type")
+
 df_tbl_physical_flows['Marker'] = df_tbl_physical_flows['Services']
 trace.add_column('Marker')
 trace.Marker("Create Marker Value based on 'Services' column")
@@ -251,8 +255,12 @@ df_tbl_annual_value_country_idx = df_tbl_annual_value[df_tbl_annual_value['Physi
 df_tbl_annual_value.drop(df_tbl_annual_value_country_idx , inplace=True)
 
 df_tbl_annual_value['Period'] = pd.to_numeric(df_tbl_annual_value['Period'], errors='coerce').astype('Int64')
+
 df_tbl_annual_value['Value'] = df_tbl_annual_value.apply(lambda x: None if x['Marker']=='-' else x['Value'], axis=1)
 df_tbl_annual_value['Value'] = pd.to_numeric(df_tbl_annual_value['Value'], errors='coerce').astype('float64').replace(np.nan, 'None')
+trace.Value("Change - DataMarker to 'None'")
+trace.Value("Format 'Value' column to float64 value type")
+
 df_tbl_annual_value['Marker'] = df_tbl_annual_value['Physical Flow']
 trace.add_column('Marker')
 trace.Marker("Create Marker Value based on 'Physical Flow' column")
@@ -277,7 +285,10 @@ trace.add_column('ONS Geography Code')
 trace.ONS_Geography_Code("Create ONS Geography Code Value based on 'Country' column")
 
 df_tbl_asset_value['Period'] = pd.to_numeric(df_tbl_asset_value['Period'], errors='coerce').astype('Int64')
+
 df_tbl_asset_value['Value'] = pd.to_numeric(df_tbl_asset_value['Value'], errors='coerce').astype('float64').replace(np.nan, 'None')
+trace.Value("Format 'Value' column to float64 value type")
+
 df_tbl_asset_value['Marker'] = df_tbl_asset_value['Physical Flow']
 trace.add_column('Marker')
 trace.Marker("Create Marker Value based on 'Physical Flow' column")
