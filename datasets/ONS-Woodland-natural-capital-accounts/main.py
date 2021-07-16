@@ -291,6 +291,18 @@ df_tbl_physical_flows = df_tbl_physical_flows[['Period', 'Country', 'ONS Geograp
 df_tbl_annual_value = df_tbl_annual_value[['Period', 'Country', 'ONS Geography Code', 'Measure Type', 'Unit',  'Marker', 'Value']]
 df_tbl_asset_value = df_tbl_asset_value[['Period', 'Country', 'ONS Geography Code', 'Measure Type', 'Unit', 'Marker', 'Value']]
 
+# Notes from tab
+notes = """
+Table Physical flows
+Sourced from Office for National Statistics - Woodland natural capital accounts \n
+Table Annual value
+Source by Office for National Statistics \n
+Table Asset value
+Source from Office for National Statistics
+"""
+scraper.dataset.comment = notes
+scraper.dataset.family = 'climate-change'
+
 convert_category_datatype(df_tbl_physical_flows, ['Country', 'ONS Geography Code', 'Services', 'Service Type', 'Marker', 'Measure Type', 'Unit'])
 convert_category_datatype(df_tbl_annual_value, ['Country', 'ONS Geography Code', 'Marker', 'Measure Type', 'Unit'])
 convert_category_datatype(df_tbl_asset_value, ['Country', 'ONS Geography Code', 'Marker', 'Measure Type', 'Unit'])
