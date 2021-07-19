@@ -301,9 +301,9 @@ df_tbl_asset_value['Measure Type'] = df_tbl_asset_value['Marker']
 trace.add_column('Measure Type')
 trace.Measure_Type("Create Measure Type Value based on 'Marker' column")
 
-df_tbl_physical_flows = df_tbl_physical_flows[['Period', 'Country', 'ONS Geography Code', 'Services', 'Service Type', 'Measure Type', 'Unit', 'Marker', 'Value']]
-df_tbl_annual_value = df_tbl_annual_value[['Period', 'Country', 'ONS Geography Code', 'Measure Type', 'Unit',  'Marker', 'Value']]
-df_tbl_asset_value = df_tbl_asset_value[['Period', 'Country', 'ONS Geography Code', 'Measure Type', 'Unit', 'Marker', 'Value']]
+df_tbl_physical_flows = df_tbl_physical_flows[['Country', 'ONS Geography Code', 'Period', 'Services', 'Service Type', 'Measure Type', 'Unit', 'Marker', 'Value']]
+df_tbl_annual_value = df_tbl_annual_value[['Country', 'ONS Geography Code', 'Period', 'Measure Type', 'Unit',  'Marker', 'Value']]
+df_tbl_asset_value = df_tbl_asset_value[['Country', 'ONS Geography Code', 'Period', 'Measure Type', 'Unit', 'Marker', 'Value']]
 
 # Notes from tab
 notes = """
