@@ -118,14 +118,11 @@ def pathify_columns(df, columns_arr):
 for tab in tabs:
     print(tab.name)
     if tab.name == 'Physical flows':
-        columns = ['Period', 'Unit', 'Services', 'Service Type']
+        columns = ['Period', 'Services', 'Service Type', 'Unit']
         trace.start(datasetTitle, tab, columns, dist.downloadURL)
 
         period = tab.excel_ref('C4').expand(RIGHT).is_not_blank()
         trace.Period('Defined from cell range: {}', var=excelRange(period))
-
-        unit = tab.excel_ref('B5').expand(DOWN).is_not_blank()
-        trace.Unit('Defined from cell range: {}', var=excelRange(unit))
 
         services = tab.excel_ref('A4').expand(DOWN).is_not_blank()
         trace.Services('Defined from cell range: {}', var=excelRange(services))
@@ -133,13 +130,16 @@ for tab in tabs:
         service_type = 'Woodland'
         trace.Service_Type('Hardcoded as Woodland')
 
+        unit = tab.excel_ref('B5').expand(DOWN).is_not_blank()
+        trace.Unit('Defined from cell range: {}', var=excelRange(unit))
+
         observations = tab.excel_ref('C5').expand(DOWN).expand(RIGHT).is_not_blank()
 
         dimensions = [
             HDim(period, 'Period', DIRECTLY, ABOVE),
-            HDim(unit, 'Unit', DIRECTLY, LEFT),
             HDim(services, 'Services', DIRECTLY, LEFT),
-            HDimConst('Service Type', service_type)
+            HDimConst('Service Type', service_type),
+            HDim(unit, 'Unit', DIRECTLY, LEFT)
         ]
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
@@ -147,24 +147,24 @@ for tab in tabs:
         savepreviewhtml(tidy_sheet, fname=f'{tab.name}_Preview.html')
         trace.store(f'combined_dataframe_table_physical_flows', tidy_sheet.topandas())
     if tab.name == 'Annual value':
-        columns = ['Period', 'Unit', 'Physical Flow']
+        columns = ['Period', 'Physical Flow', 'Unit']
         trace.start(datasetTitle, tab, columns, dist.downloadURL)
 
         period = tab.excel_ref('B4').expand(RIGHT).is_not_blank()
         trace.Period('Defined from cell range: {}', var=excelRange(period))
 
-        unit = tab.excel_ref('A4')
-        trace.Unit('Defined from cell value: {}', var=cellLoc(unit))
-
         physical_flow = tab.excel_ref('A5').expand(DOWN).is_not_blank()
         trace.Physical_Flow('Defined from cell range: {}', var=excelRange(physical_flow))
+
+        unit = tab.excel_ref('A4')
+        trace.Unit('Defined from cell value: {}', var=cellLoc(unit))
 
         observations = tab.excel_ref('B5').expand(DOWN).expand(RIGHT).is_not_blank()
 
         dimensions = [
             HDim(period, 'Period', DIRECTLY, ABOVE),
-            HDim(unit, 'Unit', CLOSEST, ABOVE),
-            HDim(physical_flow, 'Physical Flow', DIRECTLY, LEFT)
+            HDim(physical_flow, 'Physical Flow', DIRECTLY, LEFT),
+            HDim(unit, 'Unit', CLOSEST, ABOVE)
         ]
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
@@ -172,28 +172,28 @@ for tab in tabs:
         savepreviewhtml(tidy_sheet, fname=f'{tab.name}_Preview.html')
         trace.store(f'combined_dataframe_table_annual_value', tidy_sheet.topandas())
     if tab.name == 'Asset value':
-        columns = ['Period', 'Unit', 'Physical Flow', 'Country']
+        columns = ['Period', 'Country', 'Physical Flow', 'Unit']
         trace.start(datasetTitle, tab, columns, dist.downloadURL)
 
         period = tab.excel_ref('B4')
         trace.Period('Defined from cell value: {}', var=cellLoc(period))
 
-        unit = tab.excel_ref('A4')
-        trace.Unit('Defined from cell value: {}', var=cellLoc(unit))
+        country = tab.excel_ref('B17').expand(RIGHT).is_not_blank()
+        trace.Country('Defined from cell range: {}', var=excelRange(country))
 
         physical_flow = tab.excel_ref('A5').expand(DOWN).is_not_blank()
         trace.Physical_Flow('Defined from cell range: {}', var=excelRange(physical_flow))
 
-        country = tab.excel_ref('B17').expand(RIGHT).is_not_blank()
-        trace.Country('Defined from cell range: {}', var=excelRange(country))
+        unit = tab.excel_ref('A4')
+        trace.Unit('Defined from cell value: {}', var=cellLoc(unit))
 
         observations = tab.excel_ref('B5').expand(DOWN).expand(RIGHT).is_not_blank()
 
         dimensions = [
             HDim(period, 'Period', CLOSEST, ABOVE),
-            HDim(unit, 'Unit', CLOSEST, ABOVE),
+            HDim(country, 'Country', DIRECTLY, ABOVE),
             HDim(physical_flow, 'Physical Flow', DIRECTLY, LEFT),
-            HDim(country, 'Country', DIRECTLY, ABOVE)
+            HDim(unit, 'Unit', CLOSEST, ABOVE)
         ]
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
@@ -301,9 +301,9 @@ df_tbl_asset_value['Measure Type'] = df_tbl_asset_value['Marker']
 trace.add_column('Measure Type')
 trace.Measure_Type("Create Measure Type Value based on 'Marker' column")
 
-df_tbl_physical_flows = df_tbl_physical_flows[['Country', 'ONS Geography Code', 'Period', 'Services', 'Service Type', 'Measure Type', 'Unit', 'Marker', 'Value']]
-df_tbl_annual_value = df_tbl_annual_value[['Country', 'ONS Geography Code', 'Period', 'Measure Type', 'Unit',  'Marker', 'Value']]
-df_tbl_asset_value = df_tbl_asset_value[['Country', 'ONS Geography Code', 'Period', 'Measure Type', 'Unit', 'Marker', 'Value']]
+df_tbl_physical_flows = df_tbl_physical_flows[['Period', 'Country', 'ONS Geography Code', 'Services', 'Service Type', 'Measure Type', 'Unit', 'Marker', 'Value']]
+df_tbl_annual_value = df_tbl_annual_value[['Period', 'Country', 'ONS Geography Code', 'Measure Type', 'Unit',  'Marker', 'Value']]
+df_tbl_asset_value = df_tbl_asset_value[['Period', 'Country', 'ONS Geography Code', 'Measure Type', 'Unit', 'Marker', 'Value']]
 
 # Notes from tab
 notes = """
