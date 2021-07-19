@@ -1,6 +1,5 @@
 Namespace,Path,Label,Comment,Source,Parent,Range
-energy,total-devices,Total Devices,‘Total devices’ represent publicly available charging devices at all speeds.,https://www.gov.uk/government/statistics/electric-vehicle-charging-device-statistics-october-2020,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:integer
-energy,total-devices-per-100-000-population,"Total Devices per 100,000 Population",‘Total devices’ represent publicly available charging devices at all speeds.,https://www.gov.uk/government/statistics/electric-vehicle-charging-device-statistics-october-2020,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
-energy,rapid-devices,Rapid Devices,‘Rapid devices’ are those whose fastest connector is rated at 43kW and above.,https://www.gov.uk/government/statistics/electric-vehicle-charging-device-statistics-october-2020,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:integer
-energy,rapid-devices-per-100-000-population,"Rapid Devices per 100,000 Population",‘Rapid devices’ are those whose fastest connector is rated at 43kW and above.,https://www.gov.uk/government/statistics/electric-vehicle-charging-device-statistics-october-2020,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
-energy,gas-emissions,Gas Emissions,,https://www.gov.uk/government/statistics/beis-2019-uk-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-source,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal  
+climate-change,rainfall,Rainfall,Total rainfall fallen,,,xsd:decimal
+gas-emissions,Gas Emissions,,,,,xsd:decimal
+population,Population,,,,,xsd:decimal
+area,Area,,,,,xsd:decimal

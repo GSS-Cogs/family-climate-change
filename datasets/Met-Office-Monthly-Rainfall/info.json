@@ -1,21 +1,22 @@
 {
-    "id": "met-office-modelling-rainfall",
-    "title": "Modelling Rainfall",
-    "publisher": "Meteorological Office",
-    "description": "",
+    "id": "met-office-monthly-rainfall",
+    "title": "2021 monthly rainfall",
+    "publisher": "Met Office",
+    "description": "Dataset captures monhtly rainfall amounts by country, region and local authority 1861-2021",
+    "landingPage": "",
     "datasetNotes": [
-        "No landing page for this dataset as it is a bespoke dataset supplied by Met Office directly to IDP-D as part of the Climate Change Platform project. It is a subset of the Met Office HAD large dataset."
+        "On landing page scroll down to datasets under \"documents\" heading."
     ],
-    "published": "",
+    "published": "2021-02-02",
     "families": [
         "Climate Change"
     ],
-    "extract": {
-        "source": "CSV"
-    },
     "transform": {
-        "airtable": "recSE5QfPy874VFbH",
-        "main_issue": 22,
+        "stage": [
+            "Priority"
+        ],
+        "airtable": "",
+        "main_issue": 5,
         "columns": {
             "Year": {
                 "parent": "http://purl/linked-data/sdmx/2009/dimension#refYear",
@@ -28,13 +29,16 @@
                 "codelist": false
             },
             "Rainfall": {
-                "unit": "http://gss-data.org.uk/def/concept/measurement-units/rainfall",
+                "unit": "http://gss-data.org.uk/def/concept/measurement-units/mililitres",
                 "measure": "http://gss-data.org.uk/def/climate-change/measure/rainfall",
                 "datatype": "double"
             }
         }
     },
-    
-    "sizingNotes": "data supplied directly to IPD-D via Met Office",
-    "notes": ""
+    "sizingNotes": "Straightforward data CSV form.",
+    "notes": "Priority dataset for Climate Change Platform project.",
+    "extract": {
+        "source": "CSV",
+        "stage": "Prioritized"
+    }
 }
