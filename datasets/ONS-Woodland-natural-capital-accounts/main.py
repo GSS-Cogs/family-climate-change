@@ -317,6 +317,18 @@ Source from Office for National Statistics
 scraper.dataset.comment = notes
 scraper.dataset.family = 'climate-change'
 
+# Description from spec
+description = """
+Scraper Information \n
+Methodology
+Details of methodologies for woodlands can be found in Woodland natural capital accounts methodology guide, UK: 2020. Further details on the concepts and methodologies underlying the UK natural capital accounts can be found in Principles of Natural Capital Accounting. \n
+Strengths and limitations \n
+Data quality
+The ecosystems services are experimental statistics. Currently, there is no single data source for the UK for the individual ecosystem services. They are calculated from data from the four countries with different timeliness.
+Ecosystems provide a diverse range of services and not all have been included in this publication, either owing to unavailability of data or the need for new methods of evaluation. We intend to continue to develop our ability to report on all services.
+"""
+scraper.dataset.description = scraper.dataset.description + '\n' + description
+
 convert_category_datatype(df_tbl_physical_flows, ['Country', 'ONS Geography Code', 'Services', 'Service Type', 'Marker', 'Measure Type', 'Unit'])
 convert_category_datatype(df_tbl_annual_value, ['Country', 'ONS Geography Code', 'Marker', 'Measure Type', 'Unit'])
 convert_category_datatype(df_tbl_asset_value, ['Country', 'ONS Geography Code', 'Marker', 'Measure Type', 'Unit'])
