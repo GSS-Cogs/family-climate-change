@@ -2,3 +2,5 @@ Path,Label,Notation,Description,Parent,Source,Sort Priority
 mt-gwp-co2-ar4,MT GWP CO2_ar4,,,,,1
 rainfall,Rainfall,,,,,2
 kt-co2,KT CO2,,,,,3
+km2,KM2,,,,,4
+thousands,Thousands,,,,,5

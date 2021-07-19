@@ -1,3 +1,5 @@
 Namespace,Path,Label,Comment,Source,Parent,Range
 climate-change,rainfall,Rainfall,Total rainfall fallen,,,xsd:decimal
 gas-emissions,Gas Emissions,,,,,xsd:decimal
+population,Population,,,,,xsd:decimal
+area,Area,,,,,xsd:decimal
