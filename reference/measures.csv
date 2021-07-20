@@ -3,3 +3,5 @@ climate-change,rainfall,Rainfall,Total rainfall fallen,,,xsd:decimal
 gas-emissions,Gas Emissions,,,,,xsd:decimal
 population,Population,,,,,xsd:decimal
 area,Area,,,,,xsd:decimal
+la-co2,LA CO2,,,,,xsd:decimal
+territorial-co2,Territorial CO2,,,,,xsd:decimal
