@@ -84,19 +84,6 @@ def excelRange(bag):
     return '{' + lowx + lowy + '-' + highx + highy + '}'
 
 
-def filter_country(column_value):
-    if column_value.lower() == 'england':
-        return 'England'
-    elif column_value.lower() == 'scotland':
-        return 'Scotland'
-    elif column_value.lower() == 'wales':
-        return 'Wales'
-    elif column_value.lower() == 'northern ireland':
-        return 'Northern Ireland'
-    else:
-        return None
-
-
 def convert_category_datatype(df, columns_arr):
     for col in df.columns:
         if col in columns_arr:
@@ -201,16 +188,20 @@ for tab in tabs:
         savepreviewhtml(tidy_sheet, fname=f'{tab.name}_Preview.html')
         trace.store(f'combined_dataframe_table_asset_value', tidy_sheet.topandas())
 
-ons_geography_code_dict={'United Kingdom': 'K02000001', 'England':'E92000001', 'Wales':'W92000004', 'Northern Ireland':'N92000002', 'Scotland':'S92000003'}
-physical_flow_dict={'Timber': 'Provisioning Services', 'Wood fuel':'Provisioning Services', 'Carbon sequestration':'Regulating Services',
-                    'Pollution removal':'Regulating Services', 'Noise reduction':'Regulating Services', 'Recreation visits':'Cultural Services', 'Recreation (time at habitat)':'Cultural Services'}
+ons_geography_code_dict = {'United Kingdom': 'K02000001', 'England': 'E92000001', 'Wales': 'W92000004',
+                           'Northern Ireland': 'N92000002', 'Scotland': 'S92000003'}
+country_dict = {'england': 'England', 'wales': 'Wales', 'northern ireland': 'Northern Ireland', 'scotland': 'Scotland'}
+physical_flow_dict = {'Timber': 'Provisioning Services', 'Wood fuel': 'Provisioning Services',
+                      'Carbon sequestration': 'Regulating Services', 'Pollution removal': 'Regulating Services',
+                      'Noise reduction': 'Regulating Services', 'Recreation visits': 'Cultural Services',
+                      'Recreation (time at habitat)': 'Cultural Services'}
 
 df_tbl_physical_flows = trace.combine_and_trace(datasetTitle, 'combined_dataframe_table_physical_flows')
 trace.add_column('Value')
 trace.Value('Rename databaker column OBS to Value')
 df_tbl_physical_flows.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inplace=True)
 
-df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Services'].apply(filter_country)
+df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Services'].str.lower().map(country_dict)
 df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Country'].ffill()
 df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Country'].fillna('United Kingdom')
 trace.add_column('Country')
@@ -244,7 +235,7 @@ trace.add_column('Value')
 trace.Value('Rename databaker column OBS to Value')
 df_tbl_annual_value.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inplace=True)
 
-df_tbl_annual_value['Country'] = df_tbl_annual_value['Physical Flow'].apply(filter_country)
+df_tbl_annual_value['Country'] = df_tbl_annual_value['Physical Flow'].str.lower().map(country_dict)
 df_tbl_annual_value['Country'] = df_tbl_annual_value['Country'].ffill()
 df_tbl_annual_value['Country'] = df_tbl_annual_value['Country'].fillna('United Kingdom')
 trace.add_column('Country')
