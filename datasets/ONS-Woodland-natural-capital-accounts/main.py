@@ -212,7 +212,7 @@ trace.ONS_Geography_Code("Create ONS Geography Code Value based on 'Country' col
 df_tbl_physical_flows_country_idx = df_tbl_physical_flows[df_tbl_physical_flows['Services'].isin(['England', 'Scotland', 'Wales', 'Northern Ireland'])].index
 df_tbl_physical_flows.drop(df_tbl_physical_flows_country_idx , inplace=True)
 
-df_tbl_physical_flows['Period'] = pd.to_numeric(df_tbl_physical_flows['Period'], errors='coerce').astype('Int64')
+df_tbl_physical_flows['Period'] = pd.to_numeric(df_tbl_physical_flows['Period'], errors='coerce').astype('Int64').replace(np.nan, 'None')
 trace.Period("Format 'Period' column to decimal calendar year")
 
 df_tbl_physical_flows['Value'] = pd.to_numeric(df_tbl_physical_flows['Value'], errors='coerce').astype('float64').replace(np.nan, 'None')
@@ -246,7 +246,7 @@ trace.ONS_Geography_Code("Create ONS Geography Code Value based on 'Country' col
 df_tbl_annual_value_country_idx = df_tbl_annual_value[df_tbl_annual_value['Physical Flow'].isin(['England', 'Scotland', 'Wales', 'Northern Ireland'])].index
 df_tbl_annual_value.drop(df_tbl_annual_value_country_idx , inplace=True)
 
-df_tbl_annual_value['Period'] = pd.to_numeric(df_tbl_annual_value['Period'], errors='coerce').astype('Int64')
+df_tbl_annual_value['Period'] = pd.to_numeric(df_tbl_annual_value['Period'], errors='coerce').astype('Int64').replace(np.nan, 'None')
 trace.Period("Format 'Period' column to decimal calendar year")
 
 df_tbl_annual_value['Value'] = df_tbl_annual_value.apply(lambda x: None if x['Marker']=='-' else x['Value'], axis=1)
@@ -277,7 +277,7 @@ df_tbl_asset_value['ONS Geography Code'] = df_tbl_asset_value['Country'].map(ons
 trace.add_column('ONS Geography Code')
 trace.ONS_Geography_Code("Create ONS Geography Code Value based on 'Country' column")
 
-df_tbl_asset_value['Period'] = pd.to_numeric(df_tbl_asset_value['Period'], errors='coerce').astype('Int64')
+df_tbl_asset_value['Period'] = pd.to_numeric(df_tbl_asset_value['Period'], errors='coerce').astype('Int64').replace(np.nan, 'None')
 trace.Period("Format 'Period' column to decimal calendar year")
 
 df_tbl_asset_value['Value'] = pd.to_numeric(df_tbl_asset_value['Value'], errors='coerce').astype('float64').replace(np.nan, 'None')
