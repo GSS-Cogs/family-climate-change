@@ -5,9 +5,9 @@
             "@language": "en"
         }
     ],
-    "@id": "http://gss-data.org.uk/def/energy/ontology/properties",
+    "@id": "http://gss-data.org.uk/def/climate-change/ontology/properties",
     "prov:hadDerivation": {
-        "@id": "http://gss-data.org.uk/def/energy/ontology/properties",
+        "@id": "http://gss-data.org.uk/def/climate-change/ontology/properties",
         "@type": "owl:Ontology"
     },
     "url": "properties.csv",
@@ -60,11 +60,17 @@
             },
             {
                 "titles": "Range",
-                "required": true,
                 "name": "range",
                 "datatype": "anyURI",
                 "propertyUrl": "rdfs:range",
                 "valueUrl": "{range}"
+            },
+            {
+                "titles": "Codelist",
+                "name": "codelist",
+                "datatype": "anyURI",
+                "propertyUrl": "qb:codeList",
+                "valueUrl": "{+codelist}"
             },
             {
                 "titles": "Comment",
@@ -79,6 +85,6 @@
         ],
         "aboutUrl": "http://gss-data.org.uk/def/{+namespace}/property/{+path}"
     },
-    "rdfs:label": "GSS EDVP Properties",
-    "dc:title": "GSS EDVP Properties"
+    "rdfs:label": "GSS Climate Change Properties",
+    "dc:title": "GSS Climate Change Properties"
 }

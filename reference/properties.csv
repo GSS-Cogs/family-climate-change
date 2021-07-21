@@ -1,13 +1,13 @@
-Namespace,Label,Path,Qb Property Type,Parent Property,Source,Range,Comment
-energy,Fuel,dimension/fuel,qb:DimensionProperty,,,http://gss-data.org.uk/def/energy/concept-scheme/fuel,Fuel
-energy,Roc Per Mwh,attribute/roc-per-mwh,qb:Attribute,,,http://gss-data.org.uk/def/energy/concept-scheme/roc-per-mwh,Roc Per Mwh
-climate-change,GHG,dimension/ghg,qb:DimensionProperty,,,skos:Concept,
-climate-change,GHG Grouped,dimension/ghg-grouped,qb:DimensionProperty,,,skos:Concept,
-climate-change,IPCC Code,dimension/ipcc-code,qb:DimensionProperty,,,skos:Concept,
-climate-change,National Communication Sector,dimension/national-communication-sector,qb:DimensionProperty,,,skos:Concept,
-climate-change,National Communication Fuel,dimension/national-communication-fuel,qb:DimensionProperty,,,skos:Concept,
-climate-change,National Communication Sub Sector,dimension/national-communication-sub-sector,qb:DimensionProperty,,,skos:Concept,
-climate-change,Activity Name,dimension/activity-name,qb:DimensionProperty,,,skos:Concept,
-climate-change,National Communication Category,dimension/national-communication-category,qb:DimensionProperty,,,skos:Concept,
-climate-change,Source,dimension/source,qb:DimensionProperty,,,skos:Concept,
-climate-change,National Communication Fuel Group,dimension/national-communication-fuel-group,qb:DimensionProperty,,,skos:Concept,
+Namespace,Label,Path,Qb Property Type,Parent Property,Source,Range,Codelist,Comment
+energy,Fuel,dimension/fuel,qb:DimensionProperty,,,skos:Concept,,Fuel
+energy,Roc Per Mwh,attribute/roc-per-mwh,qb:Attribute,,,,,Roc Per Mwh
+climate-change,Greenhouse Gas,dimension/ghg,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/ghg,
+climate-change,Greenhouse Gas Group,dimension/ghg-grouped,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/ghg-grouped,
+climate-change,IPCC Code,dimension/ipcc-code,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/ipcc-code,"Classification and definition of categories of emissions and removals, as defined by the Intergovernmental Panel on Climate Change (IPCC)."
+climate-change,National Communication Sector,dimension/national-communication-sector,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector,"For the purposes of reporting, greenhouse gas emissions are allocated to National Communication (NC) sectors. These high-level sectors are made up of a number of more detailed sectors, which follow the definitions set out by the Intergovernmental Panel on Climate Change (IPCC) and which are used in international reporting tables, submitted to the United Nations Framework Convention on Climate Change (UNFCCC) each year. "
+climate-change,National Communication Fuel,dimension/national-communication-fuel,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel,
+climate-change,National Communication Sub Sector,dimension/national-communication-sub-sector,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector,
+climate-change,Activity Name,dimension/activity-name,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name,
+climate-change,National Communication Category,dimension/national-communication-category,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector,
+climate-change,Source,dimension/source,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/source,
+climate-change,National Communication Fuel Group,dimension/national-communication-fuel-group,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel-group,
