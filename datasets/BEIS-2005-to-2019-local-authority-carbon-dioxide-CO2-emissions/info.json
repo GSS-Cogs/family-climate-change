@@ -29,7 +29,7 @@
             },    
             "Local Authority Code": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/local-authority-code",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/la-co2-sector/{local-authority-code}",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/local-authority-code/{local_authority_code}",
                 "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority"        
             },
             "LA CO2 Sector": {
