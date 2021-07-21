@@ -7,8 +7,7 @@
 #       format_version: '1.5'
 #       jupytext_version: 1.10.2
 #   kernelspec:
-#     display_name: Python 3
-#     language: python
+#     display_name: Python 3.8.8 64-bit
 #     name: python3
 # ---
 
@@ -30,8 +29,6 @@ distribution = metadata.distribution(mediaType='text/csv')
 metadata.dataset.title = distribution.title
 
 df = distribution.as_pandas()
-
-df.columns.values.tolist()
 
 df.drop(columns=df.columns.values.tolist()[0:6], axis=1, inplace=True)
 df.rename(columns={'Calendar Year': 'Year',
