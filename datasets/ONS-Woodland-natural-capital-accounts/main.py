@@ -227,6 +227,8 @@ trace.Marker("Create Marker Value based on 'Services' column")
 df_tbl_physical_flows['Unit'] = df_tbl_physical_flows['Unit'].astype(str)
 
 df_tbl_physical_flows['Services'] = df_tbl_physical_flows['Marker'].map(physical_flow_dict)
+df_tbl_physical_flows['Services'] = df_tbl_physical_flows['Services'].astype(str)
+df_tbl_physical_flows['Service Type'] = df_tbl_physical_flows['Service Type'].astype(str)
 trace.Services('Create Services Value based on physical flow columns in Physical flows sheet')
 trace.Service_Type('Hardcoded as Woodland')
 df_tbl_physical_flows['Measure Type'] = df_tbl_physical_flows['Marker']
