@@ -26,11 +26,6 @@
                 "parent": "http://purl/linked-data/sdmx/2009/dimension#refYear",
                 "value": "http://reference.data.gov.uk/id/year/{year}",
                 "codelist": false
-            },    
-            "Local Authority Code": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/local-authority-code",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/local-authority-code/{local_authority_code}",
-                "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority"        
             },
             "LA CO2 Sector": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/la-co2-sector",
