@@ -204,6 +204,7 @@ df_tbl_physical_flows.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, i
 df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Services'].str.lower().map(country_dict)
 df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Country'].ffill()
 df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Country'].fillna('United Kingdom')
+df_tbl_physical_flows['Country'] = df_tbl_physical_flows['Country'].astype(str)
 trace.add_column('Country')
 trace.Country('Create Country Value based on country columns in Physical flows sheet')
 df_tbl_physical_flows['ONS Geography Code'] = df_tbl_physical_flows['Country'].map(ons_geography_code_dict)
@@ -238,6 +239,7 @@ df_tbl_annual_value.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inp
 df_tbl_annual_value['Country'] = df_tbl_annual_value['Physical Flow'].str.lower().map(country_dict)
 df_tbl_annual_value['Country'] = df_tbl_annual_value['Country'].ffill()
 df_tbl_annual_value['Country'] = df_tbl_annual_value['Country'].fillna('United Kingdom')
+df_tbl_annual_value['Country'] = df_tbl_annual_value['Country'].astype(str)
 trace.add_column('Country')
 trace.Country('Create Country Value based on country columns in Annual value sheet')
 df_tbl_annual_value['ONS Geography Code'] = df_tbl_annual_value['Country'].map(ons_geography_code_dict)
@@ -271,6 +273,7 @@ df_tbl_asset_value.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inpl
 df_tbl_asset_value_country_idx = df_tbl_asset_value[df_tbl_asset_value['Marker'].isin(['England', 'Scotland', 'Wales', 'Northern Ireland'])].index
 df_tbl_asset_value.drop(df_tbl_asset_value_country_idx , inplace=True)
 df_tbl_asset_value['Country'] = df_tbl_asset_value['Country'].fillna('United Kingdom')
+df_tbl_asset_value['Country'] = df_tbl_asset_value['Country'].astype(str)
 trace.add_column('Country')
 trace.Country('Create Country Value based on country columns in Asset value sheet')
 df_tbl_asset_value['ONS Geography Code'] = df_tbl_asset_value['Country'].map(ons_geography_code_dict)
