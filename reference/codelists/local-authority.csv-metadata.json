@@ -93,8 +93,8 @@
             "http://publishmydata.com/pmdcat#metadataGraph": {
                 "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority"
             },
-            "dc:title": "BEIS Greenhouse Gasses Emissions dataset",
-            "rdfs:label": "BEIS Greenhouse Gasses Catalog Record",
+            "dc:title": "Local Authority Code",
+            "rdfs:label": "Local Authority Code Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
                 "@value": "2021-06-03T08:41:31.826544"
