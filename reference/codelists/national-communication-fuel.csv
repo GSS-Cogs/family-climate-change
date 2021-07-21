@@ -1,15 +1,17 @@
 Label,Notation,Parent Notation,Sort Priority
-Burning Oil,burning-oil,,1
-Coal,coal,,2
-Fuel Oil,fuel-oil,,3
-Natural Gas,natural-gas,,4
-Other emissions,other-emissions,,5
-Gas Oil,gas-oil,,6
-Other gases,other-gases,,7
+Coal,coal,,1
+Gaseous fuels,gaseous-fuels,,2
+Natural gas,natural-gas,gaseous-fuels,3
+Other gases,other-gases,gaseous-fuels,4
+Petroleum gases,petroleum-gases,gaseous-fuels,5
+Not applicable,not-applicable,,6
+Other emissions,other-emissions,,7
 Other solid fuels,other-solid-fuels,,8
-Petroleum gases,petroleum-gases,,9
-Other petroleum products,other-petroleum-products,,10
-Orimulsion,orimulsion,,11
-Motor spirit,motor-spirit,,12
-Aviation turbine fuel,aviation-turbine-fuel,,13
-DERV,derv,,14
+Aviation turbine fuel,aviation-turbine-fuel,petroleum,9
+Burning oil,burning-oil,petroleum,10
+Derv,derv,petroleum,11
+Fuel oil,fuel-oil,petroleum,12
+Gas oil,gas-oil,petroleum,13
+Motor spirit,motor-spirit,petroleum,14
+Other petroleum products,other-petroleum-products,petroleum,15
+Petroleum,petroleum,,16

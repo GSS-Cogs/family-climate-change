@@ -1,11 +1,60 @@
 {
-    "@context": [
-        "http://www.w3.org/ns/csvw",
-        {
-            "@language": "en"
-        }
-    ],
+    "@context": "http://www.w3.org/ns/csvw",
     "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ipcc-code",
+    "url": "ipcc-code.csv",
+    "rdfs:label": "IPCC Code",
+    "dc:title": "IPCC Code",
+    "tableSchema": {
+        "columns": [
+            {
+                "titles": "Label",
+                "name": "label",
+                "datatype": "string",
+                "required": true,
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "titles": "Notation",
+                "name": "notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*$"
+                },
+                "required": true,
+                "propertyUrl": "skos:notation"
+            },
+            {
+                "titles": "Parent Notation",
+                "name": "parent_notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^(-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*|)$"
+                },
+                "required": false,
+                "propertyUrl": "skos:broader",
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/ipcc-code/{+parent_notation}"
+            },
+            {
+                "titles": "Sort Priority",
+                "name": "sort_priority",
+                "datatype": "integer",
+                "required": false,
+                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "rdf:type",
+                "valueUrl": "skos:Concept"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "skos:inScheme",
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/ipcc-code"
+            }
+        ],
+        "primaryKey": "notation",
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/ipcc-code/{+notation}"
+    },
     "prov:hadDerivation": {
         "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ipcc-code",
         "@type": [
@@ -13,47 +62,10 @@
             "http://publishmydata.com/pmdcat#ConceptScheme"
         ]
     },
-    "url": "ipcc-code.csv",
-    "tableSchema": {
-        "columns": [
-            {
-                "titles": "Label",
-                "required": true,
-                "name": "label",
-                "datatype": "string",
-                "propertyUrl": "rdfs:label"
-            },
-            {
-                "titles": "Notation",
-                "required": false,
-                "name": "notation",
-                "datatype": "string",
-                "propertyUrl": "skos:notation"
-            },
-            {
-                "titles": "Parent Notation",
-                "required": false,
-                "name": "parent",
-                "datatype": "string",
-                "propertyUrl": "skos:broader",
-                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/ipcc-code/{+parent}"
-            },
-            {
-                "titles": "Sort Priority",
-                "required": false,
-                "name": "sort",
-                "datatype": "integer",
-                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
-            }
-          ],
-        "primaryKey": [
-            "notation"
-        ],
-        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/ipcc-code/{+notation}"
+    "prov:derivedFrom": {
+        "@id": "https://www.ipcc-nggip.iges.or.jp/public/2006gl/pdf/1_Volume1/V1_8_Ch8_Reporting_Guidance.pdf"
     },
-        "dc:title": "BEIS Greenhouse Gasses Emissions dataset",
-        "rdfs:label": "BEIS Greenhouse Gasses Catalog Record",
-        "rdfs:seeAlso": [
+    "rdfs:seeAlso": [
         {
             "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ipcc-code/dataset",
             "@type": [
@@ -68,14 +80,14 @@
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-05-20T11:35:12.599937"
+                "@value": "2021-07-21T15:00:13.971940"
             },
-            "rdfs:label": "BEIS Greenhouse Gas IPCC Code",
-            "dc:title": "BEIS Greenhouse Gas IPCC Code",
-            "rdfs:comment": "",
+            "rdfs:label": "IPCC Code",
+            "dc:title": "IPCC Code",
+            "rdfs:comment": "Dataset representing the 'IPCC Code' code list.",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-02-03T08:41:31.826544"
+                "@value": "2021-07-21T15:00:13.971940"
             }
         },
         {
@@ -93,15 +105,15 @@
             "http://publishmydata.com/pmdcat#metadataGraph": {
                 "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ipcc-code"
             },
-            "dc:title": "BEIS Greenhouse Gasses Emissions dataset",
-            "rdfs:label": "BEIS Greenhouse Gasses Catalog Record",
+            "dc:title": "IPCC Code Catalog Record",
+            "rdfs:label": "IPCC Code Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-06-03T08:41:31.826544"
+                "@value": "2021-07-21T15:00:13.971940"
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-06-03T08:41:31.826544"
+                "@value": "2021-07-21T15:00:13.971940"
             }
         }
     ]

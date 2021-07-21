@@ -45,15 +45,15 @@
                 "datatype": "integer",
                 "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
             }
-          ],
+        ],
         "primaryKey": [
             "notation"
         ],
         "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/activity-name/{+notation}"
     },
-        "dc:title": "BEIS Greenhouse Gasses Emissions dataset",
-        "rdfs:label": "BEIS Greenhouse Gasses Catalog Record",
-        "rdfs:seeAlso": [
+    "dc:title": "BEIS Greenhouse Gasses Catalog Record",
+    "rdfs:label": "BEIS Greenhouse Gasses Catalog Record",
+    "rdfs:seeAlso": [
         {
             "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name/dataset",
             "@type": [
@@ -68,7 +68,7 @@
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-05-20T11:35:12.599937"
+                "@value": "2021-07-21T16:02:30.217996"
             },
             "rdfs:label": "BEIS Greenhouse Gas Activity",
             "dc:title": "BEIS Greenhouse Gas Activity  ",
