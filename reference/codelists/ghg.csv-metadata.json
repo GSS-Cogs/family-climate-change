@@ -2,8 +2,8 @@
     "@context": "http://www.w3.org/ns/csvw",
     "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg",
     "url": "ghg.csv",
-    "rdfs:label": "Ghg",
-    "dc:title": "Ghg",
+    "rdfs:label": "Greenhouse Gas",
+    "dc:title": "Greenhouse Gas",
     "tableSchema": {
         "columns": [
             {
@@ -79,9 +79,9 @@
                 "@type": "dateTime",
                 "@value": "2021-07-21T14:58:14.420247"
             },
-            "rdfs:label": "Ghg",
-            "dc:title": "Ghg",
-            "rdfs:comment": "Dataset representing the 'Ghg' code list.",
+            "rdfs:label": "Greenhouse Gas",
+            "dc:title": "Greenhouse Gas",
+            "rdfs:comment": "Dataset representing the 'Greenhouse Gas' code list.",
             "dc:issued": {
                 "@type": "dateTime",
                 "@value": "2021-07-21T14:58:14.420247"
@@ -102,8 +102,8 @@
             "http://publishmydata.com/pmdcat#metadataGraph": {
                 "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg"
             },
-            "dc:title": "Ghg Catalog Record",
-            "rdfs:label": "Ghg Catalog Record",
+            "dc:title": "Greenhouse Gas Catalog Record",
+            "rdfs:label": "Greenhouse Gas Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
                 "@value": "2021-07-21T14:58:14.420247"
