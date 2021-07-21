@@ -1,43 +1,43 @@
-,Label,Notation,Parent Notation,Sort Priority
-0,Commercial_Electricity,commercial_electricity,,1.0
-1,Industrial_Electricity,industrial_electricity,,2.0
-2,Public_Electricity,public_electricity,,3.0
-3,Commercial_Gas,commercial_gas,,4.0
-4,Industrial_Gas,industrial_gas,,5.0
-5,Public_Gas,public_gas,,6.0
-6,Not specified,not-specified,,7.0
-7,Commercial_Oil,commercial_oil,,8.0
-8,Commercial_Solid fuel,commercial_solid-fuel,,9.0
-9,IndComm_Non fuel,indcomm_non-fuel,,10.0
-10,IndComm_Process gases,indcomm_process-gases,,11.0
-11,IndOffroad_Oil,indoffroad_oil,,12.0
-12,Industrial_Oil,industrial_oil,,13.0
-13,Industrial_Solid fuel,industrial_solid-fuel,,14.0
-14,Public_Oil,public_oil,,15.0
-15,Public_Solid fuel,public_solid-fuel,,16.0
-16,Agriculture_Fertiliser,agriculture_fertiliser,,17.0
-17,Agriculture_LULUCF,agriculture_lulucf,,18.0
-18,Agriculture_Oil,agriculture_oil,,19.0
-19,Agriculture_Solid fuel,agriculture_solid-fuel,,20.0
-20,Domestic_Electricity,domestic_electricity,,21.0
-21,Domestic_Gas,domestic_gas,,22.0
-22,Domestic_Oil,domestic_oil,,23.0
-23,Domestic_Solid fuel,domestic_solid-fuel,,24.0
-24,DomesticHG_Oil,domestichg_oil,,25.0
-25,DomesticProd_Non fuel,domesticprod_non-fuel,,
-26,RTAroads_Diesel,rtaroads_diesel,,
-27,RTAroads_Petrol,rtaroads_petrol,,
-28,RTMways_Diesel,rtmways_diesel,,
-29,RTMways_Petrol,rtmways_petrol,,
-30,RTMinor_Diesel,rtminor_diesel,,
-31,RTMinor_Petrol,rtminor_petrol,,
-32,Railways_Oil,railways_oil,,
-33,Railways_Solid fuel,railways_solid-fuel,,
-34,RTOther_Oil,rtother_oil,,
-35,TransportOther_Oil,transportother_oil,,
-36,LULUCF_4A_LULUCF,lulucf_4a_lulucf,,
-37,LULUCF_4B_LULUCF,lulucf_4b_lulucf,,
-38,LULUCF_4C_LULUCF,lulucf_4c_lulucf,,
-39,LULUCF_4D_LULUCF,lulucf_4d_lulucf,,
-40,LULUCF_4E_LULUCF,lulucf_4e_lulucf,,
-41,LULUCF_4G_LULUCF,lulucf_4g_lulucf,,
+Label,Notation,Parent Notation,Sort Priority
+Commercial_Electricity,commercial_electricity,,1
+Industrial_Electricity,industrial_electricity,,2
+Public_Electricity,public_electricity,,3
+Commercial_Gas,commercial_gas,,4
+Industrial_Gas,industrial_gas,,5
+Public_Gas,public_gas,,6
+Not specified,not-specified,,7
+Commercial_Oil,commercial_oil,,8
+Commercial_Solid fuel,commercial_solid-fuel,,9
+IndComm_Non fuel,indcomm_non-fuel,,10
+IndComm_Process gases,indcomm_process-gases,,11
+IndOffroad_Oil,indoffroad_oil,,12
+Industrial_Oil,industrial_oil,,13
+Industrial_Solid fuel,industrial_solid-fuel,,14
+Public_Oil,public_oil,,15
+Public_Solid fuel,public_solid-fuel,,16
+Agriculture_Fertiliser,agriculture_fertiliser,,17
+Agriculture_LULUCF,agriculture_lulucf,,18
+Agriculture_Oil,agriculture_oil,,19
+Agriculture_Solid fuel,agriculture_solid-fuel,,20
+Domestic_Electricity,domestic_electricity,,21
+Domestic_Gas,domestic_gas,,22
+Domestic_Oil,domestic_oil,,23
+Domestic_Solid fuel,domestic_solid-fuel,,24
+DomesticHG_Oil,domestichg_oil,,25
+DomesticProd_Non fuel,domesticprod_non-fuel,,26
+RTAroads_Diesel,rtaroads_diesel,,27
+RTAroads_Petrol,rtaroads_petrol,,28
+RTMways_Diesel,rtmways_diesel,,29
+RTMways_Petrol,rtmways_petrol,,30
+RTMinor_Diesel,rtminor_diesel,,31
+RTMinor_Petrol,rtminor_petrol,,32
+Railways_Oil,railways_oil,,33
+Railways_Solid fuel,railways_solid-fuel,,34
+RTOther_Oil,rtother_oil,,35
+TransportOther_Oil,transportother_oil,,36
+LULUCF_4A_LULUCF,lulucf_4a_lulucf,,37
+LULUCF_4B_LULUCF,lulucf_4b_lulucf,,38
+LULUCF_4C_LULUCF,lulucf_4c_lulucf,,39
+LULUCF_4D_LULUCF,lulucf_4d_lulucf,,40
+LULUCF_4E_LULUCF,lulucf_4e_lulucf,,41
+LULUCF_4G_LULUCF,lulucf_4g_lulucf,,42
