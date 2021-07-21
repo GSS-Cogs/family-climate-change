@@ -23,8 +23,8 @@
                 "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{ghg}"
             },
             "GHG Grouped": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/ghg-grouped/{ghg_grouped}"
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/ghg-grouped",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{ghg_grouped}"
             },
             "IPCC Code": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/ipcc-code",
@@ -55,7 +55,7 @@
                 "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{national_communication_fuel}"
             },
             "National Communication Fuel Group": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel",
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel-group",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{national_communication_fuel_group}"
             },
             "Activity Name": {
