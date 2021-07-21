@@ -224,6 +224,8 @@ df_tbl_physical_flows['Marker'] = df_tbl_physical_flows['Services']
 trace.add_column('Marker')
 trace.Marker("Create Marker Value based on 'Services' column")
 
+df_tbl_physical_flows['Unit'] = df_tbl_physical_flows['Unit'].astype(str)
+
 df_tbl_physical_flows['Services'] = df_tbl_physical_flows['Marker'].map(physical_flow_dict)
 trace.Services('Create Services Value based on physical flow columns in Physical flows sheet')
 trace.Service_Type('Hardcoded as Woodland')
@@ -260,6 +262,7 @@ df_tbl_annual_value['Marker'] = df_tbl_annual_value['Physical Flow']
 trace.add_column('Marker')
 trace.Marker("Create Marker Value based on 'Physical Flow' column")
 df_tbl_annual_value['Unit'] = 'gbp million'
+df_tbl_annual_value['Unit'] = df_tbl_annual_value['Unit'].astype(str)
 trace.Unit('Hardcoded as gbp million')
 df_tbl_annual_value['Measure Type'] = df_tbl_annual_value['Marker']
 trace.add_column('Measure Type')
@@ -290,6 +293,7 @@ df_tbl_asset_value['Marker'] = df_tbl_asset_value['Physical Flow']
 trace.add_column('Marker')
 trace.Marker("Create Marker Value based on 'Physical Flow' column")
 df_tbl_asset_value['Unit'] = 'gbp million'
+df_tbl_asset_value['Unit'] = df_tbl_asset_value['Unit'].astype(str)
 trace.Unit('Hardcoded as gbp million')
 df_tbl_asset_value['Measure Type'] = df_tbl_asset_value['Marker']
 trace.add_column('Measure Type')
