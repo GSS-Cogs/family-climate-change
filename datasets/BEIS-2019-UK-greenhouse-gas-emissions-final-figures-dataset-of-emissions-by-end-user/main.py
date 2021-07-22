@@ -41,10 +41,13 @@ df.loc[(df['National Communication Fuel Group'] == ' '), 'National Communication
 
 df.drop(columns=['TerritoryName', 'EmissionUnits'], axis=1, inplace=True)
 df.drop(df.columns[df.columns.str.contains('Unnamed',case = False)],axis = 1, inplace = True)
+df.query("(not `IPCC Code` == 'Aviation_Bunkers') & (not `IPCC Code` == 'Marine_Bunkers')", inplace = True)
 
-df.rename(columns={'ActivityName' : 'Activity Name',
-		'Emission' : 'Value'},
-		inplace=True)
+df.rename(
+    columns={
+        'ActivityName' : 'Activity Name',
+	    'Emission' : 'Value'},
+	inplace=True)
 
 df['Value'] = df['Value'].astype(float).round(5)
 
