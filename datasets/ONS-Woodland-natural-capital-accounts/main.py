@@ -221,6 +221,7 @@ trace.Value("Change - DataMarker to 'None'")
 trace.Value("Format 'Value' column to float64 value type")
 
 df_tbl_physical_flows['Marker'] = df_tbl_physical_flows['Services']
+df_tbl_physical_flows['Marker'] = df_tbl_physical_flows['Marker'].astype(str)
 trace.add_column('Marker')
 trace.Marker("Create Marker Value based on 'Services' column")
 
@@ -262,6 +263,7 @@ trace.Value("Change - DataMarker to 'None'")
 trace.Value("Format 'Value' column to float64 value type")
 
 df_tbl_annual_value['Marker'] = df_tbl_annual_value['Physical Flow']
+df_tbl_annual_value['Marker'] = df_tbl_annual_value['Marker'].astype(str)
 trace.add_column('Marker')
 trace.Marker("Create Marker Value based on 'Physical Flow' column")
 df_tbl_annual_value['Unit'] = 'gbp million'
@@ -294,6 +296,7 @@ df_tbl_asset_value['Value'] = pd.to_numeric(df_tbl_asset_value['Value'], errors=
 trace.Value("Format 'Value' column to float64 value type")
 
 df_tbl_asset_value['Marker'] = df_tbl_asset_value['Physical Flow']
+df_tbl_asset_value['Marker'] = df_tbl_asset_value['Marker'].astype(str)
 trace.add_column('Marker')
 trace.Marker("Create Marker Value based on 'Physical Flow' column")
 df_tbl_asset_value['Unit'] = 'gbp million'
