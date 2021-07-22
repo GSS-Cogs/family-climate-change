@@ -60,7 +60,7 @@
             },
             "Activity Name": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/activity-name",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/activity-name/{activity_name}"
+                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{activity_name}"
             },
             "Value": {
                 "unit": "http://gss-data.org.uk/def/concept/measurement-units/mt-gwp-co2-ar4",
