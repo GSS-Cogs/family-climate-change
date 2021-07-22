@@ -1,17 +1,178 @@
 Label,Notation,Parent Notation,Sort Priority
 Coal,coal,,1
-Gaseous fuels,gaseous-fuels,,2
-Natural gas,natural-gas,gaseous-fuels,3
+Anthracite,anthracite,coal,2
+Gaseous fuels,gaseous-fuels,,3
 Other gases,other-gases,gaseous-fuels,4
 Petroleum gases,petroleum-gases,gaseous-fuels,5
-Not applicable,not-applicable,,6
-Other emissions,other-emissions,,7
-Other solid fuels,other-solid-fuels,,8
-Aviation turbine fuel,aviation-turbine-fuel,petroleum,9
-Burning oil,burning-oil,petroleum,10
-Derv,derv,petroleum,11
-Fuel oil,fuel-oil,petroleum,12
-Gas oil,gas-oil,petroleum,13
-Motor spirit,motor-spirit,petroleum,14
-Other petroleum products,other-petroleum-products,petroleum,15
-Petroleum,petroleum,,16
+Natural gas,natural-gas,gaseous-fuels,6
+Petrol,petrol,motor-spirit,7
+Not applicable,not-applicable,,8
+Other emissions,other-emissions,,9
+Acid production,acid-production,other-emissions,10
+Acrylonitrile,acrylonitrile,other-emissions,11
+Active aircraft,active-aircraft,other-emissions,12
+Adipic acid produced,adipic-acid-produced,other-emissions,13
+Agricultural horses,agricultural-horses,other-emissions,14
+Ammonium nitrate application,ammonium-nitrate-application,other-emissions,15
+Ammonium nitrate residue,ammonium-nitrate-residue,other-emissions,16
+Ammonium sulphate and diammonium phosphate application,ammonium-sulphate-and-diammonium-phosphate-application,other-emissions,17
+Ammonium sulphate and diammonium phosphate residue,ammonium-sulphate-and-diammonium-phosphate-residue,other-emissions,18
+Barley residue,barley-residue,other-emissions,19
+Biogas,biogas,other-emissions,20
+Biological waste,biological-waste,other-emissions,21
+Biomass,biomass,other-emissions,22
+Bricks,bricks,other-emissions,23
+Calcium ammonium nitrate application,calcium-ammonium-nitrate-application,other-emissions,24
+Calcium ammonium nitrate residue,calcium-ammonium-nitrate-residue,other-emissions,25
+Carbon black capacity,carbon-black-capacity,other-emissions,26
+Charcoal produced,charcoal-produced,other-emissions,27
+Chemical waste,chemical-waste,other-emissions,28
+Clinical waste,clinical-waste,other-emissions,29
+Clinker production,clinker-production,other-emissions,30
+Coal produced,coal-produced,other-emissions,31
+Crude oil,crude-oil,other-emissions,32
+Dairy dairy cows,dairy-dairy-cows,other-emissions,33
+Deep mined coal production,deep-mined-coal-production,other-emissions,34
+Deer,deer,other-emissions,35
+Dolomite,dolomite,other-emissions,36
+Domestic horses,domestic-horses,other-emissions,37
+Ethylene,ethylene,other-emissions,38
+Ethylene dichloride,ethylene-dichloride,other-emissions,39
+Ethylene oxide,ethylene-oxide,other-emissions,40
+Exploration drilling amount of gas flared,exploration-drilling-amount-of-gas-flared,other-emissions,41
+Fletton bricks,fletton-bricks,other-emissions,42
+Glass making additives,glass-making-additives,other-emissions,43
+Goats,goats,other-emissions,44
+Grazing,grazing,other-emissions,45
+Gypsum produced,gypsum-produced,other-emissions,46
+Halocarbon bank c4f10,halocarbon-bank-c4f10,other-emissions,47
+Halocarbon bank hfc 125,halocarbon-bank-hfc-125,other-emissions,48
+Halocarbon bank hfc 134a,halocarbon-bank-hfc-134a,other-emissions,49
+Halocarbon bank hfc 143a,halocarbon-bank-hfc-143a,other-emissions,50
+Halocarbon bank hfc 152a,halocarbon-bank-hfc-152a,other-emissions,51
+Halocarbon bank hfc 227ea,halocarbon-bank-hfc-227ea,other-emissions,52
+Halocarbon bank hfc 245fa,halocarbon-bank-hfc-245fa,other-emissions,53
+Halocarbon bank hfc 32,halocarbon-bank-hfc-32,other-emissions,54
+Halocarbon bank hfc 365mfc,halocarbon-bank-hfc-365mfc,other-emissions,55
+Halocarbon bank sf6,halocarbon-bank-sf6,other-emissions,56
+Halocarbon in products at disposal c4f10,halocarbon-in-products-at-disposal-c4f10,other-emissions,57
+Halocarbon in products at disposal hfc 125,halocarbon-in-products-at-disposal-hfc-125,other-emissions,58
+Halocarbon in products at disposal hfc 134a,halocarbon-in-products-at-disposal-hfc-134a,other-emissions,59
+Halocarbon in products at disposal hfc 143a,halocarbon-in-products-at-disposal-hfc-143a,other-emissions,60
+Halocarbon in products at disposal hfc 152a,halocarbon-in-products-at-disposal-hfc-152a,other-emissions,61
+Halocarbon in products at disposal hfc 227ea,halocarbon-in-products-at-disposal-hfc-227ea,other-emissions,62
+Halocarbon in products at disposal hfc 245fa,halocarbon-in-products-at-disposal-hfc-245fa,other-emissions,63
+Halocarbon in products at disposal hfc 32,halocarbon-in-products-at-disposal-hfc-32,other-emissions,64
+Halocarbon in products at disposal hfc 365mfc,halocarbon-in-products-at-disposal-hfc-365mfc,other-emissions,65
+Halocarbon use hfc 43 10mee,halocarbon-use-hfc-43-10mee,other-emissions,66
+Halocarbon use sf6,halocarbon-use-sf6,other-emissions,67
+Halocarbon used for manufacturing c4f10,halocarbon-used-for-manufacturing-c4f10,other-emissions,68
+Halocarbon used for manufacturing hfc 125,halocarbon-used-for-manufacturing-hfc-125,other-emissions,69
+Halocarbon used for manufacturing hfc 134a,halocarbon-used-for-manufacturing-hfc-134a,other-emissions,70
+Halocarbon used for manufacturing hfc 143a,halocarbon-used-for-manufacturing-hfc-143a,other-emissions,71
+Halocarbon used for manufacturing hfc 152a,halocarbon-used-for-manufacturing-hfc-152a,other-emissions,72
+Halocarbon used for manufacturing hfc 227ea,halocarbon-used-for-manufacturing-hfc-227ea,other-emissions,73
+Halocarbon used for manufacturing hfc 245fa,halocarbon-used-for-manufacturing-hfc-245fa,other-emissions,74
+Halocarbon used for manufacturing hfc 32,halocarbon-used-for-manufacturing-hfc-32,other-emissions,75
+Halocarbon used for manufacturing hfc 365mfc,halocarbon-used-for-manufacturing-hfc-365mfc,other-emissions,76
+Housing,housing,other-emissions,77
+Land area,land-area,other-emissions,78
+Limestone,limestone,other-emissions,79
+Linseed residue,linseed-residue,other-emissions,80
+Liquid bio fuels,liquid-bio-fuels,other-emissions,81
+Mass burnt,mass-burnt,other-emissions,82
+Methanol,methanol,other-emissions,83
+Mineralisation,mineralisation,other-emissions,84
+Mineralisation indirect leach,mineralisation-indirect-leach,other-emissions,85
+Msw,msw,other-emissions,86
+Natural gas leakage at point of use,natural-gas-leakage-at-point-of-use,other-emissions,87
+Natural gas supply,natural-gas-supply,other-emissions,88
+Natural gas transmission leakage,natural-gas-transmission-leakage,other-emissions,89
+No nitrogen fertiliser applied,no-nitrogen-fertiliser-applied,other-emissions,90
+No nitrogen fertiliser applied residue,no-nitrogen-fertiliser-applied-residue,other-emissions,91
+Non fuel combustion,non-fuel-combustion,other-emissions,92
+Non fuel domestic,non-fuel-domestic,other-emissions,93
+Oats residue,oats-residue,other-emissions,94
+Oil production,oil-production,other-emissions,95
+Other cattle beef females for slaughter,other-cattle-beef-females-for-slaughter,other-emissions,96
+Other cattle bulls for breeding,other-cattle-bulls-for-breeding,other-emissions,97
+Other cattle cereal fed bull,other-cattle-cereal-fed-bull,other-emissions,98
+Other cattle cows,other-cattle-cows,other-emissions,99
+Other cattle dairy calves female,other-cattle-dairy-calves-female,other-emissions,100
+Other cattle dairy in calf heifers,other-cattle-dairy-in-calf-heifers,other-emissions,101
+Other cattle dairy replacements female,other-cattle-dairy-replacements-female,other-emissions,102
+Other cattle heifers for breeding,other-cattle-heifers-for-breeding,other-emissions,103
+Other cattle steers,other-cattle-steers,other-emissions,104
+Other nitrogen including compounds application,other-nitrogen-including-compounds-application,other-emissions,105
+Other nitrogen including compounds residue,other-nitrogen-including-compounds-residue,other-emissions,106
+Petroleum waxes,petroleum-waxes,other-emissions,107
+Pig boar,pig-boar,other-emissions,108
+Pig fattening pig 20 kg,pig-fattening-pig-20-kg,other-emissions,109
+Pig fattening pig 20 to 80 kg,pig-fattening-pig-20-to-80-kg,other-emissions,110
+Pig fattening pig 80 kg,pig-fattening-pig-80-kg,other-emissions,111
+Pig gilt,pig-gilt,other-emissions,112
+Pig sow,pig-sow,other-emissions,113
+Population,population,other-emissions,114
+Poultry broilers,poultry-broilers,other-emissions,115
+Poultry laying hens,poultry-laying-hens,other-emissions,116
+Poultry litter,poultry-litter,other-emissions,117
+Poultry other,poultry-other,other-emissions,118
+Poultry turkeys,poultry-turkeys,other-emissions,119
+Primary aluminium production,primary-aluminium-production,other-emissions,120
+Process emission,process-emission,other-emissions,121
+Professional horses,professional-horses,other-emissions,122
+Refinery miscellaneous,refinery-miscellaneous,other-emissions,123
+Scrap tyres,scrap-tyres,other-emissions,124
+Sewage sludge combustion,sewage-sludge-combustion,other-emissions,125
+Sheep ewe,sheep-ewe,other-emissions,126
+Sheep lamb,sheep-lamb,other-emissions,127
+Sheep ram,sheep-ram,other-emissions,128
+Soda ash,soda-ash,other-emissions,129
+Soda ash produced,soda-ash-produced,other-emissions,130
+Sodium bicarbonate,sodium-bicarbonate,other-emissions,131
+Spreading,spreading,other-emissions,132
+Steel production electric arc,steel-production-electric-arc,other-emissions,133
+Steel production oxygen converters,steel-production-oxygen-converters,other-emissions,134
+Storage,storage,other-emissions,135
+Straw,straw,other-emissions,136
+Urea ammonium nitrate application,urea-ammonium-nitrate-application,other-emissions,137
+Urea ammonium nitrate residue,urea-ammonium-nitrate-residue,other-emissions,138
+Urea application,urea-application,other-emissions,139
+Urea consumption,urea-consumption,other-emissions,140
+Urea residue,urea-residue,other-emissions,141
+Waste,waste,other-emissions,142
+Waste solvent,waste-solvent,other-emissions,143
+Wheat residue,wheat-residue,other-emissions,144
+Yarding,yarding,other-emissions,145
+Blast furnace gas,blast-furnace-gas,other-gases,146
+Coke oven gas,coke-oven-gas,other-gases,147
+Colliery methane,colliery-methane,other-gases,148
+Landfill gas,landfill-gas,other-gases,149
+Sewage gas,sewage-gas,other-gases,150
+Sour gas,sour-gas,other-gases,151
+Aviation spirit,aviation-spirit,other-petroleum-products,152
+Bio mtbe,bio-mtbe,other-petroleum-products,153
+Biodiesel,biodiesel,other-petroleum-products,154
+Lubricants,lubricants,other-petroleum-products,155
+Naphtha,naphtha,other-petroleum-products,156
+Waste oils,waste-oils,other-petroleum-products,157
+Other solid fuels,other-solid-fuels,,158
+Charcoal,charcoal,other-solid-fuels,159
+Coke,coke,other-solid-fuels,160
+Coke produced,coke-produced,other-solid-fuels,161
+Peat,peat,other-solid-fuels,162
+Petroleum coke,petroleum-coke,other-solid-fuels,163
+Ssf,ssf,other-solid-fuels,164
+Ssf produced,ssf-produced,other-solid-fuels,165
+Wood,wood,other-solid-fuels,166
+Petroleum,petroleum,,167
+Motor spirit,motor-spirit,petroleum,168
+Other petroleum products,other-petroleum-products,petroleum,169
+Aviation turbine fuel,aviation-turbine-fuel,petroleum,170
+Burning oil,burning-oil,petroleum,171
+Derv,derv,petroleum,172
+Fuel oil,fuel-oil,petroleum,173
+Gas oil,gas-oil,petroleum,174
+Orimulsion,orimulsion,petroleum,175
+Lpg,lpg,petroleum-gases,176
+Opg,opg,petroleum-gases,177
