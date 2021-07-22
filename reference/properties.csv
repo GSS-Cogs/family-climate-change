@@ -9,4 +9,4 @@ climate-change,Activity Name,dimension/activity-name,qb:DimensionProperty,,,skos
 climate-change,National Communication Category,dimension/national-communication-category,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector,
 climate-change,Source,dimension/source,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/source,
 climate-change,National Communication Fuel Group,dimension/national-communication-fuel-group,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel,
-climate-change,Local Authority Code,dimension/local-authority-code,qb:DimensionProperty,,,,,
+climate-change,Local Authority Code,dimension/local-authority-code,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-code,
