@@ -209,7 +209,7 @@ trace.add_column('Country')
 trace.Country('Create Country Value based on country columns in Physical flows sheet')
 df_tbl_physical_flows['ONS Geography Code'] = df_tbl_physical_flows['Country'].map(ons_geography_code_dict)
 trace.add_column('ONS Geography Code')
-trace.ONS_Geography_Code("Create ONS Geography Code Value based on 'Country' column")
+trace.ONS_Geography_Code('Create ONS Geography Code Value based on country codelist')
 df_tbl_physical_flows_country_idx = df_tbl_physical_flows[df_tbl_physical_flows['Services'].isin(['England', 'Scotland', 'Wales', 'Northern Ireland'])].index
 df_tbl_physical_flows.drop(df_tbl_physical_flows_country_idx , inplace=True)
 
@@ -250,7 +250,7 @@ trace.add_column('Country')
 trace.Country('Create Country Value based on country columns in Annual value sheet')
 df_tbl_annual_value['ONS Geography Code'] = df_tbl_annual_value['Country'].map(ons_geography_code_dict)
 trace.add_column('ONS Geography Code')
-trace.ONS_Geography_Code("Create ONS Geography Code Value based on 'Country' column")
+trace.ONS_Geography_Code('Create ONS Geography Code Value based on country codelist')
 df_tbl_annual_value_country_idx = df_tbl_annual_value[df_tbl_annual_value['Physical Flow'].isin(['England', 'Scotland', 'Wales', 'Northern Ireland'])].index
 df_tbl_annual_value.drop(df_tbl_annual_value_country_idx , inplace=True)
 
@@ -287,7 +287,7 @@ trace.add_column('Country')
 trace.Country('Create Country Value based on country columns in Asset value sheet')
 df_tbl_asset_value['ONS Geography Code'] = df_tbl_asset_value['Country'].map(ons_geography_code_dict)
 trace.add_column('ONS Geography Code')
-trace.ONS_Geography_Code("Create ONS Geography Code Value based on 'Country' column")
+trace.ONS_Geography_Code('Create ONS Geography Code Value based on country codelist')
 
 df_tbl_asset_value['Period'] = pd.to_numeric(df_tbl_asset_value['Period'], errors='coerce').astype('Int64').replace(np.nan, 'None')
 trace.Period("Format 'Period' column to decimal calendar year")
