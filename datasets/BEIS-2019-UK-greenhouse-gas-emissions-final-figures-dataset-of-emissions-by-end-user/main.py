@@ -59,5 +59,9 @@ for col in df.columns.values.tolist():
     except Exception as err:
         raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
+# Fix BEIS' use of slashes in some columns:
+df['National Communication Category'] = df['National Communication Category'].str.replace('/', '-')
+df['Source'] = df['Source'].str.replace('/', '-').str.replace('-+', '-', regex = True)
+
 cubes.add_cube(metadata, df, metadata.dataset.title)
 cubes.output_all()
