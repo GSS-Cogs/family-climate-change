@@ -41,7 +41,7 @@ df.loc[(df['National Communication Fuel Group'] == ' '), 'National Communication
 
 df.drop(columns=['TerritoryName', 'EmissionUnits'], axis=1, inplace=True)
 df.drop(df.columns[df.columns.str.contains('Unnamed',case = False)],axis = 1, inplace = True)
-df.query("(not `IPCC Code` == 'Aviation_Bunkers') & (not `IPCC Code` == 'Marine_Bunkers')", inplace = True)
+df.query("(not `IPCC Code` == 'Aviation_Bunkers') & (not `IPCC Code` == 'Marine_Bunkers') & (not `IPCC Code` == 'non-IPCC')", inplace = True)
 
 df.rename(
     columns={
