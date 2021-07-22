@@ -1,6 +1,4 @@
 Namespace,Label,Path,Qb Property Type,Parent Property,Source,Range,Codelist,Comment
-energy,Fuel,dimension/fuel,qb:DimensionProperty,,,skos:Concept,,Fuel
-energy,ROC per MWh,attribute/roc-per-mwh,qb:Attribute,,,,,ROC per MWh
 climate-change,Greenhouse Gas,dimension/ghg,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/ghg,
 climate-change,Greenhouse Gas Group,dimension/ghg-grouped,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/ghg,
 climate-change,IPCC Code,dimension/ipcc-code,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/ipcc-code,"Classification and definition of categories of emissions and removals, as defined by the Intergovernmental Panel on Climate Change (IPCC)."
@@ -11,3 +9,4 @@ climate-change,Activity Name,dimension/activity-name,qb:DimensionProperty,,,skos
 climate-change,National Communication Category,dimension/national-communication-category,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-sector,
 climate-change,Source,dimension/source,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/source,
 climate-change,National Communication Fuel Group,dimension/national-communication-fuel-group,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel,
+climate-change,Local Authority Code,dimension/local-authority-code,qb:DimensionProperty,,,,,
