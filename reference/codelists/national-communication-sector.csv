@@ -1,128 +1,141 @@
 Label,Notation,Parent Notation,Sort Priority
-Agriculture,agriculture,,1
-Enteric fermentation,enteric-fermentation,agriculture,2
-Other agriculture,other-agriculture,agriculture,3
-Wastes,wastes,agriculture,4
-Incidental lubricant combustion in engines agriculture,incidental-lubricant-combustion-in-engines-agriculture,agriculture,5
-Stationary and mobile combustion,stationary-and-mobile-combustion,agriculture,6
-Civil aviation domestic cruise,civil-aviation-domestic-cruise,aviation,7
-Civil aviation domestic landing and take off,civil-aviation-domestic-landing-and-take-off,aviation,8
-Business,business,,9
-Accidental fires business,accidental-fires-business,business,10
-Closed foams,closed-foams,business,11
-Commercial and miscellaneous combustion and electricity,commercial-and-miscellaneous-combustion-and-electricity,business,12
-Electronics electrical insulation scientific research military applications and sporting goods,electronics-electrical-insulation-scientific-research-military-applications-and-sporting-goods,business,13
-Firefighting,firefighting,business,14
-Incidental lubricant combustion in engines business,incidental-lubricant-combustion-in-engines-business,business,15
-Industrial combustion and electricity excl iron and steel,industrial-combustion-and-electricity-excl-iron-and-steel,business,16
-Iron and steel combustion and electricity,iron-and-steel-combustion-and-electricity,business,17
-N2o use as an anaesthetic,n2o-use-as-an-anaesthetic,business,18
-Non energy use of fuels,non-energy-use-of-fuels,business,19
-One component foams,one-component-foams,business,20
-Refrigeration and air conditioning,refrigeration-and-air-conditioning,business,21
-Solvents,solvents,business,22
-Biomass burning cropland,biomass-burning-cropland,cropland,23
-Cropland remaining cropland,cropland-remaining-cropland,cropland,24
-Direct n2o emissions from n mineralization/immobilisation cropland,direct-n2o-emissions-from-n-mineralization/immobilisation-cropland,cropland,25
-Land converted to cropland,land-converted-to-cropland,cropland,26
-Cattle enteric fermentation,cattle-enteric-fermentation,enteric-fermentation,27
-Deer enteric fermentation,deer-enteric-fermentation,enteric-fermentation,28
-Goats enteric fermentation,goats-enteric-fermentation,enteric-fermentation,29
-Horses enteric fermentation,horses-enteric-fermentation,enteric-fermentation,30
-Pigs enteric fermentation,pigs-enteric-fermentation,enteric-fermentation,31
-Sheep enteric fermentation,sheep-enteric-fermentation,enteric-fermentation,32
-Biomass burning forest land,biomass-burning-forest-land,forest-land,33
-Direct n2o emissions from n mineralization/immobilisation forest land,direct-n2o-emissions-from-n-mineralization/immobilisation-forest-land,forest-land,34
-Drainage of organic soils forest land,drainage-of-organic-soils-forest-land,forest-land,35
-Forest land remaining forest land,forest-land-remaining-forest-land,forest-land,36
-Land converted to forest land,land-converted-to-forest-land,forest-land,37
-Biomass burning grassland,biomass-burning-grassland,grassland,38
-Direct n2o emissions from n mineralization/immobilisation grassland,direct-n2o-emissions-from-n-mineralization/immobilisation-grassland,grassland,39
-Drainage of organic soils grassland,drainage-of-organic-soils-grassland,grassland,40
-Grassland remaining grassland,grassland-remaining-grassland,grassland,41
-Land converted to grassland,land-converted-to-grassland,grassland,42
-Industrial processes,industrial-processes,,43
-Adipic acid production,adipic-acid-production,industrial-processes,44
-Aluminium production,aluminium-production,industrial-processes,45
-Ammonia production,ammonia-production,industrial-processes,46
-Bricks production,bricks-production,industrial-processes,47
-Cement production,cement-production,industrial-processes,48
-Fletton brick production,fletton-brick-production,industrial-processes,49
-Glass production,glass-production,industrial-processes,50
-Halocarbon production,halocarbon-production,industrial-processes,51
-Iron and steel production,iron-and-steel-production,industrial-processes,52
-Lime production,lime-production,industrial-processes,53
-Magnesium cover gas,magnesium-cover-gas,industrial-processes,54
-Nitric acid production,nitric-acid-production,industrial-processes,55
-Non ferrous metal processes,non-ferrous-metal-processes,industrial-processes,56
-Other chemical industry,other-chemical-industry,industrial-processes,57
-Sinter production,sinter-production,industrial-processes,58
-Soda ash production use,soda-ash-production-use,industrial-processes,59
-Titanium dioxide production,titanium-dioxide-production,industrial-processes,60
-Use of n2o industrial process,use-of-n2o-industrial-process,industrial-processes,61
-Land use land use change and forestry,land-use-land-use-change-and-forestry,,62
-Cropland,cropland,land-use-land-use-change-and-forestry,63
-Forest land,forest-land,land-use-land-use-change-and-forestry,64
-Grassland,grassland,land-use-land-use-change-and-forestry,65
-Other lulucf,other-lulucf,land-use-land-use-change-and-forestry,66
-Settlements,settlements,land-use-land-use-change-and-forestry,67
-Wetlands,wetlands,land-use-land-use-change-and-forestry,68
-Not applicable,not-applicable,,69
-Direct soil emission,direct-soil-emission,other-agriculture,70
-Field burning of agricultural wastes,field-burning-of-agricultural-wastes,other-agriculture,71
-Indirect soil emission,indirect-soil-emission,other-agriculture,72
-Liming,liming,other-agriculture,73
-Urea application,urea-application,other-agriculture,74
-Harvested wood,harvested-wood,other-lulucf,75
-Indirect n2o emissions,indirect-n2o-emissions,other-lulucf,76
-Aircraft support vehicles,aircraft-support-vehicles,other-mobile,77
-Military aircraft and shipping,military-aircraft-and-shipping,other-mobile,78
-Railways mobile combustion,railways-mobile-combustion,railways,79
-Railways stationary combustion,railways-stationary-combustion,railways,80
-Residential,residential,,81
-Accidental fires residential,accidental-fires-residential,residential,82
-Aerosols and metered dose inhalers,aerosols-and-metered-dose-inhalers,residential,83
-Composting household,composting-household,residential,84
-Recreational use of n2o,recreational-use-of-n2o,residential,85
-Residential combustion,residential-combustion,residential,86
-Use of non aerosol consumer products,use-of-non-aerosol-consumer-products,residential,87
-Buses,buses,road,88
-Electric vehicles,electric-vehicles,road,89
-Hgvs,hgvs,road,90
-Incidental lubricant combustion in road engines,incidental-lubricant-combustion-in-road-engines,road,91
-Light duty vehicles,light-duty-vehicles,road,92
-Mopeds motorcycles,mopeds-motorcycles,road,93
-Passenger cars,passenger-cars,road,94
-Road vehicle lpg and biofuel use all vehicles,road-vehicle-lpg-and-biofuel-use-all-vehicles,road,95
-Urea use in abatement technology,urea-use-in-abatement-technology,road,96
-Biomass burning settlements,biomass-burning-settlements,settlements,97
-Direct n2o emissions from n mineralization/immobilisation settlements,direct-n2o-emissions-from-n-mineralization/immobilisation-settlements,settlements,98
-Drainage of organic soils settlements,drainage-of-organic-soils-settlements,settlements,99
-Land converted to settlements,land-converted-to-settlements,settlements,100
-Settlements remaining settlements,settlements-remaining-settlements,settlements,101
-Fishing vessels,fishing-vessels,shipping,102
-Incidental lubricant combustion in marine engines,incidental-lubricant-combustion-in-marine-engines,shipping,103
-National navigation,national-navigation,shipping,104
-Transport,transport,,105
-Aviation,aviation,transport,106
-Other mobile,other-mobile,transport,107
-Railways,railways,transport,108
-Road,road,transport,109
-Shipping,shipping,transport,110
-Waste management,waste-management,,111
-Anaerobic digestion,anaerobic-digestion,waste-management,112
-Composting non household,composting-non-household,waste-management,113
-Landfill,landfill,waste-management,114
-Mechanical biological treatment,mechanical-biological-treatment,waste-management,115
-Waste incineration,waste-incineration,waste-management,116
-Waste water handling,waste-water-handling,waste-management,117
-Cattle wastes,cattle-wastes,wastes,118
-Deer wastes,deer-wastes,wastes,119
-Goats wastes,goats-wastes,wastes,120
-Horses wastes,horses-wastes,wastes,121
-Pigs wastes,pigs-wastes,wastes,122
-Poultry,poultry,wastes,123
-Sheep wastes,sheep-wastes,wastes,124
-Drainage of organic soils wetland,drainage-of-organic-soils-wetland,wetlands,125
-Land converted to wetland,land-converted-to-wetland,wetlands,126
-Wetlands remaining wetland,wetlands-remaining-wetland,wetlands,127
+All,all,,1
+Energy Supply,energy-supply,all,2
+Business,business,all,3
+Transport,transport,all,4
+Residential,residential,all,5
+Agriculture,agriculture,all,6
+Industrial Processes,industrial-processes,all,7
+Land Use and Land Use Change and Forestry,land-use-land-use-change-and-forestry,all,8
+Waste Management,waste-management,all,9
+Grand Total,grand-total,all,10
+Public,public,all,11
+Aviation,aviation,transport,12
+Road,road,transport,13
+Railways,railways,transport,14
+Shipping,shipping,transport,15
+Other Mobile,other-mobile,transport,16
+Enteric Fermentation,enteric-fermentation,agriculture,18
+Wastes,wastes,agriculture,19
+Other Agriculture,other-agriculture,agriculture,20
+Forest Land,forest-land,land-use-land-use-change-and-forestry,21
+Cropland,cropland,land-use-land-use-change-and-forestry,22
+Grassland,grassland,land-use-land-use-change-and-forestry,23
+Wetlands,wetlands,land-use-land-use-change-and-forestry,24
+Settlements,settlements,land-use-land-use-change-and-forestry,25
+Other LULUCF,other-lulucf,land-use-land-use-change-and-forestry,26
+Power stations,power-stations,energy-supply,27
+Refineries,refineries,energy-supply,28
+Manufacture of solid fuels and other energy industries,manufacture-of-solid-fuels-and-other-energy-industries,energy-supply,29
+Solid fuel transformation,solid-fuel-transformation,energy-supply,30
+Coal mining and handling,coal-mining-and-handling,energy-supply,31
+"Exploration, production and transport of oils",exploration-production-and-transport-of-oils,energy-supply,32
+Power station flue-gas desulphurisation,power-station-flue-gas-desulphurisation,energy-supply,33
+"Exploration, production and transport of gas",exploration-production-and-transport-of-gas,energy-supply,34
+Offshore oil and gas - Flaring,offshore-oil-and-gas-flaring,energy-supply,35
+Offshore oil and gas - Venting,offshore-oil-and-gas-venting,energy-supply,36
+Incidental lubricant combustion in engines - Business,incidental-lubricant-combustion-in-engines-business,business,37
+Refrigeration and air conditioning,refrigeration-and-air-conditioning,business,38
+Closed foams,closed-foams,business,39
+Firefighting,firefighting,business,40
+Solvents,solvents,business,41
+One component foams,one-component-foams,business,42
+Iron and steel - combustion and electricity,iron-and-steel-combustion-and-electricity,business,43
+Industrial combustion and electricity (excl. iron and steel),industrial-combustion-and-electricity-excl-iron-and-steel,business,44
+Commercial and miscellaneous combustion and electricity,commercial-and-miscellaneous-combustion-and-electricity,business,45
+"Electronics, electrical insulation, scientific research, military applications and sporting goods",electronics-electrical-insulation-scientific-research-military-applications-and-sporting-goods,business,46
+Non energy use of fuels,non-energy-use-of-fuels,business,47
+Accidental fires - business,accidental-fires-business,business,48
+N2O use as an anaesthetic,n2o-use-as-an-anaesthetic,business,49
+Civil aviation (domestic and cruise),civil-aviation-domestic-cruise,aviation,50
+Civil aviation (domestic and landing and take off),civil-aviation-domestic-landing-and-take-off,aviation,51
+Passenger cars,passenger-cars,road,52
+Light duty vehicles,light-duty-vehicles,road,53
+Buses,buses,road,54
+HGVs,hgvs,road,55
+Mopeds & motorcycles,mopeds-motorcycles,road,56
+Road vehicle LPG and biofuel use (all vehicles),road-vehicle-lpg-and-biofuel-use-all-vehicles,road,57
+Incidental lubricant combustion in road engines,incidental-lubricant-combustion-in-road-engines,road,58
+Urea use in abatement technology,urea-use-in-abatement-technology,road,59
+Railways - mobile combustion,railways-mobile-combustion,railways,60
+Railways - stationary combustion,railways-stationary-combustion,railways,61
+National navigation,national-navigation,shipping,62
+Incidental lubricant combustion in marine engines,incidental-lubricant-combustion-in-marine-engines,shipping,63
+Fishing vessels,fishing-vessels,shipping,64
+Military aircraft and shipping,military-aircraft-and-shipping,other-mobile,65
+Aircraft support vehicles,aircraft-support-vehicles,other-mobile,66
+Residential combustion,residential-combustion,residential,67
+Use of non aerosol consumer products,use-of-non-aerosol-consumer-products,residential,68
+Accidental fires - residential,accidental-fires-residential,residential,69
+Aerosols and metered dose inhalers,aerosols-and-metered-dose-inhalers,residential,70
+Composting - household,composting-household,residential,71
+Recreational use of N2O,recreational-use-of-n2o,residential,72
+Stationary and mobile combustion,stationary-and-mobile-combustion,agriculture,73
+Incidental lubricant combustion in engines - agriculture,incidental-lubricant-combustion-in-engines-agriculture,agriculture,74
+Cattle - enteric fermentation,cattle-enteric-fermentation,enteric-fermentation,75
+Sheep - enteric fermentation,sheep-enteric-fermentation,enteric-fermentation,76
+Goats - enteric fermentation,goats-enteric-fermentation,enteric-fermentation,77
+Horses - enteric fermentation,horses-enteric-fermentation,enteric-fermentation,78
+Pigs - enteric fermentation,pigs-enteric-fermentation,enteric-fermentation,79
+Deer - enteric fermentation,deer-enteric-fermentation,enteric-fermentation,80
+Cattle - wastes,cattle-wastes,wastes,81
+Sheep - wastes,sheep-wastes,wastes,82
+Goats - wastes,goats-wastes,wastes,83
+Horses - wastes,horses-wastes,wastes,84
+Pigs - wastes,pigs-wastes,wastes,85
+Poultry,poultry,wastes,86
+Deer - wastes,deer-wastes,wastes,87
+Liming,liming,other-agriculture,88
+Direct soil emission,direct-soil-emission,other-agriculture,89
+Field burning of agricultural wastes,field-burning-of-agricultural-wastes,other-agriculture,90
+Urea application,urea-application,other-agriculture,91
+Indirect soil emission,indirect-soil-emission,other-agriculture,92
+Sinter production,sinter-production,industrial-processes,93
+Cement production,cement-production,industrial-processes,94
+Lime production,lime-production,industrial-processes,95
+Soda ash production & use,soda-ash-production-use,industrial-processes,96
+Glass production,glass-production,industrial-processes,97
+Fletton brick production,fletton-brick-production,industrial-processes,98
+Ammonia production,ammonia-production,industrial-processes,99
+Aluminium production,aluminium-production,industrial-processes,100
+Nitric acid production,nitric-acid-production,industrial-processes,101
+Adipic acid production,adipic-acid-production,industrial-processes,102
+Other - chemical industry,other-chemical-industry,industrial-processes,103
+Halocarbon production,halocarbon-production,industrial-processes,104
+Magnesium cover gas,magnesium-cover-gas,industrial-processes,105
+Iron and steel production,iron-and-steel-production,industrial-processes,106
+Titanium dioxide production,titanium-dioxide-production,industrial-processes,107
+Bricks production,bricks-production,industrial-processes,108
+Non ferrous metal processes,non-ferrous-metal-processes,industrial-processes,109
+Use of N2O - Industrial Process,use-of-n2o-industrial-process,industrial-processes,110
+Forest land remaining forest land,forest-land-remaining-forest-land,forest-land,111
+Biomass burning - Forest land,biomass-burning-forest-land,forest-land,112
+Land converted to forest land,land-converted-to-forest-land,forest-land,113
+Drainage of organic soils - Forest land,drainage-of-organic-soils-forest-land,forest-land,114
+Direct N2O emissions from N mineralization/immobilisation - Forest land,direct-n2o-emissions-from-n-mineralization-immobilisation-forest-land,forest-land,115
+Biomass burning - Cropland,biomass-burning-cropland,cropland,116
+Cropland remaining cropland,cropland-remaining-cropland,cropland,117
+Land converted to cropland,land-converted-to-cropland,cropland,118
+Direct N2O emissions from N mineralization/immobilisation - Cropland,direct-n2o-emissions-from-n-mineralization-immobilisation-cropland,cropland,119
+Biomass burning - Grassland,biomass-burning-grassland,grassland,120
+Grassland remaining grassland,grassland-remaining-grassland,grassland,121
+Land converted to grassland,land-converted-to-grassland,grassland,122
+Drainage of organic soils - grassland,drainage-of-organic-soils-grassland,grassland,123
+Direct N2O emissions from N mineralization/immobilisation - Grassland,direct-n2o-emissions-from-n-mineralization-immobilisation-grassland,grassland,124
+Wetlands remaining wetland,wetlands-remaining-wetland,wetlands,125
+Drainage of organic soils - wetland,drainage-of-organic-soils-wetland,wetlands,126
+Land converted to wetland,land-converted-to-wetland,wetlands,127
+Settlements remaining settlements,settlements-remaining-settlements,settlements,128
+Biomass burning - Settlements,biomass-burning-settlements,settlements,129
+Land converted to settlements,land-converted-to-settlements,settlements,130
+Drainage of organic soils - settlements,drainage-of-organic-soils-settlements,settlements,131
+Direct N2O emissions from N mineralization/immobilisation - Settlements,direct-n2o-emissions-from-n-mineralization-immobilisation-settlements,settlements,132
+Harvested wood,harvested-wood,other-lulucf,133
+Indirect N2O emissions ,indirect-n2o-emissions,other-lulucf,134
+Landfill,landfill,waste-management,135
+Waste-water handling,waste-water-handling,waste-management,136
+Waste Incineration,waste-incineration,waste-management,137
+Composting - non-household,composting-non-household,waste-management,138
+Anaerobic digestion,anaerobic-digestion,waste-management,139
+Mechanical biological treatment,mechanical-biological-treatment,waste-management,140
+Not Applicable,not-applicable,,141
