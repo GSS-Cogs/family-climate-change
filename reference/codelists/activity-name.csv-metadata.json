@@ -1,11 +1,60 @@
 {
-    "@context": [
-        "http://www.w3.org/ns/csvw",
-        {
-            "@language": "en"
-        }
-    ],
+    "@context": "http://www.w3.org/ns/csvw",
     "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name",
+    "url": "activity-name.csv",
+    "rdfs:label": "Activity Name",
+    "dc:title": "Activity Name",
+    "tableSchema": {
+        "columns": [
+            {
+                "titles": "Label",
+                "name": "label",
+                "datatype": "string",
+                "required": true,
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "titles": "Notation",
+                "name": "notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*$"
+                },
+                "required": true,
+                "propertyUrl": "skos:notation"
+            },
+            {
+                "titles": "Parent Notation",
+                "name": "parent_notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^(-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*|)$"
+                },
+                "required": false,
+                "propertyUrl": "skos:broader",
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/activity-name/{+parent_notation}"
+            },
+            {
+                "titles": "Sort Priority",
+                "name": "sort_priority",
+                "datatype": "integer",
+                "required": false,
+                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "rdf:type",
+                "valueUrl": "skos:Concept"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "skos:inScheme",
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name"
+            }
+        ],
+        "primaryKey": "notation",
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/activity-name/{+notation}"
+    },
     "prov:hadDerivation": {
         "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name",
         "@type": [
@@ -13,46 +62,6 @@
             "http://publishmydata.com/pmdcat#ConceptScheme"
         ]
     },
-    "url": "activity-name.csv",
-    "tableSchema": {
-        "columns": [
-            {
-                "titles": "Label",
-                "required": true,
-                "name": "label",
-                "datatype": "string",
-                "propertyUrl": "rdfs:label"
-            },
-            {
-                "titles": "Notation",
-                "required": false,
-                "name": "notation",
-                "datatype": "string",
-                "propertyUrl": "skos:notation"
-            },
-            {
-                "titles": "Parent Notation",
-                "required": false,
-                "name": "parent",
-                "datatype": "string",
-                "propertyUrl": "skos:broader",
-                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/activity-name/{+parent}"
-            },
-            {
-                "titles": "Sort Priority",
-                "required": false,
-                "name": "sort",
-                "datatype": "integer",
-                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
-            }
-        ],
-        "primaryKey": [
-            "notation"
-        ],
-        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/activity-name/{+notation}"
-    },
-    "dc:title": "BEIS Greenhouse Gasses Catalog Record",
-    "rdfs:label": "BEIS Greenhouse Gasses Catalog Record",
     "rdfs:seeAlso": [
         {
             "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name/dataset",
@@ -68,14 +77,14 @@
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-07-21T16:02:30.217996"
+                "@value": "2021-07-22T07:47:50.093444"
             },
-            "rdfs:label": "BEIS Greenhouse Gas Activity",
-            "dc:title": "BEIS Greenhouse Gas Activity  ",
-            "rdfs:comment": "",
+            "rdfs:label": "Activity Name",
+            "dc:title": "Activity Name",
+            "rdfs:comment": "Dataset representing the 'Activity Name' code list.",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-02-03T08:41:31.826544"
+                "@value": "2021-07-22T07:47:50.093444"
             }
         },
         {
@@ -93,15 +102,15 @@
             "http://publishmydata.com/pmdcat#metadataGraph": {
                 "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/activity-name"
             },
-            "dc:title": "BEIS Greenhouse Gasses Emissions dataset",
-            "rdfs:label": "BEIS Greenhouse Gasses Catalog Record",
+            "dc:title": "Activity Name Catalog Record",
+            "rdfs:label": "Activity Name Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-06-03T08:41:31.826544"
+                "@value": "2021-07-22T07:47:50.093444"
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-06-03T08:41:31.826544"
+                "@value": "2021-07-22T07:47:50.093444"
             }
         }
     ]
