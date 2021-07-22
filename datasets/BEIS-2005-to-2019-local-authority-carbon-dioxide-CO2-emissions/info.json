@@ -3,7 +3,7 @@
     "title": "2005 to 2019 local authority carbon dioxide (CO2) emissions",
     "publisher": "Department for Business, Energy and Industrial Strategy",
     "description": "These statistics provide the most reliable and consistent breakdown of CO2 emissions across the country, using nationally available data sets going back to 2005.\n\nThe main data sources are the UK National Atmospheric Emissions Inventory and the BEIS National Statistics of energy consumption for local authority areas. All emissions included in the national inventory are covered, except aviation, shipping and military transport, for which there is no obvious basis for allocation to local areas.",
-    "landingPage": "https://www.gov.uk/government/collections/uk-local-authority-and-regional-carbon-dioxide-emissions-national-statistics",
+    "landingPage": "https://www.gov.uk/government/statistics/uk-local-authority-and-regional-carbon-dioxide-emissions-national-statistics",
     "datasetNotes": [
         "On landing page scroll down to latest release under heading \"Documents\". On new page, again scroll down to where dataset is located under heading \"Documents\". The CSV format is towards bottom of page."
     ],
@@ -29,8 +29,8 @@
             },    
             "Local Authority Code": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/local-authority-code",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/local-authority-code/{local_authority_code}",
-                "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority"        
+                "value": "http://gss-data.org.uk/def/climate-change/concept/local-authority-code/{local_authority_code}"
+                     
             },
             "LA CO2 Sector": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/la-co2-sector",
