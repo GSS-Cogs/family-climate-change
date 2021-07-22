@@ -53,6 +53,7 @@ for col in df.columns.values.tolist():
 
 # Fix BEIS' use of slashes in some columns:
 df['National Communication Category'] = df['National Communication Category'].str.replace('/', '-')
+df['Source'] = df['Source'].str.replace('/', '-').str.replace('-+', '-', regex = True)
 
 cubes.add_cube(metadata, df, metadata.dataset.title)
 cubes.output_all()

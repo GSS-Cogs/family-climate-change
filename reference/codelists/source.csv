@@ -15,7 +15,7 @@ Incineration,incineration,,13
 Iron and steel - combustion plant,iron-and-steel-combustion-plant,,14
 Landfill,landfill,,15
 Lime production - non decarbonising,lime-production-non-decarbonising,,16
-Miscellaneous industrial/commercial combustion,miscellaneous-industrial/commercial-combustion,,17
+Miscellaneous industrial/commercial combustion,miscellaneous-industrial-commercial-combustion,,17
 Nuclear fuel production,nuclear-fuel-production,,18
 Upstream Oil Production - flaring,upstream-oil-production-flaring,,19
 Upstream Oil Production - process emissions,upstream-oil-production-process-emissions,,20
@@ -124,7 +124,7 @@ Forest Land converted to Grassland - Biomass Burning - Controlled Burning,forest
 Peat Extraction Remaining Peat Extraction - Carbon stock change,peat-extraction-remaining-peat-extraction-carbon-stock-change,,123
 Land converted for Peat Extraction - Carbon stock change,land-converted-for-peat-extraction-carbon-stock-change,,124
 Settlements remaining Settlements - Carbon stock change,settlements-remaining-settlements-carbon-stock-change,,125
-Forest Land converted to Settlements - Direct N2O emissions from N Mineralization/Immobilization,forest-land-converted-to-settlements-direct-n2o-emissions-from-n-mineralization/immobilization,,126
+Forest Land converted to Settlements - Direct N2O emissions from N Mineralization/Immobilization,forest-land-converted-to-settlements-direct-n2o-emissions-from-n-mineralization-immobilization,,126
 Forest Land converted to Settlements - Biomass Burning - Controlled Burning,forest-land-converted-to-settlements-biomass-burning-controlled-burning,,127
 Forest Land - Drainage and rewetting and other management of organic and mineral soils,forest-land-drainage-and-rewetting-and-other-management-of-organic-and-mineral-soils,,128
 Direct N2O emission from N fertilisation of forest land,direct-n2o-emission-from-n-fertilisation-of-forest-land,,129
@@ -135,7 +135,7 @@ Upstream Gas Production - fuel combustion,upstream-gas-production-fuel-combustio
 Upstream Gas Production - Gas terminal storage,upstream-gas-production-gas-terminal-storage,,134
 Upstream Gas Production - Offshore Well Testing,upstream-gas-production-offshore-well-testing,,135
 Upstream Gas Production - venting,upstream-gas-production-venting,,136
-Forest Land converted to Cropland - Direct N2O emissions from N Mineralization/Immobilization,forest-land-converted-to-cropland-direct-n2o-emissions-from-n-mineralization/immobilization,,137
+Forest Land converted to Cropland - Direct N2O emissions from N Mineralization/Immobilization,forest-land-converted-to-cropland-direct-n2o-emissions-from-n-mineralization-immobilization,,137
 Wetlands - Drainage and rewetting and other management of organic and mineral soils,wetlands-drainage-and-rewetting-and-other-management-of-organic-and-mineral-soils,,138
 Autogeneration - exported to grid,autogeneration-exported-to-grid,,139
 Non-Ferrous Metal (combustion),non-ferrous-metal-combustion,,140
@@ -143,7 +143,7 @@ Chemicals (combustion),chemicals-combustion,,141
 "Pulp, Paper and Print (combustion)",pulp-paper-and-print-combustion,,142
 "Food & drink, tobacco (combustion)",food-drink-tobacco-combustion,,143
 Sailing boats with auxiliary engines,sailing-boats-with-auxiliary-engines,,144
-"Motorboats / workboats (e.g. canal boats, dredgers, service boats, tourist boats, river boats)",motorboats-/-workboats-e-g-canal-boats-dredgers-service-boats-tourist-boats-river-boats,,145
+"Motorboats / workboats (e.g. canal boats, dredgers, service boats, tourist boats, river boats)",motorboats-workboats-e-g-canal-boats-dredgers-service-boats-tourist-boats-river-boats,,145
 Personal watercraft e.g. jet ski,personal-watercraft-e-g-jet-ski,,146
 Inland goods-carrying vessels,inland-goods-carrying-vessels,,147
 Cropland remaining Cropland - Biomass Burning - Wildfires,cropland-remaining-cropland-biomass-burning-wildfires,,148
@@ -160,10 +160,10 @@ Composting (at household),composting-at-household,,158
 Chemical industry - ethylene oxide,chemical-industry-ethylene-oxide,,159
 Chemical industry - acrylonitrile,chemical-industry-acrylonitrile,,160
 Liming,liming,,161
-Grassland remaining Grassland - Direct N2O emissions from N Mineralization/Immobilization,grassland-remaining-grassland-direct-n2o-emissions-from-n-mineralization/immobilization,,162
+Grassland remaining Grassland - Direct N2O emissions from N Mineralization/Immobilization,grassland-remaining-grassland-direct-n2o-emissions-from-n-mineralization-immobilization,,162
 Cropland remaining Cropland - Soils carbon stock change,cropland-remaining-cropland-soils-carbon-stock-change,,163
 Grassland - Drainage and rewetting and other management of organic and mineral soils,grassland-drainage-and-rewetting-and-other-management-of-organic-and-mineral-soils,,164
-Settlements remaining Settlements - Direct N2O emissions from N Mineralization/Immobilization,settlements-remaining-settlements-direct-n2o-emissions-from-n-mineralization/immobilization,,165
+Settlements remaining Settlements - Direct N2O emissions from N Mineralization/Immobilization,settlements-remaining-settlements-direct-n2o-emissions-from-n-mineralization-immobilization,,165
 Brick manufacture - all types,brick-manufacture-all-types,,166
 Non-ferrous metal processes,non-ferrous-metal-processes,,167
 Non Energy Use: chemical feedstock,non-energy-use-chemical-feedstock,,168
@@ -171,25 +171,25 @@ Chemical Industry � other process sources,chemical-industry-other-process-sour
 Other food - cream consumption,other-food-cream-consumption,,170
 Grassland converted to Forest Land - Carbon stock change,grassland-converted-to-forest-land-carbon-stock-change,,171
 Settlements converted to Forest Land - Carbon stock change,settlements-converted-to-forest-land-carbon-stock-change,,172
-Grassland converted to Cropland - Direct N2O emissions from N Mineralization/Immobilization,grassland-converted-to-cropland-direct-n2o-emissions-from-n-mineralization/immobilization,,173
+Grassland converted to Cropland - Direct N2O emissions from N Mineralization/Immobilization,grassland-converted-to-cropland-direct-n2o-emissions-from-n-mineralization-immobilization,,173
 Grassland converted to Cropland - Carbon stock change,grassland-converted-to-cropland-carbon-stock-change,,174
 Settlements converted to Cropland - Carbon stock change,settlements-converted-to-cropland-carbon-stock-change,,175
-Forest Land converted to Grassland - Direct N2O emissions from N Mineralization/Immobilization,forest-land-converted-to-grassland-direct-n2o-emissions-from-n-mineralization/immobilization,,176
+Forest Land converted to Grassland - Direct N2O emissions from N Mineralization/Immobilization,forest-land-converted-to-grassland-direct-n2o-emissions-from-n-mineralization-immobilization,,176
 Cropland converted to Grassland - Carbon stock change,cropland-converted-to-grassland-carbon-stock-change,,177
 Settlements converted to Grassland - Carbon stock change,settlements-converted-to-grassland-carbon-stock-change,,178
 Forest Land converted to Settlements - Carbon stock change,forest-land-converted-to-settlements-carbon-stock-change,,179
-Cropland converted to Settlements - Direct N2O emissions from N Mineralization/Immobilization,cropland-converted-to-settlements-direct-n2o-emissions-from-n-mineralization/immobilization,,180
+Cropland converted to Settlements - Direct N2O emissions from N Mineralization/Immobilization,cropland-converted-to-settlements-direct-n2o-emissions-from-n-mineralization-immobilization,,180
 Cropland converted to Settlements - Carbon stock change,cropland-converted-to-settlements-carbon-stock-change,,181
-Grassland converted to Settlements - Direct N2O emissions from N Mineralization/Immobilization,grassland-converted-to-settlements-direct-n2o-emissions-from-n-mineralization/immobilization,,182
+Grassland converted to Settlements - Direct N2O emissions from N Mineralization/Immobilization,grassland-converted-to-settlements-direct-n2o-emissions-from-n-mineralization-immobilization,,182
 Grassland converted to Settlements - Carbon stock change,grassland-converted-to-settlements-carbon-stock-change,,183
 HWP Produced and Consumed Domestically - Carbon stock change,hwp-produced-and-consumed-domestically-carbon-stock-change,,184
 HWP Produced and Exported - Carbon stock change,hwp-produced-and-exported-carbon-stock-change,,185
 LULUCF Indirect N2O - Nitrogen Leaching and Run-off,lulucf-indirect-n2o-nitrogen-leaching-and-run-off,,186
 LULUCF Indirect N2O - Atmospheric Deposition,lulucf-indirect-n2o-atmospheric-deposition,,187
 Methanol production � combustion,methanol-production-combustion,,188
-Cropland converted to Forest Land - Direct N2O emissions from N Mineralization/Immobilization,cropland-converted-to-forest-land-direct-n2o-emissions-from-n-mineralization/immobilization,,189
-Grassland converted to Forest Land - Direct N2O emissions from N Mineralization/Immobilization,grassland-converted-to-forest-land-direct-n2o-emissions-from-n-mineralization/immobilization,,190
-Settlements converted to Forest Land - Direct N2O emissions from N Mineralization/Immobilization,settlements-converted-to-forest-land-direct-n2o-emissions-from-n-mineralization/immobilization,,191
+Cropland converted to Forest Land - Direct N2O emissions from N Mineralization/Immobilization,cropland-converted-to-forest-land-direct-n2o-emissions-from-n-mineralization-immobilization,,189
+Grassland converted to Forest Land - Direct N2O emissions from N Mineralization/Immobilization,grassland-converted-to-forest-land-direct-n2o-emissions-from-n-mineralization-immobilization,,190
+Settlements converted to Forest Land - Direct N2O emissions from N Mineralization/Immobilization,settlements-converted-to-forest-land-direct-n2o-emissions-from-n-mineralization-immobilization,,191
 Managed Histosols,managed-histosols,,192
 F-gas handling,f-gas-handling,,193
 "Mobile Air-Conditioning: MAC systems - cars, vans, cabs",mobile-air-conditioning-mac-systems-cars-vans-cabs,,194
