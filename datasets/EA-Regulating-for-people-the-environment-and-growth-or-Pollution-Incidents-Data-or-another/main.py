@@ -258,7 +258,9 @@ df['Event Number'] = pd.to_numeric(df['Event Number'], errors='coerce').astype('
 df['Reported Date'] = df['Reported Date'].apply(lambda x: parse(str(x)).strftime('%Y-%m-%dT%H:%M:%S'))
 trace.Reported_Date("Format 'Reported Date' column with gregorian day format")
 
+df['Marker'] = df['Marker'].astype(str)
 df['Value'] = df['Marker']
+df['Value'] = df['Value'].astype(str)
 trace.Value("Create Value based on 'Marker' column")
 
 df = df[['Reported Date', 'Event Number', 'Incident Operational Area', 'Grid Reference Confirmed', 'EP Incident', 'Impact Level Type', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value']]
