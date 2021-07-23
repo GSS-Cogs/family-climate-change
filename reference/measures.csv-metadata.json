@@ -5,9 +5,9 @@
             "@language": "en"
         }
     ],
-    "@id": "http://gss-data.org.uk/def/energy/ontology/measures",
+    "@id": "http://gss-data.org.uk/def/climate-change/ontology/measures",
     "prov:hadDerivation": {
-        "@id": "http://gss-data.org.uk/def/energy/ontology/measures",
+        "@id": "http://gss-data.org.uk/def/climate-change/ontology/measures",
         "@type": "owl:Ontology"
     },
     "url": "measures.csv",
@@ -77,6 +77,6 @@
         ],
         "aboutUrl": "http://gss-data.org.uk/def/{+namespace}/measure/{+path}"
     },
-    "rdfs:label": "GSS EDVP Measures",
-    "dc:title": "GSS EDVP Measures"
+    "rdfs:label": "Climate Change  Measures",
+    "dc:title": "Climate Change  Measures"
 }
