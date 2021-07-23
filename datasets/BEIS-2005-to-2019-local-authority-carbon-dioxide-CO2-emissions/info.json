@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema.json",
     "id": "beis-2005-to-2019-local-authority-carbon-dioxide-co2-emissions",
     "title": "2005 to 2019 local authority carbon dioxide (CO2) emissions",
     "publisher": "Department for Business, Energy and Industrial Strategy",
@@ -23,14 +24,13 @@
         "main_issue": 21,
         "columns": {
             "Year": {
-                "parent": "http://purl/linked-data/sdmx/2009/dimension#refPeriod",
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
                 "value": "http://reference.data.gov.uk/id/year/{year}",
                 "codelist": false
             },    
             "Local Authority Code": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/local-authority-code",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/local-authority-code/{local_authority_code}"
-                     
             },
             "LA CO2 Sector": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/la-co2-sector",
@@ -39,7 +39,7 @@
             },
             "LA CO2 Sub-sector": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/la-co2-subsector",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/la-co2-subsector/{la_co2_subsector",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/la-co2-subsector/{la_co2_subsector}",
                 "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-subsector"
             },
             "Territorial emissions": {
@@ -58,12 +58,10 @@
                 "datatype": "double"
             },
             "Area": {
-                 "unit": "http://gss-data.org.uk/def/concept/measurement-units/km2",
-                 "measure": "http://gss-data.org.uk/def/measure/area",
-                 "datatype": "double"
-            
-        
-        }
+                "unit": "http://gss-data.org.uk/def/concept/measurement-units/km2",
+                "measure": "http://gss-data.org.uk/def/measure/area",
+                "datatype": "double"
+            }
         }
     },
     "sizingNotes": "Although large table, in straightforward CSV format.",
