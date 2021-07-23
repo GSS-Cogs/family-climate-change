@@ -31,18 +31,14 @@ metadata.dataset.title = distribution.title
 df = distribution.as_pandas()
 
 df.drop(columns=df.columns.values.tolist()[0:6], axis=1, inplace=True)
+df.drop(columns=['Mid-year Population (thousands)', 'Area (km2)'], axis=1, inplace=True)
 df.rename(columns={'Calendar Year': 'Year',
 					'Territorial emissions (kt CO2)':'Territorial emissions',
 					'Emissions within the scope of influence of LAs (kt CO2)': 'Emissions within the scope of influence of LAs',
-					'Mid-year Population (thousands)':'Mid-year Population',
-					'Area (km2)': 'Area' 
 			}, inplace=True)
 
-for col in df.columns.values.tolist()[-4:]:
-    if col == 'Mid-year Population':
-        df[col] = df[col].astype(str).astype(float).round(3)
-    else:
-        df[col] = df[col].astype(str).astype(float).round(2)
+for col in df.columns.values.tolist()[-2:]:
+    df[col] = df[col].astype(str).astype(float).round(2)
 
 for col in ['LA CO2 Sector', 'LA CO2 Sub-sector']:
     try:
@@ -50,7 +46,7 @@ for col in ['LA CO2 Sector', 'LA CO2 Sub-sector']:
     except Exception as err:
         raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
-df = df.fillna(' ')
+df = df.fillna('unallocated consumption')
 
 cubes.add_cube(metadata, df, metadata.dataset.title)
 cubes.output_all()
