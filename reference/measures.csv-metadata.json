@@ -63,7 +63,7 @@
                 "name": "range",
                 "datatype": "anyURI",
                 "propertyUrl": "rdfs:range",
-                "valueUrl": "{range}"
+                "valueUrl": "{+range}"
             },
             {
                 "name": "type",
