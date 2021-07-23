@@ -23,9 +23,8 @@
         "main_issue": 21,
         "columns": {
             "Year": {
-                "parent": "http://purl/linked-data/sdmx/2009/dimension#refPeriod",
-                "value": "http://reference.data.gov.uk/id/year/{year}",
-                "codelist": false
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{year}"
             },    
             "Local Authority Code": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/local-authority-code",
@@ -34,36 +33,24 @@
             },
             "LA CO2 Sector": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/la-co2-sector",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/la-co2-sector/{la_co2_sector}",
-                "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-sector"
+                "value": "http://gss-data.org.uk/def/climate-change/concept/la-co2-sector/{la_co2_sector}"
+                
             },
             "LA CO2 Sub-sector": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/la-co2-subsector",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/la-co2-subsector/{la_co2_subsector",
-                "codelist": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-subsector"
+                "value": "http://gss-data.org.uk/def/climate-change/concept/la-co2-subsector/{la_co2_subsector"
+                
             },
             "Territorial emissions": {
-                "unit": "http://gss-data.org.uk/def/concept/measurement-units/kt-co2",
-                "measure": "http://gss-data.org.uk/def/measure/territorial-co2",
+                "unit": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-unit/kt-co2",
+                "measure": "http://gss-data.org.uk/def/climate-change/ontology/measures/territorial-co2",
                 "datatype": "double"
             },
             "Emissions within the scope of influence of LAs": {
-                "unit": "http://gss-data.org.uk/def/concept/measurement-units/kt-co2",
-                "measure": "http://gss-data.org.uk/def/measure/la-co2",
+                "unit": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-unit/kt-co2",
+                "measure": "http://gss-data.org.uk/def/climate-change/ontology/measures/la-co2",
                 "datatype": "double"
-            },
-            "Mid-year Population": {
-                "unit": "http://gss-data.org.uk/def/concept/measurement-units/thousands",
-                "measure": "http://gss-data.org.uk/def/measure/population",
-                "datatype": "double"
-            },
-            "Area": {
-                 "unit": "http://gss-data.org.uk/def/concept/measurement-units/km2",
-                 "measure": "http://gss-data.org.uk/def/measure/area",
-                 "datatype": "double"
-            
-        
-        }
+            }
         }
     },
     "sizingNotes": "Although large table, in straightforward CSV format.",
