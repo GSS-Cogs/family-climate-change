@@ -225,12 +225,12 @@ for tab in tabs:
 
 # Notes from tab
 notes = """
-Data limitations
-It does not include incidents relating to:
-Fisheries incidents – incidents involving illegal fishing and illegal fish movements, fish disease, fishery management activities and fish kills from non-pollution causes, including low flows and low dissolved oxygen.
-Water Resources incidents – incidents involving the quantity of a water resource.
-Waterways incidents – incidents on a waterway where we are the competent authority for navigation. 
-Flood and Coastal Risk Management incidents – for incidents which involve actual or potential flooding and land drainage works. 
+Data limitations \n
+It does not include incidents relating to: \n
+Fisheries incidents – incidents involving illegal fishing and illegal fish movements, fish disease, fishery management activities and fish kills from non-pollution causes, including low flows and low dissolved oxygen. \n
+Water Resources incidents – incidents involving the quantity of a water resource. \n
+Waterways incidents – incidents on a waterway where we are the competent authority for navigation. \n
+Flood and Coastal Risk Management incidents – for incidents which involve actual or potential flooding and land drainage works. \n
 Only incidents where our investigations and response have been completed are included.  Some incidents may take an extended period of months, or exceptionally years, to be completed.
 The dataset only includes substantiated incidents and their environmental impact. These are where we have confirmation that the incident took place either by a visit from us or a partner organisation, or it is corroborated by other information.
 """
