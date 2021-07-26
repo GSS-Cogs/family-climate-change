@@ -253,7 +253,7 @@ df.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inplace=True)
 df_marker_idx = df[df['Marker'].isin(['Air Env Impact Level', 'Land Env Impact Level', 'Water Env Impact Level'])].index
 df.drop(df_marker_idx , inplace=True)
 
-df['Event Number'] = pd.to_numeric(df['Event Number'], errors='coerce').astype('Int64')
+df['Event Number'] = pd.to_numeric(df['Event Number'], errors='coerce').astype('Int64').replace(np.nan, 'None')
 trace.Event_Number("Format 'Event Number' column to Int64 value type")
 
 df['Reported Date'] = df['Reported Date'].apply(lambda x: parse(str(x)).strftime('%Y-%m-%dT%H:%M:%S'))
