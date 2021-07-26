@@ -254,6 +254,7 @@ df_marker_idx = df[df['Marker'].isin(['Air Env Impact Level', 'Land Env Impact L
 df.drop(df_marker_idx , inplace=True)
 
 df['Event Number'] = pd.to_numeric(df['Event Number'], errors='coerce').astype('Int64')
+trace.Event_Number("Format 'Event Number' column to Int64 value type")
 
 df['Reported Date'] = df['Reported Date'].apply(lambda x: parse(str(x)).strftime('%Y-%m-%dT%H:%M:%S'))
 trace.Reported_Date("Format 'Reported Date' column with gregorian day format")
