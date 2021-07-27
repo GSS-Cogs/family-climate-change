@@ -265,7 +265,7 @@ df['Value'] = df['Value'].astype(str)
 trace.Value("Create Value based on 'Marker' column")
 
 df['Measure Type'] = df['Measure Type'].astype(str)
-trace.Measure_Type('Create Measure Type Value based on Env Impact Level type')
+trace.Measure_Type("Create Measure Type Value based on 'Impact Level Type' column")
 
 df = df[['Reported Date', 'Event Number', 'Incident Operational Area', 'Grid Reference Confirmed', 'EP Incident', 'Impact Level Type', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value']]
 
