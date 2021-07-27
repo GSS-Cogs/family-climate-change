@@ -82,7 +82,7 @@ with pd.ExcelWriter('data.xls') as writer:
 tabs = loadxlstabs('data.xls')
 
 tabs_name = ['Data_for_Publication']
-columns=['Event Number', 'Reported Date', 'Incident Operational Area', 'Grid Reference Confirmed', 'EP Incident', 'Impact Level Type',
+columns=['Reported Date', 'Event Number', 'Incident Operational Area', 'Grid Reference Confirmed', 'EP Incident', 'Impact Level Type',
          'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit']
 
 if len(set(tabs_name)-{x.name for x in tabs}) != 0:
@@ -169,11 +169,11 @@ for tab in tabs:
     trace.start(datasetTitle, tab, columns, dist.downloadURL)
     print(tab.name)
 
-    event_number = tab.filter('Event No').expand(DOWN).is_not_blank()
-    trace.Event_Number('Defined from cell range: {}', var=excelRange(event_number))
-
     reported_date = tab.filter('Reported Date').expand(DOWN).is_not_blank()
     trace.Reported_Date('Defined from cell range: {}', var=excelRange(reported_date))
+
+    event_number = tab.filter('Event No').expand(DOWN).is_not_blank()
+    trace.Event_Number('Defined from cell range: {}', var=excelRange(event_number))
 
     incident_operational_area = tab.filter('Incident Operational Area').expand(DOWN).is_not_blank()
     trace.Incident_Operational_Area('Defined from cell range: {}', var=excelRange(incident_operational_area))
@@ -205,8 +205,8 @@ for tab in tabs:
     observations = tab.filter('Air Env Impact Level').expand(DOWN).expand(RIGHT).is_not_blank() & tab.filter('Water Env Impact Level').expand(DOWN).expand(LEFT).is_not_blank()
 
     dimensions = [
-        HDim(event_number, 'Event Number', DIRECTLY, LEFT),
         HDim(reported_date, 'Reported Date', DIRECTLY, LEFT),
+        HDim(event_number, 'Event Number', DIRECTLY, LEFT),
         HDim(incident_operational_area, 'Incident Operational Area', DIRECTLY, LEFT),
         HDim(grid_reference_confirmed, 'Grid Reference Confirmed', DIRECTLY, LEFT),
         HDim(ep_incident, 'EP Incident', DIRECTLY, LEFT),
@@ -253,11 +253,11 @@ df.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inplace=True)
 df_marker_idx = df[df['Marker'].isin(['Air Env Impact Level', 'Land Env Impact Level', 'Water Env Impact Level'])].index
 df.drop(df_marker_idx , inplace=True)
 
-df['Event Number'] = pd.to_numeric(df['Event Number'], errors='coerce').astype('Int64').replace(np.nan, 'None')
-trace.Event_Number("Format 'Event Number' column to Int64 value type")
-
 df['Reported Date'] = df['Reported Date'].apply(lambda x: parse(str(x)).strftime('%Y-%m-%dT%H:%M:%S'))
 trace.Reported_Date("Format 'Reported Date' column with gregorian day format")
+
+df['Event Number'] = pd.to_numeric(df['Event Number'], errors='coerce').astype('Int64').replace(np.nan, 'None')
+trace.Event_Number("Format 'Event Number' column to Int64 value type")
 
 df['Marker'] = df['Marker'].astype(str)
 df['Value'] = df['Marker']
