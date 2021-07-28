@@ -260,6 +260,8 @@ df['Event Number'] = pd.to_numeric(df['Event Number'], errors='coerce').astype('
 trace.Event_Number("Format 'Event Number' column to Int64 value type")
 
 df['Marker'] = df['Marker'].astype(str)
+trace.add_column('Marker')
+trace.Marker('Create Marker Value to capture the categories of impact level')
 df['Value'] = df['Marker']
 df['Value'] = df['Value'].astype(str)
 trace.Value("Create Value based on 'Marker' column")
