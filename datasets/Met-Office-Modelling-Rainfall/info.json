@@ -17,9 +17,9 @@
         "airtable": "recSE5QfPy874VFbH",
         "main_issue": 22,
         "columns": {
-            "Year": {
-                "parent": "http://purl/linked-data/sdmx/2009/dimension#refYear",
-                "value": "http://reference.data.gov.uk/id/year/{year}",
+            "Month": {
+                "parent": "http://purl/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/month/{month}",
                 "codelist": false
             },
             "Geography": {
