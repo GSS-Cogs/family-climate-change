@@ -259,7 +259,7 @@ df_marker_idx = df[df['Marker'].isin(['Air Env Impact Level', 'Land Env Impact L
 df.drop(df_marker_idx , inplace=True)
 
 df['Reported Date'] = df['Reported Date'].apply(lambda x: parse(str(x)).strftime('%Y-%m-%dT%H:%M:%S'))
-trace.Reported_Date("Format 'Reported Date' column with gregorian day format")
+trace.Reported_Date("Format 'Reported Date' column with iso timestamp format")
 
 df['Event Number'] = pd.to_numeric(df['Event Number'], errors='coerce').astype('Int64').replace(np.nan, 'None')
 trace.Event_Number("Format 'Event Number' column to Int64 value type")
@@ -270,6 +270,12 @@ trace.Marker('Create Marker Value to capture the categories of impact level')
 df['Value'] = df['Marker']
 df['Value'] = df['Value'].astype(str)
 trace.Value("Create Value based on 'Marker' column")
+
+df['Impact Level Type'] = df['Impact Level Type'].astype(str)
+trace.Impact_Level_Type('Create Impact Level Type Value to capture the categories of Env Impact Level')
+
+df['Unit'] = df['Unit'].astype(str)
+trace.Unit('Hardcoded as Impact Level')
 
 df['Measure Type'] = df['Measure Type'].astype(str)
 trace.Measure_Type("Create Measure Type Value based on 'Impact Level Type' column")
