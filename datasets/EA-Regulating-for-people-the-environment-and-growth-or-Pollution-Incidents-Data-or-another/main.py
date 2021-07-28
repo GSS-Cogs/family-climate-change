@@ -82,8 +82,8 @@ with pd.ExcelWriter('data.xls') as writer:
 tabs = loadxlstabs('data.xls')
 
 tabs_name = ['Data_for_Publication']
-columns=['Reported Date', 'Event Number', 'Incident Operational Area', 'Grid Reference Confirmed', 'EP Incident', 'Impact Level Type',
-         'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit']
+columns=['Reported Date', 'Event Number', 'Incident Operational Area', 'Grid Reference Confirmed', 'EP Incident',
+         'Impact Level Type', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit']
 
 if len(set(tabs_name)-{x.name for x in tabs}) != 0:
     raise ValueError(f'Aborting. A tab named {set(tabs_name)-{x.name for x in tabs}} required but not found')
@@ -184,7 +184,8 @@ for tab in tabs:
     ep_incident = tab.filter('EP Incident (Y/N)?').expand(DOWN).is_not_blank()
     trace.EP_Incident('Defined from cell range: {}', var=excelRange(ep_incident))
 
-    impact_level_type = tab.filter('Air Env Impact Level').expand(RIGHT).is_not_blank() & tab.filter('Water Env Impact Level').expand(LEFT).is_not_blank()
+    impact_level_type = tab.filter('Air Env Impact Level').expand(RIGHT).is_not_blank() &\
+                        tab.filter('Water Env Impact Level').expand(LEFT).is_not_blank()
     trace.Impact_Level_Type('Defined from cell range: {}', var=excelRange(impact_level_type))
 
     incident_county = tab.filter('Incident County').expand(DOWN).is_not_blank()
@@ -202,7 +203,8 @@ for tab in tabs:
     unit = 'Impact Level'
     trace.Unit('Hardcoded as {}', var=unit)
 
-    observations = tab.filter('Air Env Impact Level').expand(DOWN).expand(RIGHT).is_not_blank() & tab.filter('Water Env Impact Level').expand(DOWN).expand(LEFT).is_not_blank()
+    observations = tab.filter('Air Env Impact Level').expand(DOWN).expand(RIGHT).is_not_blank() &\
+                   tab.filter('Water Env Impact Level').expand(DOWN).expand(LEFT).is_not_blank()
 
     dimensions = [
         HDim(reported_date, 'Reported Date', DIRECTLY, LEFT),
@@ -227,12 +229,15 @@ for tab in tabs:
 notes = """
 Data limitations \n
 It does not include incidents relating to: \n
-Fisheries incidents – incidents involving illegal fishing and illegal fish movements, fish disease, fishery management activities and fish kills from non-pollution causes, including low flows and low dissolved oxygen. \n
+Fisheries incidents – incidents involving illegal fishing and illegal fish movements, fish disease,
+ fishery management activities and fish kills from non-pollution causes, including low flows and low dissolved oxygen. \n
 Water Resources incidents – incidents involving the quantity of a water resource. \n
 Waterways incidents – incidents on a waterway where we are the competent authority for navigation. \n
 Flood and Coastal Risk Management incidents – for incidents which involve actual or potential flooding and land drainage works. \n
-Only incidents where our investigations and response have been completed are included.  Some incidents may take an extended period of months, or exceptionally years, to be completed.
-The dataset only includes substantiated incidents and their environmental impact. These are where we have confirmation that the incident took place either by a visit from us or a partner organisation, or it is corroborated by other information.
+Only incidents where our investigations and response have been completed are included.
+  Some incidents may take an extended period of months, or exceptionally years, to be completed.
+The dataset only includes substantiated incidents and their environmental impact.
+ These are where we have confirmation that the incident took place either by a visit from us or a partner organisation, or it is corroborated by other information.
 """
 scraper.dataset.comment = notes
 scraper.dataset.family = 'climate-change'
@@ -269,11 +274,14 @@ trace.Value("Create Value based on 'Marker' column")
 df['Measure Type'] = df['Measure Type'].astype(str)
 trace.Measure_Type("Create Measure Type Value based on 'Impact Level Type' column")
 
-df = df[['Reported Date', 'Event Number', 'Incident Operational Area', 'Grid Reference Confirmed', 'EP Incident', 'Impact Level Type', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value']]
+df = df[['Reported Date', 'Event Number', 'Incident Operational Area', 'Grid Reference Confirmed', 'EP Incident',
+         'Impact Level Type', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value']]
 
-convert_category_datatype(df, ['Incident Operational Area', 'Grid Reference Confirmed', 'EP Incident', 'Impact Level Type', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value'])
+convert_category_datatype(df, ['Incident Operational Area', 'Grid Reference Confirmed', 'EP Incident',
+                               'Impact Level Type', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value'])
 
-pathify_columns(df, ['Incident Operational Area', 'Grid Reference Confirmed', 'EP Incident', 'Impact Level Type', 'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value'])
+pathify_columns(df, ['Incident Operational Area', 'Grid Reference Confirmed', 'EP Incident', 'Impact Level Type',
+                     'Incident County', 'Incident District', 'Incident Unitary', 'Measure Type', 'Unit', 'Marker', 'Value'])
 
 trace.Grid_Reference_Confirmed("Rename 'Grid Reference Confirmed' column to 'Grid Reference (Confirmed)'")
 trace.EP_Incident("Rename 'EP Incident' column to 'EP Incident (Y/N)?'")
