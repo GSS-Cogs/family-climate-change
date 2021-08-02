@@ -19,13 +19,13 @@
         "columns": {
             "Month": {
                 "parent": "http://purl/linked-data/sdmx/2009/dimension#refPeriod",
-                "value": "http://reference.data.gov.uk/id/month/{month}",
-                "codelist": false
+                "value": "http://reference.data.gov.uk/id/month/{month}"
+                
             },
             "Geography": {
                 "parent": "http://purl/linked-data/sdmx/2009/dimension#refArea",
-                "value": "http://statistics.data.gov.uk/id/statistical-geography/{geography}",
-                "codelist": false
+                "value": "http://statistics.data.gov.uk/id/statistical-geography/{geography}"
+                
             },
             "Rainfall": {
                 "unit": "http://gss-data.org.uk/def/concept/measurement-units/rainfall",
