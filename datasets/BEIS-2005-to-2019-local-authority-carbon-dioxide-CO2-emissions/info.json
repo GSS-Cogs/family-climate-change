@@ -37,7 +37,7 @@
             },
             "LA CO2 Sub-sector": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/la-co2-sub-sector",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/la-co2-subsector/{la_co2_subsector}"
+                "value": "http://gss-data.org.uk/def/climate-change/concept/la-co2-subsector/{la_co2_sub_sector}"
             },
             "Territorial emissions": {
                 "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/kt-co2",
