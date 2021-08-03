@@ -1,15 +1,15 @@
 Label,Notation,Parent Notation,Sort Priority
-east scotland,east scotland,,1
-north scotland,north scotland,,2
-west scotland,west scotland,,3
-northern ireland,northern ireland,,4
-east midlands,east midlands,,5
-east of england,east of england,,6
+east scotland,east-scotland,,1
+north scotland,north-scotland,,2
+west scotland,west-scotland,,3
+northern ireland,northern-ireland,,4
+east midlands,east-midlands,,5
+east of england,east-of-england,,6
 london,london,,7
-north east england,north east england,,8
-north west england,north west england,,9
-south east england,south east england,,10
-south west england,south west england,,11
+north east england,north-east-england,,8
+north west england,north-west-england,,9
+south east england,south-east-england,,10
+south west england,south-west-england,,11
 wales,wales,,12
-west midlands,west midlands,,13
-yorkshire and humber,yorkshire and humber,,14
+west midlands,west-midlands,,13
+yorkshire and humber,yorkshire-and-humber,,14
