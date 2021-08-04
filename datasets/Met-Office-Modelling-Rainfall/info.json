@@ -26,7 +26,7 @@
                 "description": "Met Office bespoke geography area"
                 
             },
-            "Rainfall": {
+            "Value": {
                 "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/millilitres",
                 "measure": "http://gss-data.org.uk/def/climate-change/measure/rainfall",
                 "datatype": "double"
