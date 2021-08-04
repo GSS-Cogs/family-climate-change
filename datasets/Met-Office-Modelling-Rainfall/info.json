@@ -27,7 +27,7 @@
                 
             },
             "Rainfall": {
-                "unit": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-unit/milliters",
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/millilitres",
                 "measure": "http://gss-data.org.uk/def/climate-change/measure/rainfall",
                 "datatype": "double"
             }
