@@ -85,8 +85,8 @@
         ],
         "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/{+path}"
     },
-    "rdfs:label": "GSS BEIS measurement units",
-    "dc:title": "GSS BEIS measurement units",
+    "rdfs:label": "Climate Change measurement units",
+    "dc:title": "Climate Change measurement units",
     "rdfs:seeAlso": [
         {
             "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-unit/dataset",
@@ -104,9 +104,9 @@
                 "@type": "dateTime",
                 "@value": "2021-05-20T11:35:12.599937"
             },
-            "rdfs:label": "GSS BEIS measurement units",
-            "dc:title": "GSS BEIS measurement units",
-            "rdfs:comment": "Dataset representing the 'GSS BEIS measurement units' code list.",
+            "rdfs:label": "Climate Change measurement units",
+            "dc:title": "Climate Change measurement units",
+            "rdfs:comment": "Dataset representing the 'Climate Change measurement units' code list.",
             "dc:issued": {
                 "@type": "dateTime",
                 "@value": "2021-02-03T08:41:31.826544"
@@ -127,8 +127,8 @@
             "http://publishmydata.com/pmdcat#metadataGraph": {
                 "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-unit"
             },
-            "dc:title": "GSS BEIS measurement units Catalog Record",
-            "rdfs:label": "GSS BEIS measurement units Catalog Record",
+            "dc:title": "Climate Changemeasurement units Catalog Record",
+            "rdfs:label": "Climate Changemeasurement units Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
                 "@value": "2021-07-03T08:41:31.826544"
