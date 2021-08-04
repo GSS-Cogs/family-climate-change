@@ -27,7 +27,7 @@
                 
             },
             "Rainfall": {
-                "unit": "http://gss-data.org.uk/def/concept/measurement-units/rainfall",
+                "unit": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-unit/rainfall",
                 "measure": "http://gss-data.org.uk/def/climate-change/measure/rainfall",
                 "datatype": "double"
             }
