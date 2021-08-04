@@ -11,7 +11,7 @@ df.drop(columns='daycount', axis=1, inplace=True)
 df = pd.melt(df, id_vars=['period-start'])
 df.rename(columns={'period-start': 'Month',
                 'variable': 'Geography',
-                'value','Value'
+                'value': 'Value'
                 }, inplace=True)
 
 df['Month'] = pd.to_datetime(df['Month'], dayfirst=True).dt.strftime('%Y-%m')
