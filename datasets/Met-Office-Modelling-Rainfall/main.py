@@ -18,7 +18,7 @@ df['Month'] = pd.to_datetime(df['Month'], dayfirst=True).dt.strftime('%Y-%m')
 
 df['Geography'].replace({'ondon': 'london'}, inplace=True)
 df['Geography'] = df['Geography'].apply(pathify)
-df['Rainfall'] = df['Rainfall'].astype(str).astype(float).round(2)
+#df['Rainfall'] = df['Rainfall'].astype(str).astype(float).round(2)
 
 out = Path('out')
 out.mkdir(exist_ok=True)
