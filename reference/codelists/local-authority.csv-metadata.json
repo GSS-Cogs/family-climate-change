@@ -5,15 +5,15 @@
             "@language": "en"
         }
     ],
-    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority",
+    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-code",
     "prov:hadDerivation": {
-        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority",
+        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-code",
         "@type": [
             "skos:ConceptScheme",
             "http://publishmydata.com/pmdcat#ConceptScheme"
         ]
     },
-    "url": "local-authority.csv",
+    "url": "local-authority-code.csv",
     "tableSchema": {
         "columns": [
             {
@@ -36,7 +36,7 @@
                 "name": "parent",
                 "datatype": "string",
                 "propertyUrl": "skos:broader",
-                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/local-authority/{+parent}"
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/local-authority-code/{+parent}"
             },
             {
                 "titles": "Sort Priority",
@@ -49,22 +49,22 @@
         "primaryKey": [
             "notation"
         ],
-        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/local-authority/{+notation}"
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/local-authority-code/{+notation}"
     },
         "dc:title": "Local Authority Code",
         "rdfs:label": "Local Authority Code Catalog Record",
         "rdfs:seeAlso": [
         {
-            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority/dataset",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-code/dataset",
             "@type": [
                 "dcat:Dataset",
                 "http://publishmydata.com/pmdcat#Dataset"
             ],
             "http://publishmydata.com/pmdcat#datasetContents": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-code"
             },
             "http://publishmydata.com/pmdcat#graph": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-code"
             },
             "dc:modified": {
                 "@type": "dateTime",
@@ -81,17 +81,17 @@
         {
             "@id": "http://gss-data.org.uk/catalog/vocabularies",
             "dcat:record": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority/catalog-record"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-code/catalog-record"
             }
         },
         {
-            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority/catalog-record",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-code/catalog-record",
             "@type": "dcat:CatalogRecord",
             "foaf:primaryTopic": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority/dataset"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-code/dataset"
             },
             "http://publishmydata.com/pmdcat#metadataGraph": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-code"
             },
             "dc:title": "Local Authority Code",
             "rdfs:label": "Local Authority Code Catalog Record",
