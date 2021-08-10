@@ -75,9 +75,9 @@ for tab in tabs:
         table['Value'] = pd.to_numeric(table['Value'], downcast='float')
         table['Value'] = table['Value'].astype(str).astype(float).round(1)
        
-        table['Total Value'] = ' ' 
+        table['Total Value'] = '' 
         table.loc[(table['Sector'] == 'NATIONAL TOTAL'), 'Total Value'] = table.loc[(table['Sector'] == 'NATIONAL TOTAL'), 'Value']
-        table.loc[(table['Sector'] == 'NATIONAL TOTAL'), 'Value'] = ' '
+        table.loc[(table['Sector'] == 'NATIONAL TOTAL'), 'Value'] = ''
         table.loc[(table['Sector'] == 'NATIONAL TOTAL'), 'Sector'] = 'All'
         
         trace.store('dataframe', table)
@@ -127,7 +127,7 @@ for col in ['Sector', 'Source', 'Measure Type', 'Unit', 'Pollutant']:
 df = df.replace('', 'not-applicable')
 
 df = df[['Sector', 'Source', 'Period', 'Measure Type', 'Unit', 'Value', 'Total Value', 'Pollutant']]
-cubes.add_cube(metadata, df, metadata.dataset.title) 
+cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title) 
 
 # Emissions of air pollutants by emissions source as proportion of total emissions: 1990 to 2019 
 title2 = 'Emissions of air pollutants by emissions source as proportion of total emissions: 1990 to 2019'
@@ -174,7 +174,7 @@ for col in ['Sector', 'Pollutant']:
 df2 = df2.replace('', 'not-applicable')
 df2 = df2[['Sector', 'Period', 'Measure Type', 'Value', 'Pollutant']]
 
-cubes.add_cube(metadata, df2, metadata.dataset.title)
+cubes.add_cube(metadata, df2.drop_duplicates(), metadata.dataset.title)
 # -
 
 cubes.output_all()
