@@ -37,16 +37,22 @@ df.rename(columns={'Calendar Year': 'Year',
 					'Emissions within the scope of influence of LAs (kt CO2)': 'Emissions within the scope of influence of LAs',
 			}, inplace=True)
 
-for col in df.columns.values.tolist()[-2:]:
+val_vars = ['Territorial emissions', 'Emissions within the scope of influence of LAs']
+other_vars = df.columns.difference(val_vars)
+df = pd.melt(df, id_vars= other_vars, value_vars= val_vars, var_name= 'Measure Type')
+ 
+for col in df.columns.values.tolist()[-1:]:
     df[col] = df[col].astype(str).astype(float).round(2)
 
-for col in ['LA CO2 Sector', 'LA CO2 Sub-sector']:
+for col in ['LA CO2 Sector', 'LA CO2 Sub-sector', 'Measure Type']:
     try:
         df[col] = df[col].apply(pathify)
     except Exception as err:
         raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
 df = df.fillna('unallocated consumption')
+
+df['Units'] = 'kt-co2'
 
 cubes.add_cube(metadata, df, metadata.dataset.title)
 cubes.output_all()

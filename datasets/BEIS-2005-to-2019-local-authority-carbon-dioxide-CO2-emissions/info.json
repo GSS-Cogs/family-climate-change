@@ -26,7 +26,7 @@
             "Year": {
                 "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
                 "value": "http://reference.data.gov.uk/id/year/{year}"
-            },    
+            },
             "Local Authority Code": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/local-authority-code",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/local-authority-code/{local_authority_code}"
@@ -39,16 +39,17 @@
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/la-co2-sub-sector",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/la-co2-subsector/{la_co2_sub_sector}"
             },
-            "Territorial emissions": {
-                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-units/kt-co2",
-                "measure": "http://gss-data.org.uk/def/climate-change/measures/territorial-co2",
-                "datatype": "double"
+            "Measure Type": {
+                "dimension": "http://purl.org/linked-data/cube#measureType",
+                "value": "http://gss-data.org.uk/def/climate-change/measure/{measure_type}",
+                "types": [
+                    "territorial-emissions",
+                    "emissions-within-the-scope-of-influence-of-las"
+                ]
             },
-            "Emissions within the scope of influence of LAs": {
-                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-units/kt-co2",
-                "measure": "http://gss-data.org.uk/def/climate-change/measures/la-co2",
-                "datatype": "double"    
-           
+            "Units": {
+                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{unit}"
             }
         }
     },
