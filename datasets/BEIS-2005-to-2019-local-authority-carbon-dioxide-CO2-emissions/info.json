@@ -40,12 +40,12 @@
                 "value": "http://gss-data.org.uk/def/climate-change/concept/la-co2-subsector/{la_co2_sub_sector}"
             },
             "Territorial emissions": {
-                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/kt-co2",
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-units/kt-co2",
                 "measure": "http://gss-data.org.uk/def/climate-change/measures/territorial-co2",
                 "datatype": "double"
             },
             "Emissions within the scope of influence of LAs": {
-                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/kt-co2",
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-units/kt-co2",
                 "measure": "http://gss-data.org.uk/def/climate-change/measures/la-co2",
                 "datatype": "double"    
            
