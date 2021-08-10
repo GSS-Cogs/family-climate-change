@@ -37,7 +37,7 @@
             },
             "LA CO2 Sub-sector": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/la-co2-sub-sector",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/la-co2-subsector/{la_co2_sub_sector}"
+                "value": "http://gss-data.org.uk/def/climate-change/concept/la-co2-sub-sector/{la_co2_sub_sector}"
             },
             "Measure Type": {
                 "dimension": "http://purl.org/linked-data/cube#measureType",
@@ -50,6 +50,9 @@
             "Units": {
                 "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
                 "value": "http://gss-data.org.uk/def/concept/measurement-units/{unit}"
+            },
+            "Value": {
+                "datatype": "double"
             }
         }
     },
