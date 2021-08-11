@@ -1,26 +1,7 @@
 Label,Notation,Parent Notation,Sort Priority
-A.2 Commercial Electricity,a-2-commercial-electricity,,1
-A.1 Industry Electricity,a-1-industry-electricity,,2
-A.3 Public Sector Electricity,a-3-public-sector-electricity,,3
-B.2 Commercial Gas,b-2-commercial-gas,,4
-B.1 Industrial Gas,b-1-industrial-gas,,5
-B.3 Public Sector Gas,b-3-public-sector-gas,,6
-C. Large Industrial Installations,c-large-industrial-installations,,7
-D.2 Commercial Other Fuels,d-2-commercial-other-fuels,,8
-D.1 Industrial Other Fuels,d-1-industrial-other-fuels,,9
-D.3 Public Sector Other Fuels,d-3-public-sector-other-fuels,,10
-E. Agricultural Combustion,e-agricultural-combustion,,11
-F. Domestic Electricity,f-domestic-electricity,,12
-G. Domestic Gas,g-domestic-gas,,13
-H. Domestic 'Other Fuels',h-domestic-other-fuels,,14
-I. Road Transport (A roads),i-road-transport-a-roads,,15
-J. Road Transport (Motorways),j-road-transport-motorways,,16
-K. Road Transport (Minor roads),k-road-transport-minor-roads,,17
-L. Diesel Railways,l-diesel-railways,,18
-M. Transport Other,m-transport-other,,19
-NA. LULUCF Net Emissions: Forest,na-lulucf-net-emissions-forest,,20
-NB. LULUCF Net Emissions: Cropland,nb-lulucf-net-emissions-cropland,,21
-NC. LULUCF Net Emissions: Grassland,nc-lulucf-net-emissions-grassland,,22
-ND. LULUCF Net Emissions: Wetlands,nd-lulucf-net-emissions-wetlands,,23
-NE. LULUCF Net Emissions: Settlements,ne-lulucf-net-emissions-settlements,,24
-NG. LULUCF Net Emissions: Harvested Wood Products,ng-lulucf-net-emissions-harvested-wood-products,,25
+Commercial,commercial,,1
+Domestic,domestic,,2
+Industry,industry,,3
+LULUCF,lulucf,,4
+Public Sector,public-sector,,5
+Transport,transport,,6
