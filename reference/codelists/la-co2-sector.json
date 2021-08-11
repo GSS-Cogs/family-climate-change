@@ -60,8 +60,8 @@
         "primaryKey": "notation",
         "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/la-co2-sector/{+notation}"
     },
-    "rdfs:label": "NC Sectors",
-    "dc:title": "NC Sectors",
+    "rdfs:label": "Co2 Sectors",
+    "dc:title": "Co2 Sectors",
     "prov:hadDerivation": {
         "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-sector",
         "@type": [
@@ -76,12 +76,12 @@
                 "dcat:Dataset",
                 "http://publishmydata.com/pmdcat#Dataset"
             ],
-            "rdfs:label": "NC Sectors",
-            "dc:title": "NC Sectors",
+            "rdfs:label": "Co2 Sectors",
+            "dc:title": "Co2 Sectors",
             "http://publishmydata.com/pmdcat#datasetContents": {
                 "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-sector"
             },
-            "rdfs:comment": "Dataset representing the 'NC Sectors' code list.",
+            "rdfs:comment": "Dataset representing the 'Co2 Sectors' code list.",
             "http://publishmydata.com/pmdcat#graph": {
                 "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-sector"
             },
@@ -103,8 +103,8 @@
         {
             "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-sector/catalog-record",
             "@type": "dcat:CatalogRecord",
-            "dc:title": "NC Sectors Catalog Record",
-            "rdfs:label": "NC Sectors Catalog Record",
+            "dc:title": "Co2 Sectors Catalog Record",
+            "rdfs:label": "Co2 Sectors Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
                 "@value": "2020-12-23T11:58:58.120533"
