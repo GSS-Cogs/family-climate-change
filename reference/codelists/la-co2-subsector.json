@@ -1,7 +1,7 @@
 {
     "@context": "http://www.w3.org/ns/csvw",
-    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-subsector",
-    "url": "la-co2-subsector.csv",
+    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-sub-sector",
+    "url": "la-co2-sub-sector.csv",
     "tableSchema": {
         "columns": [
             {
@@ -30,7 +30,7 @@
                 },
                 "required": false,
                 "propertyUrl": "skos:broader",
-                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/la-co2-subsector/{+parent_notation}"
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/la-co2-sub-sector/{+parent_notation}"
             },
             {
                 "titles": "Sort Priority",
@@ -54,16 +54,16 @@
             {
                 "virtual": true,
                 "propertyUrl": "skos:inScheme",
-                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-subsector"
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-sub-sector"
             }
         ],
         "primaryKey": "notation",
-        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/la-co2-subsector/{+notation}"
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/la-co2-sub-sector/{+notation}"
     },
-    "rdfs:label": "NC Sectors",
-    "dc:title": "NC Sectors",
+    "rdfs:label": "Co2 Sectors",
+    "dc:title": "Co2 Sectors",
     "prov:hadDerivation": {
-        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-subsector",
+        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-sub-sector",
         "@type": [
             "skos:ConceptScheme",
             "http://publishmydata.com/pmdcat#ConceptScheme"
@@ -71,19 +71,19 @@
     },
     "rdfs:seeAlso": [
         {
-            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-subsector/dataset",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-sub-sector/dataset",
             "@type": [
                 "dcat:Dataset",
                 "http://publishmydata.com/pmdcat#Dataset"
             ],
-            "rdfs:label": "NC Sectors",
-            "dc:title": "NC Sectors",
+            "rdfs:label": "Co2 Sectors",
+            "dc:title": "Co2 Sectors",
             "http://publishmydata.com/pmdcat#datasetContents": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-subsector"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-sub-sector"
             },
-            "rdfs:comment": "Dataset representing the 'NC Sectors' code list.",
+            "rdfs:comment": "Dataset representing the 'Co2 Sectors' code list.",
             "http://publishmydata.com/pmdcat#graph": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-subsector"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-sub-sector"
             },
             "dc:modified": {
                 "@type": "dateTime",
@@ -97,27 +97,27 @@
         {
             "@id": "http://gss-data.org.uk/catalog/vocabularies",
             "dcat:record": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-subsector/catalog-record"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-sub-sector/catalog-record"
             }
         },
         {
-            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-subsector/catalog-record",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-sub-sector/catalog-record",
             "@type": "dcat:CatalogRecord",
-            "dc:title": "NC Sectors Catalog Record",
-            "rdfs:label": "NC Sectors Catalog Record",
+            "dc:title": "Co2 Sectors Catalog Record",
+            "rdfs:label": "Co2 Sectors Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
                 "@value": "2020-12-23T11:58:58.120533"
             },
             "foaf:primaryTopic": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-subsector/dataset"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-sub-sector/dataset"
             },
             "dc:modified": {
                 "@type": "dateTime",
                 "@value": "2020-12-23T11:59:10.942836"
             },
             "http://publishmydata.com/pmdcat#metadataGraph": {
-                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-subsector"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-sub-sector"
             }
         }
     ]
