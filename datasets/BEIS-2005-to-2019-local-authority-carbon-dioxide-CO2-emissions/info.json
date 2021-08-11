@@ -41,7 +41,7 @@
             },
             "Measure Type": {
                 "dimension": "http://purl.org/linked-data/cube#measureType",
-                "value": "http://gss-data.org.uk/def/climate-change/measures/{measure_type}",
+                "value": "http://gss-data.org.uk/def/climate-change/measure/{measure_type}",
                 "types": [
                     "territorial-emissions",
                     "emissions-within-the-scope-of-influence-of-las"
