@@ -11,4 +11,4 @@ climate-change,Source,dimension/source,qb:DimensionProperty,,,skos:Concept,http:
 climate-change,National Communication Fuel Group,dimension/national-communication-fuel-group,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/national-communication-fuel,
 climate-change,Local Authority Code,dimension/local-authority-code,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-code,
 climate-change,LA CO2 Sector,dimension/la-co2-sector,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-sector,
-climate-change,LA CO2 Sub-sector,dimension/la-co2-sub-sector,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-subsector,
+climate-change,LA CO2 Sub-Sector,dimension/la-co2-sub-sector,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/la-co2-sub-sector,
