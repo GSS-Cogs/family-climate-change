@@ -34,8 +34,7 @@ df.drop(columns=df.columns.values.tolist()[0:6], axis=1, inplace=True)
 df.drop(columns=['Mid-year Population (thousands)', 'Area (km2)'], axis=1, inplace=True)
 df.rename(columns={'Calendar Year': 'Year',
 					'Territorial emissions (kt CO2)':'Territorial emissions',
-					'Emissions within the scope of influence of LAs (kt CO2)': 'Emissions within the scope of influence of LAs',
-                    'value': 'Value'
+					'Emissions within the scope of influence of LAs (kt CO2)': 'Emissions within the scope of influence of LAs'
 			}, inplace=True)
 
 val_vars = ['Territorial emissions', 'Emissions within the scope of influence of LAs']
@@ -54,6 +53,7 @@ for col in ['LA CO2 Sector', 'LA CO2 Sub-sector', 'Measure Type']:
 df = df.fillna('unallocated consumption')
 
 df['Units'] = 'kt-co2'
+df.rename(columns={'value':'Value'})
 
 cubes.add_cube(metadata, df, metadata.dataset.title)
 cubes.output_all()
