@@ -28,8 +28,8 @@
                 "value": "http://reference.data.gov.uk/id/year/{year}"
             },
             "Local Authority Code": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/local-authority-code",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/local-authority-code/{local_authority_code}"
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refArea"
+                
             },
             "LA CO2 Sector": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/la-co2-sector",
