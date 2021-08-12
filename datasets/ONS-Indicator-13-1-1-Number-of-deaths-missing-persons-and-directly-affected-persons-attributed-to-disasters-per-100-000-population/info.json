@@ -4,6 +4,7 @@
     "publisher": "Office for National Statistics",
     "description": "",
     "landingPage": "https://sustainabledevelopment-uk.github.io/13-1-1/",
+    "dataURL": "https://sdgdata.gov.uk/sdg-data/en/data/13-1-1.csv",
     "datasetNotes": [
         "On landing page, click the link to download the CSV"
     ],
