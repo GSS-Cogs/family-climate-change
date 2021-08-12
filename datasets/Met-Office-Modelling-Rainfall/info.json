@@ -1,0 +1,39 @@
+{
+    "id": "met-office-modelling-rainfall",
+    "title": "Modelling Rainfall",
+    "publisher": "Meteorological Office",
+    "description": "",
+    "datasetNotes": [
+        "No landing page for this dataset as it is a bespoke dataset supplied by Met Office directly to IDP-D as part of the Climate Change Platform project. It is a subset of the Met Office HAD large dataset."
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "recSE5QfPy874VFbH",
+        "main_issue": 22,
+        "columns": {
+            "Month": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/month/{month}"
+                
+            },
+            "Geography": {
+                "description": "Met Office bespoke geography area"
+                
+            },
+            "Value": {
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/millilitres",
+                "measure": "http://gss-data.org.uk/def/climate-change/measure/rainfall",
+                "datatype": "double"
+            }
+        }
+    },
+    
+    "sizingNotes": "data supplied directly to IPD-D via Met Office",
+    "notes": ""
+}

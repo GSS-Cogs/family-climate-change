@@ -18,7 +18,6 @@ def patch(scraper):
     """
     Get the govuk scraper working with datasets incorrectly added via json["details"] key
     see: https://www.gov.uk/api/content/government/publications/regulating-for-people-the-environment-and-growth
-
     LEAVE THIS ALONE: Will add a card to remove this when we implement a proper solution in gssutils.
     """
 

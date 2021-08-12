@@ -1,0 +1,8 @@
+Namespace,Path,Label,Comment,Source,Parent,Range
+climate-change,rainfall,Rainfall,Total rainfall fallen,,,xsd:decimal
+climate-change,gas-emissions,Gas Emissions,,,,xsd:decimal
+climate-change,population,Population,,,,xsd:decimal
+climate-change,area,Area,,,,xsd:decimal
+climate-change,la-co2,LA CO2,,,,xsd:decimal
+climate-change,territorial-co2,Territorial CO2,,,,xsd:decimal
+climate-change,emissions-within-the-scope-of-influence-of-las,Emissions Within the Scope of Influence of LAs,,,,xsd:decimal

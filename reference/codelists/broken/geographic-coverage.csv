@@ -1,0 +1,9 @@
+Label,Notation,Parent Notation,Sort Priority
+United Kingdom,united-kingdom,,1
+UK Crown Dependencies,uk-crown-dependencies,,2
+Aviation between UK and Crown Dependencies,aviation-between-uk-and-crown-dependencies,,3
+Shipping between UK and Crown Dependencies,shipping-between-uk-and-crown-dependencies,,4
+Overseas Territories,overseas-territories,,5
+Aviation between UK and Overseas Territories,aviation-between-uk-and-overseas-territories,,6
+Shipping between UK and Overseas Territories,shipping-between-uk-and-overseas-territories,,7
+Aviation between the Crown Dependencies and Overseas Territories,aviation-between-the-crown-dependencies-and-overseas-territories,,8

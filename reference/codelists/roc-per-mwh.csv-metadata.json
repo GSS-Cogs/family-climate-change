@@ -1,0 +1,124 @@
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "@id": "http://gss-data.org.uk/def/energy/concept-scheme/roc-per-mwh",
+    "url": "roc-per-mwh.csv",
+    "tableSchema": {
+        "columns": [
+            {
+                "titles": "Label",
+                "name": "label",
+                "datatype": "string",
+                "required": true,
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "titles": "Notation",
+                "name": "notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*$"
+                },
+                "required": true,
+                "propertyUrl": "skos:notation"
+            },
+            {
+                "titles": "Parent Notation",
+                "name": "parent_notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^(-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*|)$"
+                },
+                "required": false,
+                "propertyUrl": "skos:broader",
+                "valueUrl": "http://gss-data.org.uk/def/energy/concept/roc-per-mwh/{+parent_notation}"
+            },
+            {
+                "titles": "Sort Priority",
+                "name": "sort",
+                "datatype": "integer",
+                "required": false,
+                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "titles": "Description",
+                "name": "description",
+                "datatype": "string",
+                "required": false,
+                "propertyUrl": "rdfs:comment"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "rdf:type",
+                "valueUrl": "skos:Concept"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "skos:inScheme",
+                "valueUrl": "http://gss-data.org.uk/def/energy/concept-scheme/roc-per-mwh"
+            }
+        ],
+        "primaryKey": "notation",
+        "aboutUrl": "http://gss-data.org.uk/def/energy/concept/roc-per-mwh/{+notation}"
+    },
+    "rdfs:label": "Roc Per Mwh",
+    "dc:title": "Roc Per Mwh",
+    "prov:hadDerivation": {
+        "@id": "http://gss-data.org.uk/def/energy/concept-scheme/roc-per-mwh",
+        "@type": [
+            "skos:ConceptScheme",
+            "http://publishmydata.com/pmdcat#ConceptScheme"
+        ]
+    },
+    "rdfs:seeAlso": [
+        {
+            "@id": "http://gss-data.org.uk/def/energy/concept-scheme/roc-per-mwh/dataset",
+            "@type": [
+                "dcat:Dataset",
+                "http://publishmydata.com/pmdcat#Dataset"
+            ],
+            "rdfs:label": "Roc Per Mwh",
+            "dc:title": "Roc Per Mwh",
+            "http://publishmydata.com/pmdcat#datasetContents": {
+                "@id": "http://gss-data.org.uk/def/energy/concept-scheme/roc-per-mwh"
+            },
+            "rdfs:comment": "Dataset representing the 'Roc Per Mwh' code list.",
+            "http://publishmydata.com/pmdcat#graph": {
+                "@id": "http://gss-data.org.uk/def/energy/concept-scheme/roc-per-mwh"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-05-20T11:35:12.593104"
+            },
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-02-03T11:35:22.815540"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/catalog/vocabularies",
+            "dcat:record": {
+                "@id": "http://gss-data.org.uk/def/energy/concept-scheme/roc-per-mwh/catalog-record"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/def/energy/concept-scheme/roc-per-mwh/catalog-record",
+            "@type": "dcat:CatalogRecord",
+            "dc:title": "Roc Per Mwh Catalog Record",
+            "rdfs:label": "Roc Per Mwh Catalog Record",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2020-12-23T11:58:58.120533"
+            },
+            "foaf:primaryTopic": {
+                "@id": "http://gss-data.org.uk/def/energy/concept-scheme/roc-per-mwh/dataset"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2020-12-23T11:59:10.942836"
+            },
+            "http://publishmydata.com/pmdcat#metadataGraph": {
+                "@id": "http://gss-data.org.uk/def/energy/concept-scheme/roc-per-mwh"
+            }
+        }
+    ]
+}
