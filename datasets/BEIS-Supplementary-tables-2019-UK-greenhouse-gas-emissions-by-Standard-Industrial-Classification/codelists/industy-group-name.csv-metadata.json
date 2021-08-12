@@ -1,0 +1,117 @@
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#scheme/industy-group-name",
+    "url": "industy-group-name.csv",
+    "rdfs:label": "Industy Group Name",
+    "dc:title": "Industy Group Name",
+    "tableSchema": {
+        "columns": [
+            {
+                "titles": "Label",
+                "name": "label",
+                "datatype": "string",
+                "required": true,
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "titles": "Notation",
+                "name": "notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*$"
+                },
+                "required": true,
+                "propertyUrl": "skos:notation"
+            },
+            {
+                "titles": "Parent Notation",
+                "name": "parent_notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^(-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*|)$"
+                },
+                "required": false,
+                "propertyUrl": "skos:broader",
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#concept/industy-group-name/{parent_notation}"
+            },
+            {
+                "titles": "Sort Priority",
+                "name": "sort_priority",
+                "datatype": "integer",
+                "required": false,
+                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "rdf:type",
+                "valueUrl": "skos:Concept"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "skos:inScheme",
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#scheme/industy-group-name"
+            }
+        ],
+        "primaryKey": "notation",
+        "aboutUrl": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#concept/industy-group-name/{notation}"
+    },
+    "prov:hadDerivation": {
+        "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#scheme/industy-group-name",
+        "@type": [
+            "skos:ConceptScheme",
+            "http://publishmydata.com/pmdcat#ConceptScheme"
+        ]
+    },
+    "rdfs:seeAlso": [
+        {
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#scheme/industy-group-name/dataset",
+            "@type": [
+                "dcat:Dataset",
+                "http://publishmydata.com/pmdcat#Dataset"
+            ],
+            "http://publishmydata.com/pmdcat#datasetContents": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#scheme/industy-group-name"
+            },
+            "http://publishmydata.com/pmdcat#graph": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#scheme/industy-group-name"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-08-12T11:39:29.309080"
+            },
+            "rdfs:label": "Industy Group Name",
+            "dc:title": "Industy Group Name",
+            "rdfs:comment": "Dataset representing the 'Industy Group Name' code list.",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-08-12T11:39:29.309080"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/catalog/vocabularies",
+            "dcat:record": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#scheme/industy-group-name/catalog-record"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#scheme/industy-group-name/catalog-record",
+            "@type": "dcat:CatalogRecord",
+            "foaf:primaryTopic": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#scheme/industy-group-name/dataset"
+            },
+            "http://publishmydata.com/pmdcat#metadataGraph": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#scheme/industy-group-name"
+            },
+            "dc:title": "Industy Group Name Catalog Record",
+            "rdfs:label": "Industy Group Name Catalog Record",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-08-12T11:39:29.309080"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-08-12T11:39:29.309080"
+            }
+        }
+    ]
+}

@@ -1,0 +1,61 @@
+{
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema.json",
+    "id": "beis-2005-to-2019-local-authority-carbon-dioxide-co2-emissions",
+    "title": "2005 to 2019 local authority carbon dioxide (CO2) emissions",
+    "publisher": "Department for Business, Energy and Industrial Strategy",
+    "description": "These statistics provide the most reliable and consistent breakdown of CO2 emissions across the country, using nationally available data sets going back to 2005.\n\nThe main data sources are the UK National Atmospheric Emissions Inventory and the BEIS National Statistics of energy consumption for local authority areas. All emissions included in the national inventory are covered, except aviation, shipping and military transport, for which there is no obvious basis for allocation to local areas.",
+    "landingPage": "https://www.gov.uk/government/statistics/uk-local-authority-and-regional-carbon-dioxide-emissions-national-statistics-2005-to-2019",
+    "datasetNotes": [
+        "On landing page scroll down to latest release under heading \"Documents\". On new page, again scroll down to where dataset is located under heading \"Documents\". The CSV format is towards bottom of page."
+    ],
+    "published": "2021-06-24",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "XLS, ODS, CSV",
+        "stage": "Prioritized"
+    },
+    "transform": {
+        "stage": [
+            "Priority"
+        ],
+        "airtable": "recDzwXjfRznebsCC",
+        "main_issue": 21,
+        "columns": {
+            "Year": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{year}"
+            },
+            "Local Authority Code": {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/local-authority-code",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/local-authority-code/{local_authority_code}"
+            },
+            "LA CO2 Sector": {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/la-co2-sector",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/la-co2-sector/{la_co2_sector}"
+            },
+            "LA CO2 Sub-sector": {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/la-co2-sub-sector",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/la-co2-sub-sector/{la_co2_sub_sector}"
+            },
+            "Measure Type": {
+                "dimension": "http://purl.org/linked-data/cube#measureType",
+                "value": "http://gss-data.org.uk/def/climate-change/measure/{measure_type}",
+                "types": [
+                    "territorial-emissions",
+                    "emissions-within-the-scope-of-influence-of-las"
+                ]
+            },
+            "Units": {
+                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{unit}"
+            },
+            "Value": {
+                "datatype": "double"
+            }
+        }
+    },
+    "sizingNotes": "Although large table, in straightforward CSV format.",
+    "notes": "Priority dataset for Climate Change Platform project."
+}

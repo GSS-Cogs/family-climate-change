@@ -1,0 +1,11 @@
+##### SPEC ######
+
+Quite a straight forward dataset as its already in csv. 
+
+CodelistS: Natationl Communication sector use existing codelist from EVDP family 
+build in addtional codelists for the NC breakdowns 
+Emmissions Unit - this can be added to measurement unit codelist as Greenhouse Gas Emmisions
+
+Change Territory Name column to Georgarphy Code to make data more consistent with other data sources
+
+There a number of emput columns with 'Not Set'  at the end of the dataset these can be removed 

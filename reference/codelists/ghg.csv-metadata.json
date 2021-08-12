@@ -1,0 +1,123 @@
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg",
+    "url": "ghg.csv",
+    "rdfs:label": "Greenhouse Gas",
+    "dc:title": "Greenhouse Gas",
+    "tableSchema": {
+        "columns": [
+            {
+                "titles": "Label",
+                "name": "label",
+                "datatype": "string",
+                "required": true,
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "titles": "Notation",
+                "name": "notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*$"
+                },
+                "required": true,
+                "propertyUrl": "skos:notation"
+            },
+            {
+                "titles": "Parent Notation",
+                "name": "parent_notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^(-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*|)$"
+                },
+                "required": false,
+                "propertyUrl": "skos:broader",
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/ghg/{+parent_notation}"
+            },
+            {
+                "titles": "Sort Priority",
+                "name": "sort_priority",
+                "datatype": "integer",
+                "required": false,
+                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "titles": "Description",
+                "name": "description",
+                "propertyUrl": "rdfs:comment"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "rdf:type",
+                "valueUrl": "skos:Concept"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "skos:inScheme",
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg"
+            }
+        ],
+        "primaryKey": "notation",
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/ghg/{+notation}"
+    },
+    "prov:hadDerivation": {
+        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg",
+        "@type": [
+            "skos:ConceptScheme",
+            "http://publishmydata.com/pmdcat#ConceptScheme"
+        ]
+    },
+    "rdfs:seeAlso": [
+        {
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg/dataset",
+            "@type": [
+                "dcat:Dataset",
+                "http://publishmydata.com/pmdcat#Dataset"
+            ],
+            "http://publishmydata.com/pmdcat#datasetContents": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg"
+            },
+            "http://publishmydata.com/pmdcat#graph": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-07-21T14:58:14.420247"
+            },
+            "rdfs:label": "Greenhouse Gas",
+            "dc:title": "Greenhouse Gas",
+            "rdfs:comment": "Dataset representing the 'Greenhouse Gas' code list.",
+            "dcterms:description": "Greenhouse gases are those gaseous constituents of the atmosphere, both natural and anthropogenic, that absorb and emit radiation at specific wavelengths within the spectrum of terrestrial radiation emitted by the Earth’s surface, the atmosphere itself and by clouds. This property causes the greenhouse effect. Water vapour (H2O), carbon dioxide (CO2), nitrous oxide (N2O), methane (CH4) and ozone (O3) are the primary GHGs in the Earth’s atmosphere. Moreover, there are a number of entirely human-made GHGs in the atmosphere, such as the halocarbons and other chlorine- and bromine-containing substances, dealt with under the Montreal Protocol. Beside CO2, N2O and CH4, the Kyoto Protocol deals with the GHGs sulphur hexafluoride (SF6), hydrofluorocarbons (HFCs) and perfluorocarbons (PFCs). See also Carbon dioxide (CO2), Methane (CH4), Nitrous oxide (N2O) and Ozone (O3).",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-07-21T14:58:14.420247"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/catalog/vocabularies",
+            "dcat:record": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg/catalog-record"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg/catalog-record",
+            "@type": "dcat:CatalogRecord",
+            "foaf:primaryTopic": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg/dataset"
+            },
+            "http://publishmydata.com/pmdcat#metadataGraph": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/ghg"
+            },
+            "dc:title": "Greenhouse Gas Catalog Record",
+            "rdfs:label": "Greenhouse Gas Catalog Record",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-07-21T14:58:14.420247"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-07-21T14:58:14.420247"
+            }
+        }
+    ]
+}

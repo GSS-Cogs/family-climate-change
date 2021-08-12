@@ -1,0 +1,24 @@
+Spec GHG Activities 
+
+Greenhouse gases, Between 1990 - 2018, Total GHGs in CO2 Eq
+
+Table is already in csv format -- data is contained in this link https://naei.beis.gov.uk/data/data-selector-results?q=145100 note that if the data errors just re run the data search to process the downloafable csv 
+the table will also produce memo data which will need attaching to the data. 
+
+Removal of Gas column it doesnt appear to add any further content and can be captured in the dataset notes. 
+
+removal of units column this as it doesnt add anything to the data we can capture the unit measured in the dataset info. 
+
+Creation of a year column 
+
+Codelist for NFR/CRF Group so that data that supporting data can be controlled (activity & source) DM to creat 
+
+Table stucture - NFR/CRF Group,	Source,	Activity, year 
+
+Unit Kilotonne 
+
+Measure Type - Activity i.e. landfill gas 
+
+Dimension - Source 
+
+

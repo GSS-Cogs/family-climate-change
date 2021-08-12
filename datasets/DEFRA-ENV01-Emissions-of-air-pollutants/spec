@@ -1,0 +1,108 @@
+ENV01 - Emissions of air pollutants
+Annual update to tables on emissions of important air pollutants in the UK.
+
+Table 1a: UK annual emissions of PM10 by emissions source: 1990 to 2019
+
+    
+    create a sector codelise (DM to create so that emissons can be captured within sector and year)
+    creation of a total colunm 
+    creation of value colunm to capture emissons 
+
+
+    Table 1b: UK annual emissions of PM10 by emissions source (as proportion of total emissions): 1990 to 2019
+    
+    Table can be dervied from Table A so doesnt need to be actioned 
+
+Table  2
+    Table 2a: UK annual emissions of PM2.5 by emissions source: 1990 to 2019
+    
+    create a sector codelist (DM to create so that emissons can be captured within sector and year)
+    creation of value colunm to capture emissons 
+    creation of a total colunm 
+
+
+
+
+  Table 2b: UK annual emissions of PM2.5 by emissions source (as proportion of total emissions): 1990 to 2019
+     Table can be dervied from Table A so doesnt need to be actioned
+    
+
+
+Table  3
+    Table 3a: UK annual emissions of nitrogen oxides by emissions source: 1990 to 2019
+
+    
+    create a sector codelist (DM to create so that emissons can be captured within sector and year)
+    creation of value colunm to capture emissons 
+    creation of a total colunm 
+
+
+    Table 3b: UK annual emissions of nitrogen oxides by emissions source (as proportion of total emissions): 1990 to 2019
+     Table can be dervied from Table A so doesnt need to be actioned
+    
+
+
+Table  4
+    Table 4a: UK annual emissions of ammonia by emissions source: 1990 to 2019
+    create a sector codelist (DM to create so that emissons can be captured within sector and year)
+    creation of value colunm to capture emissons 
+    creation of a total colunm 
+    creation of Memo colunm however, is this could be created to display as footnote for the data as its supplmentary emissions that are not included in the main tables 
+
+    Table 4b: UK annual emissions of ammonia by emissions source (as proportion of total emissions): 1990 to 2019
+    
+     Table can be dervied from Table A so doesnt need to be actioned
+
+Table 5: UK annual emissions of ammonia from sources in the agriculture sector: 2019 
+    data is only of single year (2019) so data presented as 2019 period
+    DM to create source codelist to display emissions from animals effectively. Reformat title to state 'Source Emissions'
+
+Table  6
+    Table 6a: UK annual emissions of non-methane volatile organic compounds by emissions source: 1990 to 2019
+    create a sector codelist (DM to create so that emissons can be captured within sector and year)
+    creation of value colunm to capture emissons 
+    creation of a total colunm 
+    creation of Memo colunm however, is this could be created to display as footnote for the data as its supplmentary emissions that are not included in the main tables 
+
+    Table 6b: UK annual emissions of non-methane volatile organic compounds by emissions source (as proportion of total emissions): 1990 to 2019
+    
+    create a sector codelist (DM to create so that emissons can be captured within sector and year)
+    creation of % value colunm to capture emissonsxs
+    creation of a total colunm 
+
+Table  7
+    Table 7a: UK annual emissions of sulphur dioxide by emissions source: 1990 to 2019
+    Table 6a: UK annual emissions of non-methane volatile organic compounds by emissions source: 1990 to 2019
+    create a sector codelist (DM to create so that emissons can be captured within sector and year)
+    creation of value colunm to capture emissons 
+    creation of a total colunm 
+    creation of Memo colunm however, is this could be created to display as footnote for the data as its supplmentary emissions that are not included in the main tables 
+
+    Table 7b: UK annual emissions of sulphur dioxide by emissions source (as proportion of total emissions): 1990 to 2019
+    
+    create a sector codelist (DM to create so that emissons can be captured within sector and year)
+    create % value 
+    creation of a total colunm 
+
+
+Memo Data 
+the data contaied within memo columns can be added to the sector dimension along with a total however, the descriptions will needed to be added to scraper information
+
+
+ Table linkage 
+    All tables can be linked by dimension emission type. However, with table 5:
+    Argiculture can also be joined however, but each of the soruces items will need the following leading comment. 
+        Agriculture - Cattle
+        Agriculture - Cattle of which Dairy
+        Agriculture - Cattle of which Beef   
+
+
+
+
+Publication/Scraper Information:
+This publication covers UK emissions of sulphur dioxide, nitrogen oxides, non-methane volatile organic compounds, ammonia and particulate matter.
+
+The estimation methodology is regularly developed to take account of new emission factors and modelling methods. This means the whole time series is revised annually. The figures given in this document and the supporting dataset show the revised estimates.
+
+Memo notes will also be needed to be added to the scraper description i.e. '1 Memo Items reported, but EXCLUDED from protocol totals. Includes: International&National Aircraft (cruise), International Shipping, forest fires, natural emissions.
+'

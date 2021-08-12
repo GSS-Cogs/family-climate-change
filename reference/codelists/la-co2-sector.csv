@@ -1,0 +1,7 @@
+Label,Notation,Parent Notation,Sort Priority
+Commercial,commercial,,1
+Domestic,domestic,,2
+Industry,industry,,3
+LULUCF,lulucf,,4
+Public Sector,public-sector,,5
+Transport,transport,,6
