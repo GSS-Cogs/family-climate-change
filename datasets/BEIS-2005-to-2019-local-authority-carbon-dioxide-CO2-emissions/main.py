@@ -53,7 +53,7 @@ for col in ['LA CO2 Sector', 'LA CO2 Sub-sector', 'Measure Type']:
 df = df.fillna('unallocated consumption')
 
 df['Units'] = 'kt-co2'
-df.rename(columns={'value':'Value'})
+df = df.rename(columns={'value':'Value'})
 
 cubes.add_cube(metadata, df, metadata.dataset.title)
 cubes.output_all()
