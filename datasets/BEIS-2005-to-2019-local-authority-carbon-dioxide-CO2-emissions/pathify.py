@@ -13,7 +13,7 @@ def pathify(label):
                   re.sub(r'-+', '-',
                          re.sub(r'[^\w/]', '-', unidecode(label).lower())))
 
-co2 = pd.read_csv("la-co2-subsector.csv")
+co2 = pd.read_csv("local-authority-code.csv")
 
 
 
@@ -22,5 +22,5 @@ co2["Notation"]= co2["Notation"].astype(str).apply(pathify)
 
 
 #%%
-co2.to_csv("la-co2-subsector.csv")
+co2.to_csv("local-authority-code.csv")
 # %%
