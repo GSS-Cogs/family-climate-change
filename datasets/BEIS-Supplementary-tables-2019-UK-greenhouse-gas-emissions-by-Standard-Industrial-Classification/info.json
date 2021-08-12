@@ -20,7 +20,34 @@
             "Priority"
         ],
         "airtable": "rechfzaMOUCSYT6zq",
-        "main_issue": 23
+        "main_issue": 23,
+         "columns": {
+            "Year": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{year}"
+            },
+            "Estimated territorial emissions type" : {
+                 "description": "territorial emissions, meaning emissions that occur within the UK's borders, and are reported on a source basis"
+             },
+            "National Communication Sector": {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_sector}"
+            },
+             "Industry Section Name" : {
+                 "description": "Industry Section Name"
+             },
+             "Section" : {
+                 "description": "Section"
+             },
+            "Industy Group Name" : {
+                "description": "Industy Group Name"
+            },
+            "Value": {
+                "unit": "http://gss-data.org.uk/def/concept/measurement-units/ktco2e",
+                "measure": "http://gss-data.org.uk/def/measure/gas-emissions",
+                "datatype": "double"
+            }
+         } 
     },
     "sizingNotes": "Number of tabs with largish tables but simple table structure and little footnotes.",
     "notes": "Note this dataset is supplement to \"Final UK greenhouse gas emissions national statistics\" dataset above. Priority dataset for Climate Change Platform project."
