@@ -4,5 +4,5 @@ climate-change,gas-emissions,Gas Emissions,,,http://purl.org/linked-data/sdmx/20
 climate-change,population,Population,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,area,Area,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,la-co2,LA CO2,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
-climate-change,territorial-co2,Territorial CO2,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,territorial-emissions,Territorial Emissions,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,emissions-within-the-scope-of-influence-of-las,Emissions Within the Scope of Influence of LAs,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
