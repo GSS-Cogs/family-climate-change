@@ -8,7 +8,10 @@
         "columns": [
             {
                 "titles": "URI",
-                "name": "uri"
+                "name": "uri",
+                "datatype": "anyURI",
+                "required": true,
+                "suppressOutput": true
             },
             {
                 "titles": "Notation",
@@ -30,6 +33,9 @@
             {
                 "titles": "Parent URI",
                 "name": "parent_uri"
+                "required": false,
+                "propertyUrl": "skos:broader",
+                "valueUrl": "{+parent_uri}"
             },
             {
                 "titles": "Sort Priority",
@@ -49,8 +55,8 @@
                 "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#scheme/section"
             }
         ],
-        "primaryKey": "notation",
-        "aboutUrl": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#concept/section/{notation}"
+        "primaryKey": "uri",
+        "aboutUrl": "{+uri}"
     },
     "prov:hadDerivation": {
         "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#scheme/section",
@@ -74,14 +80,14 @@
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-08-13T09:06:11.255766"
+                "@value": "2021-08-13T14:21:36.346649"
             },
             "rdfs:label": "Section",
             "dc:title": "Section",
             "rdfs:comment": "Dataset representing the 'Section' code list.",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-08-13T09:06:11.255766"
+                "@value": "2021-08-13T14:21:36.346649"
             }
         },
         {
@@ -103,11 +109,11 @@
             "rdfs:label": "Section Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-08-13T09:06:11.255766"
+                "@value": "2021-08-13T14:21:36.346649"
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-08-13T09:06:11.255766"
+                "@value": "2021-08-13T14:21:36.346649"
             }
         }
     ]
