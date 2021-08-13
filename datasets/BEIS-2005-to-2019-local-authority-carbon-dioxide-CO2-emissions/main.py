@@ -34,7 +34,7 @@ df.drop(columns=df.columns.values.tolist()[0:6], axis=1, inplace=True)
 df.drop(columns=['Mid-year Population (thousands)', 'Area (km2)'], axis=1, inplace=True)
 df.rename(columns={'Calendar Year': 'Year',
 					'Territorial emissions (kt CO2)':'Territorial emissions',
-					'Emissions within the scope of influence of LAs (kt CO2)': 'Emissions within the scope of influence of LAs',
+					'Emissions within the scope of influence of LAs (kt CO2)': 'Emissions within the scope of influence of LAs'
                     
 			}, inplace=True)
 
