@@ -33,12 +33,12 @@ df = distribution.as_pandas()
 df.drop(columns=df.columns.values.tolist()[0:6], axis=1, inplace=True)
 df.drop(columns=['Mid-year Population (thousands)', 'Area (km2)'], axis=1, inplace=True)
 df.rename(columns={'Calendar Year': 'Year',
-					'Territorial emissions (kt CO2)':'Territorial emissions',
+					'Territorial emissions (kt CO2)':'Territorial Emissions',
 					'Emissions within the scope of influence of LAs (kt CO2)': 'Emissions within the scope of influence of LAs'
                     
 			}, inplace=True)
 
-val_vars = ['Territorial emissions', 'Emissions within the scope of influence of LAs']
+val_vars = ['Territorial Emissions', 'Emissions within the scope of influence of LAs']
 other_vars = df.columns.difference(val_vars)
 df = pd.melt(df, id_vars= other_vars, value_vars= val_vars, var_name= 'Measure Type')
  
