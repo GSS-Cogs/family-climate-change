@@ -52,7 +52,7 @@ for col in ['LA CO2 Sector', 'LA CO2 Sub-sector', 'Measure Type']:
     except Exception as err:
         raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
-df = df.fillna('unallocated-consumption')
+df = df.fillna('unallocated consumption')
 
 df['Units'] = 'kt-co2'
 
