@@ -77,14 +77,14 @@
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-08-05T15:10:42.405633"
+                "@value": "2021-08-12T15:50:50.928068"
             },
             "rdfs:label": "Estimated Territorial Emissions Type",
             "dc:title": "Estimated Territorial Emissions Type",
             "rdfs:comment": "Dataset representing the 'Estimated Territorial Emissions Type' code list.",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-08-05T15:10:42.405633"
+                "@value": "2021-08-12T15:50:50.928068"
             }
         },
         {
@@ -106,11 +106,11 @@
             "rdfs:label": "Estimated Territorial Emissions Type Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-08-05T15:10:42.405633"
+                "@value": "2021-08-12T15:50:50.928068"
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-08-05T15:10:42.405633"
+                "@value": "2021-08-12T15:50:50.928068"
             }
         }
     ]
