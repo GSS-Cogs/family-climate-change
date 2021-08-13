@@ -7,11 +7,8 @@
     "tableSchema": {
         "columns": [
             {
-                "titles": "Label",
-                "name": "label",
-                "datatype": "string",
-                "required": true,
-                "propertyUrl": "rdfs:label"
+                "titles": "URI",
+                "name": "uri"
             },
             {
                 "titles": "Notation",
@@ -24,15 +21,15 @@
                 "propertyUrl": "skos:notation"
             },
             {
-                "titles": "Parent Notation",
-                "name": "parent_notation",
-                "datatype": {
-                    "base": "string",
-                    "format": "^(-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*|)$"
-                },
-                "required": false,
-                "propertyUrl": "skos:broader",
-                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#concept/section/{parent_notation}"
+                "titles": "Label",
+                "name": "label",
+                "datatype": "string",
+                "required": true,
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "titles": "Parent URI",
+                "name": "parent_uri"
             },
             {
                 "titles": "Sort Priority",
@@ -77,14 +74,14 @@
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-08-06T15:55:25.032089"
+                "@value": "2021-08-13T09:06:11.255766"
             },
             "rdfs:label": "Section",
             "dc:title": "Section",
             "rdfs:comment": "Dataset representing the 'Section' code list.",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-08-06T15:55:25.032089"
+                "@value": "2021-08-13T09:06:11.255766"
             }
         },
         {
@@ -106,11 +103,11 @@
             "rdfs:label": "Section Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-08-06T15:55:25.032089"
+                "@value": "2021-08-13T09:06:11.255766"
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-08-06T15:55:25.032089"
+                "@value": "2021-08-13T09:06:11.255766"
             }
         }
     ]

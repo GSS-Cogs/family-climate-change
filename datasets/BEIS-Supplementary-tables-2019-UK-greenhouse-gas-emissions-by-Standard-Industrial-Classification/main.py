@@ -27,7 +27,10 @@ distribution = metadata.distributions[-4] #Could probably change this to check m
 tabs = distribution.as_databaker()
 # -
 
-distribution
+#reterieve the id from info.json for URI's (use later)
+with open("info.json", "r") as read_file:
+    data = json.load(read_file)
+    title = data['id']
 
 tidied_sheets = []
 for tab in tabs:
@@ -40,13 +43,14 @@ for tab in tabs:
         observations = section_name.fill(RIGHT).is_not_blank()
 
         dimensions = [
-            HDim(section, 'Section', CLOSEST, UP),
-            HDim(section_name, 'Industry Section Name', DIRECTLY, LEFT),
+            HDim(section, 'Section breakdown', CLOSEST, UP), # will be dropped 
+            HDim(section_name, 'Industry Section Name', DIRECTLY, LEFT), # will be dropped 
             HDim(year, 'Year', DIRECTLY, ABOVE),
             HDim(emissions_type, 'Estimated territorial emissions type', CLOSEST, ABOVE),
         ]
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         table = tidy_sheet.topandas()
+        table['Section'] = table.apply(lambda x: x['Industry Section Name'] if x['Section breakdown'] == '-' else x['Section breakdown'], axis=1)
         tidied_sheets.append(table)
         
         bottom_block = tab.excel_ref('A164').expand(RIGHT).expand(DOWN)
@@ -57,17 +61,22 @@ for tab in tabs:
         observations = group_name.fill(RIGHT).is_not_blank()
 
         dimensions2 = [
-            HDim(sic_group, 'SIC(07)Group', CLOSEST, UP),
-            HDim(section, 'Section', CLOSEST, UP),
-            HDim(group_name, 'Industy Group Name', DIRECTLY, LEFT),
+            HDim(sic_group, 'SIC(07)Group', DIRECTLY, LEFT),
+            HDim(section, 'Section breakdown', DIRECTLY, LEFT), # will be dropped
+            HDim(group_name, 'Industy Group Name', DIRECTLY, LEFT), # will be dropped 
             HDim(year, 'Year', DIRECTLY, ABOVE),
             HDim(emissions_type, 'Estimated territorial emissions type', CLOSEST, ABOVE),
         ]
         tidy_sheet = ConversionSegment(tab, dimensions2, observations)
         table = tidy_sheet.topandas()
+        table['Section'] = table.apply(lambda x: x['Industy Group Name'] if x['SIC(07)Group'] == '-' else x['SIC(07)Group'], axis=1)
+        table['Section'] = table['Section'].str.rstrip("0")
+        table['Section'] = table['Section'].str.rstrip(".")
+        table['Section'] = table['Section'].apply(lambda x: '{0:0>2}'.format(x))
+        table['Section'] = table['Section'].apply(pathify)
         tidied_sheets.append(table)
-        
-    elif tab.name == '8.9':
+    
+    elif tab.name == '8.9':   
         emissions_type = tab.excel_ref('A1').is_not_blank()
         section = tab.excel_ref('A4').expand(DOWN).is_not_blank() - tab.excel_ref('A403').expand(DOWN)
         sic_group = tab.excel_ref('B4').expand(DOWN).is_not_blank() - tab.excel_ref('B403').expand(DOWN)
@@ -75,20 +84,23 @@ for tab in tabs:
         ncs = tab.excel_ref('D4').expand(DOWN) - tab.excel_ref('D403').expand(DOWN) 
         year = tab.excel_ref('E3').expand(RIGHT).is_not_blank()
         observations = ncs.fill(RIGHT).is_not_blank()
-
+    
         dimensions = [
-            HDim(section, 'Section', CLOSEST,ABOVE),
-            HDim(sic_group, 'SIC(07)Group', CLOSEST,ABOVE), 
-            HDim(group_name, 'Industy Group Name', CLOSEST,ABOVE),
+            HDim(section, 'Section breakdown', CLOSEST,ABOVE), # will be dropped 
+            HDim(sic_group, 'SIC(07)Group', CLOSEST,ABOVE),  # will be dropped 
+            HDim(group_name, 'Industy Group Name', CLOSEST,ABOVE), # will be dropped 
             HDim(ncs, 'National Communication Sector', DIRECTLY, LEFT),
             HDim(year, 'Year', DIRECTLY, ABOVE),
             HDim(emissions_type, 'Estimated territorial emissions type', CLOSEST, ABOVE),
         ]
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
-        #savepreviewhtml(tidy_sheet, fname=tab.name + "Preview.html")
         table = tidy_sheet.topandas()
+        table['Section'] = table.apply(lambda x: x['Industy Group Name'] if x['SIC(07)Group'] == '-' else x['SIC(07)Group'], axis=1)
+        table['Section'] = table['Section'].str.rstrip("0")
+        table['Section'] = table['Section'].str.rstrip(".")
+        table['Section'] = table['Section'].apply(lambda x: '{0:0>2}'.format(x))
         tidied_sheets.append(table)
-    else: 
+    else :
         continue
 
 # +
@@ -102,34 +114,22 @@ df['Estimated territorial emissions type'] = df['Estimated territorial emissions
 df['Year'] = df['Year'].str.replace('\.0', '')
 df['Year'] = 'year/' + df['Year']
 df['Value'] = df['Value'].astype(str).astype(float).round(1)
-df = df[['Year', 'Estimated territorial emissions type', 'National Communication Sector', 'SIC(07)Group', 'Section', 'Industry Section Name', 'Industy Group Name', 'Value']]
-for col in ['Estimated territorial emissions type', 'National Communication Sector', 'Section', 'Industry Section Name', 'Industy Group Name']:
+
+df = df.replace({'Section' : {'Consumer expenditure' : 'consumer-expenditure' , 
+                              'Land use, land use change and forestry (LULUCF)' : 'land-use-land-use-change-and-forestry-lulucf'}})
+
+#info needed to create URI's for section 
+unique = 'http://gss-data.org.uk/data/gss_data/climate-change/' + title + '#concept/sic-2007/'
+sic = 'http://business.data.gov.uk/companies/def/sic-2007/'
+#create the URI's from the section column 
+df['Section'] = df['Section'].map(lambda x: unique + x if '-' in x else sic + x)
+#only need the following columns
+df = df[['Year', 'Estimated territorial emissions type','Section', 'National Communication Sector', 'Value']]
+
+for col in ['Estimated territorial emissions type', 'National Communication Sector']:
     df[col] = df[col].apply(pathify)
-
-# - symbol inside section (No explination given in source data to explain meaning. Setting as Unknown.)
-df['Section'] = df['Section'].str.replace('-', 'Unknown')
-
-del df['SIC(07)Group']
 
 cubes.add_cube(metadata, df, metadata.dataset.title)
 
 cubes.output_all()
 df
-
-# +
-# Commenting out for now - for SIC code - move above 
-
-#title = 'final-uk-greenhouse-gas-emissions-national-statistics'
-#unique = 'http://gss-data.org.uk/data/gss_data/climate-change/' + title + '#concept/sic-2007/'
-#sic = 'http://business.data.gov.uk/companies/def/sic-2007/'
-
-#df['SIC(07)Group'] = df['SIC(07)Group'].str.replace('\.0', '')
-#df = df.replace({'SIC(07)Group' : {'Not applicable' : 'not-applicable' , '-' : 'unknown', '117' : '11.07', '111-06' : '11.01-06'}})
-
-#df['SIC(07)Group'] = df['SIC(07)Group'].str.replace(' ', '')
-#df['SIC(07)Group'] = df['SIC(07)Group'].apply(lambda x: '{0:0>2}'.format(x))
-#df['SIC(07)Group'] = df['SIC(07)Group'].map(lambda x: unique + x if '-' in x 
-#                                            else( unique + x if '+' in x 
-#                                                 else ( unique + x if '/' in x 
-#                                                       else (unique + x if 'unknown' in x else sic + x))))
-
