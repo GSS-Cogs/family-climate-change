@@ -74,14 +74,14 @@
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-08-13T09:06:11.255766"
+                "@value": "2021-08-13T14:21:36.346649"
             },
             "rdfs:label": "Section",
             "dc:title": "Section",
             "rdfs:comment": "Dataset representing the 'Section' code list.",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-08-13T09:06:11.255766"
+                "@value": "2021-08-13T14:21:36.346649"
             }
         },
         {
@@ -103,11 +103,11 @@
             "rdfs:label": "Section Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-08-13T09:06:11.255766"
+                "@value": "2021-08-13T14:21:36.346649"
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-08-13T09:06:11.255766"
+                "@value": "2021-08-13T14:21:36.346649"
             }
         }
     ]
