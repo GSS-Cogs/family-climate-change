@@ -38,7 +38,7 @@ df.rename(columns={'Calendar Year': 'Year',
                     
 			}, inplace=True)
 
-val_vars = ['Territorial emissions', 'Emissions within the scope of influence of LAs']
+val_vars = ['Territorial Emissions', 'Emissions within the scope of influence of LAs']
 other_vars = df.columns.difference(val_vars)
 df = pd.melt(df, id_vars= other_vars, value_vars= val_vars, var_name= 'Measure Type')
  
