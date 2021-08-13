@@ -55,6 +55,5 @@ for col in ['LA CO2 Sector', 'LA CO2 Sub-sector', 'Measure Type']:
 df = df.fillna('unallocated consumption')
 
 df['Units'] = 'kt-co2'
-
 cubes.add_cube(metadata, df, metadata.dataset.title)
 cubes.output_all()
