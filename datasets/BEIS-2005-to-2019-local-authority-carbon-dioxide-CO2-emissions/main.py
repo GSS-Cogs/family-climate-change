@@ -35,7 +35,7 @@ df.drop(columns=['Mid-year Population (thousands)', 'Area (km2)'], axis=1, inpla
 df.rename(columns={'Calendar Year': 'Year',
 					'Territorial emissions (kt CO2)':'Territorial Emissions',
 					'Emissions within the scope of influence of LAs (kt CO2)': 'Emissions within the scope of influence of LAs',
-                    'value':'Value'
+                  
                     
 			}, inplace=True)
 
@@ -55,6 +55,12 @@ for col in ['LA CO2 Sector', 'LA CO2 Sub-sector', 'Measure Type']:
 df = df.fillna('unallocated consumption')
 
 df['Units'] = 'kt-co2'
+
+df.rename(columns={'value': 'Value',
+					}, inplace=True)
+
+
+
 
 
 
