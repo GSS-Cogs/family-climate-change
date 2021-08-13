@@ -99,6 +99,7 @@ for tab in tabs:
         table['Section'] = table['Section'].str.rstrip("0")
         table['Section'] = table['Section'].str.rstrip(".")
         table['Section'] = table['Section'].apply(lambda x: '{0:0>2}'.format(x))
+        table['Section'] = table['Section'].apply(pathify)
         tidied_sheets.append(table)
     else :
         continue
@@ -117,7 +118,6 @@ df['Value'] = df['Value'].astype(str).astype(float).round(1)
 
 df = df.replace({'Section' : {'Consumer expenditure' : 'consumer-expenditure' , 
                               'Land use, land use change and forestry (LULUCF)' : 'land-use-land-use-change-and-forestry-lulucf'}})
-
 #info needed to create URI's for section 
 unique = 'http://gss-data.org.uk/data/gss_data/climate-change/' + title + '#concept/sic-2007/'
 sic = 'http://business.data.gov.uk/companies/def/sic-2007/'
