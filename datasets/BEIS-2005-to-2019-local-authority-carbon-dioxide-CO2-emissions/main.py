@@ -55,5 +55,9 @@ df = df.fillna('unallocated consumption')
 
 df['Units'] = 'kt-co2'
 
+
+df.rename(columns={'value': 'Value',
+}, inplace=True)
+
 cubes.add_cube(metadata, df, metadata.dataset.title)
 cubes.output_all()
