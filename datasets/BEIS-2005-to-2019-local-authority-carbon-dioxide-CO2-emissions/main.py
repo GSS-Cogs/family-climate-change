@@ -11,6 +11,7 @@
 #     name: python3
 # ---
 # ## BEIS-2005-to-2019-local-authority-carbon-dioxide-CO2-emissions
+#%%
 import json
 import pandas as pd
 from gssutils import Cubes, Scraper, pathify
@@ -23,17 +24,29 @@ distribution = metadata.distribution(mediaType='text/csv')
 metadata.dataset.title = distribution.title
 
 df = distribution.as_pandas()
-df.drop(columns=df.columns.values.tolist()[0:6], axis=1, inplace=True)
-df.drop(columns=['Mid-year Population (thousands)', 'Area (km2)'], axis=1, inplace=True)
-df.rename(columns={
-    'Calendar Year': 'Year',
-    'Territorial emissions (kt CO2)':'Territorial emissions',
-    'Emissions within the scope of influence of LAs (kt CO2)': 'Emissions within the scope of influence of LAs'
-}, inplace=True)
+
+df = (
+    distribution
+    .as_pandas()
+    .assign(**{"Local Authority Code": lambda df: df["Local Authority Code"].combine_first(df["Local Authority"])})
+    .drop(columns=df.columns[0:6])
+    .drop(columns=['Mid-year Population (thousands)', 'Area (km2)'])
+    .rename(columns={
+        'Calendar Year': 'Year',
+        'Territorial emissions (kt CO2)':'Territorial emissions',
+        'Emissions within the scope of influence of LAs (kt CO2)': 'Emissions within the scope of influence of LAs'
+    })
+)
 
 val_vars = ['Territorial emissions', 'Emissions within the scope of influence of LAs']
 other_vars = df.columns.difference(val_vars)
-df = pd.melt(df, id_vars=other_vars, value_vars=val_vars, var_name='Measure Type')
+df = pd.melt(
+    df, 
+    id_vars=other_vars, 
+    value_vars=val_vars, 
+    var_name='Measure Type',
+    value_name='Value'
+)
  
 for col in df.columns.values.tolist()[-1:]:
     df[col] = df[col].astype(str).astype(float).round(2)
@@ -45,7 +58,6 @@ for col in ['LA CO2 Sector', 'LA CO2 Sub-sector', 'Measure Type']:
 df = df.fillna('unallocated-consumption')
 
 df['Units'] = 'kt-co2'
-df.rename(columns={'value': 'Value'}, inplace=True)
 
 cubes.add_cube(metadata, df, metadata.dataset.title)
 cubes.output_all()
