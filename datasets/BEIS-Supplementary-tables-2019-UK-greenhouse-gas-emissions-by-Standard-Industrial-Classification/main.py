@@ -113,7 +113,7 @@ end = ' by'
 df['Estimated territorial emissions type'] = df['Estimated territorial emissions type'].str.split(start).str[1].str.split(end).str[0]
 
 df['Year'] = df['Year'].str.replace('\.0', '')
-df['Year'] = 'year/' + df['Year']
+#df['Year'] = 'year/' + df['Year']
 df['Value'] = df['Value'].astype(str).astype(float).round(1)
 df = df.replace({'Section' : {'Consumer expenditure' : 'consumer-expenditure' , 
                               'Land use, land use change and forestry (LULUCF)' : 'land-use-land-use-change-and-forestry-lulucf'}})
@@ -138,4 +138,3 @@ df = df.replace({'National Communication Sector' : {'lulucf' : 'land-use-land-us
 cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title)
 
 cubes.output_all()
-df
