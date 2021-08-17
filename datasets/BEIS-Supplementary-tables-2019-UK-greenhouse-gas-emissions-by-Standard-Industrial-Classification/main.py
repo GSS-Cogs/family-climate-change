@@ -115,9 +115,10 @@ df['Estimated territorial emissions type'] = df['Estimated territorial emissions
 df['Year'] = df['Year'].str.replace('\.0', '')
 df['Year'] = 'year/' + df['Year']
 df['Value'] = df['Value'].astype(str).astype(float).round(1)
-
 df = df.replace({'Section' : {'Consumer expenditure' : 'consumer-expenditure' , 
                               'Land use, land use change and forestry (LULUCF)' : 'land-use-land-use-change-and-forestry-lulucf'}})
+
+#
 #info needed to create URI's for section 
 unique = 'http://gss-data.org.uk/data/gss_data/climate-change/' + title + '#concept/sic-2007/'
 sic = 'http://business.data.gov.uk/companies/def/sic-2007/'
@@ -128,6 +129,8 @@ df = df[['Year', 'Estimated territorial emissions type','Section', 'National Com
 
 for col in ['Estimated territorial emissions type', 'National Communication Sector']:
     df[col] = df[col].apply(pathify)
+
+df = df.replace({'National Communication Sector' : {'lulucf' : 'land-use-land-use-change-and-forestry'}})
 
 
 

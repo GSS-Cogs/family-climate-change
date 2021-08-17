@@ -30,7 +30,7 @@
                  "description": "territorial emissions, meaning emissions that occur within the UK's borders, and are reported on a source basis"
              },
              "Section" : {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/industry",
+                "parent": "http://gss-data.org.uk/def/climate-change/property/dimension/section",
                 "value": "{+section}"
              },
             "National Communication Sector": {
@@ -38,7 +38,7 @@
                 "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_sector}"
             },
             "Value": {
-                "unit": "http://gss-data.org.uk/def/concept/measurement-units/ktco2e",
+                "unit": "http://gss-data.org.uk/def/concept/measurement-units/kt-co2",
                 "measure": "http://gss-data.org.uk/def/measure/gas-emissions",
                 "datatype": "double"
             }
