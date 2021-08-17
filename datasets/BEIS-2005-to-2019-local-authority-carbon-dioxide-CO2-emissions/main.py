@@ -12,8 +12,6 @@
 # ---
 # ## BEIS-2005-to-2019-local-authority-carbon-dioxide-CO2-emissions
 
-#%%
-
 import json
 import pandas as pd
 from gssutils import Cubes, Scraper, pathify
@@ -50,19 +48,19 @@ df = pd.melt(
     value_name='Value'
 )
 
-# df["Local Authority Code"] = (
-#     df["Local Authority Code"]
-#     .replace({
-#         "Unallocated consumption": pathify("Unallocated consumption"),
-#         "Large elec users (high voltage lines) unknown location": pathify("Large elec users (high voltage lines) unknown location")
-#     })
-#     .map(lambda x: (
-#         f"http://gss-data.org.uk/data/gss_data/climate-change/beis-2005-to-2019-local-authority-carbon-dioxide-co2-emissions#concept/local-authority-code/{x}" if x in [
-#             pathify("Unallocated consumption"), 
-#             pathify("Large elec users (high voltage lines) unknown location")
-#         ] else f"http://statistics.data.gov.uk/id/statistical-geography/{x}"
-#     ))
-# )
+df["Local Authority Code"] = (
+    df["Local Authority Code"]
+    .replace({
+        "Unallocated consumption": pathify("Unallocated consumption"),
+        "Large elec users (high voltage lines) unknown location": pathify("Large elec users (high voltage lines) unknown location")
+    })
+    .map(lambda x: (
+        f"http://gss-data.org.uk/data/gss_data/climate-change/beis-2005-to-2019-local-authority-carbon-dioxide-co2-emissions#concept/local-authority-code/{x}" if x in [
+            pathify("Unallocated consumption"), 
+            pathify("Large elec users (high voltage lines) unknown location")
+        ] else f"http://statistics.data.gov.uk/id/statistical-geography/{x}"
+    ))
+)
 
 for col in df.columns.values.tolist()[-1:]:
     df[col] = df[col].astype(str).astype(float).round(2)
@@ -76,27 +74,3 @@ df['Units'] = 'kt-co2'
 
 cubes.add_cube(metadata, df, metadata.dataset.title)
 cubes.output_all()
-
-
-#%%
-
-g = pd.DataFrame()
-
-g["label"] = df["Local Authority Code"].unique()
-g["notation"] = g["label"].replace({
-    "Unallocated consumption": pathify("Unallocated consumption"),
-    "Large elec users (high voltage lines) unknown location": pathify("Large elec users (high voltage lines) unknown location")
-})
-g["URI"] = (
-    g["label"]
-    .replace({
-        "Unallocated consumption": pathify("Unallocated consumption"),
-        "Large elec users (high voltage lines) unknown location": pathify("Large elec users (high voltage lines) unknown location")
-    })
-    .map(lambda x: (
-        f"http://gss-data.org.uk/data/gss_data/climate-change/beis-2005-to-2019-local-authority-carbon-dioxide-co2-emissions#concept/local-authority-code/{x}" if x in [
-            pathify("Unallocated consumption"), 
-            pathify("Large elec users (high voltage lines) unknown location")
-        ] else f"http://statistics.data.gov.uk/id/statistical-geography/{x}"
-    ))
-)
