@@ -15,25 +15,11 @@
             },
             {
                 "titles": "URI",
-                "name": "uri",
-                "datatype": "anyURI",
-                "required": true,
-                "suppressOutput": true
+                "name": "uri"
             },
             {
                 "titles": "Parent URI",
-                "name": "parent_uri",
-                "required": false,
-                "propertyUrl": "skos:broader",
-                "valueUrl": "{+parent_uri}"
-                
-            },
-            {
-                "titles": "Local Notation",
-                "name": "local_notation",
-                "datatype": "string",
-                "required": true,
-                "propertyUrl": "skos:notation"
+                "name": "parent_uri"
             },
             {
                 "titles": "Sort Priority",
@@ -41,6 +27,17 @@
                 "datatype": "integer",
                 "required": false,
                 "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "titles": "Description",
+                "name": "description",
+                "datatype": "string",
+                "required": false,
+                "propertyUrl": "rdfs:comment"
+            },
+            {
+                "titles": "Local Notation",
+                "name": "local_notation"
             },
             {
                 "virtual": true,
@@ -51,10 +48,10 @@
                 "virtual": true,
                 "propertyUrl": "skos:inScheme",
                 "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#scheme/section"
-            } 
-        ]
+            }
+        ],
         "primaryKey": "uri",
-        "aboutUrl": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#concept/section/{+uri}"
+        "aboutUrl": "{+uri}"
     },
     "prov:hadDerivation": {
         "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#scheme/section",
@@ -78,14 +75,14 @@
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-08-16T19:42:21.908550"
+                "@value": "2021-08-17T13:07:47.325036"
             },
             "rdfs:label": "Section",
             "dc:title": "Section",
             "rdfs:comment": "Dataset representing the 'Section' code list.",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-08-16T19:42:21.908550"
+                "@value": "2021-08-17T13:07:47.325036"
             }
         },
         {
@@ -107,11 +104,11 @@
             "rdfs:label": "Section Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-08-16T19:42:21.908550"
+                "@value": "2021-08-17T13:07:47.325036"
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-08-16T19:42:21.908550"
+                "@value": "2021-08-17T13:07:47.325036"
             }
         }
     ]
