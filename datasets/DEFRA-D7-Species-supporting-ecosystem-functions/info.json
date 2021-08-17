@@ -1,0 +1,29 @@
+{
+    "id": "defra-d7-species-supporting-ecosystem-functions",
+    "title": "D7: Species supporting ecosystem functions",
+    "publisher": "Department for Environment Food & Rural Affairs",
+    "description": "Part of The Outcome Indicator Framework, a comprehensive set of indicators describing environmental change that relates to the 10 goals within the 25 Year Environment Plan. The framework contains 66 indicators, arranged into 10 broad themes. The indicators are extensive; they cover natural capital assets (for example, land, freshwater, air and seas) and together they show the condition of these assets, the pressures acting upon them and the provision of services or benefits they provide.",
+    "landingPage": "https://oifdata.defra.gov.uk/4/",
+    "datasetNotes": [
+        "On landing page scroll down to dataset link with dataset title.",
+        "Direct link to download: https://oifdata.defra.gov.uk/en/data/4-7-1.csv",
+        "Dashboard landing page is https://oifdata.defra.gov.uk/."
+    ],
+    "published": "2021-06-11",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV",
+        "stage": "Documented"
+    },
+    "transform": {
+        "stage": [
+            "Priority"
+        ],
+        "airtable": "recXqrSoBlCUT0MON",
+        "main_issue": 41
+    },
+    "sizingNotes": "Small, simple CSV dataset",
+    "notes": "Priority dataset for Climate Change Platform project."
+}
