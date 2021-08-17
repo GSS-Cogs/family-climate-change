@@ -33,9 +33,6 @@
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_sector}"
             },
-            "Section" : {
-                "description": "Section"
-             },
             "Value": {
                 "unit": "http://gss-data.org.uk/def/concept/measurement-units/ktco2e",
                 "measure": "http://gss-data.org.uk/def/measure/gas-emissions",

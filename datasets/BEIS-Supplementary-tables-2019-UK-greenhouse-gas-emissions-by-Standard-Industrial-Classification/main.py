@@ -129,7 +129,10 @@ df = df[['Year', 'Estimated territorial emissions type','Section', 'National Com
 for col in ['Estimated territorial emissions type', 'National Communication Sector']:
     df[col] = df[col].apply(pathify)
 
-cubes.add_cube(metadata, df, metadata.dataset.title)
+
+
+# +
+cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title)
 
 cubes.output_all()
 df

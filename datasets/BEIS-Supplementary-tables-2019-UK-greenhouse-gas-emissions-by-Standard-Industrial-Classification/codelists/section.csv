@@ -1,4 +1,4 @@
-Label,URI,Parent URI,Sort Priority,Notation
+Label,URI,Parent URI,Sort Priority,Local Notation
 "Agriculture, forestry and fishing",http://business.data.gov.uk/companies/def/sic-2007/A,http://business.data.gov.uk/companies/def/sic-2007/A,,A
 Mining and quarrying,http://business.data.gov.uk/companies/def/sic-2007/B,http://business.data.gov.uk/companies/def/sic-2007/B,,B
 Manufacturing,http://business.data.gov.uk/companies/def/sic-2007/C,http://business.data.gov.uk/companies/def/sic-2007/C,,C
