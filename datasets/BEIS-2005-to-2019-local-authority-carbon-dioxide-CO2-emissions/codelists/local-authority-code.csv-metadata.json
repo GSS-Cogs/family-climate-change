@@ -59,7 +59,7 @@
             {
                 "virtual": true,
                 "propertyUrl": "skos:inScheme",
-                "valueUrl": "http://gss-data.org.uk/data/gss_data/trade/ons-international-trade-in-services-by-subnational-areas-of-the-uk#scheme/local-authority-code"
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/beis-2005-to-2019-local-authority-carbon-dioxide-co2-emissions#scheme/local-authority-code"
             }
         ],
         "primaryKey": "notation",
