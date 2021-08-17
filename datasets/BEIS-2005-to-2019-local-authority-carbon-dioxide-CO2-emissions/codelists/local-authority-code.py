@@ -28,7 +28,9 @@ g["URI"] = (
         ] else f"http://statistics.data.gov.uk/id/statistical-geography/{x}"
     ))
 )
+g["Parent URI"] = None
 g["Sort Priority"] = g.index
+g["Description"] = None
 g["Local Notation"] = g["Label"].replace({
     "Unallocated consumption": pathify("Unallocated consumption"),
     "Large elec users (high voltage lines) unknown location": pathify("Large elec users (high voltage lines) unknown location")

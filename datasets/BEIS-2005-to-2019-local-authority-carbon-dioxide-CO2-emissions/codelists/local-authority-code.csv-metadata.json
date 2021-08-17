@@ -21,11 +21,25 @@
                 "suppressOutput": true
             },
             {
+                "titles": "Parent URI",
+                "name": "parent_uri",
+                "required": false,
+                "propertyUrl": "skos:broader",
+                "valueUrl": "{+parent_uri}"
+            },
+            {
                 "titles": "Sort Priority",
                 "name": "sort_priority",
                 "datatype": "integer",
                 "required": false,
                 "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "titles": "Description",
+                "name": "description",
+                "datatype": "string",
+                "required": false,
+                "propertyUrl": "rdfs:comment"
             },
             {
                 "titles": "Local Notation",
