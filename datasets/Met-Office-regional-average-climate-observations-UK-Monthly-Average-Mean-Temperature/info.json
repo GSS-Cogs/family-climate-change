@@ -1,0 +1,22 @@
+{
+    "id": "met-office-regional-average-climate-observations-uk-monthly-average-mean-temperature",
+    "title": "regional average climate observations UK Monthly Average Mean Temperature",
+    "publisher": "Meteorological Office",
+    "description": "",
+    "datasetNotes": [
+        "No landing page for this dataset as it is a bespoke dataset supplied by Met Office directly to IDP-D as part of the Climate Change Platform project. It is a subset of the Met Office HAD large dataset."
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "rec2vrwAmHTdHAGrX",
+        "main_issue": 43
+    },
+    "sizingNotes": "",
+    "notes": ""
+}
