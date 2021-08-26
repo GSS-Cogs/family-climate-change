@@ -1,0 +1,22 @@
+{
+    "id": "beis-energy-intensity-extract",
+    "title": "Energy Intensity - Extract",
+    "publisher": "Department for Business, Energy and Industrial Strategy",
+    "description": "",
+    "datasetNotes": [
+        "No landing page for this dataset as it is a bespoke dataset supplied by BEIS (Warren Evans) directly to IDS-D as part of the Climate Change Platform project. It is an extract of BEIS published data of the same name, landing page: https://www.gov.uk/government/statistics/total-energy-section-1-energy-trends"
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "recGEACrywaGVq9Ox",
+        "main_issue": 45
+    },
+    "sizingNotes": "",
+    "notes": ""
+}
