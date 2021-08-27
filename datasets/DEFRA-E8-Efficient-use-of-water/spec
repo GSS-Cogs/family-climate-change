@@ -1,0 +1,5 @@
+dataset 5-8-1
+
+pathify column Series 
+
+Year coulmn also contains the month in which there is data to be caputured so similar to met office modelling rainfall this column should be changed to month and captured int he info.json as such

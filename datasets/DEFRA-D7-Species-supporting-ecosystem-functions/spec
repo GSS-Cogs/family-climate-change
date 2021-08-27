@@ -1,0 +1,7 @@
+dataset 4-7-1
+
+Pathify columns Series,	Trendline,	Category, 
+
+we will need to deal witht he missing cells suggest adding N/A to missing for cells with missing data but this may cause a csv lint error 
+
+
