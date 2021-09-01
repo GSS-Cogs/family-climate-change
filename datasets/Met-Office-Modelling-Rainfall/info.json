@@ -1,6 +1,6 @@
 {
     "id": "met-office-modelling-rainfall",
-    "title": "regional average climate observations UK Rainfall",
+    "title": "Regional Average Climate Observations UK Rainfall",
     "publisher": "Meteorological Office",
     "description": "",
     "datasetNotes": [
@@ -25,7 +25,7 @@
                 "description": "Met Office bespoke geography area"
             },
             "Value": {
-                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/millilitres",
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/millimetres",
                 "measure": "http://gss-data.org.uk/def/climate-change/measure/rainfall",
                 "datatype": "double"
             }
