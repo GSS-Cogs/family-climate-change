@@ -32,5 +32,5 @@
         }
     },
     "sizingNotes": "",
-    "notes": ""
+    "notes": "We recommend that for most uses the values presented are rounded to one decimal place, consistent with the limits of the observational uncertainty. The unrounded values are included for users who may wish to conduct further calculations before rounding (e.g. multi-month or multi-year averaging). Further information on the uncertainty and rounding issues associated with these data can be found in Annex 2 of Kendon et al. (2020): https://doi.org/10.1002/joc.7285"
 }
