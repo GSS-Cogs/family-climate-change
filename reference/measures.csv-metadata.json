@@ -55,7 +55,7 @@
                 "name": "parent",
                 "datatype": "anyURI",
                 "propertyUrl": "rdfs:subPropertyOf",
-                "valueUrl": "{parent}"
+                "valueUrl": "{+parent}"
             },
             {
                 "titles": "Range",
