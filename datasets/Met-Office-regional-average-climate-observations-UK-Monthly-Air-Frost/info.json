@@ -15,7 +15,22 @@
     },
     "transform": {
         "airtable": "recE60mXcaWO1vXAC",
-        "main_issue": 44
+        "main_issue": 44,
+        "columns": {
+            "Month": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/month/{month}"
+            },
+            "Geography": {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/met-office-custom-geography",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/met-office-custom-geography/{met_office_custom_geography}"
+            },
+            "Value": {
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/millimetres",
+                "measure": "http://gss-data.org.uk/def/climate-change/measure/frost",
+                "datatype": "double"
+            }
+        }
     },
     "sizingNotes": "",
     "notes": ""
