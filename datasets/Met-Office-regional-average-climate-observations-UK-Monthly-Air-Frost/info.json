@@ -22,8 +22,7 @@
                 "value": "http://reference.data.gov.uk/id/month/{month}"
             },
             "Geography": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/met-office-custom-geography",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/met-office-custom-geography/{met_office_custom_geography}"
+                "description": "Met Office bespoke geography area"
             },
             "Value": {
                 "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/millimetres",
