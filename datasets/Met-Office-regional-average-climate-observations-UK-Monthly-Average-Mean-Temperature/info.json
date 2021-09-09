@@ -15,7 +15,21 @@
     },
     "transform": {
         "airtable": "rec2vrwAmHTdHAGrX",
-        "main_issue": 43
+        "main_issue": 43,
+        "columns": {
+            "Month": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/month/{month}"
+            },
+            "Geography": {
+                "description": "Met Office bespoke geography area"
+            },
+            "Value": {
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/millimetres",
+                "measure": "http://gss-data.org.uk/def/climate-change/measure/temperature",
+                "datatype": "double"
+            }
+        }
     },
     "sizingNotes": "",
     "notes": ""
