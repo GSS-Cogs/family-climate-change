@@ -30,13 +30,14 @@ distribution = metadata.distribution(mediaType="text/csv")
 metadata.dataset.title = distribution.title
 metadata.dataset.family = 'DEFRA'
 
-df = distribution.as_pandas().fillna('')
+df = distribution.as_pandas()
 
 df['Label'] = df['Year'].str.extract(r'([^(\d+)]+)')
 df['Year'] = df['Year'].str.extract(r'(\d+)')
 
 # + tags=[]
 df = df[['Year', 'Label', 'Series', 'Component', 'Status category', 'Value']]
+df = df.fillna('not available')
 # -
 
 for col in df.columns.to_list()[1:-1]:
@@ -46,5 +47,5 @@ for col in df.columns.to_list()[1:-1]:
         raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
 # + tags=[]
-cubes.add_cube(metadata, df, metadata.dataset.title)
+cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title)
 cubes.output_all()
