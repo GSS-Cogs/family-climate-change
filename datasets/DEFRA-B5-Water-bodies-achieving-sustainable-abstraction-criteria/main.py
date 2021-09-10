@@ -1,3 +1,5 @@
+# DEFRA-B5-Water-bodies-achieving-sustainable-abstraction-criteria
+
 # +
 import json
 import pandas as pd
@@ -20,7 +22,6 @@ df = distribution.as_pandas(encoding='ISO-8859-1')
 df['Year'] = df['Year'].astype(str)
 df['Year'] = 'year/' + df['Year']
 df['Water body category'] = df['Water body category'].apply(pathify)
-df
 
 cubes.add_cube(metadata, df, title)
 cubes.output_all()

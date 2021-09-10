@@ -23,7 +23,22 @@
             "Priority"
         ],
         "airtable": "recO1acFhSc60CNxF",
-        "main_issue": 40
+        "main_issue": 40,
+        "columns": {
+            "Year": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/month/{year}"
+            },
+            "Bulletin Type": {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/water-body-category",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/water-body-category/{water_body_category}"
+            },
+            "Value": {
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/percentage-change",
+                "measure": "http://gss-data.org.uk/def/climate-change/measure/surface-ground-water-bodies",
+                "datatype": "double"
+            }
+        }
     },
     "sizingNotes": "Small, simple CSV dataset",
     "notes": "Priority dataset for Climate Change Platform project."
