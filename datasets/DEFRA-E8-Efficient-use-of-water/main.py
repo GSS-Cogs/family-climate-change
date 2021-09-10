@@ -39,7 +39,7 @@ df['Year'] = df['Year'].str.replace(r'-', r'-20')
 
 df['Value'] = pd.to_numeric(df['Value'], downcast='float')
 df['Value'] = df['Value'].astype(str).astype(float).round(2)
-df = df.fillna('')
+df = df.fillna('not available')
 
 df['Series'] = df['Series'].apply(pathify)
 
