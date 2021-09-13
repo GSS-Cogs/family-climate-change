@@ -29,7 +29,7 @@
                 "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
                 "value": "http://reference.data.gov.uk/id/year/{+year}"
             },
-            "Bulletin Type": {
+            "Water body category": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/water-body-category",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/water-body-category/{water_body_category}"
             },
