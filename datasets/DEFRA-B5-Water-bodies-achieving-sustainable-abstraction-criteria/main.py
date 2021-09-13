@@ -19,8 +19,6 @@ title = distribution.title
 
 df = distribution.as_pandas(encoding='ISO-8859-1')
 #Post Processing 
-df['Year'] = df['Year'].astype(str)
-df['Year'] = 'year/' + df['Year']
 df['Water body category'] = df['Water body category'].apply(pathify)
 
 cubes.add_cube(metadata, df, title)
