@@ -1,0 +1,117 @@
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-category",
+    "url": "defra-category.csv",
+    "rdfs:label": "Defra Category",
+    "dc:title": "Defra Category",
+    "tableSchema": {
+        "columns": [
+            {
+                "titles": "Label",
+                "name": "label",
+                "datatype": "string",
+                "required": true,
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "titles": "Notation",
+                "name": "notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*$"
+                },
+                "required": true,
+                "propertyUrl": "skos:notation"
+            },
+            {
+                "titles": "Parent Notation",
+                "name": "parent_notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^(-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*|)$"
+                },
+                "required": false,
+                "propertyUrl": "skos:broader",
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/defra-category/{+parent_notation}"
+            },
+            {
+                "titles": "Sort Priority",
+                "name": "sort_priority",
+                "datatype": "integer",
+                "required": false,
+                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "rdf:type",
+                "valueUrl": "skos:Concept"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "skos:inScheme",
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-category"
+            }
+        ],
+        "primaryKey": "notation",
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/defra-category/{+notation}"
+    },
+    "prov:hadDerivation": {
+        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-category",
+        "@type": [
+            "skos:ConceptScheme",
+            "http://publishmydata.com/pmdcat#ConceptScheme"
+        ]
+    },
+    "rdfs:seeAlso": [
+        {
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-category/dataset",
+            "@type": [
+                "dcat:Dataset",
+                "http://publishmydata.com/pmdcat#Dataset"
+            ],
+            "http://publishmydata.com/pmdcat#datasetContents": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-category"
+            },
+            "http://publishmydata.com/pmdcat#graph": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-category"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-09-13T14:34:55.071439"
+            },
+            "rdfs:label": "Defra Category",
+            "dc:title": "Defra Category",
+            "rdfs:comment": "Dataset representing the 'Defra Category' code list.",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-09-13T14:34:55.071439"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/catalog/vocabularies",
+            "dcat:record": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-category/catalog-record"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-category/catalog-record",
+            "@type": "dcat:CatalogRecord",
+            "foaf:primaryTopic": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-category/dataset"
+            },
+            "http://publishmydata.com/pmdcat#metadataGraph": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-category"
+            },
+            "dc:title": "Defra Category Catalog Record",
+            "rdfs:label": "Defra Category Catalog Record",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-09-13T14:34:55.071439"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-09-13T14:34:55.071439"
+            }
+        }
+    ]
+}

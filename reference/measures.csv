@@ -9,3 +9,4 @@ climate-change,emissions-within-the-scope-of-influence-of-las,Emissions Within t
 climate-change,temperature,Temperature,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,frost,Frost,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,surface-ground-water-bodies,Surface and Ground Water Bodies,"surface waters (rivers, lakes, reservoirs and estuaries) and groundwater (including wetlands fed by groundwater) where sustainable abstraction criteria are met.",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,distribution-of-pollinators,Distribution of Pollinators,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal

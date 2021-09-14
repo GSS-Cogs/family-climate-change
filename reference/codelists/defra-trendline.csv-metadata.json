@@ -1,0 +1,117 @@
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-trendline",
+    "url": "defra-trendline.csv",
+    "rdfs:label": "Defra Trendline",
+    "dc:title": "Defra Trendline",
+    "tableSchema": {
+        "columns": [
+            {
+                "titles": "Label",
+                "name": "label",
+                "datatype": "string",
+                "required": true,
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "titles": "Notation",
+                "name": "notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*$"
+                },
+                "required": true,
+                "propertyUrl": "skos:notation"
+            },
+            {
+                "titles": "Parent Notation",
+                "name": "parent_notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^(-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*|)$"
+                },
+                "required": false,
+                "propertyUrl": "skos:broader",
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/defra-trendline/{+parent_notation}"
+            },
+            {
+                "titles": "Sort Priority",
+                "name": "sort_priority",
+                "datatype": "integer",
+                "required": false,
+                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "rdf:type",
+                "valueUrl": "skos:Concept"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "skos:inScheme",
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-trendline"
+            }
+        ],
+        "primaryKey": "notation",
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/defra-trendline/{+notation}"
+    },
+    "prov:hadDerivation": {
+        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-trendline",
+        "@type": [
+            "skos:ConceptScheme",
+            "http://publishmydata.com/pmdcat#ConceptScheme"
+        ]
+    },
+    "rdfs:seeAlso": [
+        {
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-trendline/dataset",
+            "@type": [
+                "dcat:Dataset",
+                "http://publishmydata.com/pmdcat#Dataset"
+            ],
+            "http://publishmydata.com/pmdcat#datasetContents": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-trendline"
+            },
+            "http://publishmydata.com/pmdcat#graph": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-trendline"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-09-13T14:37:37.995031"
+            },
+            "rdfs:label": "Defra Trendline",
+            "dc:title": "Defra Trendline",
+            "rdfs:comment": "Dataset representing the 'Defra Trendline' code list.",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-09-13T14:37:37.995031"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/catalog/vocabularies",
+            "dcat:record": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-trendline/catalog-record"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-trendline/catalog-record",
+            "@type": "dcat:CatalogRecord",
+            "foaf:primaryTopic": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-trendline/dataset"
+            },
+            "http://publishmydata.com/pmdcat#metadataGraph": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/defra-trendline"
+            },
+            "dc:title": "Defra Trendline Catalog Record",
+            "rdfs:label": "Defra Trendline Catalog Record",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-09-13T14:37:37.995031"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-09-13T14:37:37.995031"
+            }
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+Label,Notation,Parent Notation,Sort Priority
+Indicator (mean occupancy),indicator-mean-occupancy,,1
+90% credible interval minimum,90-credible-interval-minimum,,2
+90% credible interval maximum,90-credible-interval-maximum,,3
+Not applicable,not-applicable,,4

@@ -22,7 +22,30 @@
             "Priority"
         ],
         "airtable": "recXqrSoBlCUT0MON",
-        "main_issue": 41
+        "main_issue": 41,
+        "columns": {
+            "Year": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Series": {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/series",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/defra-series/{series}"
+            },
+            "Trendline": {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/trendline",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/defra-trendline/{trendline}"
+            },
+            "Category": {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/category",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/defra-category/{category}"
+            },
+            "Value": {
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/percentage-change",
+                "measure": "http://gss-data.org.uk/def/climate-change/measure/distribution-of-pollinators",
+                "datatype": "double"
+            }
+        }
     },
     "sizingNotes": "Small, simple CSV dataset",
     "notes": "Priority dataset for Climate Change Platform project."
