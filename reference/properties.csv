@@ -15,3 +15,6 @@ climate-change,LA CO2 Sub-Sector,dimension/la-co2-sub-sector,qb:DimensionPropert
 climate-change,Section,dimension/section,qb:DimensionProperty,,,rdfs:Resource,,
 climate-change,Met Office Custom Geography,dimension/met-office-custom-geography,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/met-office-custom-geography,
 climate-change,Water body category,dimension/water-body-category,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/water-body-category,
+climate-change,Series,dimension/series,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/defra-series,
+climate-change,Trendline,dimension/trendline,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/defra-trendline,
+climate-change,Category,dimension/category,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/defra-category,
