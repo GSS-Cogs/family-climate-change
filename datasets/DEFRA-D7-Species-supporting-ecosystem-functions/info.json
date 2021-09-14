@@ -26,7 +26,7 @@
         "columns": {
             "Year": {
                 "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-                "value": "http://reference.data.gov.uk/id/year/{+year}"
+                "value": "http://reference.data.gov.uk/id/year/{year}"
             },
             "Series": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/series",
