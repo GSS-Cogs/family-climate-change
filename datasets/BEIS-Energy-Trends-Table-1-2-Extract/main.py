@@ -66,7 +66,7 @@ for tab in tabs:
 
     measure = 'Energy Consumption'
 
-    unit = 'Million tonnes of oil equivalent'
+    unit = 'Millions of Tonnes of Oil Equivalent'
 
     observations = yearBreakdown.shift(RIGHT).expand(RIGHT).is_not_blank() - remove
 
