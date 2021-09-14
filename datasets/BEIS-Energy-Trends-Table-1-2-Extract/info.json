@@ -3,6 +3,7 @@
     "title": "Energy Trends Table 1.2 - Extract",
     "publisher": "Department for Business, Energy and Industrial Strategy",
     "description": "",
+    "landingPage": "https://www.gov.uk/government/statistics/total-energy-section-1-energy-trends",
     "datasetNotes": [
         "No landing page for this dataset as it is a bespoke dataset supplied by BEIS (Warren Evans) directly to IDS-D as part of the Climate Change Platform project. It is an extract of BEIS published data of the same name, landing page: https://www.gov.uk/government/statistics/total-energy-section-1-energy-trends"
     ],
@@ -15,7 +16,45 @@
     },
     "transform": {
         "airtable": "recZeJg9wyH5NBPXN",
-        "main_issue": 47
+        "main_issue": 47,
+        "columns": {
+            "Period": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/{+period}",
+                "codelist": false
+            },
+            "Region": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+                "value": "http://statistics.data.gov.uk/id/statistical-geography/{region}",
+                "description": "",
+                "codelist": false
+            },
+            "Measure Type": {
+                "dimension": "http://purl.org/linked-data/cube#measureType",
+                "value": "http://gss-data.org.uk/def/energy/measure/{measure_type}",
+                "types": [
+                    "energy-consumption"
+                ]
+            },
+            "Unit": {
+                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{unit}"
+            },
+            "Value": {
+                "datatype": "double"
+            },
+            "Seasonal Adjustment": "The purpose of seasonal adjustment is to remove systematic calendar-related variation associated with the time of the year, that is, seasonal effects.",
+            "Fuel": {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/fuel",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/fuel/{fuel}",
+                "codelist": false
+            },
+            "Marker": {
+                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#obsStatus",
+                "value": "http://gss-data.org.uk/def/concept/cogs-markers/{marker}",
+                "codelist": false
+            }
+        }
     },
     "sizingNotes": "",
     "notes": ""
