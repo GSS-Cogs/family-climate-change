@@ -113,7 +113,7 @@ df = df.replace({'yearBreakdown' : {'January' : '01',
                            ' imports' : 'Net Imports',
                            '& waste' : 'Bioenergy and waste',
                            'Total' : 'All',
-                           'and hydro' : 'wind solar and energy',
+                           'and hydro' : 'wind solar and hydro',
                            'gas' : 'Natural Gas'},
                  'Seasonal Adjustment' : {'Seasonally adjusted and temperature corrected(annualised rates)' : 'Seasonally adjusted and temperature corrected (annualised rates)'},
                  'DATAMARKER' : {'n/a' : 'not-available'}})
