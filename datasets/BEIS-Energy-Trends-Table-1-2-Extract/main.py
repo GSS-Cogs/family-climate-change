@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[397]:
+# In[1]:
 
 
 from IPython.display import display
@@ -14,21 +14,21 @@ cubes = Cubes("info.json")
 info = json.load(open('info.json'))
 
 
-# In[398]:
+# In[2]:
 
 
 scraper = Scraper(seed='info.json')
 scraper
 
 
-# In[399]:
+# In[3]:
 
 
 dist = [x for x in scraper.distributions if '1.2' in x.title][0]
 dist
 
 
-# In[400]:
+# In[4]:
 
 
 excluded = ['Contents', 'Highlights', 'Calculation']
@@ -40,7 +40,7 @@ for tab in tabs:
     print(tab.name)
 
 
-# In[401]:
+# In[5]:
 
 
 tidied_sheets = {}
@@ -85,7 +85,7 @@ for tab in tabs:
     tidied_sheets[tab.name] = tidy_sheet.topandas()
 
 
-# In[402]:
+# In[6]:
 
 
 df = pd.concat(tidied_sheets.values())
@@ -139,9 +139,10 @@ for col in df.columns.values.tolist():
 df
 
 
-# In[403]:
+# In[7]:
 
 
+scraper.dataset.title = dist.title
 scraper.dataset.family = 'climate-change'
 scraper.dataset.comment = """
 An overview of the trends in energy production and consumption in the United Kingdom for the previous quarter, focusing on: consumption, both primary and final by broad sector, including seasonally adjusted series
@@ -152,13 +153,13 @@ csvName = 'observations'
 cubes.add_cube(scraper, df.drop_duplicates(), csvName)
 
 
-# In[404]:
+# In[8]:
 
 
 cubes.output_all()
 
 
-# In[405]:
+# In[9]:
 
 
 from IPython.core.display import HTML
@@ -169,7 +170,7 @@ for col in df:
         display(df[col].cat.categories)
 
 
-# In[405]:
+# In[9]:
 
 
 
