@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[9]:
+# In[1]:
 
 
 import json
@@ -15,7 +15,7 @@ landingPage = info['landingPage']
 landingPage
 
 
-# In[10]:
+# In[2]:
 
 
 metadata = Scraper(seed='info.json')
@@ -24,8 +24,9 @@ metadata.select_dataset(title = lambda x: 'E8' in x)
 
 distribution = metadata.distribution(mediaType="text/csv")
 
-metadata.dataset.title = distribution.title
+metadata.dataset.title = info['title']
 metadata.dataset.family = 'climate-change'
+metadata.dataset.comment = info['description']
 
 df = distribution.as_pandas()
 
@@ -45,7 +46,7 @@ df['Value'] = df['Value'].astype(str).astype(float).round(2)
 df = df.fillna('not available')
 
 df['Marker'] = df.apply (lambda x: 'not-available' if 'not available' in str(x['Value']) else '', axis = 1)
-df['Value'] = df.apply (lambda x: '' if 'not available' in str(x['Value']) else x['Value'], axis = 1)
+df['Value'] = df.apply (lambda x: 0 if 'not available' in str(x['Value']) else x['Value'], axis = 1)
 
 #df['Series'] = df['Series'].apply(pathify)
 
