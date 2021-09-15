@@ -1,20 +1,8 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.11.5
-#   kernelspec:
-#     display_name: Python 3 (ipykernel)
-#     language: python
-#     name: python3
-# ---
+#!/usr/bin/env python
+# coding: utf-8
 
-# + [markdown] tags=[]
-# ## DEFRA-E8-Efficient-use-of-water
-# -
+# In[3]:
+
 
 import json
 import pandas as pd
@@ -22,8 +10,13 @@ from gssutils import *
 
 cubes = Cubes('info.json')
 info = json.load(open('info.json'))
+
 landingPage = info['landingPage']
 landingPage
+
+
+# In[4]:
+
 
 metadata = Scraper(seed='info.json')
 
@@ -37,11 +30,21 @@ df = distribution.as_pandas()
 
 df['Year'] = df['Year'].str.replace(r'-', r'-20')
 
+df['Year'] = df.apply(lambda x: 'government-year/+' + x['Year'], axis = 1)
+
+df = df.rename({'Year' : 'Period'})
+
+df['Unit'] = df.apply(lambda x: 'megalitres-per-day' if 'E8A' in x['Series'] else 'litres-per-person-per-day')
+df['Measure Type'] = df.apply(lambda x: 'water-leakage' if 'E8A' in x['Series'] else 'water-consumption')
+
+df = df.drop(['Series'])
+
 df['Value'] = pd.to_numeric(df['Value'], downcast='float')
 df['Value'] = df['Value'].astype(str).astype(float).round(2)
 df = df.fillna('not available')
 
-df['Series'] = df['Series'].apply(pathify)
+#df['Series'] = df['Series'].apply(pathify)
 
 cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title)
 cubes.output_all()
+
