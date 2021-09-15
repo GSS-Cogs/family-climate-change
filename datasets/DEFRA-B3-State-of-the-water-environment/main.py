@@ -33,7 +33,7 @@ df = distribution.as_pandas()
 df['Label'] = df['Year'].str.extract(r'([^(\d+)]+)')
 df['Year'] = df['Year'].str.extract(r'(\d+)')
 
-df['Area'] = 'E92000001'
+df['Region'] = 'E92000001'
 
 df['Year'] = df.apply(lambda x: '2019' if 'B3a' in x['Series'] else ('2019' if 'B3b' in x['Series'] else x['Year']), axis = 1)
 df['Year'] = df.apply(lambda x: 'year/' + x['Year'], axis = 1)
@@ -59,14 +59,14 @@ df = df.drop(['Series'], axis = 1)
 # In[ ]:
 
 
-df = df[['Period', 'Area', 'Environment Surveyed', 'Survey Type', 'Survey Status', 'Value', 'Measure Type', 'Unit']]
+df = df[['Period', 'Region', 'Environment Surveyed', 'Survey Type', 'Survey Status', 'Value', 'Measure Type', 'Unit']]
 df = df.fillna('not available')
 
 
 # In[ ]:
 
 
-COLUMNS_TO_NOT_PATHIFY = ['Period', 'Area', 'Value']
+COLUMNS_TO_NOT_PATHIFY = ['Period', 'Region', 'Value']
 
 for col in df.columns.values.tolist():
 	if col in COLUMNS_TO_NOT_PATHIFY:
