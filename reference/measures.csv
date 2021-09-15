@@ -10,3 +10,15 @@ climate-change,temperature,Temperature,,,http://purl.org/linked-data/sdmx/2009/m
 climate-change,frost,Frost,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,surface-ground-water-bodies,Surface and Ground Water Bodies,"surface waters (rivers, lakes, reservoirs and estuaries) and groundwater (including wetlands fed by groundwater) where sustainable abstraction criteria are met.",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,distribution-of-pollinators,Distribution of Pollinators,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,road-passenger-consumption-ktoe,Road-Passenger Consumption (ktoe),,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,output-billion-passenger-kilometres,Output (billion passenger kilometres),,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,energy-consumption-per-unit-of-output-ktoe,Energy consumption per unit of output (ktoe),,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,total-final-domestic-consumption-ktoe,Total Final Domestic Consumption (ktoe),,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,no-households-000s,No Households ('000s),,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,consumption-per-household-ktoe,Consumption per household (ktoe),,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,industrial-consumption-ktoe,Industrial Consumption (ktoe),,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,industrial-output,Industrial Output,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,consumption-per-unit-of-output-ktoe,Consumption per unit of output (ktoe),,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,services-consumption-excluding-agriculture-ktoe,"Services Consumption, excluding agriculture (ktoe)",,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,services-output,Services Output,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,energy-consumption-per-unit-of-output-ktoe,Energy consumption per unit of output (ktoe),,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
