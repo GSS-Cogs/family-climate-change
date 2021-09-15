@@ -25,7 +25,7 @@ metadata.select_dataset(title = lambda x: 'E8' in x)
 distribution = metadata.distribution(mediaType="text/csv")
 
 metadata.dataset.title = distribution.title
-metadata.dataset.family = 'DEFRA'
+metadata.dataset.family = 'climate-change'
 
 df = distribution.as_pandas()
 
