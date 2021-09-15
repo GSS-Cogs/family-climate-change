@@ -59,18 +59,22 @@ df = df.drop(['Series'], axis = 1)
 # In[ ]:
 
 
-df = df[['Period', 'Environment Surveyed', 'Survey Type', 'Survey Status', 'Value', 'Measure Type', 'Unit']]
+df = df[['Period', 'Area', 'Environment Surveyed', 'Survey Type', 'Survey Status', 'Value', 'Measure Type', 'Unit']]
 df = df.fillna('not available')
 
 
 # In[ ]:
 
 
-for col in df.columns.to_list()[1:-1]:
-    try:
-        df[col] = df[col].apply(pathify)
-    except Exception as err:
-        raise Exception('Failed to pathify column "{}".'.format(col)) from err
+COLUMNS_TO_NOT_PATHIFY = ['Period', 'Area', 'Value']
+
+for col in df.columns.values.tolist():
+	if col in COLUMNS_TO_NOT_PATHIFY:
+		continue
+	try:
+		df[col] = df[col].apply(pathify)
+	except Exception as err:
+		raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
 
 # In[ ]:
