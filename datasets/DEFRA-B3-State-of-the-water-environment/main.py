@@ -1,16 +1,8 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.11.5
-#   kernelspec:
-#     display_name: Python 3 (ipykernel)
-#     language: python
-#     name: python3
-# ---
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
 
 # ## DEFRA-B3-State-of-the-water-environment
 
@@ -23,22 +15,56 @@ info = json.load(open('info.json'))
 landingPage = info['landingPage']
 landingPage
 
+
+# In[ ]:
+
+
 metadata = Scraper(seed="info.json")
-metadata.select_dataset(title = lambda x: "B3" in x) 
+metadata.select_dataset(title = lambda x: "B3" in x)
 
 distribution = metadata.distribution(mediaType="text/csv")
-metadata.dataset.title = distribution.title
-metadata.dataset.family = 'DEFRA'
+
+metadata.dataset.title = info['title']
+metadata.dataset.family = 'climate-change'
+metadata.dataset.comment = info['description']
 
 df = distribution.as_pandas()
 
 df['Label'] = df['Year'].str.extract(r'([^(\d+)]+)')
 df['Year'] = df['Year'].str.extract(r'(\d+)')
 
-# + tags=[]
-df = df[['Year', 'Label', 'Series', 'Component', 'Status category', 'Value']]
+df['Area'] = 'E92000001'
+
+df['Year'] = df.apply(lambda x: '2019' if 'B3a' in x['Series'] else ('2019' if 'B3b' in x['Series'] else x['Year']), axis = 1)
+df['Year'] = df.apply(lambda x: 'year/' + x['Year'], axis = 1)
+
+df['Measure Type'] = df.apply(lambda x: 'status-of-surface-waters' if 'E3a' in x['Series'] else '', axis = 1)
+df['Measure Type'] = df.apply(lambda x: 'status-of-ground-waters' if 'E3b' in x['Series'] else x['Measure Type'], axis = 1)
+df['Measure Type'] = df.apply(lambda x: 'status-of-waters-specially-protected-for-specific-uses' if 'E3c' in x['Series'] else x['Measure Type'], axis = 1)
+
+df['Unit'] = df.apply(lambda x: 'percentage-of-area' if 'E3c' in x['Series'] else 'percentage-of-water-bodies-assessed', axis = 1)
+
+#these measures and units seem a little verbose to me and could probably be changed in conjunction with an attribute or something
+#but these are taken directly from the landing page so they'll do for now
+
+df = df.rename(columns={'Year' : 'Period', 'Label' : 'Environment Surveyed', 'Component' : 'Survey Type', 'Status category' : 'Survey Status'})
+
+#Could probably do with better column headers but I couldnt think of anything better at the moment
+
+df['Survey Type'] = df.apply(lambda x: 'ecological-status' if 'B3b' in x['Series'] else x['Survey Type'], axis = 1)
+
+df = df.drop(['Series'], axis = 1)
+
+
+# In[ ]:
+
+
+df = df[['Period', 'Environment Surveyed', 'Survey Type', 'Survey Status', 'Value', 'Measure Type', 'Unit']]
 df = df.fillna('not available')
-# -
+
+
+# In[ ]:
+
 
 for col in df.columns.to_list()[1:-1]:
     try:
@@ -46,6 +72,10 @@ for col in df.columns.to_list()[1:-1]:
     except Exception as err:
         raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
-# + tags=[]
+
+# In[ ]:
+
+
 cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title)
 cubes.output_all()
+

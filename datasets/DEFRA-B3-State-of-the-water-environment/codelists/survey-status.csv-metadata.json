@@ -1,0 +1,136 @@
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/survey-status",
+    "url": "survey-status.csv",
+    "rdfs:label": "Survey Status",
+    "dc:title": "Survey Status",
+    "tableSchema": {
+        "columns": [
+            {
+                "titles": "Label",
+                "name": "label",
+                "datatype": "string",
+                "required": true,
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "titles": "Notation",
+                "name": "notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*$"
+                },
+                "required": true,
+                "propertyUrl": "skos:notation"
+            },
+            {
+                "titles": "Parent Notation",
+                "name": "parent_notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^(-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*|)$"
+                },
+                "required": false,
+                "propertyUrl": "skos:broader",
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#concept/survey-status/{+parent_notation}"
+            },
+            {
+                "titles": "Sort Priority",
+                "name": "sort_priority",
+                "datatype": "integer",
+                "required": false,
+                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "rdf:type",
+                "valueUrl": "skos:Concept"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "skos:inScheme",
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/survey-status"
+            }
+        ],
+        "primaryKey": "notation",
+        "aboutUrl": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#concept/survey-status/{+notation}"
+    },
+    "prov:hadDerivation": {
+        "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/survey-status",
+        "@type": [
+            "skos:ConceptScheme",
+            "http://publishmydata.com/pmdcat#ConceptScheme"
+        ]
+    },
+    "rdfs:seeAlso": [
+        {
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/survey-status/dataset",
+            "@type": [
+                "dcat:Dataset",
+                "http://publishmydata.com/pmdcat#Dataset"
+            ],
+            "http://publishmydata.com/pmdcat#datasetContents": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/survey-status"
+            },
+            "http://publishmydata.com/pmdcat#graph": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/survey-status"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-09-14T12:30:43.190944"
+            },
+            "rdfs:label": "Survey Status",
+            "dc:title": "Survey Status",
+            "rdfs:comment": "Dataset representing the 'Survey Status' code list.",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-09-14T12:30:43.190944"
+            },
+            "dc:license": {
+                "@id": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            },
+            "dc:creator": {
+                "@id": "https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs"
+            },
+            "dc:publisher": {
+                "@id": "https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs"
+            },
+            "dcat:contactPoint": {
+                "@id": "25YEPindicators@defra.gov.uk"
+            },
+            "dcat:landingPage": {
+                "@id": "https://oifdata.defra.gov.uk/2/"
+            },
+            "http://publishmydata.com/pmdcat#markdownDescription": {
+                "@type": "https://www.w3.org/ns/iana/media-types/text/markdown#Resource",
+                "@value": "Part of The Outcome Indicator Framework, a comprehensive set of indicators describing environmental change that relates to the 10 goals within the 25 Year Environment Plan. The framework contains 66 indicators, arranged into 10 broad themes. The indicators are extensive; they cover natural capital assets (for example, land, freshwater, air and seas) and together they show the condition of these assets, the pressures acting upon them and the provision of services or benefits they provide."
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/catalog/vocabularies",
+            "dcat:record": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/survey-status/catalog-record"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/survey-status/catalog-record",
+            "@type": "dcat:CatalogRecord",
+            "foaf:primaryTopic": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/survey-status/dataset"
+            },
+            "http://publishmydata.com/pmdcat#metadataGraph": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/survey-status"
+            },
+            "dc:title": "Survey Status Catalog Record",
+            "rdfs:label": "Survey Status Catalog Record",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-09-14T12:30:43.190944"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-09-14T12:30:43.190944"
+            }
+        }
+    ]
+}

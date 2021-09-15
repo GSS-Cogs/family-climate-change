@@ -1,0 +1,8 @@
+Label,Notation,Parent Notation,Sort Priority
+At Good Status,at-good-status,,1
+Other,other,,2
+Not at Good Status,not-at-good-status,,3
+Not at Risk,not-at-risk,,4
+At Risk,at-risk,,5
+Favourable,favourable,,6
+Unfavourable Recovering,unfavourable-recovering,,7
