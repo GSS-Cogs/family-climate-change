@@ -22,7 +22,38 @@
             "Priority"
         ],
         "airtable": "recCq3Ra1dFQYb2YR",
-        "main_issue": 39
+        "main_issue": 39,
+        "transform": {
+        "airtable": "recZeJg9wyH5NBPXN",
+        "main_issue": 47,
+        "columns": {
+            "Period": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/{+period}",
+                "codelist": false
+            },
+            "Measure Type": {
+                "dimension": "http://purl.org/linked-data/cube#measureType",
+                "value": "http://gss-data.org.uk/def/measure/{measure_type}",
+                "types": [
+                    "water-leakage",
+                    "water-consumption"
+                ]
+            },
+            "Unit": {
+                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{unit}"
+            },
+            "Value": {
+                "datatype": "double"
+            },
+            "Marker": {
+                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#obsStatus",
+                "value": "http://gss-data.org.uk/def/concept/cogs-markers/{marker}",
+                "codelist": false
+            }
+        }
+    }
     },
     "sizingNotes": "Small, simple CSV dataset",
     "notes": "Priority dataset for Climate Change Platform project."
