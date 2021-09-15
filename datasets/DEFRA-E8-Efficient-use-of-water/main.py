@@ -38,8 +38,8 @@ df = df.rename(columns={'Year' : 'Period'})
 df['Measure Type'] = df.apply(lambda x: 'water-leakage' if 'E8A' in x['Series'] else 'water-consumption', axis = 1)
 df['Unit'] = df.apply(lambda x: 'megalitres-per-day' if 'E8A' in x['Series'] else 'litres-per-person-per-day', axis = 1)
 
-df['Marker'] = df.apply (lambda x: 'not-available' if 'not-available' in str(x['Value']) else '', axis = 1)
-df['Value'] = df.apply (lambda x: '' if 'not-available' in str(x['Value']) else x['Value'], axis = 1)
+df['Marker'] = df.apply (lambda x: 'not-available' if 'not available' in str(x['Value']) else '', axis = 1)
+df['Value'] = df.apply (lambda x: '' if 'not available' in str(x['Value']) else x['Value'], axis = 1)
 
 df = df.drop(['Series'], axis = 1)
 
