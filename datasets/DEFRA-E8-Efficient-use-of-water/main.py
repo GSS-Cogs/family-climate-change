@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[3]:
+# In[9]:
 
 
 import json
@@ -15,7 +15,7 @@ landingPage = info['landingPage']
 landingPage
 
 
-# In[4]:
+# In[10]:
 
 
 metadata = Scraper(seed='info.json')
@@ -23,6 +23,7 @@ metadata = Scraper(seed='info.json')
 metadata.select_dataset(title = lambda x: 'E8' in x)
 
 distribution = metadata.distribution(mediaType="text/csv")
+
 metadata.dataset.title = distribution.title
 metadata.dataset.family = 'DEFRA'
 
@@ -30,12 +31,15 @@ df = distribution.as_pandas()
 
 df['Year'] = df['Year'].str.replace(r'-', r'-20')
 
-df['Year'] = df.apply(lambda x: 'government-year/+' + x['Year'], axis = 1)
+df['Year'] = df.apply(lambda x: 'government-year/' + x['Year'], axis = 1)
 
-df = df.rename({'Year' : 'Period'})
+df = df.rename(columns={'Year' : 'Period'})
 
 df['Unit'] = df.apply(lambda x: 'megalitres-per-day' if 'E8A' in x['Series'] else 'litres-per-person-per-day', axis = 1)
 df['Measure Type'] = df.apply(lambda x: 'water-leakage' if 'E8A' in x['Series'] else 'water-consumption', axis = 1)
+
+df['Marker'] = df.apply (lambda x: 'not-available' if 'not-available' in x['Value'] else '', axis = 1)
+df['Value'] = df.apply (lambda x: '' if 'not-available' in x['Value'] else x['Value'], axis = 1)
 
 df = df.drop(['Series'], axis = 1)
 
