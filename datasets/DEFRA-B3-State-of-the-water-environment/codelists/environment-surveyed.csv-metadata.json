@@ -1,6 +1,6 @@
 {
     "@context": "http://www.w3.org/ns/csvw",
-    "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/environment-surveyed",
+    "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-b3-state-of-the-water-environment#scheme/environment-surveyed",
     "url": "environment-surveyed.csv",
     "rdfs:label": "Environment Surveyed",
     "dc:title": "Environment Surveyed",
@@ -32,7 +32,7 @@
                 },
                 "required": false,
                 "propertyUrl": "skos:broader",
-                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#concept/environment-surveyed/{+parent_notation}"
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/defra-b3-state-of-the-water-environment#concept/environment-surveyed/{+parent_notation}"
             },
             {
                 "titles": "Sort Priority",
@@ -49,14 +49,14 @@
             {
                 "virtual": true,
                 "propertyUrl": "skos:inScheme",
-                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/environment-surveyed"
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/defra-b3-state-of-the-water-environment#scheme/environment-surveyed"
             }
         ],
         "primaryKey": "notation",
-        "aboutUrl": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#concept/environment-surveyed/{+notation}"
+        "aboutUrl": "http://gss-data.org.uk/data/gss_data/climate-change/defra-b3-state-of-the-water-environment#concept/environment-surveyed/{+notation}"
     },
     "prov:hadDerivation": {
-        "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/environment-surveyed",
+        "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-b3-state-of-the-water-environment#scheme/environment-surveyed",
         "@type": [
             "skos:ConceptScheme",
             "http://publishmydata.com/pmdcat#ConceptScheme"
@@ -64,16 +64,16 @@
     },
     "rdfs:seeAlso": [
         {
-            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/environment-surveyed/dataset",
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-b3-state-of-the-water-environment#scheme/environment-surveyed/dataset",
             "@type": [
                 "dcat:Dataset",
                 "http://publishmydata.com/pmdcat#Dataset"
             ],
             "http://publishmydata.com/pmdcat#datasetContents": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/environment-surveyed"
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-b3-state-of-the-water-environment#scheme/environment-surveyed"
             },
             "http://publishmydata.com/pmdcat#graph": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/environment-surveyed"
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-b3-state-of-the-water-environment#scheme/environment-surveyed"
             },
             "dc:modified": {
                 "@type": "dateTime",
@@ -109,17 +109,17 @@
         {
             "@id": "http://gss-data.org.uk/catalog/vocabularies",
             "dcat:record": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/environment-surveyed/catalog-record"
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-b3-state-of-the-water-environment#scheme/environment-surveyed/catalog-record"
             }
         },
         {
-            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/environment-surveyed/catalog-record",
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-b3-state-of-the-water-environment#scheme/environment-surveyed/catalog-record",
             "@type": "dcat:CatalogRecord",
             "foaf:primaryTopic": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/environment-surveyed/dataset"
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-b3-state-of-the-water-environment#scheme/environment-surveyed/dataset"
             },
             "http://publishmydata.com/pmdcat#metadataGraph": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-trends-table-1-2-extract#scheme/environment-surveyed"
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-b3-state-of-the-water-environment#scheme/environment-surveyed"
             },
             "dc:title": "Environment Surveyed Catalog Record",
             "rdfs:label": "Environment Surveyed Catalog Record",
