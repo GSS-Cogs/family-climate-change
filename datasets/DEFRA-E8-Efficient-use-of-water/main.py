@@ -37,7 +37,7 @@ df = df.rename({'Year' : 'Period'})
 df['Unit'] = df.apply(lambda x: 'megalitres-per-day' if 'E8A' in x['Series'] else 'litres-per-person-per-day', axis = 1)
 df['Measure Type'] = df.apply(lambda x: 'water-leakage' if 'E8A' in x['Series'] else 'water-consumption', axis = 1)
 
-df = df.drop(['Series'])
+df = df.drop(['Series'], axis = 1)
 
 df['Value'] = pd.to_numeric(df['Value'], downcast='float')
 df['Value'] = df['Value'].astype(str).astype(float).round(2)
