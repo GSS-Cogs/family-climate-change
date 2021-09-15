@@ -38,11 +38,11 @@ df['Area'] = 'E92000001'
 df['Year'] = df.apply(lambda x: '2019' if 'B3a' in x['Series'] else ('2019' if 'B3b' in x['Series'] else x['Year']), axis = 1)
 df['Year'] = df.apply(lambda x: 'year/' + x['Year'], axis = 1)
 
-df['Measure Type'] = df.apply(lambda x: 'status-of-surface-waters' if 'E3a' in x['Series'] else '', axis = 1)
-df['Measure Type'] = df.apply(lambda x: 'status-of-ground-waters' if 'E3b' in x['Series'] else x['Measure Type'], axis = 1)
-df['Measure Type'] = df.apply(lambda x: 'status-of-waters-specially-protected-for-specific-uses' if 'E3c' in x['Series'] else x['Measure Type'], axis = 1)
+df['Measure Type'] = df.apply(lambda x: 'status-of-surface-waters' if 'B3a' in x['Series'] else '', axis = 1)
+df['Measure Type'] = df.apply(lambda x: 'status-of-ground-waters' if 'B3b' in x['Series'] else x['Measure Type'], axis = 1)
+df['Measure Type'] = df.apply(lambda x: 'status-of-waters-specially-protected-for-specific-uses' if 'B3c' in x['Series'] else x['Measure Type'], axis = 1)
 
-df['Unit'] = df.apply(lambda x: 'percentage-of-area' if 'E3c' in x['Series'] else 'percentage-of-water-bodies-assessed', axis = 1)
+df['Unit'] = df.apply(lambda x: 'percentage-of-area' if 'B3c' in x['Series'] else 'percentage-of-water-bodies-assessed', axis = 1)
 
 #these measures and units seem a little verbose to me and could probably be changed in conjunction with an attribute or something
 #but these are taken directly from the landing page so they'll do for now
