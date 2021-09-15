@@ -21,4 +21,3 @@ climate-change,industrial-output,Industrial Output,,,http://purl.org/linked-data
 climate-change,consumption-per-unit-of-output-ktoe,Consumption per unit of output ktoe,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,services-consumption-excluding-agriculture-ktoe,"Services Consumption, excluding agriculture ktoe",,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,services-output,Services Output,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
-climate-change,energy-consumption-per-unit-of-output-ktoe,Energy consumption per unit of output ktoe,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
