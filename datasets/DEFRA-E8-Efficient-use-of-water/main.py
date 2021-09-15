@@ -34,8 +34,8 @@ df['Year'] = df.apply(lambda x: 'government-year/+' + x['Year'], axis = 1)
 
 df = df.rename({'Year' : 'Period'})
 
-df['Unit'] = df.apply(lambda x: 'megalitres-per-day' if 'E8A' in x['Series'] else 'litres-per-person-per-day')
-df['Measure Type'] = df.apply(lambda x: 'water-leakage' if 'E8A' in x['Series'] else 'water-consumption')
+df['Unit'] = df.apply(lambda x: 'megalitres-per-day' if 'E8A' in x['Series'] else 'litres-per-person-per-day', axis = 1)
+df['Measure Type'] = df.apply(lambda x: 'water-leakage' if 'E8A' in x['Series'] else 'water-consumption', axis = 1)
 
 df = df.drop(['Series'])
 
