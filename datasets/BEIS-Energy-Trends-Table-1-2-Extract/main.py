@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[60]:
 
 
+import pandas as pd
 from IPython.display import display
 
 from gssutils import *
@@ -14,117 +15,47 @@ cubes = Cubes("info.json")
 info = json.load(open('info.json'))
 
 
-# In[2]:
+# In[61]:
 
 
 scraper = Scraper(seed='info.json')
 scraper
 
 
-# In[3]:
+# In[62]:
 
 
 dist = [x for x in scraper.distributions if '1.2' in x.title][0]
 dist
 
 
-# In[4]:
+# In[63]:
 
 
-excluded = ['Contents', 'Highlights', 'Calculation']
+df = pd.read_csv("Energy Trends 1.2 IDP Extract.csv")
 
-tabs = [x for x in dist.as_databaker() if x.name not in excluded and 'Main table' not in x.name]
-#"Main Table" tabs are built from annual and month tabs
+df = df[:-5]
+df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
 
-for tab in tabs:
-    print(tab.name)
+df = pd.melt(df, id_vars = ['Year'], var_name = 'Fuel', value_name = 'Value', ignore_index = True)
 
+df = df.rename(columns={'Year' : 'Period'})
 
-# In[5]:
-
-
-tidied_sheets = {}
-
-for tab in tabs:
-
-    print(tab.name)
-
-    pivot = tab.filter('Year')
-
-    remove = tab.filter("Return to contents page").expand(RIGHT).expand(DOWN)
-
-    year = pivot.fill(DOWN).is_not_blank() - remove
-
-    if 'Annual' in tab.name:
-        yearBreakdown = year
-    elif 'Quarter' in tab.name or 'Month' in tab.name:
-        yearBreakdown = year.shift(RIGHT)
-
-    seasonalAdjustment = pivot.shift(DOWN).expand(RIGHT).is_not_blank()
-
-    fuel = pivot.shift(2, 0).expand(RIGHT).is_not_blank()
-
-    measure = 'Energy Consumption'
-
-    unit = 'Millions of Tonnes of Oil Equivalent'
-
-    observations = yearBreakdown.shift(RIGHT).expand(RIGHT).is_not_blank() - remove
-
-    dimensions = [
-            HDim(year, 'Period', CLOSEST, ABOVE),
-            HDim(yearBreakdown, 'yearBreakdown', DIRECTLY, LEFT),
-            HDim(seasonalAdjustment, 'Seasonal Adjustment', CLOSEST, LEFT),
-            HDim(fuel, 'Fuel', DIRECTLY, ABOVE),
-            HDimConst('Area', 'K02000001'),
-            HDimConst('Measure Type', measure),
-            HDimConst('Unit', unit)
-    ]
-
-    tidy_sheet = ConversionSegment(tab, dimensions, observations)
-    savepreviewhtml(tidy_sheet, fname=tab.name + "Preview.html")
-    tidied_sheets[tab.name] = tidy_sheet.topandas()
+df
 
 
-# In[6]:
+# In[64]:
 
 
-df = pd.concat(tidied_sheets.values())
+df['Period'] = df.apply(lambda x: 'year/' + str(x['Period'])[:-2], axis = 1)
 
-df['Period'] = df.apply(lambda x: 'year/' + x['Period'][:-2] if x['Period'] == x['yearBreakdown'] else x['Period'], axis = 1)
-df['Period'] = df.apply(lambda x: 'quarter/'+ x['Period'][:-2] + '-Q' + x['yearBreakdown'].replace('Quarter ', '') if 'Quarter' in x['yearBreakdown'] else x['Period'], axis = 1)
+df['Region'] = 'K02000001'
 
-df['yearBreakdown'] = df['yearBreakdown'].str.replace('*', '').str.strip()
-df['yearBreakdown']  = df.apply(lambda x: x['yearBreakdown'][:-1].strip() if x['yearBreakdown'][-2] == ' r' else x['yearBreakdown'], axis = 1)
-#return to this when attribute comments are fully implemented
+df['Measure Type'] = 'Energy Consumption'
 
-df = df.replace({'yearBreakdown' : {'January' : '01',
-                                    'February' : '02',
-                                    'March' : '03',
-                                    'April' : '04',
-                                    'May' : '05',
-                                    'June' : '06',
-                                    'July' : '07',
-                                    'August' : '08',
-                                    'September' : '09',
-                                    'October' : '10',
-                                    'November' : '11',
-                                    'December' : '12'},
-                 'Fuel' : {' gas' : 'Natural Gas',
-                           ' imports' : 'Net Imports',
-                           '& waste' : 'Bioenergy and waste',
-                           'Total' : 'All',
-                           'and hydro' : 'wind solar and hydro',
-                           'gas' : 'Natural Gas'},
-                 'Seasonal Adjustment' : {'Seasonally adjusted and temperature corrected(annualised rates)' : 'Seasonally adjusted and temperature corrected (annualised rates)'},
-                 'DATAMARKER' : {'n/a' : 'not-available'}})
+df['Unit'] = 'Millions of Tonnes of Oil Equivalent'
 
-df['Period'] = df.apply(lambda x: 'month/' + x['Period'][:-2] + '-' + x['yearBreakdown'] if len(x['yearBreakdown']) == 2 else x['Period'], axis = 1)
-
-df['OBS'] = df.apply(lambda x: round(float(x['OBS']), 2) if x['DATAMARKER'] != 'not-available' else x['OBS'], axis = 1)
-
-df = df.drop(columns = ['yearBreakdown'])
-
-df = df.rename(columns={'OBS' : 'Value', 'Area' : 'Region', 'DATAMARKER' : 'Marker'})
+df = df[['Period', 'Region', 'Fuel', 'Value', 'Measure Type', 'Unit']]
 
 COLUMNS_TO_NOT_PATHIFY = ['Value', 'Period', 'Region', 'Marker']
 
@@ -136,10 +67,13 @@ for col in df.columns.values.tolist():
 	except Exception as err:
 		raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
+df = df.replace({'Fuel' : {'-natural-gas' : 'natural-gas',
+                           'total' : 'all'}})
+
 df
 
 
-# In[7]:
+# In[65]:
 
 
 scraper.dataset.title = dist.title
@@ -153,13 +87,13 @@ csvName = 'observations'
 cubes.add_cube(scraper, df.drop_duplicates(), csvName)
 
 
-# In[8]:
+# In[66]:
 
 
 cubes.output_all()
 
 
-# In[9]:
+# In[67]:
 
 
 from IPython.core.display import HTML
@@ -170,7 +104,7 @@ for col in df:
         display(df[col].cat.categories)
 
 
-# In[9]:
+# In[67]:
 
 
 
