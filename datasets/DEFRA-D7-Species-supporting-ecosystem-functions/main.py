@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # +
 import json
 import pandas as pd
@@ -29,7 +30,7 @@ def date_time (date):
         date = date[date.find('(')+1:date.find(')')]
         return date
 df['Year'] =  df["Year"].apply(date_time)
-
+df['Year'] = 'year/' + df['Year']
 decimals = 1    
 df['Value'] = df['Value'].apply(lambda x: round(x, decimals))
 
@@ -37,9 +38,13 @@ df['Series'] = df['Series'].apply(pathify)
 df = df.fillna('not-applicable')
 df['Trendline'] = df['Trendline'].apply(pathify)
 df['Category'] = df['Category'].apply(pathify)
-df
 # -
 
+
+#quick fix for now 
+#gregorian-interval/{dateTime}/{duration}
+df = df.replace({'Year' : {'year/1980–2017' : 'gregorian-interval/1980-01-01T00:00:00/P37Y',
+                          'year/2012–2017' : 'gregorian-interval/2012-01-01T00:00:00/P5Y'}})
 
 metadata.dataset.title = distribution.title
 metadata.dataset.family = 'climate-change'
