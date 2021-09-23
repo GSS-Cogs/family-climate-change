@@ -1,0 +1,27 @@
+{
+    "id": "ons-energy-use-by-industry-reallocated-to-final-consumer-and-energy-intensity",
+    "title": "Energy use: by industry reallocated to final consumer and energy intensity",
+    "publisher": "International trade in services by subnational areas of the UK: 2018",
+    "description": "The UK's reallocated energy use and energy intensity - the level of usage per unit of economic output, by industry (SIC 2007 group - around 130 categories), 1990 to 2019.",
+    "landingPage": "https://www.ons.gov.uk/economy/environmentalaccounts/datasets/ukenvironmentalaccountsenergyreallocatedenergyconsumptionandenergyintensityunitedkingdom/current",
+    "datasetNotes": [
+        "On landing page scroll down to latest version."
+    ],
+    "published": "2021-06-03",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "XLS",
+        "stage": "Documented"
+    },
+    "transform": {
+        "stage": [
+            "Priority"
+        ],
+        "airtable": "recFX9sdKRlevHGli",
+        "main_issue": 67
+    },
+    "sizingNotes": "Simple table structure and dimensions with some footnotes.",
+    "notes": "Priority dataset for Climate Change Platform project."
+}

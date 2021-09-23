@@ -51,9 +51,9 @@
             "Value": {
                 "datatype": "double"
             },
-            "Environment Surveyed" : "The type of ecological environment being surveyed",
-            "Survey Type" : "The type of survey being done at which environment",
-            "Survey Status" : "The breakdown of the outcomes of the survey"
+            "Environment Surveyed": "The type of ecological environment being surveyed",
+            "Survey Type": "The type of survey being done at which environment",
+            "Survey Status": "The breakdown of the outcomes of the survey"
         }
     },
     "sizingNotes": "Small, simple CSV dataset",

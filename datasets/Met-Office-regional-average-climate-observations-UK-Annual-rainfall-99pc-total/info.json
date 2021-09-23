@@ -1,0 +1,22 @@
+{
+    "id": "met-office-regional-average-climate-observations-uk-annual-rainfall-99pc-total",
+    "title": "regional average climate observations UK Annual rainfall 99pc total",
+    "publisher": "Meteorological Office",
+    "description": "",
+    "datasetNotes": [
+        "No landing page for this dataset as it is a bespoke dataset supplied by Met Office directly to IDP-D as part of the Climate Change Platform project. It is a subset of the Met Office HAD large dataset."
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "recwD94hqzvn61L3D",
+        "main_issue": 83
+    },
+    "sizingNotes": "",
+    "notes": ""
+}
