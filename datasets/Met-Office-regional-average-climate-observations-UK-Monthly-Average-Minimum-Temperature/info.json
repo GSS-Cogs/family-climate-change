@@ -25,8 +25,8 @@
                 "description": "Met Office bespoke geography area"
             },
             "Value": {
-                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/millimetres",
-                "measure": "http://gss-data.org.uk/def/climate-change/measure/temperature",
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/degrees-centigrade",
+                "measure": "http://gss-data.org.uk/def/climate-change/measure/monthly-minimum-temperature",
                 "datatype": "double"
             }
         }

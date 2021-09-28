@@ -25,8 +25,8 @@
                 "description": "Met Office bespoke geography area"
             },
             "Value": {
-                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/millimetres",
-                "measure": "http://gss-data.org.uk/def/climate-change/measure/frost",
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/day",
+                "measure": "http://gss-data.org.uk/def/climate-change/measure/monthly-air-frost",
                 "datatype": "double"
             }
         }
