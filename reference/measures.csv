@@ -21,3 +21,10 @@ climate-change,industrial-output,Industrial Output,,,http://purl.org/linked-data
 climate-change,consumption-per-unit-of-output-ktoe,Consumption per unit of output ktoe,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,services-consumption-excluding-agriculture-ktoe,"Services Consumption, excluding agriculture ktoe",,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,services-output,Services Output,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,temperature,Temperature,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,monthly-summer-days,"Monthly Summer Days ","Monthly summer days, averaged across regions ",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,annual-growing-season,Annual Growing Season,"Annual growing season length, averaged across regions",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,monthly-maximum-temperature,"Monthly Maximum Temperature ","Monthly average of daily maximum air temperature, averaged across regions ",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,monthly-mean-temperature,Monthly Mean Temperature,"Monthly average of daily mean air temperature, averaged across regions",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,monthly-minimum-temperature,Monthy Minimum Temperature,"Monthly average of daily minimum air temperature, averaged across regions",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,monthly-air-frost,Monthly Air Frost,"Monthly days of air frost, averaged across regions ",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
