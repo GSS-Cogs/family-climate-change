@@ -1,0 +1,22 @@
+{
+    "id": "forestry-research-forestry-statistics-2021-new-planting",
+    "title": "Forestry Statistics 2021 New Planting",
+    "publisher": "Forestry Research",
+    "description": "",
+    "datasetNotes": [
+        "No landing page for this dataset as it is a bespoke dataset supplied by Climate Change team."
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "recIF3svSN1yeTbGi",
+        "main_issue": 92
+    },
+    "sizingNotes": "",
+    "notes": ""
+}
