@@ -1,0 +1,22 @@
+{
+    "id": "forestry-research-forestry-statistics-2021-woodland-area",
+    "title": "Forestry Statistics 2021 Woodland Area",
+    "publisher": "Forestry Research",
+    "description": "",
+    "datasetNotes": [
+        "No landing page for this dataset as it is a bespoke dataset supplied by Climate Change team."
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "recgWPtam4nIZfAq3",
+        "main_issue": 93
+    },
+    "sizingNotes": "",
+    "notes": ""
+}
