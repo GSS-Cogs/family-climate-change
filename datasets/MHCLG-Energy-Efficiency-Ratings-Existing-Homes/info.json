@@ -1,0 +1,22 @@
+{
+    "id": "mhclg-energy-efficiency-ratings-existing-homes",
+    "title": "Energy Efficiency Ratings Existing Homes",
+    "publisher": "Ministry for Housing, Communities and Local Government",
+    "description": "",
+    "datasetNotes": [
+        "Although I've added a landing page for this dataset, it's actually a bespoke CSV dataset supplied by Climate Change team. The landing page is the source data from which the CC took the origianl data."
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "recrRRcstiGduuQiQ",
+        "main_issue": 94
+    },
+    "sizingNotes": "",
+    "notes": ""
+}
