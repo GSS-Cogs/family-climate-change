@@ -21,7 +21,39 @@
             "Priority"
         ],
         "airtable": "recQtsEhPd3bumzx9",
-        "main_issue": 70
+        "main_issue": 70,
+        "columns": {
+            "Period": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{period}"
+            },
+            "SIC Section": {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/sic-section",
+                "value": "{+sic_section}"
+            },
+            "Fuel" :{
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/fuel",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/fuel/{fuel}",
+                "codelist": false
+            },
+      		"Unit": {
+        		"attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+        		"value": "http://gss-data.org.uk/def/concept/measurement-units/{unit}"
+      		},
+      		"Value": {
+        		"datatype": "double"
+      		},
+            "Measure Type": {
+        		"dimension": "http://purl.org/linked-data/cube#measureType",
+        		"value": "http://gss-data.org.uk/def/measure/{measure_type}",
+        		"types": ["millions-of-tonnes-of-oil-equivalent"]
+      		},
+            "Marker": {
+                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#obsStatus",
+                "value": "http://gss-data.org.uk/def/concept/cogs-markers/{marker}",
+                "codelist": false
+            }
+        }
     },
     "sizingNotes": "Multiple tables, not as straightforward structure as could be and footnotes.",
     "notes": "Priority dataset for Climate Change Platform project."
