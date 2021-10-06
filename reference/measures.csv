@@ -28,4 +28,3 @@ climate-change,monthly-mean-temperature,Monthly Mean Temperature,"Monthly averag
 climate-change,monthly-minimum-temperature,Monthy Minimum Temperature,"Monthly average of daily minimum air temperature, averaged across regions",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,monthly-air-frost,Monthly Air Frost,"Monthly days of air frost, averaged across regions ",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,monthly-icing-days,Monthly Icing Days,"Monthly icing days, averaged across regions",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
-climate-change,monthly-tropical-nights,Monthly Tropical Nights,"Monthly tropical nights, averaged across regions",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
