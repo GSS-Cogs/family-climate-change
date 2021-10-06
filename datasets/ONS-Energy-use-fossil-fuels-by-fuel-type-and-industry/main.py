@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[200]:
+# In[1]:
 
 
 import json
@@ -15,14 +15,14 @@ landingPage = info['landingPage']
 landingPage
 
 
-# In[201]:
+# In[2]:
 
 
 scraper = Scraper(seed="info.json")
 scraper
 
 
-# In[202]:
+# In[3]:
 
 
 distribution = scraper.distributions[0]
@@ -36,7 +36,7 @@ for i in tabs:
     print(i.name)
 
 
-# In[203]:
+# In[4]:
 
 
 dataframes = []
@@ -109,7 +109,7 @@ for tab in tabs:
         dataframes.append(df)
 
 
-# In[204]:
+# In[5]:
 
 
 df = pd.concat(dataframes)
@@ -120,9 +120,9 @@ df['Period'] = df['Period'].astype(float).astype(int)
 
 df['Period'] = df.apply(lambda x: 'year/' + str(x['Period']), axis = 1)
 
-df['Measure Type'] = 'gross caloric values'
+#df['Measure Type'] = 'gross caloric values'
 
-df['Unit'] = 'millions-of-tonnes-of-oil-equivalent'
+#df['Unit'] = 'millions-of-tonnes-of-oil-equivalent'
 
 df = df.rename(columns = {'DATAMARKER' : 'Marker', 'OBS' : 'Value'})
 
@@ -146,7 +146,7 @@ df['SIC Section'] = df['SIC Section'].map(lambda x: unique + x if '-' in x else 
 
 df['Fuel'] = df['Fuel'].fillna('all')
 
-df = df[['Period', 'SIC Section', 'Fuel', 'Value', 'Marker', 'Measure Type', 'Unit']]
+df = df[['Period', 'SIC Section', 'Fuel', 'Value', 'Marker']]
 
 COLUMNS_TO_NOT_PATHIFY = ['Period', 'Marker', 'Value', 'SIC Section']
 
@@ -161,7 +161,7 @@ for col in df.columns.values.tolist():
 df
 
 
-# In[205]:
+# In[6]:
 
 
 scraper.dataset.title = info['title']
