@@ -1,0 +1,22 @@
+{
+    "id": "defra-carbon-footprint-summary-source-region-90-18",
+    "title": "Carbon Footprint - Summary Source Region 90-18",
+    "publisher": "Department for Environment Food & Rural Affairs",
+    "description": "",
+    "datasetNotes": [
+        "No landing page as CC team have supplied this Bespoke file in CSV which is an extract from the Defra source data."
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "recP9IPnUJ6YvDEVd",
+        "main_issue": 97
+    },
+    "sizingNotes": "",
+    "notes": "Priority dataset for Climate Change Platform project."
+}

@@ -1,0 +1,22 @@
+{
+    "id": "defra-carbon-footprint-ghg-direct",
+    "title": "Carbon Footprint - GHG direct",
+    "publisher": "Department for Environment Food & Rural Affairs",
+    "description": "",
+    "datasetNotes": [
+        "No landing page as CC team have supplied this Bespoke file in CSV which is an extract from the Defra source data."
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "recUWEuVWfiLRHq8R",
+        "main_issue": 98
+    },
+    "sizingNotes": "",
+    "notes": "Priority dataset for Climate Change Platform project."
+}

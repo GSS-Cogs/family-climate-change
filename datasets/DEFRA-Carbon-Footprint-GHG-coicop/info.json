@@ -1,0 +1,22 @@
+{
+    "id": "defra-carbon-footprint-ghg-coicop",
+    "title": "Carbon Footprint - GHG coicop",
+    "publisher": "Department for Environment Food & Rural Affairs",
+    "description": "",
+    "datasetNotes": [
+        "No landing page as CC team have supplied this Bespoke file in CSV which is an extract from the Defra source data."
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "recvs3bg6VyJpCyqd",
+        "main_issue": 99
+    },
+    "sizingNotes": "",
+    "notes": "Priority dataset for Climate Change Platform project."
+}
