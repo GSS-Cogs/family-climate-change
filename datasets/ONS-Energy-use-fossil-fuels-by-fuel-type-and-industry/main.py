@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[29]:
+# In[130]:
 
 
 import json
@@ -15,14 +15,14 @@ landingPage = info['landingPage']
 landingPage
 
 
-# In[30]:
+# In[131]:
 
 
 scraper = Scraper(seed="info.json")
 scraper
 
 
-# In[31]:
+# In[132]:
 
 
 distribution = scraper.distributions[0]
@@ -36,7 +36,7 @@ for i in tabs:
     print(i.name)
 
 
-# In[32]:
+# In[133]:
 
 
 dataframes = []
@@ -59,6 +59,15 @@ for tab in tabs:
 
         sicGroup = (tab.filter("SIC (07) group").expand(DOWN) | tab.filter("Section").expand(UP)) - remove
 
+        print(tab.name)
+
+        if tab.name == 'Fuel oil':
+            fueltype = 'Oil'
+        elif tab.name == 'Gas oil':
+            fueltype = 'Gas Oil Including Marine Oil Excluding DERV'
+        else:
+            fueltype = tab.name
+
         observations = year.fill(DOWN) & industry.fill(RIGHT)
 
         dimensions = [
@@ -66,7 +75,7 @@ for tab in tabs:
                 HDim(industry, 'Industry', DIRECTLY, LEFT),
                 HDim(sicSection, 'SIC Section', DIRECTLY, LEFT),
                 HDim(sicGroup, 'SIC Group', DIRECTLY, LEFT),
-                HDimConst('Fuel', tab.name)
+                HDimConst('Fuel', fueltype)
             ]
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
@@ -110,12 +119,13 @@ for tab in tabs:
         dataframes.append(df)
 
 
-# In[33]:
+# In[134]:
 
 
 df = pd.concat(dataframes)
 
-df = df.replace({'DATAMARKER' : {'c' : 'confidential'}})
+df = df.replace({'DATAMARKER' : {'c' : 'confidential'},
+                 'Fuel' : {"('DERV',)" : 'DERV'}})
 
 df['Period'] = df['Period'].astype(float).astype(int)
 
@@ -147,7 +157,10 @@ df['SIC Section'] = df['SIC Section'].map(lambda x: unique + x if '-' in x else 
 
 df['Fuel'] = df['Fuel'].fillna('all')
 
-df = df[['Period', 'SIC Section', 'Fuel', 'Value', 'Marker']]
+indexNames = df[ df['SIC Section'] == 'http://business.data.gov.uk/companies/def/sic-2007/' ].index
+df.drop(indexNames, inplace = True)
+
+#df = df[['Period', 'SIC Section', 'Fuel', 'Value', 'Marker']]
 
 COLUMNS_TO_NOT_PATHIFY = ['Period', 'Marker', 'Value', 'SIC Section']
 
@@ -162,7 +175,7 @@ for col in df.columns.values.tolist():
 df
 
 
-# In[34]:
+# In[135]:
 
 
 scraper.dataset.title = info['title']
@@ -171,4 +184,15 @@ scraper.dataset.comment = info['description']
 
 cubes.add_cube(scraper, df.drop_duplicates(), scraper.dataset.title)
 cubes.output_all()
+
+
+# In[136]:
+
+
+from IPython.core.display import HTML
+for col in df:
+    if col not in ['Value']:
+        df[col] = df[col].astype('category')
+        display(HTML(f"<h2>{col}</h2>"))
+        display(df[col].cat.categories)
 
