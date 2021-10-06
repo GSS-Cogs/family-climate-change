@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[29]:
 
 
 import json
@@ -15,14 +15,14 @@ landingPage = info['landingPage']
 landingPage
 
 
-# In[2]:
+# In[30]:
 
 
 scraper = Scraper(seed="info.json")
 scraper
 
 
-# In[3]:
+# In[31]:
 
 
 distribution = scraper.distributions[0]
@@ -36,7 +36,7 @@ for i in tabs:
     print(i.name)
 
 
-# In[4]:
+# In[32]:
 
 
 dataframes = []
@@ -65,7 +65,8 @@ for tab in tabs:
                 HDim(year, 'Period', DIRECTLY, ABOVE),
                 HDim(industry, 'Industry', DIRECTLY, LEFT),
                 HDim(sicSection, 'SIC Section', DIRECTLY, LEFT),
-                HDim(sicGroup, 'SIC Group', DIRECTLY, LEFT)
+                HDim(sicGroup, 'SIC Group', DIRECTLY, LEFT),
+                HDimConst('Fuel', tab.name)
             ]
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
@@ -109,7 +110,7 @@ for tab in tabs:
         dataframes.append(df)
 
 
-# In[5]:
+# In[33]:
 
 
 df = pd.concat(dataframes)
@@ -129,7 +130,7 @@ df = df.rename(columns = {'DATAMARKER' : 'Marker', 'OBS' : 'Value'})
 indexNames = df[ df['Industry'] == 'Total' ].index
 df.drop(indexNames, inplace = True)
 
-df['SIC Group'] = df.apply(lambda x: 'consumer-expenditure' if 'Consumer expenditure' in x['Industry'] else x['SIC Group'], axis = 1)
+df['SIC Group'] = df.apply(lambda x: 'consumer-expenditure' if x['Industry'] == 'Consumer expenditure' else x['SIC Group'], axis = 1)
 
 df['SIC Group'] = df.apply(lambda x: pathify(x['SIC Group']), axis = 1)
 
@@ -161,7 +162,7 @@ for col in df.columns.values.tolist():
 df
 
 
-# In[6]:
+# In[34]:
 
 
 scraper.dataset.title = info['title']
