@@ -1,4 +1,4 @@
-Namespace,Path,Label,,Source,Parent,Range
+Namespace,Path,Label,Source,Parent,Range
 climate-change,rainfall,Rainfall,Total rainfall fallen,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,gas-emissions,Gas Emissions,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,population,Population,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
@@ -27,3 +27,5 @@ climate-change,monthly-maximum-temperature,"Monthly Maximum Temperature ","Month
 climate-change,monthly-mean-temperature,Monthly Mean Temperature,"Monthly average of daily mean air temperature, averaged across regions",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,monthly-minimum-temperature,Monthy Minimum Temperature,"Monthly average of daily minimum air temperature, averaged across regions",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,monthly-air-frost,Monthly Air Frost,"Monthly days of air frost, averaged across regions ",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,monthly-icing-days,Monthly Icing Days,"Monthly icing days, averaged across regions",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,monthly-tropical-nights,Monthly Tropical Nights,"Monthly tropical nights, averaged across regions",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
