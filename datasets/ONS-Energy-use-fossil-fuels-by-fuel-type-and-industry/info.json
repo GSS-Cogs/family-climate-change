@@ -46,7 +46,7 @@
             "Measure Type": {
         		"dimension": "http://purl.org/linked-data/cube#measureType",
         		"value": "http://gss-data.org.uk/def/measure/{measure_type}",
-        		"types": ["millions-of-tonnes-of-oil-equivalent"]
+        		"types": ["gross-caloric-values"]
       		},
             "Marker": {
                 "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#obsStatus",
