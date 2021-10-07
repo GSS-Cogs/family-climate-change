@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[130]:
+# In[41]:
 
 
 import json
@@ -15,14 +15,14 @@ landingPage = info['landingPage']
 landingPage
 
 
-# In[131]:
+# In[42]:
 
 
 scraper = Scraper(seed="info.json")
 scraper
 
 
-# In[132]:
+# In[43]:
 
 
 distribution = scraper.distributions[0]
@@ -36,7 +36,7 @@ for i in tabs:
     print(i.name)
 
 
-# In[133]:
+# In[44]:
 
 
 dataframes = []
@@ -53,11 +53,11 @@ for tab in tabs:
 
         year = pivot.shift(3, 0).expand(RIGHT).is_not_blank()
 
-        industry = pivot.shift(2, 0).expand(DOWN).is_not_blank() - remove
+        sicSection = tab.filter("Section").expand(DOWN) - remove #| tab.filter("SIC (07) group").expand(UP)) - remove
 
-        sicSection = (tab.filter("Section").expand(DOWN) | tab.filter("SIC (07) group").expand(UP)) - remove
+        sicGroup = tab.filter("SIC (07) group").expand(DOWN) - remove #| tab.filter("Section").expand(UP)) - remove
 
-        sicGroup = (tab.filter("SIC (07) group").expand(DOWN) | tab.filter("Section").expand(UP)) - remove
+        industry = sicSection.shift(RIGHT).is_not_blank() - remove
 
         print(tab.name)
 
@@ -68,7 +68,7 @@ for tab in tabs:
         else:
             fueltype = tab.name
 
-        observations = year.fill(DOWN) & industry.fill(RIGHT)
+        observations = industry.fill(RIGHT)
 
         dimensions = [
                 HDim(year, 'Period', DIRECTLY, ABOVE),
@@ -94,15 +94,15 @@ for tab in tabs:
 
         year = pivot.shift(3, 0).expand(RIGHT).is_not_blank()
 
-        industry = pivot.shift(2, 0).expand(DOWN).is_not_blank() - remove
+        sicSection = tab.filter("Section").expand(DOWN) - remove #| tab.filter("SIC (07) group").expand(UP)) - remove
 
-        sicSection = (tab.filter("Section").expand(DOWN) | tab.filter("SIC (07) group").expand(UP)) - remove
+        sicGroup = tab.filter("SIC (07) group").expand(DOWN) - remove #| tab.filter("Section").expand(UP)) - remove
 
-        sicGroup = (tab.filter("SIC (07) group").expand(DOWN) | tab.filter("Section").expand(UP)) - remove
+        industry = sicSection.shift(RIGHT).is_not_blank() - remove
 
         fuel = industry.shift(RIGHT)
 
-        observations = year.fill(DOWN) & industry.fill(RIGHT)
+        observations = fuel.fill(RIGHT)
 
         dimensions = [
                 HDim(year, 'Period', DIRECTLY, ABOVE),
@@ -119,7 +119,7 @@ for tab in tabs:
         dataframes.append(df)
 
 
-# In[134]:
+# In[45]:
 
 
 df = pd.concat(dataframes)
@@ -131,9 +131,9 @@ df['Period'] = df['Period'].astype(float).astype(int)
 
 df['Period'] = df.apply(lambda x: 'year/' + str(x['Period']), axis = 1)
 
-#df['Measure Type'] = 'gross caloric values'
+df['Measure Type'] = 'gross caloric values'
 
-#df['Unit'] = 'millions-of-tonnes-of-oil-equivalent'
+df['Unit'] = 'millions-of-tonnes-of-oil-equivalent'
 
 df = df.rename(columns = {'DATAMARKER' : 'Marker', 'OBS' : 'Value'})
 
@@ -160,7 +160,7 @@ df['Fuel'] = df['Fuel'].fillna('all')
 indexNames = df[ df['SIC Section'] == 'http://business.data.gov.uk/companies/def/sic-2007/' ].index
 df.drop(indexNames, inplace = True)
 
-#df = df[['Period', 'SIC Section', 'Fuel', 'Value', 'Marker']]
+df = df[['Period', 'SIC Section', 'Fuel', 'Value', 'Marker', 'Measure Type', 'Unit']]
 
 COLUMNS_TO_NOT_PATHIFY = ['Period', 'Marker', 'Value', 'SIC Section']
 
@@ -175,7 +175,7 @@ for col in df.columns.values.tolist():
 df
 
 
-# In[135]:
+# In[46]:
 
 
 scraper.dataset.title = info['title']
@@ -186,7 +186,7 @@ cubes.add_cube(scraper, df.drop_duplicates(), scraper.dataset.title)
 cubes.output_all()
 
 
-# In[136]:
+# In[47]:
 
 
 from IPython.core.display import HTML
