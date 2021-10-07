@@ -10,7 +10,7 @@ df = pd.read_csv("raw.csv")
 
 df = pd.melt(df, id_vars=['Year'])
 df.rename(columns={'value': 'Value',
-                   'variable':'Measure_type'
+                   'variable':'Measure Type'
 
                 }, inplace=True)
 
