@@ -1,0 +1,22 @@
+{
+    "id": "met-office-average-climate-observations-uk-monthly-max-1-day-precipitation",
+    "title": "average climate observations UK Monthly Max 1 day precipitation",
+    "publisher": "Meteorological Office",
+    "description": "Priority dataset for Climate Change Platform project.",
+    "datasetNotes": [
+        "No landing page for this dataset as it is a bespoke dataset supplied by Met Office directly to IDP-D as part of the Climate Change Platform project. It is a subset of the Met Office HAD large dataset."
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "recWYxMali46ipW52",
+        "main_issue": 111
+    },
+    "sizingNotes": "",
+    "notes": "Priority dataset for Climate Change Platform project."
+}
