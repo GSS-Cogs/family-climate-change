@@ -49,7 +49,9 @@
                 "propertyUrl": "skos:inScheme",
                 "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-other-pollutants-by-industry-and-gas#scheme/section"
             }
-        ]
+        ],
+        "primaryKey": "uri",
+        "aboutUrl": "{+uri}"
     },
     "prov:hadDerivation": {
         "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-other-pollutants-by-industry-and-gas#scheme/section",
@@ -73,14 +75,14 @@
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-10-07T14:10:33.138868"
+                "@value": "2021-10-07T18:00:22.601409"
             },
             "rdfs:label": "Section",
             "dc:title": "Section",
             "rdfs:comment": "Dataset representing the 'Section' code list.",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-10-07T14:10:33.138868"
+                "@value": "2021-10-07T18:00:22.601409"
             }
         },
         {
@@ -102,11 +104,11 @@
             "rdfs:label": "Section Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-10-07T14:10:33.138868"
+                "@value": "2021-10-07T18:00:22.601409"
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-10-07T14:10:33.138868"
+                "@value": "2021-10-07T18:00:22.601409"
             }
         }
     ]
