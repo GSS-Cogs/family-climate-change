@@ -30,6 +30,9 @@
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/section",
                 "value": "{+section}"
             },
+            "Emission Type" : {
+                 "description": "Emission Type"
+             },
             "Value": {
                 "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/thousand-tonnes",
                 "measure": "http://gss-data.org.uk/def/climate-change/measure/mass-of-air-emissions",
