@@ -26,13 +26,13 @@
                 "dimension": "http://purl.org/linked-data/cube#measureType",
                 "value": "http://gss-data.org.uk/def/climate-change/measure/{measure_type}",
                 "types": [
-                    "a",
-                    "b",
-                    "c",
-                    "d",
-                    "e",
-                    "f",
-                    "g"
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F",
+                    "G"
                 ]
             },
             "Units": {
