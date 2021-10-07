@@ -29,10 +29,10 @@ climate-change,monthly-minimum-temperature,Monthy Minimum Temperature,"Monthly a
 climate-change,monthly-air-frost,Monthly Air Frost,"Monthly days of air frost, averaged across regions ",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,monthly-icing-days,Monthly Icing Days,"Monthly icing days, averaged across regions",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,monthly-tropical-nights,Monthly Tropical Nights,"Monthly tropical nights, averaged across regions",,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
-climate-change,a,A,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
-climate-change,b,B,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
-climate-change,c,C,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
-climate-change,d,D,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
-climate-change,e,E,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
-climate-change,f,F,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
-climate-change,g,G,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,A,A,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,B,B,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,C,C,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,D,D,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,E,E,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,F,F,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,G,G,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
