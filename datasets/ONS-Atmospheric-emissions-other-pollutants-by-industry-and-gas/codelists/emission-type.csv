@@ -1,0 +1,7 @@
+Label,Notation,Parent Notation,Sort Priority
+PM10 ,pm10,,1
+PM2.5 ,pm2-5,,2
+CO ,co,,3
+NMVOC ,nmvoc,,4
+Benzene ,benzene,,5
+"1,3 Butadiene ",1-3-butadiene,,6
