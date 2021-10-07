@@ -30,7 +30,8 @@
             },
             "SIC Section": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/sic-section",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/sic-section/{sic_section}"
+                "value": "http://gss-data.org.uk/def/climate-change/concept/sic-section/{sic_section}",
+                "codelist": false
             },
             "Fuel": {
                 "dimension": "http://gss-data.org.uk/def/energy/property/dimension/fuel",
