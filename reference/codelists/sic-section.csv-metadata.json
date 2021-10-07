@@ -2,8 +2,6 @@
     "@context": "http://www.w3.org/ns/csvw",
     "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/sic-section",
     "url": "sic-section.csv",
-    "rdfs:label": "SIC Section",
-    "dc:title": "SIC Section",
     "tableSchema": {
         "columns": [
             {
@@ -53,6 +51,8 @@
         "primaryKey": "uri",
         "aboutUrl": "{+uri}"
     },
+    "rdfs:label": "SIC Section",
+    "dc:title": "SIC Section",
     "prov:hadDerivation": {
         "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/sic-section",
         "@type": [
