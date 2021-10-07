@@ -9,16 +9,11 @@ df = pd.read_csv("raw.csv")
 #df.drop(columns='daycount', axis=1, inplace=True)
 
 df = pd.melt(df, id_vars=['Year'])
-#df.rename(columns={'period-start': 'Month',
-                #'variable': 'Geography',
-                #'value': 'Value'
-                #}, inplace=True)
+df.rename(columns={'value': 'Value',
+                   'variable':'measure_type'
 
-#df['Month'] = pd.to_datetime(df['Month'], dayfirst=True).dt.strftime('%Y-%m')
+                }, inplace=True)
 
-#df['Geography'].replace({'ondon': 'london'}, inplace=True)
-#df['Geography'] = df['Geography'].apply(pathify)
-#df['Rainfall'] = df['Rainfall'].astype(str).astype(float).round(2)
 
 out = Path('out')
 out.mkdir(exist_ok=True)
