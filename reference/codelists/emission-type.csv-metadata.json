@@ -1,6 +1,6 @@
 {
     "@context": "http://www.w3.org/ns/csvw",
-    "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-other-pollutants-by-industry-and-gas#scheme/emission-type",
+    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/emission-type",
     "url": "emission-type.csv",
     "rdfs:label": "Emission Type",
     "dc:title": "Emission Type",
@@ -32,7 +32,7 @@
                 },
                 "required": false,
                 "propertyUrl": "skos:broader",
-                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-other-pollutants-by-industry-and-gas#concept/emission-type/{+parent_notation}"
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/emission-type/{+parent_notation}"
             },
             {
                 "titles": "Sort Priority",
@@ -49,14 +49,14 @@
             {
                 "virtual": true,
                 "propertyUrl": "skos:inScheme",
-                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-other-pollutants-by-industry-and-gas#scheme/emission-type"
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/emission-type"
             }
         ],
         "primaryKey": "notation",
-        "aboutUrl": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-other-pollutants-by-industry-and-gas#concept/emission-type/{+notation}"
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/emission-type/{+notation}"
     },
     "prov:hadDerivation": {
-        "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-other-pollutants-by-industry-and-gas#scheme/emission-type",
+        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/emission-type",
         "@type": [
             "skos:ConceptScheme",
             "http://publishmydata.com/pmdcat#ConceptScheme"
@@ -64,53 +64,53 @@
     },
     "rdfs:seeAlso": [
         {
-            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-other-pollutants-by-industry-and-gas#scheme/emission-type/dataset",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/emission-type/dataset",
             "@type": [
                 "dcat:Dataset",
                 "http://publishmydata.com/pmdcat#Dataset"
             ],
             "http://publishmydata.com/pmdcat#datasetContents": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-other-pollutants-by-industry-and-gas#scheme/emission-type"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/emission-type"
             },
             "http://publishmydata.com/pmdcat#graph": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-other-pollutants-by-industry-and-gas#scheme/emission-type"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/emission-type"
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-10-07T14:11:04.003705"
+                "@value": "2021-10-08T11:58:02.540261"
             },
             "rdfs:label": "Emission Type",
             "dc:title": "Emission Type",
             "rdfs:comment": "Dataset representing the 'Emission Type' code list.",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-10-07T14:11:04.003705"
+                "@value": "2021-10-08T11:58:02.540261"
             }
         },
         {
             "@id": "http://gss-data.org.uk/catalog/vocabularies",
             "dcat:record": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-other-pollutants-by-industry-and-gas#scheme/emission-type/catalog-record"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/emission-type/catalog-record"
             }
         },
         {
-            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-other-pollutants-by-industry-and-gas#scheme/emission-type/catalog-record",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/emission-type/catalog-record",
             "@type": "dcat:CatalogRecord",
             "foaf:primaryTopic": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-other-pollutants-by-industry-and-gas#scheme/emission-type/dataset"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/emission-type/dataset"
             },
             "http://publishmydata.com/pmdcat#metadataGraph": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-other-pollutants-by-industry-and-gas#scheme/emission-type"
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/emission-type"
             },
             "dc:title": "Emission Type Catalog Record",
             "rdfs:label": "Emission Type Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-10-07T14:11:04.003705"
+                "@value": "2021-10-08T11:58:02.540261"
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-10-07T14:11:04.003705"
+                "@value": "2021-10-08T11:58:02.540261"
             }
         }
     ]
