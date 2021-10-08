@@ -15,8 +15,7 @@
                 "titles": "Notation",
                 "name": "notation",
                 "datatype": {
-                    "base": "string",
-                    "format": "^-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*$"
+                    "base": "string"
                 },
                 "required": true,
                 "propertyUrl": "skos:notation"
