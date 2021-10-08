@@ -1,154 +1,154 @@
 Label,Notation,Parent Notation,Sort Priority
-"Agriculture, forestry and fishing",http://business.data.gov.uk/companies/def/sic-2007/A,http://business.data.gov.uk/companies/def/sic-2007/A,1
-Mining and quarrying,http://business.data.gov.uk/companies/def/sic-2007/B,http://business.data.gov.uk/companies/def/sic-2007/B,2
-Manufacturing,http://business.data.gov.uk/companies/def/sic-2007/C,http://business.data.gov.uk/companies/def/sic-2007/C,3
-"Electricity, gas, steam and air conditioning supply",http://business.data.gov.uk/companies/def/sic-2007/D,http://business.data.gov.uk/companies/def/sic-2007/D,4
-"Water supply; sewerage, waste management and remediation activities",http://business.data.gov.uk/companies/def/sic-2007/E,http://business.data.gov.uk/companies/def/sic-2007/E,5
-Construction,http://business.data.gov.uk/companies/def/sic-2007/F,http://business.data.gov.uk/companies/def/sic-2007/F,6
-Wholesale and retail trade; repair of motor vehicles and motorcycles,http://business.data.gov.uk/companies/def/sic-2007/G,http://business.data.gov.uk/companies/def/sic-2007/G,7
-Transport and storage,http://business.data.gov.uk/companies/def/sic-2007/H,http://business.data.gov.uk/companies/def/sic-2007/H,8
-Accommodation and food services,http://business.data.gov.uk/companies/def/sic-2007/I,http://business.data.gov.uk/companies/def/sic-2007/I,9
-Information and communication,http://business.data.gov.uk/companies/def/sic-2007/J,http://business.data.gov.uk/companies/def/sic-2007/J,10
-Financial and insurance activities,http://business.data.gov.uk/companies/def/sic-2007/K,http://business.data.gov.uk/companies/def/sic-2007/K,11
-Real estate activities,http://business.data.gov.uk/companies/def/sic-2007/L,http://business.data.gov.uk/companies/def/sic-2007/L,12
-"Professional, scientific and technical activities",http://business.data.gov.uk/companies/def/sic-2007/M,http://business.data.gov.uk/companies/def/sic-2007/M,13
-Administrative and support service activities,http://business.data.gov.uk/companies/def/sic-2007/N,http://business.data.gov.uk/companies/def/sic-2007/N,14
-Public administration and defence; compulsory social security,http://business.data.gov.uk/companies/def/sic-2007/O,http://business.data.gov.uk/companies/def/sic-2007/O,15
-Education,http://business.data.gov.uk/companies/def/sic-2007/P,http://business.data.gov.uk/companies/def/sic-2007/P,16
-Human health and social work activities,http://business.data.gov.uk/companies/def/sic-2007/Q,http://business.data.gov.uk/companies/def/sic-2007/Q,17
-"Arts, entertainment and recreation",http://business.data.gov.uk/companies/def/sic-2007/R,http://business.data.gov.uk/companies/def/sic-2007/R,18
-Other service activities,http://business.data.gov.uk/companies/def/sic-2007/S,http://business.data.gov.uk/companies/def/sic-2007/S,19
-Activities of households as employers; undifferentiated goods and services-producing activities of households for own use,http://business.data.gov.uk/companies/def/sic-2007/T,http://business.data.gov.uk/companies/def/sic-2007/T,20
+"Agriculture, forestry and fishing",http://business.data.gov.uk/companies/def/sic-2007/A,,1
+Mining and quarrying,http://business.data.gov.uk/companies/def/sic-2007/B,,2
+Manufacturing,http://business.data.gov.uk/companies/def/sic-2007/C,,3
+"Electricity, gas, steam and air conditioning supply",http://business.data.gov.uk/companies/def/sic-2007/D,,4
+"Water supply; sewerage, waste management and remediation activities",http://business.data.gov.uk/companies/def/sic-2007/E,,5
+Construction,http://business.data.gov.uk/companies/def/sic-2007/F,,6
+Wholesale and retail trade; repair of motor vehicles and motorcycles,http://business.data.gov.uk/companies/def/sic-2007/G,,7
+Transport and storage,http://business.data.gov.uk/companies/def/sic-2007/H,,8
+Accommodation and food services,http://business.data.gov.uk/companies/def/sic-2007/I,,9
+Information and communication,http://business.data.gov.uk/companies/def/sic-2007/J,,10
+Financial and insurance activities,http://business.data.gov.uk/companies/def/sic-2007/K,,11
+Real estate activities,http://business.data.gov.uk/companies/def/sic-2007/L,,12
+"Professional, scientific and technical activities",http://business.data.gov.uk/companies/def/sic-2007/M,,13
+Administrative and support service activities,http://business.data.gov.uk/companies/def/sic-2007/N,,14
+Public administration and defence; compulsory social security,http://business.data.gov.uk/companies/def/sic-2007/O,,15
+Education,http://business.data.gov.uk/companies/def/sic-2007/P,,16
+Human health and social work activities,http://business.data.gov.uk/companies/def/sic-2007/Q,,17
+"Arts, entertainment and recreation",http://business.data.gov.uk/companies/def/sic-2007/R,,18
+Other service activities,http://business.data.gov.uk/companies/def/sic-2007/S,,19
+Activities of households as employers; undifferentiated goods and services-producing activities of households for own use,http://business.data.gov.uk/companies/def/sic-2007/T,,20
 Consumer expenditure,http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#concept/sic-2007/consumer-expenditure,,21
 "Land use, land use change and forestry (LULUCF)",http://gss-data.org.uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification#concept/sic-2007/land-use-land-use-change-and-forestry-lulucf,,22
-"Products of agriculture, hunting and related services",http-//business-data-gov-uk/companies/def/sic-2007/01,http://business.data.gov.uk/companies/def/sic-2007/A,23
-"Products of forestry, logging and related services",http-//business-data-gov-uk/companies/def/sic-2007/02,http://business.data.gov.uk/companies/def/sic-2007/A,24
-Fish and other fishing products; aquaculture products; support services to fishing,http-//business-data-gov-uk/companies/def/sic-2007/03,http://business.data.gov.uk/companies/def/sic-2007/A,25
-Mining of coal and lignite,http-//business-data-gov-uk/companies/def/sic-2007/05,http://business.data.gov.uk/companies/def/sic-2007/B,26
-Crude petroleum and natural gas,http-//business-data-gov-uk/companies/def/sic-2007/06,http://business.data.gov.uk/companies/def/sic-2007/B,27
-Mining of metal ores,http-//business-data-gov-uk/companies/def/sic-2007/07,http://business.data.gov.uk/companies/def/sic-2007/B,28
-Other mining and quarrying products,http-//business-data-gov-uk/companies/def/sic-2007/08,http://business.data.gov.uk/companies/def/sic-2007/B,29
-Mining support services,http-//business-data-gov-uk/companies/def/sic-2007/09,http://business.data.gov.uk/companies/def/sic-2007/B,30
-Processing and preserving of meat and production of meat products,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/10-1,http://business.data.gov.uk/companies/def/sic-2007/C,31
-"Processing and preserving of fish, crustaceans, molluscs, fruit and vegetables",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/10-2-3,http://business.data.gov.uk/companies/def/sic-2007/C,32
-Manufacture of vegetable and animal oils and fats,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/10-4,http://business.data.gov.uk/companies/def/sic-2007/C,33
-Manufacture of dairy products,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/10-5,http://business.data.gov.uk/companies/def/sic-2007/C,34
-"Manufacture of grain mill products, starches and starch products",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/10-6,http://business.data.gov.uk/companies/def/sic-2007/C,35
-Manufacture of bakery and farinaceous products,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/10-7,http://business.data.gov.uk/companies/def/sic-2007/C,36
-Manufacture of other food products,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/10-8,http://business.data.gov.uk/companies/def/sic-2007/C,37
-Manufacture of prepared animal feeds,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/10-9,http://business.data.gov.uk/companies/def/sic-2007/C,38
-"Manufacture of alcoholic beverages, including spirits, wine, cider, beer and malt",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/11-01-06,http://business.data.gov.uk/companies/def/sic-2007/C,39
-Manufacture of soft drinks: production of mineral waters and other bottled waters,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/11-07,http://business.data.gov.uk/companies/def/sic-2007/C,40
-Tobacco products,http-//business-data-gov-uk/companies/def/sic-2007/12,http://business.data.gov.uk/companies/def/sic-2007/C,41
-Textiles,http-//business-data-gov-uk/companies/def/sic-2007/13,http://business.data.gov.uk/companies/def/sic-2007/C,42
-Wearing apparel,http-//business-data-gov-uk/companies/def/sic-2007/14,http://business.data.gov.uk/companies/def/sic-2007/C,43
-Leather and related products,http-//business-data-gov-uk/companies/def/sic-2007/15,http://business.data.gov.uk/companies/def/sic-2007/C,44
-"Wood and of products of wood and cork, except furniture; articles of straw and plaiting materials",http-//business-data-gov-uk/companies/def/sic-2007/16,http://business.data.gov.uk/companies/def/sic-2007/C,45
-Paper and paper products,http-//business-data-gov-uk/companies/def/sic-2007/17,http://business.data.gov.uk/companies/def/sic-2007/C,46
-Printing and recording services,http-//business-data-gov-uk/companies/def/sic-2007/18,http://business.data.gov.uk/companies/def/sic-2007/C,47
-Manufacture of coke oven products,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/19-1,http://business.data.gov.uk/companies/def/sic-2007/C,48
-Manufacture of refined petroleum products,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/19-2,http://business.data.gov.uk/companies/def/sic-2007/C,49
-Manufacture of industrial gases and non-nitrogen-based inorganic chemicals,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/20-11-20-13,http://business.data.gov.uk/companies/def/sic-2007/C,50
-Fertilisers,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/20-15-/1,http://business.data.gov.uk/companies/def/sic-2007/C,51
-Other nitrogen compounds,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/20-15-/2,http://business.data.gov.uk/companies/def/sic-2007/C,52
-Manufacture of petrochemicals,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/20-14-20-16-20-17-20-6,http://business.data.gov.uk/companies/def/sic-2007/C,53
-"Manufacture of dyestuffs, agro-chemicals",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/20-12-20-2,http://business.data.gov.uk/companies/def/sic-2007/C,54
-"Manufacture of paints, varnishes & ink",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/20-3,http://business.data.gov.uk/companies/def/sic-2007/C,55
-Manufacture of cleaning & toilet preparations,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/20-4,http://business.data.gov.uk/companies/def/sic-2007/C,56
-Manufacture of other chemical products & man-made fibres,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/20-5,http://business.data.gov.uk/companies/def/sic-2007/C,57
-Basic pharmaceutical products and pharmaceutical preparations,http-//business-data-gov-uk/companies/def/sic-2007/21,http://business.data.gov.uk/companies/def/sic-2007/C,58
-Rubber products,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/22-1,http://business.data.gov.uk/companies/def/sic-2007/C,59
-Plastics products,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/22-2,http://business.data.gov.uk/companies/def/sic-2007/C,60
-"Manufacture of glass, refractory, clay, other porcelain and ceramic products, Stone, & abrasive products",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/23-1-4-23-7-9,http://business.data.gov.uk/companies/def/sic-2007/C,61
-Manufacture of cement,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/23-51,http://business.data.gov.uk/companies/def/sic-2007/C,62
-Manufacture of lime,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/23-52-/1,http://business.data.gov.uk/companies/def/sic-2007/C,63
-Manufacture of plaster,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/23-52-/2,http://business.data.gov.uk/companies/def/sic-2007/C,64
-"Manufacture of articles of concrete, cement and plaster",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/23-6,http://business.data.gov.uk/companies/def/sic-2007/C,65
-Manufacture of basic Iron & Steel,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/24-1-3,http://business.data.gov.uk/companies/def/sic-2007/C,66
-Manufacture of other basic metals & casting (excl. Nuclear fuel & Aluminium),http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/24-4-5-not-24-42-nor-24-46,http://business.data.gov.uk/companies/def/sic-2007/C,67
-Aluminium production,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/24-42,http://business.data.gov.uk/companies/def/sic-2007/C,68
-Processing of nuclear fuel,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/24-46,http://business.data.gov.uk/companies/def/sic-2007/C,69
-"Fabricated metal products, except machinery and equipment, excluding weapons and ammunition",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/25-1-3-25-5-9,http://business.data.gov.uk/companies/def/sic-2007/C,70
-Manufacture of weapons and ammunition,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/25-4,http://business.data.gov.uk/companies/def/sic-2007/C,71
-"Computer, electronic, communication and optical products",http-//business-data-gov-uk/companies/def/sic-2007/26,http://business.data.gov.uk/companies/def/sic-2007/C,72
-Electrical equipment,http-//business-data-gov-uk/companies/def/sic-2007/27,http://business.data.gov.uk/companies/def/sic-2007/C,73
-Machinery and equipment n.e.c.,http-//business-data-gov-uk/companies/def/sic-2007/28,http://business.data.gov.uk/companies/def/sic-2007/C,74
-"Motor vehicles, trailers and semi-trailers",http-//business-data-gov-uk/companies/def/sic-2007/29,http://business.data.gov.uk/companies/def/sic-2007/C,75
-Building of ships and boats,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/30-1,http://business.data.gov.uk/companies/def/sic-2007/C,76
-Manufacture of air and spacecraft and related machinery,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/30-3,http://business.data.gov.uk/companies/def/sic-2007/C,77
-"Manufacture of other transport equipment, excluding ships, boats, air and spacecraft",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/30-2-4-9,http://business.data.gov.uk/companies/def/sic-2007/C,78
-Furniture,http-//business-data-gov-uk/companies/def/sic-2007/31,http://business.data.gov.uk/companies/def/sic-2007/C,79
-Other manufactured goods,http-//business-data-gov-uk/companies/def/sic-2007/32,http://business.data.gov.uk/companies/def/sic-2007/C,80
-Repair & maintenance of ships,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/33-15,http://business.data.gov.uk/companies/def/sic-2007/C,81
-Repair & maintenance of aircraft  & spacecraft,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/33-16,http://business.data.gov.uk/companies/def/sic-2007/C,82
-Rest of repair; Installation,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/33-not-33-15-16,http://business.data.gov.uk/companies/def/sic-2007/C,83
-Electricity production - gas,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/35-1/1,http://business.data.gov.uk/companies/def/sic-2007/D,84
-Electricity production - coal,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/35-1/2,http://business.data.gov.uk/companies/def/sic-2007/D,85
-Electricity production - nuclear,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/35-1/3,http://business.data.gov.uk/companies/def/sic-2007/D,86
-Electricity production - oil,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/35-1/4,http://business.data.gov.uk/companies/def/sic-2007/D,87
-Electricity production - other,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/35-1/5,http://business.data.gov.uk/companies/def/sic-2007/D,88
-Manufacture of gas; distribution of gaseous fuels through mains and steam and air conditioning supply,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/35-2-3,http://business.data.gov.uk/companies/def/sic-2007/D,89
-Natural water; water treatment and supply services,http-//business-data-gov-uk/companies/def/sic-2007/36,http://business.data.gov.uk/companies/def/sic-2007/E,90
-Sewerage services; sewage sludge,http-//business-data-gov-uk/companies/def/sic-2007/37,http://business.data.gov.uk/companies/def/sic-2007/E,91
-"Waste collection, treatment and disposal services; materials recovery services",http-//business-data-gov-uk/companies/def/sic-2007/38,http://business.data.gov.uk/companies/def/sic-2007/E,92
-Remediation services and other waste management services,http-//business-data-gov-uk/companies/def/sic-2007/39,http://business.data.gov.uk/companies/def/sic-2007/E,93
-Buildings and building construction works,http-//business-data-gov-uk/companies/def/sic-2007/41,http://business.data.gov.uk/companies/def/sic-2007/F,94
-Constructions and construction works for civil engineering,http-//business-data-gov-uk/companies/def/sic-2007/42,http://business.data.gov.uk/companies/def/sic-2007/F,95
-Specialised construction works,http-//business-data-gov-uk/companies/def/sic-2007/43,http://business.data.gov.uk/companies/def/sic-2007/F,96
-Wholesale and retail trade and repair services of motor vehicles and motorcycles,http-//business-data-gov-uk/companies/def/sic-2007/45,http://business.data.gov.uk/companies/def/sic-2007/G,97
-"Wholesale trade services, except of motor vehicles and motorcycles",http-//business-data-gov-uk/companies/def/sic-2007/46,http://business.data.gov.uk/companies/def/sic-2007/G,98
-"Retail trade services, except of motor vehicles and motorcycles",http-//business-data-gov-uk/companies/def/sic-2007/47,http://business.data.gov.uk/companies/def/sic-2007/G,99
-Rail transport,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/49-1-2,http://business.data.gov.uk/companies/def/sic-2007/H,100
-"Buses, coaches, trams and similar public urban transport n.e.c",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/49-31/9-49-39,http://business.data.gov.uk/companies/def/sic-2007/H,101
-"Underground, metro other non interurban rail services",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/49-31/1,http://business.data.gov.uk/companies/def/sic-2007/H,102
-Taxis and other renting of private cars with driver,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/49-32,http://business.data.gov.uk/companies/def/sic-2007/H,103
-Freight transport by road and removal services,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/49-4,http://business.data.gov.uk/companies/def/sic-2007/H,104
-Transport via pipeline,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/49-5,http://business.data.gov.uk/companies/def/sic-2007/H,105
-Water transport services,http-//business-data-gov-uk/companies/def/sic-2007/50,http://business.data.gov.uk/companies/def/sic-2007/H,106
-Air transport services,http-//business-data-gov-uk/companies/def/sic-2007/51,http://business.data.gov.uk/companies/def/sic-2007/H,107
-Warehousing and support services for transportation,http-//business-data-gov-uk/companies/def/sic-2007/52,http://business.data.gov.uk/companies/def/sic-2007/H,108
-Postal and courier services,http-//business-data-gov-uk/companies/def/sic-2007/53,http://business.data.gov.uk/companies/def/sic-2007/H,109
-Accommodation services,http-//business-data-gov-uk/companies/def/sic-2007/55,http://business.data.gov.uk/companies/def/sic-2007/I,110
-Food and beverage serving services,http-//business-data-gov-uk/companies/def/sic-2007/56,http://business.data.gov.uk/companies/def/sic-2007/I,111
-Publishing services,http-//business-data-gov-uk/companies/def/sic-2007/58,http://business.data.gov.uk/companies/def/sic-2007/J,112
-"Motion picture, video and television programme production services, sound recording and music publishing",http-//business-data-gov-uk/companies/def/sic-2007/59,http://business.data.gov.uk/companies/def/sic-2007/J,113
-Programming and broadcasting services,http-//business-data-gov-uk/companies/def/sic-2007/60,http://business.data.gov.uk/companies/def/sic-2007/J,114
-Telecommunications services,http-//business-data-gov-uk/companies/def/sic-2007/61,http://business.data.gov.uk/companies/def/sic-2007/J,115
-"Computer programming, consultancy and related services",http-//business-data-gov-uk/companies/def/sic-2007/62,http://business.data.gov.uk/companies/def/sic-2007/J,116
-Information services,http-//business-data-gov-uk/companies/def/sic-2007/63,http://business.data.gov.uk/companies/def/sic-2007/J,117
-"Financial services, except insurance and pension funding",http-//business-data-gov-uk/companies/def/sic-2007/64,http://business.data.gov.uk/companies/def/sic-2007/K,118
-Insurance & Reinsurance,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/65-1-2,http://business.data.gov.uk/companies/def/sic-2007/K,119
-Pension funding,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/65-3,http://business.data.gov.uk/companies/def/sic-2007/K,120
-Services auxiliary to financial services and insurance services,http-//business-data-gov-uk/companies/def/sic-2007/66,http://business.data.gov.uk/companies/def/sic-2007/K,121
-"Buying and selling of own real estate: renting and operating of own or leased real estate, excluding imputed rent",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/68-1-2,http://business.data.gov.uk/companies/def/sic-2007/L,122
-Real estate activities on a fee or contract basis,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/68-3,http://business.data.gov.uk/companies/def/sic-2007/L,123
-Legal activities,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/69-1,http://business.data.gov.uk/companies/def/sic-2007/M,124
-"Accounting, bookkeeping and auditing activities: tax consultancy",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/69-2,http://business.data.gov.uk/companies/def/sic-2007/M,125
-Services of head offices; management consulting services,http-//business-data-gov-uk/companies/def/sic-2007/70,http://business.data.gov.uk/companies/def/sic-2007/M,126
-Architectural and engineering services; technical testing and analysis services,http-//business-data-gov-uk/companies/def/sic-2007/71,http://business.data.gov.uk/companies/def/sic-2007/M,127
-Scientific research and development services,http-//business-data-gov-uk/companies/def/sic-2007/72,http://business.data.gov.uk/companies/def/sic-2007/M,128
-Advertising and market research services,http-//business-data-gov-uk/companies/def/sic-2007/73,http://business.data.gov.uk/companies/def/sic-2007/M,129
-"Other professional, scientific and technical services",http-//business-data-gov-uk/companies/def/sic-2007/74,http://business.data.gov.uk/companies/def/sic-2007/M,130
-Veterinary services,http-//business-data-gov-uk/companies/def/sic-2007/75,http://business.data.gov.uk/companies/def/sic-2007/M,131
-Rental and leasing services,http-//business-data-gov-uk/companies/def/sic-2007/77,http://business.data.gov.uk/companies/def/sic-2007/N,132
-Employment services,http-//business-data-gov-uk/companies/def/sic-2007/78,http://business.data.gov.uk/companies/def/sic-2007/N,133
-"Travel agency, tour operator and other reservation services and related services",http-//business-data-gov-uk/companies/def/sic-2007/79,http://business.data.gov.uk/companies/def/sic-2007/N,134
-Security and investigation services,http-//business-data-gov-uk/companies/def/sic-2007/80,http://business.data.gov.uk/companies/def/sic-2007/N,135
-Services to buildings and landscape,http-//business-data-gov-uk/companies/def/sic-2007/81,http://business.data.gov.uk/companies/def/sic-2007/N,136
-"Office administrative, office support and other business support services",http-//business-data-gov-uk/companies/def/sic-2007/82,http://business.data.gov.uk/companies/def/sic-2007/N,137
-Public administration; compulsory social security services,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/84-not-84-22,http://business.data.gov.uk/companies/def/sic-2007/O,138
-Public defence services,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/84-22,http://business.data.gov.uk/companies/def/sic-2007/O,139
-Education services,http-//business-data-gov-uk/companies/def/sic-2007/85,http://business.data.gov.uk/companies/def/sic-2007/P,140
-Human health services,http-//business-data-gov-uk/companies/def/sic-2007/86,http://business.data.gov.uk/companies/def/sic-2007/Q,141
-Residential care services,http-//business-data-gov-uk/companies/def/sic-2007/87,http://business.data.gov.uk/companies/def/sic-2007/Q,142
-Social work services without accommodation,http-//business-data-gov-uk/companies/def/sic-2007/88,http://business.data.gov.uk/companies/def/sic-2007/Q,143
-"Creative, arts and entertainment services",http-//business-data-gov-uk/companies/def/sic-2007/90,http://business.data.gov.uk/companies/def/sic-2007/R,144
-"Library, archive, museum and other cultural services",http-//business-data-gov-uk/companies/def/sic-2007/91,http://business.data.gov.uk/companies/def/sic-2007/R,145
-Gambling and betting services,http-//business-data-gov-uk/companies/def/sic-2007/92,http://business.data.gov.uk/companies/def/sic-2007/R,146
-Sporting services and amusement and recreation services,http-//business-data-gov-uk/companies/def/sic-2007/93,http://business.data.gov.uk/companies/def/sic-2007/R,147
-Services furnished by membership organisations,http-//business-data-gov-uk/companies/def/sic-2007/94,http://business.data.gov.uk/companies/def/sic-2007/S,148
-Repair services of computers and personal and household goods,http-//business-data-gov-uk/companies/def/sic-2007/95,http://business.data.gov.uk/companies/def/sic-2007/S,149
-Other personal services,http-//business-data-gov-uk/companies/def/sic-2007/96,http://business.data.gov.uk/companies/def/sic-2007/S,150
-Services of households as employers of domestic personnel,http-//business-data-gov-uk/companies/def/sic-2007/97,http://business.data.gov.uk/companies/def/sic-2007/T,151
+"Products of agriculture, hunting and related services",http-//business-data-gov-uk/companies/def/sic-2007/01,,23
+"Products of forestry, logging and related services",http-//business-data-gov-uk/companies/def/sic-2007/02,,24
+Fish and other fishing products; aquaculture products; support services to fishing,http-//business-data-gov-uk/companies/def/sic-2007/03,,25
+Mining of coal and lignite,http-//business-data-gov-uk/companies/def/sic-2007/05,,26
+Crude petroleum and natural gas,http-//business-data-gov-uk/companies/def/sic-2007/06,,27
+Mining of metal ores,http-//business-data-gov-uk/companies/def/sic-2007/07,,28
+Other mining and quarrying products,http-//business-data-gov-uk/companies/def/sic-2007/08,,29
+Mining support services,http-//business-data-gov-uk/companies/def/sic-2007/09,,30
+Processing and preserving of meat and production of meat products,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/10-1,,31
+"Processing and preserving of fish, crustaceans, molluscs, fruit and vegetables",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/10-2-3,,32
+Manufacture of vegetable and animal oils and fats,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/10-4,,33
+Manufacture of dairy products,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/10-5,,34
+"Manufacture of grain mill products, starches and starch products",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/10-6,,35
+Manufacture of bakery and farinaceous products,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/10-7,,36
+Manufacture of other food products,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/10-8,,37
+Manufacture of prepared animal feeds,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/10-9,,38
+"Manufacture of alcoholic beverages, including spirits, wine, cider, beer and malt",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/11-01-06,,39
+Manufacture of soft drinks: production of mineral waters and other bottled waters,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/11-07,,40
+Tobacco products,http-//business-data-gov-uk/companies/def/sic-2007/12,,41
+Textiles,http-//business-data-gov-uk/companies/def/sic-2007/13,,42
+Wearing apparel,http-//business-data-gov-uk/companies/def/sic-2007/14,,43
+Leather and related products,http-//business-data-gov-uk/companies/def/sic-2007/15,,44
+"Wood and of products of wood and cork, except furniture; articles of straw and plaiting materials",http-//business-data-gov-uk/companies/def/sic-2007/16,,45
+Paper and paper products,http-//business-data-gov-uk/companies/def/sic-2007/17,,46
+Printing and recording services,http-//business-data-gov-uk/companies/def/sic-2007/18,,47
+Manufacture of coke oven products,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/19-1,,48
+Manufacture of refined petroleum products,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/19-2,,49
+Manufacture of industrial gases and non-nitrogen-based inorganic chemicals,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/20-11-20-13,,50
+Fertilisers,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/20-15-/1,,51
+Other nitrogen compounds,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/20-15-/2,,52
+Manufacture of petrochemicals,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/20-14-20-16-20-17-20-6,,53
+"Manufacture of dyestuffs, agro-chemicals",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/20-12-20-2,,54
+"Manufacture of paints, varnishes & ink",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/20-3,,55
+Manufacture of cleaning & toilet preparations,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/20-4,,56
+Manufacture of other chemical products & man-made fibres,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/20-5,,57
+Basic pharmaceutical products and pharmaceutical preparations,http-//business-data-gov-uk/companies/def/sic-2007/21,,58
+Rubber products,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/22-1,,59
+Plastics products,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/22-2,,60
+"Manufacture of glass, refractory, clay, other porcelain and ceramic products, Stone, & abrasive products",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/23-1-4-23-7-9,,61
+Manufacture of cement,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/23-51,,62
+Manufacture of lime,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/23-52-/1,,63
+Manufacture of plaster,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/23-52-/2,,64
+"Manufacture of articles of concrete, cement and plaster",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/23-6,,65
+Manufacture of basic Iron & Steel,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/24-1-3,,66
+Manufacture of other basic metals & casting (excl. Nuclear fuel & Aluminium),http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/24-4-5-not-24-42-nor-24-46,,67
+Aluminium production,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/24-42,,68
+Processing of nuclear fuel,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/24-46,,69
+"Fabricated metal products, except machinery and equipment, excluding weapons and ammunition",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/25-1-3-25-5-9,,70
+Manufacture of weapons and ammunition,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/25-4,,71
+"Computer, electronic, communication and optical products",http-//business-data-gov-uk/companies/def/sic-2007/26,,72
+Electrical equipment,http-//business-data-gov-uk/companies/def/sic-2007/27,,73
+Machinery and equipment n.e.c.,http-//business-data-gov-uk/companies/def/sic-2007/28,,74
+"Motor vehicles, trailers and semi-trailers",http-//business-data-gov-uk/companies/def/sic-2007/29,,75
+Building of ships and boats,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/30-1,,76
+Manufacture of air and spacecraft and related machinery,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/30-3,,77
+"Manufacture of other transport equipment, excluding ships, boats, air and spacecraft",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/30-2-4-9,,78
+Furniture,http-//business-data-gov-uk/companies/def/sic-2007/31,,79
+Other manufactured goods,http-//business-data-gov-uk/companies/def/sic-2007/32,,80
+Repair & maintenance of ships,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/33-15,,81
+Repair & maintenance of aircraft  & spacecraft,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/33-16,,82
+Rest of repair; Installation,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/33-not-33-15-16,,83
+Electricity production - gas,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/35-1/1,,84
+Electricity production - coal,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/35-1/2,,85
+Electricity production - nuclear,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/35-1/3,,86
+Electricity production - oil,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/35-1/4,,87
+Electricity production - other,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/35-1/5,,88
+Manufacture of gas; distribution of gaseous fuels through mains and steam and air conditioning supply,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/35-2-3,,89
+Natural water; water treatment and supply services,http-//business-data-gov-uk/companies/def/sic-2007/36,,90
+Sewerage services; sewage sludge,http-//business-data-gov-uk/companies/def/sic-2007/37,,91
+"Waste collection, treatment and disposal services; materials recovery services",http-//business-data-gov-uk/companies/def/sic-2007/38,,92
+Remediation services and other waste management services,http-//business-data-gov-uk/companies/def/sic-2007/39,,93
+Buildings and building construction works,http-//business-data-gov-uk/companies/def/sic-2007/41,,94
+Constructions and construction works for civil engineering,http-//business-data-gov-uk/companies/def/sic-2007/42,,95
+Specialised construction works,http-//business-data-gov-uk/companies/def/sic-2007/43,,96
+Wholesale and retail trade and repair services of motor vehicles and motorcycles,http-//business-data-gov-uk/companies/def/sic-2007/45,,97
+"Wholesale trade services, except of motor vehicles and motorcycles",http-//business-data-gov-uk/companies/def/sic-2007/46,,98
+"Retail trade services, except of motor vehicles and motorcycles",http-//business-data-gov-uk/companies/def/sic-2007/47,,99
+Rail transport,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/49-1-2,,100
+"Buses, coaches, trams and similar public urban transport n.e.c",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/49-31/9-49-39,,101
+"Underground, metro other non interurban rail services",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/49-31/1,,102
+Taxis and other renting of private cars with driver,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/49-32,,103
+Freight transport by road and removal services,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/49-4,,104
+Transport via pipeline,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/49-5,,105
+Water transport services,http-//business-data-gov-uk/companies/def/sic-2007/50,,106
+Air transport services,http-//business-data-gov-uk/companies/def/sic-2007/51,,107
+Warehousing and support services for transportation,http-//business-data-gov-uk/companies/def/sic-2007/52,,108
+Postal and courier services,http-//business-data-gov-uk/companies/def/sic-2007/53,,109
+Accommodation services,http-//business-data-gov-uk/companies/def/sic-2007/55,,110
+Food and beverage serving services,http-//business-data-gov-uk/companies/def/sic-2007/56,,111
+Publishing services,http-//business-data-gov-uk/companies/def/sic-2007/58,,112
+"Motion picture, video and television programme production services, sound recording and music publishing",http-//business-data-gov-uk/companies/def/sic-2007/59,,113
+Programming and broadcasting services,http-//business-data-gov-uk/companies/def/sic-2007/60,,114
+Telecommunications services,http-//business-data-gov-uk/companies/def/sic-2007/61,,115
+"Computer programming, consultancy and related services",http-//business-data-gov-uk/companies/def/sic-2007/62,,116
+Information services,http-//business-data-gov-uk/companies/def/sic-2007/63,,117
+"Financial services, except insurance and pension funding",http-//business-data-gov-uk/companies/def/sic-2007/64,,118
+Insurance & Reinsurance,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/65-1-2,,119
+Pension funding,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/65-3,,120
+Services auxiliary to financial services and insurance services,http-//business-data-gov-uk/companies/def/sic-2007/66,,121
+"Buying and selling of own real estate: renting and operating of own or leased real estate, excluding imputed rent",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/68-1-2,,122
+Real estate activities on a fee or contract basis,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/68-3,,123
+Legal activities,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/69-1,,124
+"Accounting, bookkeeping and auditing activities: tax consultancy",http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/69-2,,125
+Services of head offices; management consulting services,http-//business-data-gov-uk/companies/def/sic-2007/70,,126
+Architectural and engineering services; technical testing and analysis services,http-//business-data-gov-uk/companies/def/sic-2007/71,,127
+Scientific research and development services,http-//business-data-gov-uk/companies/def/sic-2007/72,,128
+Advertising and market research services,http-//business-data-gov-uk/companies/def/sic-2007/73,,129
+"Other professional, scientific and technical services",http-//business-data-gov-uk/companies/def/sic-2007/74,,130
+Veterinary services,http-//business-data-gov-uk/companies/def/sic-2007/75,,131
+Rental and leasing services,http-//business-data-gov-uk/companies/def/sic-2007/77,,132
+Employment services,http-//business-data-gov-uk/companies/def/sic-2007/78,,133
+"Travel agency, tour operator and other reservation services and related services",http-//business-data-gov-uk/companies/def/sic-2007/79,,134
+Security and investigation services,http-//business-data-gov-uk/companies/def/sic-2007/80,,135
+Services to buildings and landscape,http-//business-data-gov-uk/companies/def/sic-2007/81,,136
+"Office administrative, office support and other business support services",http-//business-data-gov-uk/companies/def/sic-2007/82,,137
+Public administration; compulsory social security services,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/84-not-84-22,,138
+Public defence services,http-//gss-data-org-uk/data/gss_data/climate-change/beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification-concept/sic-2007/84-22,,139
+Education services,http-//business-data-gov-uk/companies/def/sic-2007/85,,140
+Human health services,http-//business-data-gov-uk/companies/def/sic-2007/86,,141
+Residential care services,http-//business-data-gov-uk/companies/def/sic-2007/87,,142
+Social work services without accommodation,http-//business-data-gov-uk/companies/def/sic-2007/88,,143
+"Creative, arts and entertainment services",http-//business-data-gov-uk/companies/def/sic-2007/90,,144
+"Library, archive, museum and other cultural services",http-//business-data-gov-uk/companies/def/sic-2007/91,,145
+Gambling and betting services,http-//business-data-gov-uk/companies/def/sic-2007/92,,146
+Sporting services and amusement and recreation services,http-//business-data-gov-uk/companies/def/sic-2007/93,,147
+Services furnished by membership organisations,http-//business-data-gov-uk/companies/def/sic-2007/94,,148
+Repair services of computers and personal and household goods,http-//business-data-gov-uk/companies/def/sic-2007/95,,149
+Other personal services,http-//business-data-gov-uk/companies/def/sic-2007/96,,150
+Services of households as employers of domestic personnel,http-//business-data-gov-uk/companies/def/sic-2007/97,,151
 Consumer expenditure - not travel,http-//business-data-gov-uk/companies/def/sic-2007/100,,152
 Consumer expenditure - travel,http-//business-data-gov-uk/companies/def/sic-2007/101,,153
