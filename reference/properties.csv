@@ -19,3 +19,4 @@ climate-change,Series,dimension/series,qb:DimensionProperty,,,skos:Concept,http:
 climate-change,Trendline,dimension/trendline,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/defra-trendline,
 climate-change,Category,dimension/category,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/defra-category,
 climate-change,Emission Type,dimension/emission-type,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/emission-type,
+climate-change,SIC Section,dimension/sic-section,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/sic-section,
