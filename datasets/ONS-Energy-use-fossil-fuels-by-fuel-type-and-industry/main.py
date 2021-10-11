@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[29]:
+# In[148]:
 
 
 import json
@@ -15,14 +15,14 @@ landingPage = info['landingPage']
 landingPage
 
 
-# In[30]:
+# In[149]:
 
 
 scraper = Scraper(seed="info.json")
 scraper
 
 
-# In[31]:
+# In[150]:
 
 
 distribution = scraper.distributions[0]
@@ -36,7 +36,7 @@ for i in tabs:
     print(i.name)
 
 
-# In[32]:
+# In[ ]:
 
 
 dataframes = []
@@ -119,10 +119,15 @@ for tab in tabs:
         dataframes.append(df)
 
 
-# In[33]:
+# In[ ]:
 
 
 df = pd.concat(dataframes)
+df
+
+
+# In[ ]:
+
 
 df = df.replace({'DATAMARKER' : {'c' : 'confidential'},
                  'Fuel' : {"('DERV',)" : 'DERV'}})
@@ -142,18 +147,17 @@ df.drop(indexNames, inplace = True)
 
 df['SIC Group'] = df.apply(lambda x: 'consumer-expenditure' if x['Industry'] == 'Consumer expenditure' else x['SIC Group'], axis = 1)
 
-df['SIC Group'] = df.apply(lambda x: pathify(x['SIC Group']), axis = 1)
+#df['SIC Group'] = df.apply(lambda x: pathify(x['SIC Group']), axis = 1)
 
-df['SIC Section'] = df.apply(lambda x: str(x['SIC Group']).replace('.', '-') if x['SIC Group'][-1:] != '0' else x['SIC Section'], axis = 1)
+#df['SIC Section'] = df.apply(lambda x: str(x['SIC Group']).replace('.', '-'), axis = 1)
 
 title = 'ONS-E' + pathify(info['title'])[1:]
 
 #info needed to create URI's for section
 unique = 'http://gss-data.org.uk/data/gss_data/climate-change/' + title + '#concept/sic-2007/'
 sic = 'http://business.data.gov.uk/companies/def/sic-2007/'
-#create the URI's from the section column
-df['SIC Section'] = df['SIC Section'].map(lambda x: unique + x if '-' in x else sic + x)
-#only need the following columns
+
+df['SIC Section'] = df.apply(lambda x: unique + x['SIC Group'] if x['SIC Group'][-2:] != '.0' else (sic + x['SIC Group'][:-2] if len(x['SIC Group']) != 3 else sic + '0' + x['SIC Group'][:-2]), axis = 1)
 
 df['Fuel'] = df['Fuel'].fillna('all')
 
@@ -175,7 +179,7 @@ for col in df.columns.values.tolist():
 df
 
 
-# In[34]:
+# In[ ]:
 
 
 scraper.dataset.title = info['title']
@@ -186,7 +190,7 @@ cubes.add_cube(scraper, df.drop_duplicates(), scraper.dataset.title)
 cubes.output_all()
 
 
-# In[35]:
+# In[ ]:
 
 
 from IPython.core.display import HTML
