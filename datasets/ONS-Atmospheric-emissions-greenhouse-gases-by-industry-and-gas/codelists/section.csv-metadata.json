@@ -7,8 +7,11 @@
     "tableSchema": {
         "columns": [
             {
-                "titles": "0",
-                "name": "0"
+                "titles": "Label",
+                "name": "label",
+                "datatype": "string",
+                "required": true,
+                "propertyUrl": "rdfs:label"
             },
             {
                 "titles": "URI",
@@ -46,7 +49,7 @@
                 "propertyUrl": "skos:inScheme",
                 "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas#scheme/section"
             }
-         ],
+        ],
         "primaryKey": "uri",
         "aboutUrl": "{+uri}"
     },
@@ -72,14 +75,14 @@
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-10-11T13:55:49.209025"
+                "@value": "2021-10-11T14:56:19.346232"
             },
             "rdfs:label": "Section",
             "dc:title": "Section",
             "rdfs:comment": "Dataset representing the 'Section' code list.",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-10-11T13:55:49.209025"
+                "@value": "2021-10-11T14:56:19.346232"
             }
         },
         {
@@ -101,11 +104,11 @@
             "rdfs:label": "Section Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-10-11T13:55:49.209025"
+                "@value": "2021-10-11T14:56:19.346232"
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-10-11T13:55:49.209025"
+                "@value": "2021-10-11T14:56:19.346232"
             }
         }
     ]
