@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[164]:
+# In[172]:
 
 
 import json
@@ -15,14 +15,14 @@ landingPage = info['landingPage']
 landingPage
 
 
-# In[165]:
+# In[173]:
 
 
 scraper = Scraper(seed="info.json")
 scraper
 
 
-# In[166]:
+# In[174]:
 
 
 distribution = scraper.distributions[0]
@@ -36,7 +36,7 @@ for i in tabs:
     print(i.name)
 
 
-# In[167]:
+# In[175]:
 
 
 dataframes = []
@@ -119,14 +119,14 @@ for tab in tabs:
         dataframes.append(df)
 
 
-# In[168]:
+# In[176]:
 
 
 df = pd.concat(dataframes)
 df
 
 
-# In[169]:
+# In[177]:
 
 
 df = df.replace({'DATAMARKER' : {'c' : 'confidential'},
@@ -151,7 +151,7 @@ df['SIC Group'] = df.apply(lambda x: 'consumer-expenditure' if x['Industry'] == 
 
 #df['SIC Section'] = df.apply(lambda x: str(x['SIC Group']).replace('.', '-'), axis = 1)
 
-title = 'ONS-E' + pathify(info['title'])[1:]
+title = 'ons-' + pathify(info['title'])
 
 #info needed to create URI's for section
 unique = 'http://gss-data.org.uk/data/gss_data/climate-change/' + title + '#concept/sic-2007/'
@@ -182,7 +182,7 @@ for col in df.columns.values.tolist():
 df
 
 
-# In[170]:
+# In[178]:
 
 
 scraper.dataset.title = info['title']
@@ -193,7 +193,7 @@ cubes.add_cube(scraper, df.drop_duplicates(), scraper.dataset.title)
 cubes.output_all()
 
 
-# In[171]:
+# In[179]:
 
 
 from IPython.core.display import HTML
