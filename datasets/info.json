@@ -6,13 +6,12 @@
     "jenkins": {
         "base": "https://ci.floop.org.uk",
         "path": [
-            "beta.gss-data.org.uk",
-            "family",
-            "climate-change"
+            "GSS_data",
+            "ClimateChange"
         ]
     },
-    "sparql": "https://beta.gss-data.org.uk/sparql",
-    "pmd": "http://beta.gss-data.org.uk",
+    "sparql": "https://staging.gss-data.org.uk/sparql",
+    "pmd": "http://staging.gss-data.org.uk",
     "pipelines": [
         "BEIS-2005-to-2019-local-authority-carbon-dioxide-CO2-emissions",
         "BEIS-2019-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-end-user",
@@ -33,11 +32,9 @@
         "DEFRA-E8-Efficient-use-of-water",
         "DEFRA-ENV01-Emissions-of-air-pollutants",
         "DEFRA-UK-Emissions",
-        "DEFRA-UK-Water-Leakage",
         "EA-Regulating-for-people-the-environment-and-growth-or-Pollution-Incidents-Data-or-another",
         "Forestry-Research-Forestry-Statistics-2021-New-Planting",
         "Forestry-Research-Forestry-Statistics-2021-Woodland-Area",
-        "Forestry-Research-Woodland-Area-Local-Authority",
         "MHCLG-Energy-Efficiency-Ratings-Existing-Homes",
         "MHCLG-Energy-Efficiency-Ratings-New-Homes",
         "Met-Office-Annual-growing-season-length-with-trends-actual",
