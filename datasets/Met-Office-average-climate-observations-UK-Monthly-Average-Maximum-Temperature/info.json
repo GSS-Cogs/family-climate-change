@@ -15,7 +15,21 @@
     },
     "transform": {
         "airtable": "rec6ifswCo9gOPkxp",
-        "main_issue": 104
+        "main_issue": 104,
+        "columns": {
+            "Month": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/month/{month}"
+            },
+            "Geography": {
+                "description": "Met Office bespoke geography area"
+            },
+            "Value": {
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/degrees-centigrade",
+                "measure": "http://gss-data.org.uk/def/climate-change/measure/monthly-maximum-temperature",
+                "datatype": "double"
+            }
+        }
     },
     "sizingNotes": "",
     "notes": "Priority dataset for Climate Change Platform project."

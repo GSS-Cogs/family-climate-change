@@ -15,7 +15,21 @@
     },
     "transform": {
         "airtable": "recebVk5r1N1zMeTc",
-        "main_issue": 113
+        "main_issue": 113,
+        "columns": {
+            "Month": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/month/{month}"
+            },
+            "Geography": {
+                "description": "Met Office bespoke geography area"
+            },
+            "Value": {
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/millimetres",
+                "measure": "http://gss-data.org.uk/def/climate-change/measure/rainfall",
+                "datatype": "double"
+            }
+        }
     },
     "sizingNotes": "",
     "notes": "Priority dataset for Climate Change Platform project."

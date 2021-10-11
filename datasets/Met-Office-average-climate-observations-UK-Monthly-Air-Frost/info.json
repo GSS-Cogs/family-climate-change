@@ -15,7 +15,21 @@
     },
     "transform": {
         "airtable": "recSrPZ1QutdfC3FP",
-        "main_issue": 109
+        "main_issue": 109,
+        "columns": {
+            "Month": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/month/{month}"
+            },
+            "Geography": {
+                "description": "Met Office bespoke geography area"
+            },
+            "Value": {
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/day",
+                "measure": "http://gss-data.org.uk/def/climate-change/measure/monthly-air-frost",
+                "datatype": "double"
+            }
+        }
     },
     "sizingNotes": "",
     "notes": "Priority dataset for Climate Change Platform project."
