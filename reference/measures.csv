@@ -37,3 +37,4 @@ climate-change,E,E,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:
 climate-change,F,F,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,G,G,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,mass-of-air-emissions,Mass of Air Emissions,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,mass-of-air-emissions-of-carbon-dioxide-equivalent,Mass of air emissions of carbon dioxide equivalent,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal

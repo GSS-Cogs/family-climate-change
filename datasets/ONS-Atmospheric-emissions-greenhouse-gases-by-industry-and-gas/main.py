@@ -23,6 +23,7 @@ landingPage = info['landingPage']
 metadata = Scraper(seed="info.json")
 distribution = metadata.distribution(latest = True, mediaType = Excel)
 title = distribution.title
+distribution
 
 # +
 #reterieve the id from info.json for URI's (use later)
@@ -45,41 +46,22 @@ tidied_sheets = []
 for tab in tabs:
     if 'Contents' in tab.name:
         continue
-    remove_bottom_section = tab.excel_ref('A28').expand(DOWN).expand(RIGHT)
+    #Bottom part only needed
     year = tab.excel_ref('C4').expand(RIGHT).is_not_blank()
-    section = tab.excel_ref('A4').expand(DOWN)
-    section_name = tab.excel_ref('C4').expand(DOWN)
-    observations = year.fill(DOWN).is_not_blank() - remove_bottom_section
-    unit = tab.excel_ref('AG3')
-    
-    #Top part 
-    dimensions = [
-        HDim(section, 'Section breakdown', DIRECTLY, LEFT), # will be dropped 
-        HDim(section_name, 'Industry Section Name', DIRECTLY, LEFT), # will be dropped 
-        HDim(year, 'Year', DIRECTLY, ABOVE),
-        HDim(unit, 'Unit', CLOSEST, ABOVE),
-        HDimConst('Emission Type', tab.name),
-        ]
-    tidy_sheet = ConversionSegment(tab, dimensions, observations)
-    #savepreviewhtml(tidy_sheet, fname = tab.name+ "Preview.html")
-    table = tidy_sheet.topandas()
-    table['Section'] = table.apply(lambda x: x['Industry Section Name'] if x['Section breakdown'] == '-' 
-                                   else (x['Industry Section Name'] if x['Section breakdown'] == '' 
-                                         else x['Section breakdown']), axis=1)
-    table['Section'] = table['Section'].apply(pathify_section_values)
-    tidied_sheets.append(table)
-    #Bottom part 
+    section_name = tab.excel_ref('C31').expand(DOWN)
+    measure_type = tab.excel_ref('AG3')
     remove_top_section = tab.excel_ref('A31').expand(UP).expand(RIGHT)
     remove_notes = tab.excel_ref('A165').expand(DOWN).expand(RIGHT)
     sic_group = tab.excel_ref('A31').expand(DOWN) - remove_notes
     section = tab.excel_ref('B31').expand(DOWN) - remove_notes
     observations = year.fill(DOWN).is_not_blank() - remove_top_section - remove_notes
+    
     dimensions = [
         HDim(sic_group, 'SIC(07)Group', DIRECTLY, LEFT),
         HDim(section, 'Section breakdown', DIRECTLY, LEFT), # will be dropped 
         HDim(section_name, 'Industry Section Name', DIRECTLY, LEFT), # will be dropped 
         HDim(year, 'Year', DIRECTLY, ABOVE),
-        HDim(unit, 'Unit', CLOSEST, ABOVE),
+        HDim(measure_type, 'Measure Type', CLOSEST, ABOVE),
         HDimConst('Emission Type', tab.name),
         ]
     
@@ -108,8 +90,14 @@ unique = 'http://gss-data.org.uk/data/gss_data/climate-change/' + title_id + '#c
 sic = 'http://business.data.gov.uk/companies/def/sic-2007/'
 #create the URI's from the section column 
 df['Section'] = df['Section'].map(lambda x: unique + x if '-' in x else (unique + x if 'total' in x else sic + x))
+
+df['Emission Type'] = df['Emission Type'].apply(pathify)
+df['Measure Type'] = df['Measure Type'].str.strip()
+df['Measure Type'] = df['Measure Type'].map(lambda x: 'Mass of air emissions of carbon dioxide equivalent'  if 'carbon dioxide' in x else 'Mass of air emissions')
+df['Measure Type'] = df['Measure Type'].apply(pathify)
+df['Unit'] = 'thousand-tonnes'
 #only need the following columns
-df = df[['Year','Section','Emission Type', 'Value', 'Unit']]
+df = df[['Year','Section','Emission Type', 'Value', 'Measure Type', 'Unit']]
 # -
 
 cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title)
