@@ -20,7 +20,7 @@
             "Year": {
                 "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
                 "value": "http://reference.data.gov.uk/id/year/{year}",
-                "codelist": false 
+                "codelist": false
             },
             "Measure Type": {
                 "dimension": "http://purl.org/linked-data/cube#measureType",
@@ -40,7 +40,7 @@
                 "value": "http://gss-data.org.uk/def/concept/measurement-units/{units}"
             },
             "Value": {
-                "datatype": "double"    
+                "datatype": "double"
             }
         }
     },
