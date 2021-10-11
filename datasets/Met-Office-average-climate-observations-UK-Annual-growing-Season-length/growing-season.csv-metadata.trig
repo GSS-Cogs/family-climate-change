@@ -16,19 +16,19 @@
 @prefix theme: <http://gss-data.org.uk/def/concept/statistics-authority-themes/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 
-ns1:mmet-office-average-climate-observations-uk-annual-growing-season-length-metadata {
+ns1:met-office-average-climate-observations-uk-annual-growing-season-length-metadata {
   <http://gss-data.org.uk/catalog/datasets> a dcat:Catalog;
-    dcat:record <http://gss-data.org.uk/data/gss_data/climate-change/mmet-office-average-climate-observations-uk-annual-growing-season-length-catalog-record> .
+    dcat:record <http://gss-data.org.uk/data/gss_data/climate-change/met-office-average-climate-observations-uk-annual-growing-season-length-catalog-record> .
   
-  <http://gss-data.org.uk/data/gss_data/climate-change/mmet-office-average-climate-observations-uk-annual-growing-season-length#dataset>
+  <http://gss-data.org.uk/data/gss_data/climate-change/met-office-average-climate-observations-uk-annual-growing-season-length#dataset>
     a pmdcat:DataCube .
   
-  <http://gss-data.org.uk/data/gss_data/climate-change/mmet-office-average-climate-observations-uk-annual-growing-season-length-catalog-entry>
+  <http://gss-data.org.uk/data/gss_data/climate-change/met-office-average-climate-observations-uk-annual-growing-season-length-catalog-entry>
     a pmdcat:Dataset;
     rdfs:label "Average climate observations UK Annual growing Season length"@en;
     gdp:family gdp:climate-change;
-    pmdcat:datasetContents <http://gss-data.org.uk/data/gss_data/climate-change/mmet-office-average-climate-observations-uk-annual-growing-season-length#dataset>;
-    pmdcat:graph ns1:mmet-office-average-climate-observations-uk-annual-growing-season-length;
+    pmdcat:datasetContents <http://gss-data.org.uk/data/gss_data/climate-change/met-office-average-climate-observations-uk-annual-growing-season-length#dataset>;
+    pmdcat:graph ns1:met-office-average-climate-observations-uk-annual-growing-season-length;
     dct:creator gov:the-meteorological-office;
     dct:description ""@en;
     dct:issued "2021-02-02T09:30:00+00:00"^^xsd:dateTime;
@@ -38,12 +38,12 @@ ns1:mmet-office-average-climate-observations-uk-annual-growing-season-length-met
     void:sparqlEndpoint <http://gss-data.org.uk/sparql>;
     dcat:theme gdp:climate-change .
   
-  <http://gss-data.org.uk/data/gss_data/climate-change/mmet-office-average-climate-observations-uk-annual-growing-season-length-catalog-record>
+  <http://gss-data.org.uk/data/gss_data/climate-change/met-office-average-climate-observations-uk-annual-growing-season-length-catalog-record>
     a dcat:CatalogRecord;
     rdfs:label "Average climate observations UK Annual growing Season length Catalog Record"@en;
-    pmdcat:metadataGraph ns1:mmet-office-average-climate-observations-uk-annual-growing-season-length-metadata;
+    pmdcat:metadataGraph ns1:met-office-average-climate-observations-uk-annual-growing-season-length-metadata;
     dct:issued "2021-02-02T09:30:00+00:00"^^xsd:dateTime;
     dct:modified "2021-07-09T13:56:03.633387+00:00"^^xsd:dateTime;
-    ns2:primaryTopic <http://gss-data.org.uk/data/gss_data/climate-change/mmet-office-average-climate-observations-uk-annual-growing-season-length-catalog-entry> .
+    ns2:primaryTopic <http://gss-data.org.uk/data/gss_data/climate-change/met-office-average-climate-observations-uk-annual-growing-season-length-catalog-entry> .
   
 }
