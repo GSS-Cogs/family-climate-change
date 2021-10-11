@@ -1,0 +1,22 @@
+{
+    "id": "met-office-annual-mean-temp-with-trends-anomaly",
+    "title": "Annual mean temp with trends anomaly",
+    "publisher": "Meteorological Office",
+    "description": "Priority dataset for Climate Change Platform project.",
+    "datasetNotes": [
+        "No landing page for this dataset as it is a bespoke dataset supplied by Met Office directly to IDP-D as part of the Climate Change Platform project. It is a subset of the Met Office HAD large dataset."
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "recxqmDZbcVf1xTtG",
+        "main_issue": 135
+    },
+    "sizingNotes": "",
+    "notes": "Priority dataset for Climate Change Platform project."
+}

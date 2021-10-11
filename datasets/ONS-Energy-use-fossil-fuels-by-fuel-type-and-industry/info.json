@@ -26,7 +26,7 @@
             "Period": {
                 "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
                 "value": "http://reference.data.gov.uk/id/{+period}",
-        		"codelist": false
+                "codelist": false
             },
             "SIC Section": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/sic-section",
@@ -37,18 +37,20 @@
                 "value": "http://gss-data.org.uk/def/energy/concept/fuel/{fuel}",
                 "codelist": false
             },
-      		"Unit": {
-        		"attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
-        		"value": "http://gss-data.org.uk/def/concept/measurement-units/{unit}"
-      		},
-      		"Value": {
-        		"datatype": "double"
-      		},
+            "Unit": {
+                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{unit}"
+            },
+            "Value": {
+                "datatype": "double"
+            },
             "Measure Type": {
-        		"dimension": "http://purl.org/linked-data/cube#measureType",
-        		"value": "http://gss-data.org.uk/def/measure/{measure_type}",
-        		"types": ["gross-caloric-values"]
-      		},
+                "dimension": "http://purl.org/linked-data/cube#measureType",
+                "value": "http://gss-data.org.uk/def/measure/{measure_type}",
+                "types": [
+                    "gross-caloric-values"
+                ]
+            },
             "Marker": {
                 "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#obsStatus",
                 "value": "http://gss-data.org.uk/def/concept/cogs-markers/{marker}",
