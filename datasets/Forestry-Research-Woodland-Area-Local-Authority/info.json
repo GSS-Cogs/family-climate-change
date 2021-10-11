@@ -1,0 +1,22 @@
+{
+    "id": "forestry-research-woodland-area-local-authority",
+    "title": "Woodland Area Local Authority %",
+    "publisher": "Forestry Research",
+    "description": "",
+    "datasetNotes": [
+        "No landing page for this dataset as it is a bespoke dataset supplied by Climate Change team."
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "recXzPodrqskiMi5S",
+        "main_issue": 137
+    },
+    "sizingNotes": "",
+    "notes": "Priority dataset for Climate Change Platform project."
+}
