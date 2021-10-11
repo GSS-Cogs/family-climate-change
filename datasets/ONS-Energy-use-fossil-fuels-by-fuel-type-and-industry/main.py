@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[148]:
+# In[164]:
 
 
 import json
@@ -15,14 +15,14 @@ landingPage = info['landingPage']
 landingPage
 
 
-# In[149]:
+# In[165]:
 
 
 scraper = Scraper(seed="info.json")
 scraper
 
 
-# In[150]:
+# In[166]:
 
 
 distribution = scraper.distributions[0]
@@ -36,7 +36,7 @@ for i in tabs:
     print(i.name)
 
 
-# In[ ]:
+# In[167]:
 
 
 dataframes = []
@@ -119,14 +119,14 @@ for tab in tabs:
         dataframes.append(df)
 
 
-# In[ ]:
+# In[168]:
 
 
 df = pd.concat(dataframes)
 df
 
 
-# In[ ]:
+# In[169]:
 
 
 df = df.replace({'DATAMARKER' : {'c' : 'confidential'},
@@ -157,11 +157,14 @@ title = 'ONS-E' + pathify(info['title'])[1:]
 unique = 'http://gss-data.org.uk/data/gss_data/climate-change/' + title + '#concept/sic-2007/'
 sic = 'http://business.data.gov.uk/companies/def/sic-2007/'
 
-df['SIC Section'] = df.apply(lambda x: unique + x['SIC Group'] if x['SIC Group'][-2:] != '.0' else (sic + x['SIC Group'][:-2] if len(x['SIC Group']) != 3 else sic + '0' + x['SIC Group'][:-2]), axis = 1)
+df['SIC Section'] = df.apply(lambda x: unique + pathify(x['SIC Group']) if x['SIC Group'][-2:] != '.0' else (sic + x['SIC Group'][:-2] if len(x['SIC Group']) != 3 else sic + '0' + x['SIC Group'][:-2]), axis = 1)
 
 df['Fuel'] = df['Fuel'].fillna('all')
 
 indexNames = df[ df['SIC Section'] == 'http://business.data.gov.uk/companies/def/sic-2007/' ].index
+df.drop(indexNames, inplace = True)
+
+indexNames = df[ df['SIC Section'] == 'http://gss-data.org.uk/data/gss_data/climate-change/ONS-Energy-use-fossil-fuels-by-fuel-type-and-industry#concept/sic-2007/' ].index
 df.drop(indexNames, inplace = True)
 
 df = df[['Period', 'SIC Section', 'Fuel', 'Value', 'Marker', 'Measure Type', 'Unit']]
@@ -179,7 +182,7 @@ for col in df.columns.values.tolist():
 df
 
 
-# In[ ]:
+# In[170]:
 
 
 scraper.dataset.title = info['title']
@@ -190,7 +193,7 @@ cubes.add_cube(scraper, df.drop_duplicates(), scraper.dataset.title)
 cubes.output_all()
 
 
-# In[ ]:
+# In[171]:
 
 
 from IPython.core.display import HTML
