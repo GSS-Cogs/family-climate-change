@@ -164,7 +164,7 @@ df['Fuel'] = df['Fuel'].fillna('all')
 indexNames = df[ df['SIC Section'] == 'http://business.data.gov.uk/companies/def/sic-2007/' ].index
 df.drop(indexNames, inplace = True)
 
-indexNames = df[ df['SIC Section'] == 'http://gss-data.org.uk/data/gss_data/climate-change/ons-nergy-use-fossil-fuels-by-fuel-type-and-industry#concept/sic-2007/' ].index
+indexNames = df[ df['SIC Section'] == 'http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#concept/sic-2007/' ].index
 df.drop(indexNames, inplace = True)
 
 df = df[['Period', 'SIC Section', 'Fuel', 'Value', 'Marker', 'Measure Type', 'Unit']]
