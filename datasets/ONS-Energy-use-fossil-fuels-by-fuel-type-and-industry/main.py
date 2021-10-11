@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[41]:
+# In[29]:
 
 
 import json
@@ -15,14 +15,14 @@ landingPage = info['landingPage']
 landingPage
 
 
-# In[42]:
+# In[30]:
 
 
 scraper = Scraper(seed="info.json")
 scraper
 
 
-# In[43]:
+# In[31]:
 
 
 distribution = scraper.distributions[0]
@@ -36,7 +36,7 @@ for i in tabs:
     print(i.name)
 
 
-# In[44]:
+# In[32]:
 
 
 dataframes = []
@@ -119,7 +119,7 @@ for tab in tabs:
         dataframes.append(df)
 
 
-# In[45]:
+# In[33]:
 
 
 df = pd.concat(dataframes)
@@ -144,7 +144,7 @@ df['SIC Group'] = df.apply(lambda x: 'consumer-expenditure' if x['Industry'] == 
 
 df['SIC Group'] = df.apply(lambda x: pathify(x['SIC Group']), axis = 1)
 
-df['SIC Section'] = df.apply(lambda x: str(x['SIC Group']).replace('.', '-') if x['SIC Group'] != '' else x['SIC Section'], axis = 1)
+df['SIC Section'] = df.apply(lambda x: str(x['SIC Group']).replace('.', '-') if x['SIC Group'][-1:] != '0' else x['SIC Section'], axis = 1)
 
 title = 'ONS-E' + pathify(info['title'])[1:]
 
@@ -175,7 +175,7 @@ for col in df.columns.values.tolist():
 df
 
 
-# In[46]:
+# In[34]:
 
 
 scraper.dataset.title = info['title']
@@ -186,7 +186,7 @@ cubes.add_cube(scraper, df.drop_duplicates(), scraper.dataset.title)
 cubes.output_all()
 
 
-# In[47]:
+# In[35]:
 
 
 from IPython.core.display import HTML
