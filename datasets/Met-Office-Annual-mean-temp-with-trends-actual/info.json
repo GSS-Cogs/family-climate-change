@@ -26,7 +26,7 @@
             },
             "Value": {
                 "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/degrees-centigrade",
-                "measure": "http://gss-data.org.uk/def/climate-change/measure/monthly-mean-temperature",
+                "measure": "http://gss-data.org.uk/def/climate-change/measure/annual-mean-temperature",
                 "datatype": "double"
             }
         }
