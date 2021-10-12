@@ -29,6 +29,9 @@
             "Energy use from renewable and waste sources": {
                 "description": "Energy from renewable sources and waste"
             },
+            "Energy Topic": {
+                "description": " "
+            },
             "Value": { 
                 "unit": "http://gss-data.org.uk/def/concept/measurement-units/mtoe",
                 "measure": "http://gss-data.org.uk/def/measure/gross-caloric-values",
