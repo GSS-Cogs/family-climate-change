@@ -1,11 +1,11 @@
 Label,Notation,Parent Notation,Sort Priority
-UK,uk,,1
-UK trend,uk-trend,,2
-England,england,,3
-England trend,england-trend,,4
-Wales,wales,,5
-Wales trend,wales-trend,,6
-Scotland,scotland,,7
-Scotland trend,scotland-trend,,8
-Northern Ireland,northern-ireland,,9
-Northern Ireland trend,northern-ireland-trend,,10
+uk,uk,,1
+uk-trend,uk-trend,,2
+england,england,,3
+england-trend,england-trend,,4
+wales,wales,,5
+wales-trend,wales-trend,,6
+scotland,scotland,,7
+scotland-trend,scotland-trend,,8
+northern-ireland,northern-ireland,,9
+northern-ireland-trend,northern-ireland-trend,,10
