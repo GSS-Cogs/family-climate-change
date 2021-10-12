@@ -42,9 +42,9 @@
                     "mass-of-air-emissions"
                 ]
             },
-            "Units": {
+            "Unit": {
                 "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
-                "value": "http://gss-data.org.uk/def/concept/measurement-units/{thousand-tonnes}"
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/thousand-tonnes"
             },
             "Value": {
                 "datatype": "decimal"
