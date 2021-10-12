@@ -1,8 +1,8 @@
 {
     "id": "met-office-modelling-rainfall",
-    "title": "Regional Average Climate Observations UK Rainfall",
+    "title": "regional average climate observations UK Rainfall",
     "publisher": "Meteorological Office",
-    "description": "",
+    "description": "Priority dataset for Climate Change Platform project.",
     "datasetNotes": [
         "No landing page for this dataset as it is a bespoke dataset supplied by Met Office directly to IDP-D as part of the Climate Change Platform project. It is a subset of the Met Office HAD large dataset."
     ],
@@ -32,5 +32,5 @@
         }
     },
     "sizingNotes": "",
-    "notes": "We recommend that for most uses the values presented are rounded to one decimal place, consistent with the limits of the observational uncertainty. The unrounded values are included for users who may wish to conduct further calculations before rounding (e.g. multi-month or multi-year averaging). Further information on the uncertainty and rounding issues associated with these data can be found in Annex 2 of Kendon et al. (2020): https://doi.org/10.1002/joc.7285"
+    "notes": "Priority dataset for Climate Change Platform project."
 }

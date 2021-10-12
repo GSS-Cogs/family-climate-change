@@ -27,7 +27,7 @@
                 "value": "http://reference.data.gov.uk/id/year/{year}"
             },
             "Estimated territorial emissions type" : {
-                 "description": "territorial emissions, meaning emissions that occur within the UK's borders, and are reported on a source basis"
+                "description": "territorial emissions, meaning emissions that occur within the UK's borders, and are reported on a source basis"
              },
              "Section" : {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/section",

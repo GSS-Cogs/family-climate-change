@@ -2,7 +2,7 @@
     "id": "met-office-regional-average-climate-observations-uk-annual-rain-days-95-percentile",
     "title": "regional average climate observations UK Annual rain days 95 percentile",
     "publisher": "Meteorological Office",
-    "description": "",
+    "description": "Priority dataset for Climate Change Platform project.",
     "datasetNotes": [
         "No landing page for this dataset as it is a bespoke dataset supplied by Met Office directly to IDP-D as part of the Climate Change Platform project. It is a subset of the Met Office HAD large dataset."
     ],
@@ -32,5 +32,5 @@
         }
     },
     "sizingNotes": "",
-    "notes": ""
+    "notes": "Priority dataset for Climate Change Platform project."
 }

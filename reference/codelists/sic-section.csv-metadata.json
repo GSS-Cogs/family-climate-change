@@ -1,0 +1,115 @@
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/sic-section",
+    "url": "sic-section.csv",
+    "tableSchema": {
+        "columns": [
+            {
+                "titles": "Label",
+                "name": "label",
+                "datatype": "string",
+                "required": true,
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "titles": "URI",
+                "name": "uri"
+            },
+            {
+                "titles": "Parent URI",
+                "name": "parent_uri"
+            },
+            {
+                "titles": "Sort Priority",
+                "name": "sort_priority",
+                "datatype": "integer",
+                "required": false,
+                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "titles": "Description",
+                "name": "description",
+                "datatype": "string",
+                "required": false,
+                "propertyUrl": "rdfs:comment"
+            },
+            {
+                "titles": "Local Notation",
+                "name": "local_notation"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "rdf:type",
+                "valueUrl": "skos:Concept"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "skos:inScheme",
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/sic-section"
+            }
+        ],
+        "primaryKey": "uri",
+        "aboutUrl": "{+uri}"
+    },
+    "rdfs:label": "SIC Section",
+    "dc:title": "SIC Section",
+    "prov:hadDerivation": {
+        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/sic-section",
+        "@type": [
+            "skos:ConceptScheme",
+            "http://publishmydata.com/pmdcat#ConceptScheme"
+        ]
+    },
+    "rdfs:seeAlso": [
+        {
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/sic-section/dataset",
+            "@type": [
+                "dcat:Dataset",
+                "http://publishmydata.com/pmdcat#Dataset"
+            ],
+            "http://publishmydata.com/pmdcat#datasetContents": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/sic-section"
+            },
+            "http://publishmydata.com/pmdcat#graph": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/sic-section"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-08-17T13:07:47.325036"
+            },
+            "rdfs:label": "SIC Section",
+            "dc:title": "SIC Section",
+            "rdfs:comment": "Dataset representing the 'SIC Section' code list.",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-08-17T13:07:47.325036"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/catalog/vocabularies",
+            "dcat:record": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/sic-section/catalog-record"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/sic-section/catalog-record",
+            "@type": "dcat:CatalogRecord",
+            "foaf:primaryTopic": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/sic-section/dataset"
+            },
+            "http://publishmydata.com/pmdcat#metadataGraph": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/sic-section"
+            },
+            "dc:title": "SIC Section Catalog Record",
+            "rdfs:label": "SIC Section Catalog Record",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-08-17T13:07:47.325036"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-08-17T13:07:47.325036"
+            }
+        }
+    ]
+}

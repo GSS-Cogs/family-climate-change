@@ -47,3 +47,11 @@ all (excluding co-firing and non-biodegradable wastes),all-excluding-co-firing-a
 All renewables,all-renewables,,47
 Other biomass,other-biomass,,48
 Other biomass (inc. co-firing),other-biomass-inc-co-firing,,49
+Carbon Based Fuels,carbon-based-fuels,,50
+Aviation Spirit,aviation-spirit,,51
+Aviation Turbine Fuel,aviation-turbine-fuel,,52
+DERV,derv,,53
+Gas Oil Including Marine Oil (Excluding DERV),gas-oil-including-marine-oil-excluding-derv,,54
+Natural Gas,natural-gas,,55
+Other,other,,56
+Petrol,petrol,,57

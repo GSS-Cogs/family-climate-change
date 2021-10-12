@@ -2,7 +2,7 @@
     "id": "met-office-regional-average-climate-observations-uk-monthly-max-1-day-precipitation",
     "title": "regional average climate observations UK Monthly Max 1 day precipitation",
     "publisher": "Meteorological Office",
-    "description": "",
+    "description": "Priority dataset for Climate Change Platform project.",
     "datasetNotes": [
         "No landing page for this dataset as it is a bespoke dataset supplied by Met Office directly to IDP-D as part of the Climate Change Platform project. It is a subset of the Met Office HAD large dataset."
     ],
@@ -15,8 +15,22 @@
     },
     "transform": {
         "airtable": "recxXYB1gSSpbXv87",
-        "main_issue": 85
+        "main_issue": 85,
+        "columns": {
+            "Month": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/month/{month}"
+            },
+            "Geography": {
+                "description": "Met Office bespoke geography area"
+            },
+            "Value": {
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/millimetres",
+                "measure": "http://gss-data.org.uk/def/climate-change/measure/rainfall",
+                "datatype": "double"
+            }
+        }
     },
     "sizingNotes": "",
-    "notes": ""
+    "notes": "Priority dataset for Climate Change Platform project."
 }

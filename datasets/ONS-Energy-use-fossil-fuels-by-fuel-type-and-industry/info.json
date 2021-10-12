@@ -4,6 +4,7 @@
     "publisher": "International trade in services by subnational areas of the UK: 2018",
     "description": "The UK's fuel use by industry (SIC 2007 group - around 130 categories) and type (coal, natural gas, petrol, diesel oil for road vehicles (DERV), fuel oil, gas oil, aviation fuel and other); UK level fuel use of nuclear, hydro, wind, solar, geothermal aquifers and net imports, 1990 to 2019. This table excludes biofuels and waste.",
     "landingPage": "https://www.ons.gov.uk/economy/environmentalaccounts/datasets/ukenvironmentalaccountsfuelusebytypeandindustry/current",
+    "dataURL": "https://www.ons.gov.uk/file?uri=/economy/environmentalaccounts/datasets/ukenvironmentalaccountsfuelusebytypeandindustry/current/fuelusebytypeandindustry.xls",
     "datasetNotes": [
         "On landing page scroll down to latest version."
     ],
@@ -20,7 +21,42 @@
             "Priority"
         ],
         "airtable": "recQtsEhPd3bumzx9",
-        "main_issue": 70
+        "main_issue": 70,
+        "columns": {
+            "Period": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/{+period}",
+                "codelist": false
+            },
+            "SIC Section" : {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/sic-section",
+                "value": "{+sic_section}"
+             },
+            "Fuel": {
+                "dimension": "http://gss-data.org.uk/def/energy/property/dimension/fuel",
+                "value": "http://gss-data.org.uk/def/energy/concept/fuel/{fuel}",
+                "codelist": false
+            },
+            "Unit": {
+                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{unit}"
+            },
+            "Value": {
+                "datatype": "double"
+            },
+            "Measure Type": {
+                "dimension": "http://purl.org/linked-data/cube#measureType",
+                "value": "http://gss-data.org.uk/def/measure/{measure_type}",
+                "types": [
+                    "gross-caloric-values"
+                ]
+            },
+            "Marker": {
+                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#obsStatus",
+                "value": "http://gss-data.org.uk/def/concept/cogs-markers/{marker}",
+                "codelist": false
+            }
+        }
     },
     "sizingNotes": "Multiple tables, not as straightforward structure as could be and footnotes.",
     "notes": "Priority dataset for Climate Change Platform project."

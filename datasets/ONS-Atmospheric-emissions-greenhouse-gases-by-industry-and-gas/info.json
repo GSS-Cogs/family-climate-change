@@ -20,7 +20,36 @@
             "Priority"
         ],
         "airtable": "recYQFAfkwLs49Tgn",
-        "main_issue": 75
+        "main_issue": 75,
+        "columns": {
+            "Year": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{year}"
+            },
+            "Section": {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/section",
+                "value": "{+section}"
+            },
+            "Emission Type": {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/emission-type",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/emission-type/{emission_type}"
+            },
+            "Measure Type": {
+                "dimension": "http://purl.org/linked-data/cube#measureType",
+                "value": "http://gss-data.org.uk/def/climate-change/measure/{measure_type}",
+                "types": [
+                    "mass-of-air-emissions-of-carbon-dioxide-equivalent",
+                    "mass-of-air-emissions"
+                ]
+            },
+            "Unit": {
+                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{unit}"
+            },
+            "Value": {
+                "datatype": "decimal"
+            }
+        }
     },
     "sizingNotes": "Simple table structure and dimensions with some footnotes.",
     "notes": "Priority dataset for Climate Change Platform project."
