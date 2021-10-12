@@ -17,9 +17,9 @@
         "airtable": "recJ1X2uzBwHsiTWZ",
         "main_issue": 129,
         "columns": {
-            "Month": {
+            "Year": {
                 "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-                "value": "http://reference.data.gov.uk/id/month/{month}"
+                "value": "http://reference.data.gov.uk/id/year/{year}"
             },
             "Geography": {
                 "description": "Met Office bespoke geography area"
