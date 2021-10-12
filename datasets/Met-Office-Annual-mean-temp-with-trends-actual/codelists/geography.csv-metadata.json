@@ -1,0 +1,117 @@
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "@id": "http://gss-data.org.uk/data/gss_data/climate-change/met-office-annual-mean-temp-with-trends-actual#scheme/geography",
+    "url": "geography.csv",
+    "rdfs:label": "Geography",
+    "dc:title": "Geography",
+    "tableSchema": {
+        "columns": [
+            {
+                "titles": "Label",
+                "name": "label",
+                "datatype": "string",
+                "required": true,
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "titles": "Notation",
+                "name": "notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*$"
+                },
+                "required": true,
+                "propertyUrl": "skos:notation"
+            },
+            {
+                "titles": "Parent Notation",
+                "name": "parent_notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^(-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*|)$"
+                },
+                "required": false,
+                "propertyUrl": "skos:broader",
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/met-office-annual-mean-temp-with-trends-actual#concept/geography/{+parent_notation}"
+            },
+            {
+                "titles": "Sort Priority",
+                "name": "sort_priority",
+                "datatype": "integer",
+                "required": false,
+                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "rdf:type",
+                "valueUrl": "skos:Concept"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "skos:inScheme",
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/met-office-annual-mean-temp-with-trends-actual#scheme/geography"
+            }
+        ],
+        "primaryKey": "notation",
+        "aboutUrl": "http://gss-data.org.uk/data/gss_data/climate-change/met-office-annual-mean-temp-with-trends-actual#concept/geography/{+notation}"
+    },
+    "prov:hadDerivation": {
+        "@id": "http://gss-data.org.uk/data/gss_data/climate-change/met-office-annual-mean-temp-with-trends-actual#scheme/geography",
+        "@type": [
+            "skos:ConceptScheme",
+            "http://publishmydata.com/pmdcat#ConceptScheme"
+        ]
+    },
+    "rdfs:seeAlso": [
+        {
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/met-office-annual-mean-temp-with-trends-actual#scheme/geography/dataset",
+            "@type": [
+                "dcat:Dataset",
+                "http://publishmydata.com/pmdcat#Dataset"
+            ],
+            "http://publishmydata.com/pmdcat#datasetContents": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/met-office-annual-mean-temp-with-trends-actual#scheme/geography"
+            },
+            "http://publishmydata.com/pmdcat#graph": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/met-office-annual-mean-temp-with-trends-actual#scheme/geography"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-08-02T14:22:10.870096"
+            },
+            "rdfs:label": "Geography",
+            "dc:title": "Geography",
+            "rdfs:comment": "Dataset representing the 'Geography' code list.",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-08-02T14:22:10.870096"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/catalog/vocabularies",
+            "dcat:record": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/met-office-annual-mean-temp-with-trends-actual#scheme/geography/catalog-record"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/met-office-annual-mean-temp-with-trends-actual#scheme/geography/catalog-record",
+            "@type": "dcat:CatalogRecord",
+            "foaf:primaryTopic": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/met-office-annual-mean-temp-with-trends-actual#scheme/geography/dataset"
+            },
+            "http://publishmydata.com/pmdcat#metadataGraph": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/met-office-annual-mean-temp-with-trends-actual#scheme/geography"
+            },
+            "dc:title": "Geography Catalog Record",
+            "rdfs:label": "Geography Catalog Record",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-08-02T14:22:10.870096"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-08-02T14:22:10.870096"
+            }
+        }
+    ]
+}
