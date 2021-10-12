@@ -18,6 +18,7 @@ df.rename(columns={
 
 #df['Geography'].replace({'ondon': 'london'}, inplace=True)
 df['Geography'] = df['Geography'].apply(pathify)
+df['Year'] = df['Year'].astype(str)
 #df['Rainfall'] = df['Rainfall'].astype(str).astype(float).round(2)
 
 out = Path('out')
