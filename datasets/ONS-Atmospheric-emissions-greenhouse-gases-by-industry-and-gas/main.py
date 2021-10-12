@@ -95,9 +95,9 @@ df['Emission Type'] = df['Emission Type'].apply(pathify)
 df['Measure Type'] = df['Measure Type'].str.strip()
 df['Measure Type'] = df['Measure Type'].map(lambda x: 'Mass of air emissions of carbon dioxide equivalent'  if 'carbon dioxide' in x else 'Mass of air emissions')
 df['Measure Type'] = df['Measure Type'].apply(pathify)
-df['Unit'] = 'thousand-tonnes'
+#df['Unit'] = 'thousand-tonnes'
 #only need the following columns
-df = df[['Year','Section','Emission Type', 'Value', 'Measure Type', 'Unit']]
+df = df[['Year','Section','Emission Type', 'Value', 'Measure Type']]#, 'Unit']]
 # -
 
 cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title)
