@@ -4,7 +4,7 @@
     "publisher": "Department for Environment Food & Rural Affairs",
     "description": "",
     "datasetNotes": [
-        "No landing page for this dataset as it is a bespoke dataset supplied by CC team (source data from Defra) directly to IDP-D as part of the Climate Change Platform project. This is a UK wide version of the above Defra dataset \"E8: Efficient use of water\" which is England only data."
+        "No landing page for this dataset as it is a bespoke dataset supplied by CC team (source data from Defra) directly to IDP-D as part of the Climate Change Platform project. This is a UK wide version of the above Defra dataset E8: Efficient use of water which is England only data."
     ],
     "published": "",
     "families": [
@@ -15,7 +15,20 @@
     },
     "transform": {
         "airtable": "recAJcMnAWgEiBKTm",
-        "main_issue": 136
+        "main_issue": 136,
+        "columns": {
+            "Year": {
+                "description": "DEFRA bespoke breakdown"
+            },
+            "Geography": {
+                "description": "DEFRA bespoke geography area"
+            },
+            "Value": {
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/megalitres",
+                "measure": "http://gss-data.org.uk/def/climate-change/measure/water-leakage",
+                "datatype": "double"
+            }
+        }
     },
     "sizingNotes": "",
     "notes": "Priority dataset for Climate Change Platform project."

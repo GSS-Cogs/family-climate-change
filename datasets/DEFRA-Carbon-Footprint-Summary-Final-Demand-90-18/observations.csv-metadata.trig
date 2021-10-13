@@ -1,0 +1,49 @@
+@prefix pmdcat: <http://publishmydata.com/pmdcat#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix pmd: <http://publishmydata.com/def/dataset#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns2: <http://xmlns.com/foaf/0.1/> .
+@prefix ns1: <http://gss-data.org.uk/graph/gss_data/climate-change/> .
+@prefix gov: <https://www.gov.uk/government/organisations/> .
+@prefix ns3: <urn:x-rdflib:> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix gdp: <http://gss-data.org.uk/def/gdp#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix theme: <http://gss-data.org.uk/def/concept/statistics-authority-themes/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+
+ns1:defra-carbon-footprint-summary-final-demand-90-18-metadata {
+  <http://gss-data.org.uk/catalog/datasets> a dcat:Catalog;
+    dcat:record <http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-final-demand-90-18-catalog-record> .
+  
+  <http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-final-demand-90-18#dataset>
+    a pmdcat:DataCube .
+  
+  <http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-final-demand-90-18-catalog-entry>
+    a pmdcat:Dataset;
+    rdfs:label "Carbon Footprint - Summary Final Demand 90-18"@en;
+    gdp:family gdp:climate-change;
+    pmdcat:datasetContents <http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-final-demand-90-18#dataset>;
+    pmdcat:graph ns1:defra-carbon-footprint-summary-final-demand-90-18;
+    dct:creator gov:department-for-environment-food-rural-affairs;
+    dct:description ""@en;
+    dct:issued "2021-02-02T09:30:00+00:00"^^xsd:dateTime;
+    dct:modified "2021-07-09T13:56:03.633387+00:00"^^xsd:dateTime;
+    dct:publisher gov:department-for-environment-food-rural-affairs;
+    dct:title "Carbon Footprint - Summary Final Demand 90-18"@en;
+    void:sparqlEndpoint <http://gss-data.org.uk/sparql>;
+    dcat:theme gdp:climate-change .
+  
+  <http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-final-demand-90-18-catalog-record>
+    a dcat:CatalogRecord;
+    rdfs:label "Carbon Footprint - Summary Final Demand 90-18 Catalog Record"@en;
+    pmdcat:metadataGraph ns1:defra-carbon-footprint-summary-final-demand-90-18-metadata;
+    dct:issued "2021-02-02T09:30:00+00:00"^^xsd:dateTime;
+    dct:modified "2021-07-09T13:56:03.633387+00:00"^^xsd:dateTime;
+    ns2:primaryTopic <http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-final-demand-90-18-catalog-entry> .
+  
+}

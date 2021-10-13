@@ -36,7 +36,6 @@ df['Unit'] = 'Ktonnes CO2e'
 df['Country Code'] = df['Country Code'].apply(pathify)
 df = df[['Period', 'Country Code', 'Value', 'Unit']]
 # -
-
 out = Path('out')
 out.mkdir(exist_ok=True)
 df.to_csv(out/'summary-source-region.csv', index = False)
