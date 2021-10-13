@@ -25,7 +25,7 @@ ns1:defra-uk-water-leakage-metadata {
   
   <http://gss-data.org.uk/data/gss_data/climate-change/defra-uk-water-leakage-catalog-entry>
     a pmdcat:Dataset;
-    rdfs:label "UK Water Leakage""@en;
+    rdfs:label "UK Water Leakage"@en;
     gdp:family gdp:climate-change;
     pmdcat:datasetContents <http://gss-data.org.uk/data/gss_data/climate-change/defra-uk-water-leakage#dataset>;
     pmdcat:graph ns1:defra-uk-water-leakage;
@@ -34,7 +34,7 @@ ns1:defra-uk-water-leakage-metadata {
     dct:issued "2021-02-02T09:30:00+00:00"^^xsd:dateTime;
     dct:modified "2021-07-09T13:56:03.633387+00:00"^^xsd:dateTime;
     dct:publisher gov:defra;
-    dct:title "UK Water Leakage""@en;
+    dct:title "UK Water Leakage"@en;
     void:sparqlEndpoint <http://gss-data.org.uk/sparql>;
     dcat:theme gdp:climate-change .
   
