@@ -22,9 +22,10 @@
                   "value": "http://reference.data.gov.uk/id/{+period}",
                   "codelist": false
               },
-              "SIC Section": {
-                  "description": "UK Standard Industrial Classification (SIC) Hierarchy"
-              },
+              "SIC Section" : {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/sic-section",
+                "value": "{+sic_section}"
+             },
               "Value": {
                   "unit": "http://gss-data.org.uk/def/concept/measurement-units/kt-co2e",
                   "measure": "http://gss-data.org.uk/def/measure/gas-emissions",
