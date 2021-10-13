@@ -51,9 +51,13 @@ df = pd.concat(tidied_sheets, sort=True)
 df.rename(columns={'OBS' : 'Value'}, inplace=True)
 df['Year'] = df['Year'].astype(str).replace('\.0', '', regex=True)
 
+# +
 df['Energy use from renewable and waste sources'] = df['Energy use from renewable and waste sources'].apply(pathify)
+
 df['Energy Topic'] = df['Energy Topic'].apply(pathify)
+f1=((df['Energy Topic'] == df['Energy use from renewable and waste sources']))
+df.loc[f1,'Energy Topic'] = 'total'
+
 df = df[['Year', 'Energy use from renewable and waste sources', 'Energy Topic', 'Value']]
 cubes.add_cube(metadata, df.drop_duplicates(), title)
 cubes.output_all()
-df
