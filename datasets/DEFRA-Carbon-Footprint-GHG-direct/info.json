@@ -15,7 +15,22 @@
     },
     "transform": {
         "airtable": "recUWEuVWfiLRHq8R",
-        "main_issue": 98
+        "main_issue": 98,
+          "columns": {
+              "Period": {
+                  "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                  "value": "http://reference.data.gov.uk/id/{+period}",
+                  "codelist": false
+              },
+              "SIC Section": {
+                  "description": "UK Standard Industrial Classification (SIC) Hierarchy"
+              },
+              "Value": {
+                  "unit": "http://gss-data.org.uk/def/concept/measurement-units/kt-co2e",
+                  "measure": "http://gss-data.org.uk/def/measure/gas-emissions",
+                  "datatype": "double"
+              }
+          }
     },
     "sizingNotes": "",
     "notes": "Priority dataset for Climate Change Platform project."
