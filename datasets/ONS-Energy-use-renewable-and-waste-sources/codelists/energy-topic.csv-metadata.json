@@ -1,0 +1,117 @@
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-renewable-and-waste-sources#scheme/energy-topic",
+    "url": "energy-topic.csv",
+    "rdfs:label": "Energy Topic",
+    "dc:title": "Energy Topic",
+    "tableSchema": {
+        "columns": [
+            {
+                "titles": "Label",
+                "name": "label",
+                "datatype": "string",
+                "required": true,
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "titles": "Notation",
+                "name": "notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*$"
+                },
+                "required": true,
+                "propertyUrl": "skos:notation"
+            },
+            {
+                "titles": "Parent Notation",
+                "name": "parent_notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^(-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*|)$"
+                },
+                "required": false,
+                "propertyUrl": "skos:broader",
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-renewable-and-waste-sources#concept/energy-topic/{+parent_notation}"
+            },
+            {
+                "titles": "Sort Priority",
+                "name": "sort_priority",
+                "datatype": "integer",
+                "required": false,
+                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "rdf:type",
+                "valueUrl": "skos:Concept"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "skos:inScheme",
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-renewable-and-waste-sources#scheme/energy-topic"
+            }
+        ],
+        "primaryKey": "notation",
+        "aboutUrl": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-renewable-and-waste-sources#concept/energy-topic/{+notation}"
+    },
+    "prov:hadDerivation": {
+        "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-renewable-and-waste-sources#scheme/energy-topic",
+        "@type": [
+            "skos:ConceptScheme",
+            "http://publishmydata.com/pmdcat#ConceptScheme"
+        ]
+    },
+    "rdfs:seeAlso": [
+        {
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-renewable-and-waste-sources#scheme/energy-topic/dataset",
+            "@type": [
+                "dcat:Dataset",
+                "http://publishmydata.com/pmdcat#Dataset"
+            ],
+            "http://publishmydata.com/pmdcat#datasetContents": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-renewable-and-waste-sources#scheme/energy-topic"
+            },
+            "http://publishmydata.com/pmdcat#graph": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-renewable-and-waste-sources#scheme/energy-topic"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-10-12T18:20:12.222908"
+            },
+            "rdfs:label": "Energy Topic",
+            "dc:title": "Energy Topic",
+            "rdfs:comment": "Dataset representing the 'Energy Topic' code list.",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-10-12T18:20:12.222908"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/catalog/vocabularies",
+            "dcat:record": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-renewable-and-waste-sources#scheme/energy-topic/catalog-record"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-renewable-and-waste-sources#scheme/energy-topic/catalog-record",
+            "@type": "dcat:CatalogRecord",
+            "foaf:primaryTopic": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-renewable-and-waste-sources#scheme/energy-topic/dataset"
+            },
+            "http://publishmydata.com/pmdcat#metadataGraph": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-renewable-and-waste-sources#scheme/energy-topic"
+            },
+            "dc:title": "Energy Topic Catalog Record",
+            "rdfs:label": "Energy Topic Catalog Record",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-10-12T18:20:12.222908"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-10-12T18:20:12.222908"
+            }
+        }
+    ]
+}

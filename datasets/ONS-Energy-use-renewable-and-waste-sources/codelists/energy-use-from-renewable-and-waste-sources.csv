@@ -1,0 +1,44 @@
+Label,Notation,Parent Notation,Sort Priority
+Energy from renewable & waste sources,energy-from-renewable-waste-sources,,1
+Hydroelectric power,hydroelectric-power,,2
+"Wind, wave, tidal1",wind-wave-tidal1,,3
+Solar photovoltaic,solar-photovoltaic,,4
+Geothermal aquifers,geothermal-aquifers,,5
+Landfill gas,landfill-gas,,6
+Sewage gas,sewage-gas,,7
+Biogas from autogen,biogas-from-autogen,,8
+Municipal solid waste (MSW),municipal-solid-waste-msw,,9
+Poultry litter,poultry-litter,,10
+Straw,straw,,11
+Wood,wood,,12
+Charcoal,charcoal,,13
+Liquid bio fuels,liquid-bio-fuels,,14
+Bioethanol2,bioethanol2,,15
+Biodiesel2,biodiesel2,,16
+Biomass,biomass,,17
+Cross boundary Adjustment2,cross-boundary-adjustment2,,18
+Direct3 use of energy from renewable & waste sources including electricity,direct3-use-of-energy-from-renewable-waste-sources-including-electricity,,19
+"Agriculture, forestry and fishing",agriculture-forestry-and-fishing,,20
+Mining and quarrying,mining-and-quarrying,,21
+Manufacturing,manufacturing,,22
+"Electricity, gas, steam and air conditioning supply",electricity-gas-steam-and-air-conditioning-supply,,23
+"Water supply; sewerage, waste management and remediation activities",water-supply-sewerage-waste-management-and-remediation-activities,,24
+Construction,construction,,25
+Wholesale and retail trade; repair of motor vehicles and motorcycles,wholesale-and-retail-trade-repair-of-motor-vehicles-and-motorcycles,,26
+Transport and storage,transport-and-storage,,27
+Accommodation and food services,accommodation-and-food-services,,28
+Information and communication,information-and-communication,,29
+Financial and insurance activities,financial-and-insurance-activities,,30
+Real estate activities,real-estate-activities,,31
+"Professional, scientific and technical activities",professional-scientific-and-technical-activities,,32
+Administrative and support service activities,administrative-and-support-service-activities,,33
+Public administration and defence; compulsory social security,public-administration-and-defence-compulsory-social-security,,34
+Education,education,,35
+Human health and social work activities,human-health-and-social-work-activities,,36
+"Arts, entertainment and recreation; other service activities",arts-entertainment-and-recreation-other-service-activities,,37
+Other service activities,other-service-activities,,38
+Activities of households as employers; undifferentiated goods and services producing activities of households for own use,activities-of-households-as-employers-undifferentiated-goods-and-services-producing-activities-of-households-for-own-use,,39
+Consumer expenditure,consumer-expenditure,,40
+Reallocated3 use of energy from renewable & waste sources including electricity,reallocated3-use-of-energy-from-renewable-waste-sources-including-electricity,,41
+Energy from renewable sources and waste,energy-from-renewable-sources-and-waste,,42
+Total energy consumption of primary fuels and equivalents,total-energy-consumption-of-primary-fuels-and-equivalents,,43
