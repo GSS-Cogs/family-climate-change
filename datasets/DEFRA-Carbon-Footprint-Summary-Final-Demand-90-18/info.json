@@ -29,8 +29,8 @@
                   "description": "Breakdown of Final Demand"
               },
               "Value": {
-                  "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/kt-co2e",
-                  "measure": "http://gss-data.org.uk/def/climate-change/measure/gas-emissions",
+                  "unit": "http://gss-data.org.uk/def/concept/measurement-units/kt-co2e",
+                  "measure": "http://gss-data.org.uk/def/measure/gas-emissions",
                   "datatype": "double"
               }
           }
