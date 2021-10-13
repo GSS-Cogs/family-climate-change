@@ -35,41 +35,25 @@ tidied_sheets = []
 for tab in tabs:
     if 'Contents' in tab.name:
         continue
-    remove_bottom_section = tab.excel_ref('A28').expand(DOWN).expand(RIGHT)
-    year = tab.excel_ref('B4').expand(RIGHT).is_not_blank()
-    section = tab.excel_ref('A4').expand(DOWN)
-    section_name = tab.excel_ref('C4').expand(DOWN)
-    observations = year.fill(DOWN).is_not_blank() - remove_bottom_section
+    #Bottom part only needed 
     unit = tab.excel_ref('AF3')
-    
-    #Top part 
-    dimensions = [
-        HDim(section, 'Section breakdown', DIRECTLY, LEFT), # will be dropped 
-        HDim(section_name, 'Industry Section Name', DIRECTLY, LEFT), # will be dropped 
-        HDim(year, 'Year', DIRECTLY, ABOVE),
-        HDim(unit, 'Unit', CLOSEST, ABOVE),
-        ]
-    tidy_sheet = ConversionSegment(tab, dimensions, observations)
-    table = tidy_sheet.topandas()
-    table['Section'] = table.apply(lambda x: x['Industry Section Name'] if x['Section breakdown'] == '-' 
-                                   else (x['Industry Section Name'] if x['Section breakdown'] == '' 
-                                         else x['Section breakdown']), axis=1)
-    tidied_sheets.append(table)
-    #Bottom part 
+    year = tab.excel_ref('B4').expand(RIGHT).is_not_blank()
+    section_name = tab.excel_ref('C29').expand(DOWN)
     remove_top_section = tab.excel_ref('A28').expand(UP).expand(RIGHT)
     sic_group = tab.excel_ref('A28').expand(DOWN)
     section = tab.excel_ref('B28').expand(DOWN)
     observations = year.fill(DOWN).is_not_blank() - remove_top_section
+    energy_type = tab.name
     dimensions = [
         HDim(sic_group, 'SIC(07)Group', DIRECTLY, LEFT),
         HDim(section, 'Section breakdown', DIRECTLY, LEFT), # will be dropped 
         HDim(section_name, 'Industry Section Name', DIRECTLY, LEFT), # will be dropped 
         HDim(year, 'Year', DIRECTLY, ABOVE),
         HDim(unit, 'Unit', CLOSEST, ABOVE),
+        HDimConst('Energy Type', energy_type),
         ]
     
     tidy_sheet = ConversionSegment(tab, dimensions, observations)
-    
     #savepreviewhtml(tidy_sheet, fname = tab.name+ "Preview.html")
     table = tidy_sheet.topandas()
     table['Section'] = table.apply(lambda x: x['Industy Section Name'] if x['SIC(07)Group'] == '-' 
@@ -82,10 +66,18 @@ for tab in tabs:
     table['Section'] = table['Section'].apply(pathify)
     tidied_sheets.append(table)
 
+# +
 df = pd.concat(tidied_sheets, sort=True)
 df.rename(columns={'OBS' : 'Value', 'DATAMARKER' : 'Marker'}, inplace=True)
 df = df.replace({'Section' : {'Total' : 'total', 'Consumer expenditure' : 'consumer-expenditure'}})
+df = df.replace({'Marker' : {':' : 'not-available'}})
+
 df['Year'] = df['Year'].astype(str).replace('\.0', '', regex=True)
+df['Energy Type'] = df['Energy Type'].str.replace(r"\(.*\)","")
+df['Energy Type'] = df['Energy Type'].apply(pathify)
+df["Unit"]= df['Unit'].str.extract('.*\((.*)\).*')
+df['Unit'] = df['Unit'].apply(pathify)
+# -
 
 #info needed to create URI's for section 
 unique = 'http://gss-data.org.uk/data/gss_data/climate-change/' + title_id + '#concept/sic-2007/'
@@ -93,7 +85,7 @@ sic = 'http://business.data.gov.uk/companies/def/sic-2007/'
 #create the URI's from the section column 
 df['Section'] = df['Section'].map(lambda x: unique + x if '-' in x else (unique + x if 'total' in x else sic + x))
 #only need the following columns
-df = df[['Year','Section', 'Value', 'Marker', 'Unit']]
+df = df[['Year','Section', 'Energy Type', 'Value', 'Marker', 'Unit']]
 
 cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title)
 cubes.output_all()

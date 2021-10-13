@@ -20,7 +20,37 @@
             "Priority"
         ],
         "airtable": "recFX9sdKRlevHGli",
-        "main_issue": 67
+        "main_issue": 67,
+        "columns": {
+            "Year": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Section": {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/section",
+                "value": "{+section}"
+            },
+            "Energy Type": {
+                "description" : "Energy use reallocated1 and energy intensity "
+    
+            },
+            "Measure Type": {
+                "dimension": "http://purl.org/linked-data/cube#measureType",
+                "value": "http://gss-data.org.uk/def/measure/gross-caloric-values"
+            },
+            "Unit": {
+                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{unit}"
+            },
+            "Value": {
+                "datatype": "decimal"
+            },
+            "Marker": {
+                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#obsStatus",
+                "value": "http://gss-data.org.uk/def/concept/cogs-markers/{marker}",
+                "codelist": false
+            }
+        }
     },
     "sizingNotes": "Simple table structure and dimensions with some footnotes.",
     "notes": "Priority dataset for Climate Change Platform project."
