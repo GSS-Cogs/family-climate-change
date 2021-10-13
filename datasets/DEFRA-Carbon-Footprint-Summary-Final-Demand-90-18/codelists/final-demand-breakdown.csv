@@ -1,0 +1,10 @@
+Label,Notation,Parent Notation,Sort Priority
+Households,households,,0
+Households direct,households-direct,,1
+Non profit institutions serving households,non-profit-institutions-serving-households,,2
+Central government,central-government,,3
+Local government,local-government,,4
+Gross fixed capital formation,gross-fixed-capital-formation,,5
+Valuables,valuables,,6
+Changes in inventories,changes-in-inventories,,7
+All,all,,8

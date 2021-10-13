@@ -1,0 +1,117 @@
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-final-demand-90-18#scheme/final-demand-breakdown",
+    "url": "final-demand-breakdown.csv",
+    "rdfs:label": "Final Demand Breakdown",
+    "dc:title": "Final Demand Breakdown",
+    "tableSchema": {
+        "columns": [
+            {
+                "titles": "Label",
+                "name": "label",
+                "datatype": "string",
+                "required": true,
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "titles": "Notation",
+                "name": "notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*$"
+                },
+                "required": true,
+                "propertyUrl": "skos:notation"
+            },
+            {
+                "titles": "Parent Notation",
+                "name": "parent_notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^(-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*|)$"
+                },
+                "required": false,
+                "propertyUrl": "skos:broader",
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-final-demand-90-18#concept/final-demand-breakdown/{+parent_notation}"
+            },
+            {
+                "titles": "Sort Priority",
+                "name": "sort_priority",
+                "datatype": "integer",
+                "required": false,
+                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "rdf:type",
+                "valueUrl": "skos:Concept"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "skos:inScheme",
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-final-demand-90-18#scheme/final-demand-breakdown"
+            }
+        ],
+        "primaryKey": "notation",
+        "aboutUrl": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-final-demand-90-18#concept/final-demand-breakdown/{+notation}"
+    },
+    "prov:hadDerivation": {
+        "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-final-demand-90-18#scheme/final-demand-breakdown",
+        "@type": [
+            "skos:ConceptScheme",
+            "http://publishmydata.com/pmdcat#ConceptScheme"
+        ]
+    },
+    "rdfs:seeAlso": [
+        {
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-final-demand-90-18#scheme/final-demand-breakdown/dataset",
+            "@type": [
+                "dcat:Dataset",
+                "http://publishmydata.com/pmdcat#Dataset"
+            ],
+            "http://publishmydata.com/pmdcat#datasetContents": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-final-demand-90-18#scheme/final-demand-breakdown"
+            },
+            "http://publishmydata.com/pmdcat#graph": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-final-demand-90-18#scheme/final-demand-breakdown"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-08-02T14:22:10.870096"
+            },
+            "rdfs:label": "Final Demand Breakdown",
+            "dc:title": "Final Demand Breakdown",
+            "rdfs:comment": "Dataset representing the 'Final Demand Breakdown' code list.",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-08-02T14:22:10.870096"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/catalog/vocabularies",
+            "dcat:record": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-final-demand-90-18#scheme/final-demand-breakdown/catalog-record"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-final-demand-90-18#scheme/final-demand-breakdown/catalog-record",
+            "@type": "dcat:CatalogRecord",
+            "foaf:primaryTopic": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-final-demand-90-18#scheme/final-demand-breakdown/dataset"
+            },
+            "http://publishmydata.com/pmdcat#metadataGraph": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-final-demand-90-18#scheme/final-demand-breakdown"
+            },
+            "dc:title": "Final Demand Breakdown Catalog Record",
+            "rdfs:label": "Final Demand Breakdown Catalog Record",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-08-02T14:22:10.870096"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-08-02T14:22:10.870096"
+            }
+        }
+    ]
+}
