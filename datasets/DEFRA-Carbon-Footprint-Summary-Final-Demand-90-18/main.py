@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[41]:
+# In[44]:
 
 
 import json
@@ -37,6 +37,8 @@ df = df[['Period', 'Final Demand', 'Final Demand Breakdown', 'Value']]
 
 df['Period'] = df['Period'].map(lambda x: 'year/' + str(x))
 
+df['Final Demand Breakdown'] = df['Final Demand Breakdown'].map(lambda x: pathify(x))
+
 out = Path('out')
 out.mkdir(exist_ok=True)
 df.to_csv(out/'observations.csv', index = False)
@@ -55,7 +57,7 @@ csvw_mapping.write(out/'observations.csv-metadata.json')
 shutil.copy("observations.csv-metadata.trig", out/"observations.csv-metadata.trig")
 
 
-# In[41]:
+# In[44]:
 
 
 
