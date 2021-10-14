@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[104]:
+# In[118]:
 
 
 import json
@@ -16,7 +16,7 @@ df = pd.read_csv("raw.csv", header = 2)
 df
 
 
-# In[105]:
+# In[119]:
 
 
 dfGHG = df.truncate(after = 28)
@@ -31,7 +31,7 @@ dfGHG['Unit'] = 'KT-CO2e'
 dfGHG
 
 
-# In[106]:
+# In[120]:
 
 
 dfCO = df.truncate(before = 33, after = 61)
@@ -46,7 +46,7 @@ dfCO['Unit'] = 'KT-CO2'
 dfCO
 
 
-# In[107]:
+# In[121]:
 
 
 dfNRG = df.truncate(before = 66)
@@ -61,7 +61,7 @@ dfNRG['Unit'] = 'KT-oil-equivalent'
 dfNRG
 
 
-# In[108]:
+# In[122]:
 
 
 df = pd.concat([dfGHG, dfCO, dfNRG])
@@ -74,10 +74,12 @@ df['Period'] = df['Period'].map(lambda x: 'year/' + str(x))
 
 df = df.replace({'Product' : {'Total' : 'All'}})
 
+df['Unit'] = df['Unit'].map(lambda x: pathify(x))
+
 df
 
 
-# In[109]:
+# In[123]:
 
 
 out = Path('out')
