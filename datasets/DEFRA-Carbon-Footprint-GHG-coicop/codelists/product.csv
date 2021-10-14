@@ -1,0 +1,314 @@
+Label,Notation,Parent Notation,Sort Priority
+Rice,rice,,0
+Bread,bread,,1
+Other breads and cereals,other-breads-and-cereals,,2
+Pasta products,pasta-products,,3
+Buns crispbread and biscuits,buns-crispbread-and-biscuits,,4
+Cakes and puddings,cakes-and-puddings,,5
+Pastry savoury,pastry-savoury,,6
+Beef fresh chilled or frozen,beef-fresh-chilled-or-frozen,,7
+Pork fresh chilled or frozen,pork-fresh-chilled-or-frozen,,8
+Lamb fresh chilled or frozen,lamb-fresh-chilled-or-frozen,,9
+Poultry fresh chilled or frozen,poultry-fresh-chilled-or-frozen,,10
+Bacon and ham,bacon-and-ham,,11
+Sausages,sausages,,12
+Offal pate etc,offal-pate-etc,,13
+Other preserved or processed meat and meat preparations,other-preserved-or-processed-meat-and-meat-preparations,,14
+Other fresh chilled or frozen edible meat,other-fresh-chilled-or-frozen-edible-meat,,15
+Fish fresh chilled or frozen,fish-fresh-chilled-or-frozen,,16
+Seafood dried smoked or salted fish,seafood-dried-smoked-or-salted-fish,,17
+Other preserved or processed fish and seafood,other-preserved-or-processed-fish-and-seafood,,18
+Whole milk,whole-milk,,19
+Low fat milk,low-fat-milk,,20
+Preserved milk,preserved-milk,,21
+Cheese and curd,cheese-and-curd,,22
+Eggs,eggs,,23
+Other milk products,other-milk-products,,24
+Yoghurt,yoghurt,,25
+Butter,butter,,26
+Margarine and other vegetable fats and peanut butter,margarine-and-other-vegetable-fats-and-peanut-butter,,27
+Olive oil,olive-oil,,28
+Edible oils and other animal fats,edible-oils-and-other-animal-fats,,29
+Citrus fuits,citrus-fuits,,30
+Bananas,bananas,,31
+Apples,apples,,32
+Pears,pears,,33
+Stone fruits,stone-fruits,,34
+Berries,berries,,35
+Other fresh chilled or frozen fruits,other-fresh-chilled-or-frozen-fruits,,36
+Dried fruit and nuts,dried-fruit-and-nuts,,37
+Preserved fruit and fruit based products,preserved-fruit-and-fruit-based-products,,38
+Leaf and stem vegetables,leaf-and-stem-vegetables,,39
+Cabbages,cabbages,,40
+Vegetables grown for their fruit,vegetables-grown-for-their-fruit,,41
+Root crops non starchy bulbs and mushrooms,root-crops-non-starchy-bulbs-and-mushrooms,,42
+Dried vegetables,dried-vegetables,,43
+Other prepared or processed vegetables,other-prepared-or-processed-vegetables,,44
+Potatoes,potatoes,,45
+Other tubers and products of tuber vegetables,other-tubers-and-products-of-tuber-vegetables,,46
+Sugar,sugar,,47
+Other sugar products,other-sugar-products,,48
+Jams and marmalades,jams-and-marmalades,,49
+Chocolate,chocolate,,50
+Confectionery products,confectionery-products,,51
+Edible ices and ice cream,edible-ices-and-ice-cream,,52
+Sauces condiments,sauces-condiments,,53
+Bakers yeast dessert preparations soups,bakers-yeast-dessert-preparations-soups,,54
+Salt spices herbs and other food products,salt-spices-herbs-and-other-food-products,,55
+Coffee,coffee,,56
+Tea,tea,,57
+Cocoa and powdered chocolate,cocoa-and-powdered-chocolate,,58
+Fruit and vegetable juices,fruit-and-vegetable-juices,,59
+Mineral or spring waters,mineral-or-spring-waters,,60
+Soft drinks,soft-drinks,,61
+Spirits and liqueurs,spirits-and-liqueurs,,62
+Wine from grape or other fruit,wine-from-grape-or-other-fruit,,63
+Fortified wine,fortified-wine,,64
+Champagne and sparkling wines,champagne-and-sparkling-wines,,65
+Beer and lager,beer-and-lager,,66
+Ciders and perry,ciders-and-perry,,67
+Alcopops,alcopops,,68
+Cigarettes,cigarettes,,69
+Cigars,cigars,,70
+Other tobacco,other-tobacco,,71
+Mens outer garments,mens-outer-garments,,72
+Mens under garments,mens-under-garments,,73
+Womens outer garments,womens-outer-garments,,74
+Womens under garments,womens-under-garments,,75
+Boys outer garments,boys-outer-garments,,76
+Girls outer garments,girls-outer-garments,,77
+Infants outer garments,infants-outer-garments,,78
+Childrens under garments,childrens-under-garments,,79
+Mens accessories,mens-accessories,,80
+Womens accessories,womens-accessories,,81
+Childrens accessories,childrens-accessories,,82
+Protective head gear,protective-head-gear,,83
+Haberashery clothing materials and clothing hire,haberashery-clothing-materials-and-clothing-hire,,84
+Dry cleaners and dyeing,dry-cleaners-and-dyeing,,85
+Laundry laundrettes,laundry-laundrettes,,86
+Footwear for men,footwear-for-men,,87
+Footwear for women,footwear-for-women,,88
+Footwear for children and infants,footwear-for-children-and-infants,,89
+Repair and hire of footwear,repair-and-hire-of-footwear,,90
+Actual rentals,actual-rentals,,91
+Imputed rent,imputed-rent,,92
+Central heating repairs,central-heating-repairs,,93
+House maintenance,house-maintenance,,94
+Paint wallpaper timber,paint-wallpaper-timber,,95
+Equipment hire small materials,equipment-hire-small-materials,,96
+Water charges,water-charges,,97
+Other regular househing payments incl service charge for rent,other-regular-househing-payments-incl-service-charge-for-rent,,98
+Refuse collection including skip hire,refuse-collection-including-skip-hire,,99
+Electricity,electricity,,100
+Gas,gas,,101
+Coal and coke,coal-and-coke,,102
+Oil for central heating,oil-for-central-heating,,103
+Paraffin weed peat hot water etc,paraffin-weed-peat-hot-water-etc,,104
+Furniture,furniture,,105
+Fancy decorative goods,fancy-decorative-goods,,106
+Garden furniture,garden-furniture,,107
+Soft floor coverings,soft-floor-coverings,,108
+Hard floor coverings,hard-floor-coverings,,109
+Bedroom textiles including duvets and pillows,bedroom-textiles-including-duvets-and-pillows,,110
+Other household textiles including cushions towells curtains,other-household-textiles-including-cushions-towells-curtains,,111
+Gas cookers,gas-cookers,,112
+Electric cookers combined gas electric cookers,electric-cookers-combined-gas-electric-cookers,,113
+Clothes washing machines and clothes drying machines,clothes-washing-machines-and-clothes-drying-machines,,114
+Refridgerators freezers and fridge freezers,refridgerators-freezers-and-fridge-freezers,,115
+Other major electrical appliances e g dish washers microaves vacuum cleaners heaters,other-major-electrical-appliances-e-g-dish-washers-microaves-vacuum-cleaners-heaters,,116
+Fire extinguishers,fire-extinguishers,,117
+Small electric household appliances,small-electric-household-appliances,,118
+Spare parts for appliances and repairs,spare-parts-for-appliances-and-repairs,,119
+Rental hire of major hhold appliances,rental-hire-of-major-hhold-appliances,,120
+Glassware china pottery cutlery and silverware,glassware-china-pottery-cutlery-and-silverware,,121
+Kitchen and domestic utensils,kitchen-and-domestic-utensils,,122
+Repair of glassware tableware and household utensils,repair-of-glassware-tableware-and-household-utensils,,123
+Storage and other durable household articles,storage-and-other-durable-household-articles,,124
+Electrical tools,electrical-tools,,125
+Garden tools equipment and accessories,garden-tools-equipment-and-accessories,,126
+Small tools,small-tools,,127
+Door electrical and other fittings,door-electrical-and-other-fittings,,128
+Electrical consumables,electrical-consumables,,129
+Detergents washing up liquid washing powder,detergents-washing-up-liquid-washing-powder,,130
+Disinfectants polishes other cleaning materials some pest controls,disinfectants-polishes-other-cleaning-materials-some-pest-controls,,131
+Kitchen disposibles,kitchen-disposibles,,132
+Household hardwear and appliances matches,household-hardwear-and-appliances-matches,,133
+Kitchen gloves cloths etc,kitchen-gloves-cloths-etc,,134
+Pins needles tape measures nails nuts and bolts,pins-needles-tape-measures-nails-nuts-and-bolts,,135
+Domestic services including cleaners gardeners au pairs,domestic-services-including-cleaners-gardeners-au-pairs,,136
+Carpet cleaning ironing service and window cleaner,carpet-cleaning-ironing-service-and-window-cleaner,,137
+Hire repairof household furniture and furnishings,hire-repairof-household-furniture-and-furnishings,,138
+Nhs prescription charges and payments,nhs-prescription-charges-and-payments,,139
+Medicines and medical goods not nhs,medicines-and-medical-goods-not-nhs,,140
+Other medical products,other-medical-products,,141
+Non optical appliances and equipment,non-optical-appliances-and-equipment,,142
+Purchse of spectacles lenses prescription sunglasses,purchse-of-spectacles-lenses-prescription-sunglasses,,143
+Accessories repairs to spectacles lenses,accessories-repairs-to-spectacles-lenses,,144
+Nhs medical optical dental and medical auxillary services,nhs-medical-optical-dental-and-medical-auxillary-services,,145
+Private medical optical dental and auxillary services,private-medical-optical-dental-and-auxillary-services,,146
+Other services,other-services,,147
+In patient hospital services,in-patient-hospital-services,,148
+New cars vans outright purchase,new-cars-vans-outright-purchase,,149
+New cars vans loan hp purcase,new-cars-vans-loan-hp-purcase,,150
+Secondhand cars vans outright purchase,secondhand-cars-vans-outright-purchase,,151
+Secondhand cars vans loan hp purcase,secondhand-cars-vans-loan-hp-purcase,,152
+Outright purchase of new or secondhand motorcycles,outright-purchase-of-new-or-secondhand-motorcycles,,153
+Loan hp purchase of new or secondhand motor cycles,loan-hp-purchase-of-new-or-secondhand-motor-cycles,,154
+Purchase of bicycles and other vehicles,purchase-of-bicycles-and-other-vehicles,,155
+Can van accessories and fittings,can-van-accessories-and-fittings,,156
+Car van spare parts,car-van-spare-parts,,157
+Motorcycle accessories and spare parts,motorcycle-accessories-and-spare-parts,,158
+Bicycle accessories and spare parts,bicycle-accessories-and-spare-parts,,159
+Petrol,petrol,,160
+Diesel oil,diesel-oil,,161
+Other motor oils,other-motor-oils,,162
+Car of van repairs servicing and other work,car-of-van-repairs-servicing-and-other-work,,163
+Motor cycle repairs and servicing,motor-cycle-repairs-and-servicing,,164
+Motoing organisation subscription,motoing-organisation-subscription,,165
+Garage rent other costs car washing,garage-rent-other-costs-car-washing,,166
+Parking fees tolls and permits,parking-fees-tolls-and-permits,,167
+Driving lessons,driving-lessons,,168
+Anti freeze battery water cleaning materials,anti-freeze-battery-water-cleaning-materials,,169
+Rail and tube season tickets,rail-and-tube-season-tickets,,170
+Rail and tube other than season tickets,rail-and-tube-other-than-season-tickets,,171
+Bus and coach season tickets,bus-and-coach-season-tickets,,172
+Bus and coach other than season tickets,bus-and-coach-other-than-season-tickets,,173
+Combined fares other than season tickets,combined-fares-other-than-season-tickets,,174
+Combined fares season tickets,combined-fares-season-tickets,,175
+Air fares within uk,air-fares-within-uk,,176
+Air fares inernational,air-fares-inernational,,177
+School travel,school-travel,,178
+Taxis and hired cars with drivers,taxis-and-hired-cars-with-drivers,,179
+Other personal travel and transport services,other-personal-travel-and-transport-services,,180
+Hire of self drive cars vans bicycles,hire-of-self-drive-cars-vans-bicycles,,181
+Car leasing,car-leasing,,182
+Water travel ferries and season tickets,water-travel-ferries-and-season-tickets,,183
+Postal services,postal-services,,184
+Telephone purchase,telephone-purchase,,185
+Mobile phone purchase,mobile-phone-purchase,,186
+Answering machine fax machine purchase,answering-machine-fax-machine-purchase,,187
+Telephone account,telephone-account,,188
+Telephone coin and other payments,telephone-coin-and-other-payments,,189
+Mobile phone account,mobile-phone-account,,190
+Mobile phone othr apyments,mobile-phone-othr-apyments,,191
+Internet subscription fees,internet-subscription-fees,,192
+Audio equipment cd players incl in car,audio-equipment-cd-players-incl-in-car,,193
+Audio accessories e g tapes cds headphones,audio-accessories-e-g-tapes-cds-headphones,,194
+Purchase of tv and digital decoder,purchase-of-tv-and-digital-decoder,,195
+Satellite dish purchase and installation,satellite-dish-purchase-and-installation,,196
+Cable tv connection,cable-tv-connection,,197
+Video recorder,video-recorder,,198
+Dvd player recorder,dvd-player-recorder,,199
+Blank pre recorded video cassettes and dvds,blank-pre-recorded-video-cassettes-and-dvds,,200
+Personal computers printers and calculators,personal-computers-printers-and-calculators,,201
+Spare parts for tv video audio,spare-parts-for-tv-video-audio,,202
+Repare of av,repare-of-av,,203
+Photographic and cine equipment,photographic-and-cine-equipment,,204
+Camera films,camera-films,,205
+Optical instruments binoculars telescopes,optical-instruments-binoculars-telescopes,,206
+Purchase of boats trailers and horses,purchase-of-boats-trailers-and-horses,,207
+Purchase of caravans mobile homes,purchase-of-caravans-mobile-homes,,208
+Accessoris for boats horses caravans and motorhomes,accessoris-for-boats-horses-caravans-and-motorhomes,,209
+Musical instruments,musical-instruments,,210
+Major durables for indoor recreation,major-durables-for-indoor-recreation,,211
+Maintenance and repair or other major durables for recreation and culture,maintenance-and-repair-or-other-major-durables-for-recreation-and-culture,,212
+Purchase of motor caravan outright purchase,purchase-of-motor-caravan-outright-purchase,,213
+Purchase of motor caravan loan hp,purchase-of-motor-caravan-loan-hp,,214
+Games toys and hobbies,games-toys-and-hobbies,,215
+Computer software and games cartridges,computer-software-and-games-cartridges,,216
+Console computer games,console-computer-games,,217
+Equipment for sport camping and open air recreation,equipment-for-sport-camping-and-open-air-recreation,,218
+Bbq and swings,bbq-and-swings,,219
+Plants flowers seeds fertiliers insecticides,plants-flowers-seeds-fertiliers-insecticides,,220
+Garden decorative,garden-decorative,,221
+Artificial flowers pot pourri,artificial-flowers-pot-pourri,,222
+Pet food,pet-food,,223
+Pet purchase and accessories,pet-purchase-and-accessories,,224
+Vetinary and other services for pets,vetinary-and-other-services-for-pets,,225
+Spectator sports admission charges,spectator-sports-admission-charges,,226
+Participant sports,participant-sports,,227
+Subscriotions to sorts and social clubs,subscriotions-to-sorts-and-social-clubs,,228
+Hire of equipment for sport,hire-of-equipment-for-sport,,229
+Leisure class fees,leisure-class-fees,,230
+Cinemas,cinemas,,231
+Live entertainment theatre concerts shows,live-entertainment-theatre-concerts-shows,,232
+Museums zoological gardens theme parks,museums-zoological-gardens-theme-parks,,233
+Tv licences,tv-licences,,234
+Satellite subscriptions,satellite-subscriptions,,235
+Rent for tv satellite vcr,rent-for-tv-satellite-vcr,,236
+Cable subscriptions,cable-subscriptions,,237
+Tv slot meter payments,tv-slot-meter-payments,,238
+Video cassette and cd hire,video-cassette-and-cd-hire,,239
+Admissions to clubs dances discos bingo,admissions-to-clubs-dances-discos-bingo,,240
+Social events and gatherings,social-events-and-gatherings,,241
+Subscriptions for leisure activities,subscriptions-for-leisure-activities,,242
+Development of film photos,development-of-film-photos,,243
+Football pools stakes,football-pools-stakes,,244
+Bingo stakes,bingo-stakes,,245
+Lottery,lottery,,246
+Bookmaker tote other betting stakes,bookmaker-tote-other-betting-stakes,,247
+Books,books,,248
+Diaries address books cards etc,diaries-address-books-cards-etc,,249
+Cards calendars posters and other printed matter,cards-calendars-posters-and-other-printed-matter,,250
+Newspapers,newspapers,,251
+Magazines and periodicals,magazines-and-periodicals,,252
+Education,education,,253
+Educational trips,educational-trips,,254
+Restaurant and caf meals,restaurant-and-caf-meals,,255
+Alcoholic beverages,alcoholic-beverages,,256
+Takeaway meals,takeaway-meals,,257
+Hot food and cold food,hot-food-and-cold-food,,258
+Confectionery,confectionery,,259
+Ice cream,ice-cream,,260
+Soft drink,soft-drink,,261
+Contract catering,contract-catering,,262
+School meals,school-meals,,263
+Meals bought in workplace,meals-bought-in-workplace,,264
+Holiday in the uk,holiday-in-the-uk,,265
+Holiday abroad,holiday-abroad,,266
+Room hire,room-hire,,267
+Hairdressing beauty treatement,hairdressing-beauty-treatement,,268
+Toilet paper,toilet-paper,,269
+Toiletries,toiletries,,270
+Bar of soap liquid soap shower gel,bar-of-soap-liquid-soap-shower-gel,,271
+Toilet requisites,toilet-requisites,,272
+Baby toiletries and accessories,baby-toiletries-and-accessories,,273
+Hair products,hair-products,,274
+Cosmetics and related accessories,cosmetics-and-related-accessories,,275
+Electrical appliances for personal care,electrical-appliances-for-personal-care,,276
+Jewellery clocks and watches and other personal effects,jewellery-clocks-and-watches-and-other-personal-effects,,277
+Leather and travel goods,leather-and-travel-goods,,278
+Sunglasses,sunglasses,,279
+Baby equipment,baby-equipment,,280
+Prams pram accessories,prams-pram-accessories,,281
+Repairs to personal goods,repairs-to-personal-goods,,282
+Residential homes,residential-homes,,283
+Home help,home-help,,284
+Nursery creche playschools,nursery-creche-playschools,,285
+Child care payments,child-care-payments,,286
+Structure insurance,structure-insurance,,287
+Contents insurance,contents-insurance,,288
+Insurance for household items,insurance-for-household-items,,289
+Medical insurance premiums,medical-insurance-premiums,,290
+Vehicle insurance,vehicle-insurance,,291
+Boat insurance,boat-insurance,,292
+Non package holiday other travel insurance,non-package-holiday-other-travel-insurance,,293
+Moving and storage of furniture,moving-and-storage-of-furniture,,294
+Property transaction purchase and sale,property-transaction-purchase-and-sale,,295
+Property transaction sale only,property-transaction-sale-only,,296
+Property transaction purchase only,property-transaction-purchase-only,,297
+Property transaction other payments,property-transaction-other-payments,,298
+Bank building society fees,bank-building-society-fees,,299
+Bank and post office counter charges,bank-and-post-office-counter-charges,,300
+Credit card fees,credit-card-fees,,301
+Other professional fees,other-professional-fees,,302
+Legal fees,legal-fees,,303
+Funeral expenses,funeral-expenses,,304
+Tu and professional organisations,tu-and-professional-organisations,,305
+Other payments for services,other-payments-for-services,,306
+Non profit instns serving households,non-profit-instns-serving-households,,307
+Central government,central-government,,308
+Local authorities,local-authorities,,309
+Gross fixed capital formation,gross-fixed-capital-formation,,310
+Valuables,valuables,,311
+Changes in inventories,changes-in-inventories,,312
