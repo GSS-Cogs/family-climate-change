@@ -90,4 +90,3 @@ df = df[['Year','Section', 'Energy Type', 'Value', 'Marker', 'Measure Type', 'Un
 
 cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title)
 cubes.output_all()
-df
