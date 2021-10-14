@@ -28,7 +28,7 @@
                 "value": "http://reference.data.gov.uk/id/{+period}",
                 "codelist": false
             },
-            "SIC Section" : {
+              "SIC Section" : {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/sic-section",
                 "value": "{+sic_section}"
              },
