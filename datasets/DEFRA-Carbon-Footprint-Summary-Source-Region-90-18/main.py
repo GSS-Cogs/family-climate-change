@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[15]:
+# In[20]:
 
 
 # ## DEFRA-Carbon-Footprint-Summary-Source-Region-90-18
@@ -19,7 +19,7 @@ df = df.drop(columns='Unnamed: 0')
 df.rename(columns={'Unnamed: 1': 'Period'}, inplace=True)
 
 
-# In[16]:
+# In[21]:
 
 
 df = pd.melt(df, id_vars=['Period'], var_name='Country Code', value_name='Value')
@@ -27,10 +27,10 @@ df = df.replace({'Total' : 'All'})
 df['Period'] = df['Period'].map(lambda x: 'year/' + str(x))
 df['Value'] = df['Value'].astype(str).astype(float).round(3)
 
-df = df[['Period', 'Country Code', 'Value', 'Unit']]
+df = df[['Period', 'Country Code', 'Value']]
 
 
-# In[17]:
+# In[22]:
 
 
 out = Path('out')
@@ -50,7 +50,7 @@ csvw_mapping.write(out/'observations.csv-metadata.json')
 shutil.copy("observations.csv-metadata.trig", out/"observations.csv-metadata.trig")
 
 
-# In[17]:
+# In[22]:
 
 
 
