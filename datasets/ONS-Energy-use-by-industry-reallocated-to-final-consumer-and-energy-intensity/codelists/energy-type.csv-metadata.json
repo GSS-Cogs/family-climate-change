@@ -59,7 +59,59 @@
         "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-by-industry-reallocated-to-final-consumer-and-energy-intensity#scheme/energy-type",
         "@type": [
             "skos:ConceptScheme",
-            "http://publishmydata.com/pmdcat#DatasetContents"
+            "http://publishmydata.com/pmdcat#ConceptScheme"
         ]
-    }
+    },
+    "rdfs:seeAlso": [
+        {
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-by-industry-reallocated-to-final-consumer-and-energy-intensity#scheme/energy-type/dataset",
+            "@type": [
+                "dcat:Dataset",
+                "http://publishmydata.com/pmdcat#Dataset"
+            ],
+            "http://publishmydata.com/pmdcat#datasetContents": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-by-industry-reallocated-to-final-consumer-and-energy-intensity#scheme/energy-type"
+            },
+            "http://publishmydata.com/pmdcat#graph": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-by-industry-reallocated-to-final-consumer-and-energy-intensity#scheme/energy-type"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-10-14T14:53:27.823347"
+            },
+            "rdfs:label": "Energy Type",
+            "dc:title": "Energy Type",
+            "rdfs:comment": "Dataset representing the 'Energy Type' code list.",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-10-14T14:53:27.823347"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/catalog/vocabularies",
+            "dcat:record": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-by-industry-reallocated-to-final-consumer-and-energy-intensity#scheme/energy-type/catalog-record"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-by-industry-reallocated-to-final-consumer-and-energy-intensity#scheme/energy-type/catalog-record",
+            "@type": "dcat:CatalogRecord",
+            "foaf:primaryTopic": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-by-industry-reallocated-to-final-consumer-and-energy-intensity#scheme/energy-type/dataset"
+            },
+            "http://publishmydata.com/pmdcat#metadataGraph": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-by-industry-reallocated-to-final-consumer-and-energy-intensity#scheme/energy-type"
+            },
+            "dc:title": "Energy Type Catalog Record",
+            "rdfs:label": "Energy Type Catalog Record",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-10-14T14:53:27.823347"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-10-14T14:53:27.823347"
+            }
+        }
+    ]
 }

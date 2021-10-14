@@ -77,6 +77,7 @@ df['Energy Type'] = df['Energy Type'].str.replace(r"\(.*\)","")
 df['Energy Type'] = df['Energy Type'].apply(pathify)
 df["Unit"]= df['Unit'].str.extract('.*\((.*)\).*')
 df['Unit'] = df['Unit'].apply(pathify)
+df['Measure Type'] = 'gross-caloric-values'
 # -
 
 #info needed to create URI's for section 
@@ -85,7 +86,7 @@ sic = 'http://business.data.gov.uk/companies/def/sic-2007/'
 #create the URI's from the section column 
 df['Section'] = df['Section'].map(lambda x: unique + x if '-' in x else (unique + x if 'total' in x else sic + x))
 #only need the following columns
-df = df[['Year','Section', 'Energy Type', 'Value', 'Marker', 'Unit']]
+df = df[['Year','Section', 'Energy Type', 'Value', 'Marker', 'Measure Type', 'Unit']]
 
 cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title)
 cubes.output_all()

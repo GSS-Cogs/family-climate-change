@@ -31,12 +31,14 @@
                 "value": "{+section}"
             },
             "Energy Type": {
-                "description" : "Energy use reallocated1 and energy intensity "
-    
+                "description" : "Energy Type" 
             },
             "Measure Type": {
                 "dimension": "http://purl.org/linked-data/cube#measureType",
-                "value": "http://gss-data.org.uk/def/measure/gross-caloric-values"
+                "value": "http://gss-data.org.uk/def/measure/{measure_type}",
+                "types": [
+                    "gross-caloric-values"
+                ]
             },
             "Unit": {
                 "dimension": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
