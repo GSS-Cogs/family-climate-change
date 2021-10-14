@@ -26,7 +26,6 @@ df = pd.melt(df, id_vars=['Period'], var_name='Country Code', value_name='Value'
 df = df.replace({'Total' : 'All'})
 df['Period'] = df['Period'].map(lambda x: 'year/' + str(x))
 df['Value'] = df['Value'].astype(str).astype(float).round(3)
-df['Unit'] = 'kt-co2e'
 
 df = df[['Period', 'Country Code', 'Value', 'Unit']]
 

@@ -27,7 +27,7 @@
               },
               "Value": {
                   "unit": "http://gss-data.org.uk/def/concept/measurement-units/kt-co2e",
-                  "measure": "http://gss-data.org.uk/def/measure/gas-emissions",
+                  "measure": "http://gss-data.org.uk/def/measure/greenhouse-gas-emissions",
                   "datatype": "double"
               }
           }
