@@ -41,3 +41,6 @@ climate-change,mass-of-air-emissions-of-carbon-dioxide-equivalent,Mass of air em
 climate-change,annual-mean-temperature,Annual Mean Temperature,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,water-leakage,Water Leakage,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,woodland,Woodland,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,new-conifers,New Conifers,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,new-broadleaves,New Broadleaves,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,total-new,Total New,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
