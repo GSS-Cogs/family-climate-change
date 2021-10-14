@@ -77,6 +77,7 @@ df['Energy Type'] = df['Energy Type'].str.replace(r"\(.*\)","")
 df['Energy Type'] = df['Energy Type'].apply(pathify)
 df["Unit"]= df['Unit'].str.extract('.*\((.*)\).*')
 df['Unit'] = df['Unit'].apply(pathify)
+df = df.replace({'Unit' : {'tj/ps-million' : 'tj-ps-million'}})
 df['Measure Type'] = 'gross-caloric-values'
 # -
 
