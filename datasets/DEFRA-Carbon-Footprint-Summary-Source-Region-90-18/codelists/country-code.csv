@@ -1,0 +1,17 @@
+Label,Notation,Parent Notation,Sort Priority
+UK,UK,,0
+Brazil,BRA,,1
+Russia,RUS,,2
+India,IND,,3
+China,CHN,,4
+South Africa,ZAF,,5
+USA,USA,,6
+Japan,JPN,,7
+Rest of the EU,REU,,8
+Rest of Europe,RER,,9
+Rest of the OECD,ROD,,10
+Rest of Africa,RAF,,11
+Rest of America,RAM,,12
+Rest of Asia,RAS,,13
+Rest of Middle East,RME,,14
+All,All,,15

@@ -1,0 +1,117 @@
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-source-region-90-18#scheme/country-code",
+    "url": "country-code.csv",
+    "rdfs:label": "Country Code",
+    "dc:title": "Country Code",
+    "tableSchema": {
+        "columns": [
+            {
+                "titles": "Label",
+                "name": "label",
+                "datatype": "string",
+                "required": true,
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "titles": "Notation",
+                "name": "notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*$"
+                },
+                "required": true,
+                "propertyUrl": "skos:notation"
+            },
+            {
+                "titles": "Parent Notation",
+                "name": "parent_notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^(-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*|)$"
+                },
+                "required": false,
+                "propertyUrl": "skos:broader",
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-source-region-90-18#concept/country-code/{+parent_notation}"
+            },
+            {
+                "titles": "Sort Priority",
+                "name": "sort_priority",
+                "datatype": "integer",
+                "required": false,
+                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "rdf:type",
+                "valueUrl": "skos:Concept"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "skos:inScheme",
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-source-region-90-18#scheme/country-code"
+            }
+        ],
+        "primaryKey": "notation",
+        "aboutUrl": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-source-region-90-18#concept/country-code/{+notation}"
+    },
+    "prov:hadDerivation": {
+        "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-source-region-90-18#scheme/country-code",
+        "@type": [
+            "skos:ConceptScheme",
+            "http://publishmydata.com/pmdcat#ConceptScheme"
+        ]
+    },
+    "rdfs:seeAlso": [
+        {
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-source-region-90-18#scheme/country-code/dataset",
+            "@type": [
+                "dcat:Dataset",
+                "http://publishmydata.com/pmdcat#Dataset"
+            ],
+            "http://publishmydata.com/pmdcat#datasetContents": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-source-region-90-18#scheme/country-code"
+            },
+            "http://publishmydata.com/pmdcat#graph": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-source-region-90-18#scheme/country-code"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-10-14T14:22:10.870096"
+            },
+            "rdfs:label": "Country Code",
+            "dc:title": "Country Code",
+            "rdfs:comment": "Dataset representing the 'Country Code' code list.",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-10-14T14:22:10.870096"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/catalog/vocabularies",
+            "dcat:record": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-source-region-90-18#scheme/country-code/catalog-record"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-source-region-90-18#scheme/country-code/catalog-record",
+            "@type": "dcat:CatalogRecord",
+            "foaf:primaryTopic": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-source-region-90-18#scheme/country-code/dataset"
+            },
+            "http://publishmydata.com/pmdcat#metadataGraph": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/defra-carbon-footprint-summary-source-region-90-18#scheme/country-code"
+            },
+            "dc:title": "Country Code Catalog Record",
+            "rdfs:label": "Country Code Catalog Record",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-10-14T14:22:10.870096"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-10-14T14:22:10.870096"
+            }
+        }
+    ]
+}
