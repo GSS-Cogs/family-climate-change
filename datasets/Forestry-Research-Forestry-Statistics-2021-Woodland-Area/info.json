@@ -15,7 +15,22 @@
     },
     "transform": {
         "airtable": "recgWPtam4nIZfAq3",
-        "main_issue": 93
+        "main_issue": 93,
+        "columns": {
+            "Year": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{year}",
+                "codelist": false
+            },
+            "Geography": {
+                "description": "forestry bespoke geography area"
+            },
+            "Value": {
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/million-hectares",
+                "measure": "http://gss-data.org.uk/def/climate-change/measure/woodland",
+                "datatype": "double"
+            }
+        }
     },
     "sizingNotes": "",
     "notes": "Priority dataset for Climate Change Platform project."
