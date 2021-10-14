@@ -36,7 +36,7 @@ df['Year'] = df.apply(lambda x: 'government-year/' + x['Year'], axis = 1)
 
 df = df.rename(columns={'Year' : 'Period'})
 
-df['Measure Type'] = df.apply(lambda x: 'water-leakage' if 'E8b' in x['Series'] else 'water-consumption', axis = 1)
+df['Measure Type'] = df.apply(lambda x: 'water-consumption' if 'E8b' in x['Series'] else 'water-leakage', axis = 1)
 df['Unit'] = df.apply(lambda x: 'megalitres-per-day' if 'E8b' in x['Series'] else 'litres-per-person-per-day', axis = 1)
 
 df = df.drop(['Series'], axis = 1)
@@ -46,7 +46,7 @@ df['Value'] = df['Value'].astype(str).astype(float).round(2)
 df = df.fillna('not available')
 
 df['Marker'] = df.apply (lambda x: 'not-available' if 'not available' in str(x['Value']) else '', axis = 1)
-df['Value'] = df.apply (lambda x: 0 if 'not available' in str(x['Value']) else x['Value'], axis = 1)
+df['Value'] = df.apply (lambda x: None if 'not available' in str(x['Value']) else x['Value'], axis = 1)
 
 #df['Series'] = df['Series'].apply(pathify)
 
