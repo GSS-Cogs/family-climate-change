@@ -1,0 +1,34 @@
+Label,Notation,Parent Notation,Sort Priority
+Total energy consumption of primary fuels and equivalents,total-energy-consumption-of-primary-fuels-and-equivalents,,1
+Direct1 use of energy from fossil fuels,direct1-use-of-energy-from-fossil-fuels,,2
+"Agriculture, forestry and fishing",agriculture-forestry-and-fishing,,3
+Mining and quarrying,mining-and-quarrying,,4
+Manufacturing,manufacturing,,5
+"Electricity, gas, steam and air conditioning supply",electricity-gas-steam-and-air-conditioning-supply,,6
+"Water supply; sewerage, waste management and remediation activities",water-supply-sewerage-waste-management-and-remediation-activities,,7
+Construction,construction,,8
+Wholesale and retail trade; repair of motor vehicles and motorcycles,wholesale-and-retail-trade-repair-of-motor-vehicles-and-motorcycles,,9
+Transport and storage,transport-and-storage,,10
+Accommodation and food services,accommodation-and-food-services,,11
+Information and communication,information-and-communication,,12
+Financial and insurance activities,financial-and-insurance-activities,,13
+Real estate activities,real-estate-activities,,14
+"Professional, scientific and technical activities",professional-scientific-and-technical-activities,,15
+Administrative and support service activities,administrative-and-support-service-activities,,16
+Public administration and defence; compulsory social security,public-administration-and-defence-compulsory-social-security,,17
+Education,education,,18
+Human health and social work activities,human-health-and-social-work-activities,,19
+"Arts, entertainment and recreation",arts-entertainment-and-recreation,,20
+Other service activities,other-service-activities,,21
+Activities of households as employers; undifferentiated goods and services producing activities of households for own use,activities-of-households-as-employers-undifferentiated-goods-and-services-producing-activities-of-households-for-own-use,,22
+Consumer expenditure,consumer-expenditure,,23
+Energy from other sources,energy-from-other-sources,,24
+Nuclear,nuclear,,25
+Net imports,net-imports,,26
+Energy from renewable & waste sources2,energy-from-renewable-waste-sources2,,27
+Direct use of energy including other sources,direct-use-of-energy-including-other-sources,,28
+  transformation losses by major producers,-transformation-losses-by-major-producers,,29
+  distribution losses of electricity supply,-distribution-losses-of-electricity-supply,,30
+"Arts, entertainment and recreation; other service activities",arts-entertainment-and-recreation-other-service-activities,,31
+Reallocated1 use of energy,reallocated1-use-of-energy,,32
+Energy industry electricity transformation losses and distribution losses allocated to final consumer,energy-industry-electricity-transformation-losses-and-distribution-losses-allocated-to-final-consumer,,33

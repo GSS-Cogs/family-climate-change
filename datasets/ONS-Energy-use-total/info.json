@@ -20,7 +20,31 @@
             "Priority"
         ],
         "airtable": "recgApYcshPmIccVD",
-        "main_issue": 76
+        "main_issue": 76,
+        "columns": {
+            "Year": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Energy Consumption Source": {
+                "description" : "Energy Consumption Source" 
+            },
+            "Industry Section": {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/industry-section",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/industry-section/{industry_section}"
+            },
+            "Measure Type": {
+                "dimension": "http://purl.org/linked-data/cube#measureType",
+                "value": "http://gss-data.org.uk/def/measure/{measure_type}"
+            },
+            "Unit": {
+                "dimension": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{unit}"
+            },
+            "Value": {
+                "datatype": "decimal"
+            }
+        }
     },
     "sizingNotes": "Simple table structure and dimensions with some footnotes.",
     "notes": "Priority dataset for Climate Change Platform project."
