@@ -15,7 +15,33 @@
     },
     "transform": {
         "airtable": "recIglVxBJUebUU9b",
-        "main_issue": 96
+        "main_issue": 96,
+          "columns": {
+              "Period": {
+                  "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                  "value": "http://reference.data.gov.uk/id/{+period}",
+                  "codelist": false
+              },
+              "Product": {
+                  "description": "Product relevant to the creation of emissions"
+              },
+              "Unit": {
+                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{unit}"
+              },
+              "Value": {
+                "datatype": "double"
+              },
+              "Measure Type": {
+                "dimension": "http://purl.org/linked-data/cube#measureType",
+                "value": "http://gss-data.org.uk/def/measure/{measure_type}",
+                "types": [
+                    "greenhouse-gas-emissions",
+                    "carbon-dioxide-emissions",
+                    "energy"
+                ]
+              }
+          }
     },
     "sizingNotes": "",
     "notes": "Priority dataset for Climate Change Platform project."

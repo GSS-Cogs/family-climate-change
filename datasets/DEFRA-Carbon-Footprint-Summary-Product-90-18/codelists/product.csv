@@ -1,0 +1,35 @@
+Label,Notation,Parent Notation,Sort Priority
+Food,FOO,,0
+Non-alcoholic beverages,DRI,,1
+Alcoholic beverages,ALC,,2
+Tobacco,TOB,,3
+Clothing,CLO,,4
+Footwear,SHO,,5
+Actual rentals for households,ACR,,6
+Imputed rentals for households,IMR,,7
+Maintenance and repair of the dwelling,DIY,,8
+Water supply and miscellaneous dwelling services,WAT,,9
+"Electricity, gas and other fuels",ELG,,10
+"Furniture, furnishings, carpets etc",FRN,,11
+Household textiles,TEX,,12
+Household appliances,APL,,13
+"Glassware, tableware and household utensils",GLA,,14
+Tools and equipment for house and garden,TOO,,15
+Goods and services for household maintenance,GOO,,16
+"Medical products, appliances and equipment",MED,,17
+Hospital services,HOS,,18
+Purchase of vehicles,VEH,,19
+Operation of personal transport equipment,OPP,,20
+Transport services,TRS,,21
+Postal services,PST,,22
+Telephone and telefax equipment,TEL,,23
+Telephone and telefax services,TES,,24
+"Audio-visual, photo and info processing equipment",AVI,,25
+Other major durables for recreation and culture,MRC,,26
+Other recreational equipment etc,ORC,,27
+Recreational and cultural services,RCS,,28
+"Newspapers, books and stationery",NBS,,29
+Education,EDU,,30
+Restaurants and hotels,R&H,,31
+Miscellaneous goods and services,MSC,,32
+All,All,,33
