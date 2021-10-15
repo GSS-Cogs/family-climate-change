@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[194]:
+# In[205]:
 
 
 from gssutils import *
@@ -12,14 +12,14 @@ scraper = Scraper(seed = "info.json")
 scraper
 
 
-# In[195]:
+# In[206]:
 
 
 distribution  = scraper.distribution(latest=True, title = lambda x:"2020 UK greenhouse gas emissions: provisional figures - data tables" in x)
 distribution
 
 
-# In[ ]:
+# In[207]:
 
 
 tabs = distribution.as_databaker()
@@ -28,7 +28,7 @@ for tab in tabs:
     print(tab.name)
 
 
-# In[ ]:
+# In[208]:
 
 
 sheets = []
@@ -99,7 +99,7 @@ for tab in tabs:
         sheets.append(df)
 
 
-# In[ ]:
+# In[209]:
 
 
 df = pd.concat(sheets)
@@ -120,12 +120,14 @@ df['Fuel'] = df['Fuel'].map(lambda x: pathify(x))
 
 df = df.rename(columns = {'OBS' : 'Value'})
 
+df['Value'] = df['Value'].map(lambda x: round(x, 1))
+
 df = df[['Period', 'Area', 'National Communication Sector', 'Fuel', 'Value', 'Marker', 'Measure Type', 'Unit']]
 
 df
 
 
-# In[ ]:
+# In[210]:
 
 
 scraper.dataset.comment = """Final estimates of UK territorial greenhouse gas emissions, including provisional data for 2020"""
@@ -134,7 +136,7 @@ cubes.add_cube(scraper, df.drop_duplicates(), scraper.dataset.title)
 cubes.output_all()
 
 
-# In[ ]:
+# In[210]:
 
 
 
