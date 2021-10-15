@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[158]:
+# In[172]:
 
 
 from gssutils import *
@@ -12,14 +12,14 @@ scraper = Scraper(seed = "info.json")
 scraper
 
 
-# In[159]:
+# In[173]:
 
 
 distribution  = scraper.distribution(latest=True, title = lambda x:"2020 UK greenhouse gas emissions: provisional figures - data tables" in x)
 distribution
 
 
-# In[160]:
+# In[174]:
 
 
 tabs = distribution.as_databaker()
@@ -28,7 +28,7 @@ for tab in tabs:
     print(tab.name)
 
 
-# In[161]:
+# In[175]:
 
 
 sheets = []
@@ -36,6 +36,8 @@ sheets = []
 tabs = [tab for tab in tabs if 'Contents' not in tab.name]
 
 for tab in tabs:
+
+    if tab.name not in ['Table 3', 'Table 4']: #tables 3 and 4 are moving averages
 
     remove = tab.filter(contains_string("2020 estimates")).expand(RIGHT).expand(DOWN)
 
@@ -57,6 +59,16 @@ for tab in tabs:
         ncSector = 'all'
         fuel = cell.fill(DOWN).is_not_blank().is_not_whitespace() - remove
 
+    if tab.name in ['Table 1', 'Table 5']:
+        measureType = 'greenhouse-gas-emissions'
+        unit = 'millions-of-tonnes-of-co2-equivalent'
+    elif tab.name in ['Table 2']:
+        measureType  = 'carbon-dioxide-emissions'
+        unit = 'millions-of-tonnes-of-co2'
+    elif tab.name in ['Table 6']:
+        measureType  = 'temperature-adjusted-greenhouse-gas-emissions'
+        unit = 'millions-of-tonnes-of-co2-equivalent'
+
     observations = quarter.fill(DOWN).is_not_blank().is_not_whitespace() - remove
 
     if tab.name not in ['Table 2']:
@@ -65,7 +77,9 @@ for tab in tabs:
             HDim(period, "Period", CLOSEST, LEFT),
             HDim(quarter, "Quarter", DIRECTLY, ABOVE),
             HDim(ncSector, "National Communication Sector", DIRECTLY, LEFT),
-            HDimConst('Fuel', fuel)
+            HDimConst('Fuel', fuel),
+            HDimConst('Measure Type', measureType),
+            HDimConst('Unit', unit)
         ]
     else:
         dimensions = [
@@ -73,7 +87,9 @@ for tab in tabs:
             HDim(period, "Period",  CLOSEST, LEFT),
             HDim(quarter, "Quarter", DIRECTLY, ABOVE),
             HDimConst("National Communication Sector", ncSector),
-            HDim(fuel, 'Fuel', DIRECTLY, LEFT)
+            HDim(fuel, 'Fuel', DIRECTLY, LEFT),
+            HDimConst('Measure Type', measureType),
+            HDimConst('Unit', unit)
         ]
 
     tidy_sheet = ConversionSegment(tab, dimensions, observations)
@@ -83,7 +99,7 @@ for tab in tabs:
     sheets.append(df)
 
 
-# In[162]:
+# In[ ]:
 
 
 df = pd.concat(sheets)
@@ -99,15 +115,16 @@ indexNames = df[ df['Fuel'] == 'Total' ].index
 df.drop(indexNames, inplace = True)
 
 df['National Communication Sector'] = df['National Communication Sector'].map(lambda x: pathify(x))
+df['Fuel'] = df['Fuel'].map(lambda x: pathify(x))
 
 df = df.rename(columns = {'OBS' : 'Value'})
 
-df = df[['Period', 'Area', 'National Communication Sector', 'Fuel', 'Value', 'Marker']]
+df = df[['Period', 'Area', 'National Communication Sector', 'Fuel', 'Value', 'Marker', 'Measure Type', 'Unit']]
 
 df
 
 
-# In[164]:
+# In[ ]:
 
 
 scraper.dataset.comment = """Final estimates of UK territorial greenhouse gas emissions, including provisional data for 2020"""
@@ -116,7 +133,7 @@ cubes.add_cube(scraper, df.drop_duplicates(), scraper.dataset.title)
 cubes.output_all()
 
 
-# In[165]:
+# In[ ]:
 
 
 
