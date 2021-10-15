@@ -1,0 +1,123 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[158]:
+
+
+from gssutils import *
+
+cubes = Cubes("info.json")
+
+scraper = Scraper(seed = "info.json")
+scraper
+
+
+# In[159]:
+
+
+distribution  = scraper.distribution(latest=True, title = lambda x:"2020 UK greenhouse gas emissions: provisional figures - data tables" in x)
+distribution
+
+
+# In[160]:
+
+
+tabs = distribution.as_databaker()
+
+for tab in tabs:
+    print(tab.name)
+
+
+# In[161]:
+
+
+sheets = []
+
+tabs = [tab for tab in tabs if 'Contents' not in tab.name]
+
+for tab in tabs:
+
+    remove = tab.filter(contains_string("2020 estimates")).expand(RIGHT).expand(DOWN)
+
+    cell = tab.excel_ref("A2")
+
+    if tab.name not in ['Table 1', 'Table 2']:
+        period = cell.fill(RIGHT).is_not_blank().is_not_whitespace()
+        quarter = period.shift(DOWN).expand(RIGHT)
+    else:
+        period = cell.fill(RIGHT).is_not_blank().is_not_whitespace()
+        quarter = period
+
+    area = 'K02000001'
+
+    if tab.name not in ['Table 2']:
+        ncSector = cell.fill(DOWN).is_not_blank().is_not_whitespace() - remove
+        fuel = 'all'
+    else:
+        ncSector = 'all'
+        fuel = cell.fill(DOWN).is_not_blank().is_not_whitespace() - remove
+
+    observations = quarter.fill(DOWN).is_not_blank().is_not_whitespace() - remove
+
+    if tab.name not in ['Table 2']:
+        dimensions = [
+            HDimConst('Area', area),
+            HDim(period, "Period", CLOSEST, LEFT),
+            HDim(quarter, "Quarter", DIRECTLY, ABOVE),
+            HDim(ncSector, "National Communication Sector", DIRECTLY, LEFT),
+            HDimConst('Fuel', fuel)
+        ]
+    else:
+        dimensions = [
+            HDimConst('Area', area),
+            HDim(period, "Period",  CLOSEST, LEFT),
+            HDim(quarter, "Quarter", DIRECTLY, ABOVE),
+            HDimConst("National Communication Sector", ncSector),
+            HDim(fuel, 'Fuel', DIRECTLY, LEFT)
+        ]
+
+    tidy_sheet = ConversionSegment(tab, dimensions, observations)
+    df = tidy_sheet.topandas()
+    savepreviewhtml(tidy_sheet,fname=tab.name + "Preview.html")
+
+    sheets.append(df)
+
+
+# In[162]:
+
+
+df = pd.concat(sheets)
+
+df['Marker'] = df.apply(lambda x: 'provisional' if '(p)' in x['Period'] else '', axis = 1)
+df['Period'] = df.apply(lambda x: 'year/' + str(x['Period'])[:4] if 'Q' not in x['Quarter']                                                                 else 'quarter/' + str(x['Period'])[:4] + '-' + str(x['Quarter']), axis = 1)
+df = df.drop(columns = ['Quarter'])
+
+df = df.replace({'National Communication Sector' : {'     from power stations' : 'Power Stations',
+                                 '     other Energy supply' : 'Other Energy Supply'}})
+
+indexNames = df[ df['Fuel'] == 'Total' ].index
+df.drop(indexNames, inplace = True)
+
+df['National Communication Sector'] = df['National Communication Sector'].map(lambda x: pathify(x))
+
+df = df.rename(columns = {'OBS' : 'Value'})
+
+df = df[['Period', 'Area', 'National Communication Sector', 'Fuel', 'Value', 'Marker']]
+
+df
+
+
+# In[164]:
+
+
+scraper.dataset.comment = """Final estimates of UK territorial greenhouse gas emissions, including provisional data for 2020"""
+
+cubes.add_cube(scraper, df.drop_duplicates(), scraper.dataset.title)
+cubes.output_all()
+
+
+# In[165]:
+
+
+
+
