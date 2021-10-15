@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[176]:
+# In[182]:
 
 
 from gssutils import *
@@ -12,14 +12,14 @@ scraper = Scraper(seed = "info.json")
 scraper
 
 
-# In[177]:
+# In[183]:
 
 
 distribution  = scraper.distribution(latest=True, title = lambda x:"2020 UK greenhouse gas emissions: provisional figures - data tables" in x)
 distribution
 
 
-# In[178]:
+# In[184]:
 
 
 tabs = distribution.as_databaker()
@@ -28,7 +28,7 @@ for tab in tabs:
     print(tab.name)
 
 
-# In[179]:
+# In[185]:
 
 
 sheets = []
@@ -99,7 +99,7 @@ for tab in tabs:
         sheets.append(df)
 
 
-# In[180]:
+# In[186]:
 
 
 df = pd.concat(sheets)
@@ -109,7 +109,8 @@ df['Period'] = df.apply(lambda x: 'year/' + str(x['Period'])[:4] if 'Q' not in x
 df = df.drop(columns = ['Quarter'])
 
 df = df.replace({'National Communication Sector' : {'     from power stations' : 'Power Stations',
-                                 '     other Energy supply' : 'Other Energy Supply'}})
+                                 '     other Energy supply' : 'Other Energy Supply',
+                                                    'lulucf' : 'land-use-land-use-change-and-forestry'}})
 
 indexNames = df[ df['Fuel'] == 'Total' ].index
 df.drop(indexNames, inplace = True)
@@ -124,7 +125,7 @@ df = df[['Period', 'Area', 'National Communication Sector', 'Fuel', 'Value', 'Ma
 df
 
 
-# In[181]:
+# In[187]:
 
 
 scraper.dataset.comment = """Final estimates of UK territorial greenhouse gas emissions, including provisional data for 2020"""
@@ -133,7 +134,7 @@ cubes.add_cube(scraper, df.drop_duplicates(), scraper.dataset.title)
 cubes.output_all()
 
 
-# In[181]:
+# In[187]:
 
 
 
