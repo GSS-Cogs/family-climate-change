@@ -2,8 +2,8 @@
     "@context": "http://www.w3.org/ns/csvw",
     "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/sic-section",
     "url": "sic-section.csv",
-    "rdfs:label": "SIC Section",
-    "dc:title": "SIC Section",
+    "rdfs:label": "Sic Section",
+    "dc:title": "Sic Section",
     "tableSchema": {
         "columns": [
             {
@@ -15,11 +15,13 @@
             },
             {
                 "titles": "URI",
-                "name": "uri"
+                "name": "uri",
+                "suppressOutput": true
             },
             {
                 "titles": "Parent URI",
-                "name": "parent_uri"
+                "name": "parent_uri",
+                "propertyUrl": "skos:parent"
             },
             {
                 "titles": "Sort Priority",
@@ -37,7 +39,8 @@
             },
             {
                 "titles": "Local Notation",
-                "name": "local_notation"
+                "name": "local_notation",
+                "propertyUrl": "skos:notation"
             },
             {
                 "virtual": true,
@@ -75,14 +78,14 @@
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-10-07T18:00:22.601409"
+                "@value": "2021-10-18T19:36:43.841465"
             },
-            "rdfs:label": "SIC Section",
-            "dc:title": "SIC Section",
-            "rdfs:comment": "Dataset representing the 'SIC Section' code list.",
+            "rdfs:label": "Sic Section",
+            "dc:title": "Sic Section",
+            "rdfs:comment": "Dataset representing the 'Sic Section' code list.",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-10-07T18:00:22.601409"
+                "@value": "2021-10-18T19:36:43.841465"
             }
         },
         {
@@ -100,15 +103,15 @@
             "http://publishmydata.com/pmdcat#metadataGraph": {
                 "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/sic-section"
             },
-            "dc:title": "SIC Section Catalog Record",
-            "rdfs:label": "SIC Section Catalog Record",
+            "dc:title": "Sic Section Catalog Record",
+            "rdfs:label": "Sic Section Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-10-07T18:00:22.601409"
+                "@value": "2021-10-18T19:36:43.841465"
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-10-07T18:00:22.601409"
+                "@value": "2021-10-18T19:36:43.841465"
             }
         }
     ]
