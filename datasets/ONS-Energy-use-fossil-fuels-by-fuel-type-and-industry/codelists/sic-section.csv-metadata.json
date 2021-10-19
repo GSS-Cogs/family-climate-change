@@ -21,7 +21,7 @@
             {
                 "titles": "Parent URI",
                 "name": "parent_uri",
-                "propertyUrl": "skos:parent"
+                "propertyUrl": "skos:broader"
             },
             {
                 "titles": "Sort Priority",
