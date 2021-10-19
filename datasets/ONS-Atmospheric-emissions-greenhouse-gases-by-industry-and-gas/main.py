@@ -21,9 +21,8 @@ cubes = Cubes('info.json')
 info = json.load(open('info.json'))
 landingPage = info['landingPage']
 metadata = Scraper(seed="info.json")
-distribution = metadata.distribution(latest = True, mediaType = Excel)
+distribution = metadata.distribution(latest = True)
 title = distribution.title
-distribution
 
 # +
 #reterieve the id from info.json for URI's (use later)
@@ -33,6 +32,9 @@ with open("info.json", "r") as read_file:
 
 def pathify_section_values(section):
     if 'Total' in section:
+        section = pathify(section)
+        return section
+    if 'Travel' in section or 'travel' in section:
         section = pathify(section)
         return section
     else: 
@@ -46,10 +48,32 @@ tidied_sheets = []
 for tab in tabs:
     if 'Contents' in tab.name:
         continue
-    #Bottom part only needed
+    remove_bottom_section = tab.excel_ref('A31').expand(DOWN).expand(RIGHT)
     year = tab.excel_ref('C4').expand(RIGHT).is_not_blank()
+    section = tab.excel_ref('A4').expand(DOWN)
+    section_name = tab.excel_ref('C4').expand(DOWN)
+    observations = year.fill(DOWN).is_not_blank() - remove_bottom_section
+    measure_type = tab.excel_ref('AH3')
+
+    #Top part (includes 2020 provisional data for total ghg)
+    dimensions = [
+        HDim(section, 'Section breakdown', DIRECTLY, LEFT), # will be dropped 
+        HDim(section_name, 'Industry Section Name', DIRECTLY, LEFT), # will be dropped 
+        HDim(year, 'Year', DIRECTLY, ABOVE),
+        HDimConst('Emission Type', tab.name),
+        HDim(measure_type, 'Measure Type', CLOSEST, ABOVE),
+        ]
+    tidy_sheet = ConversionSegment(tab, dimensions, observations)
+    #savepreviewhtml(tidy_sheet, fname = tab.name+ "Preview.html")
+    table = tidy_sheet.topandas()
+    table['Section'] = table.apply(lambda x: x['Industry Section Name'] if x['Section breakdown'] == '-' 
+                                   else (x['Industry Section Name'] if x['Section breakdown'] == '' 
+                                         else x['Section breakdown']), axis=1)
+    table['Section'] = table['Section'].apply(pathify_section_values)
+    tidied_sheets.append(table)
+    
+    #Bottom part 
     section_name = tab.excel_ref('C31').expand(DOWN)
-    measure_type = tab.excel_ref('AG3')
     remove_top_section = tab.excel_ref('A31').expand(UP).expand(RIGHT)
     remove_notes = tab.excel_ref('A165').expand(DOWN).expand(RIGHT)
     sic_group = tab.excel_ref('A31').expand(DOWN) - remove_notes
@@ -102,4 +126,3 @@ df = df[['Year','Section','Emission Type', 'Value', 'Measure Type', 'Units']]
 
 cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title)
 cubes.output_all()
-df
