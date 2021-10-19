@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # ---
 # jupyter:
 #   jupytext:
@@ -41,90 +42,74 @@ def pathify_section_values(section):
 # -
 
 tabs = distribution.as_databaker()
-tidied_sheets = []
+tidied_sheets_1 = []
 for tab in tabs:
-    if 'Contents' in tab.name or 'CO2 intensity SDG basis' in tab.name:
+    if 'Contents' in tab.name :
         continue
-    remove_bottom_section = tab.excel_ref('A28').expand(DOWN).expand(RIGHT)
-    year = tab.excel_ref('B4').expand(RIGHT).is_not_blank()
-    if 'GHG' in tab.name: 
-        year = tab.excel_ref('D4').expand(RIGHT).is_not_blank()
-    observations = year.fill(DOWN).is_not_blank() - remove_bottom_section
-    section = tab.excel_ref('A4').expand(DOWN) - remove_bottom_section
-    section_name = tab.excel_ref('C4').expand(DOWN) - remove_bottom_section
-    unit = tab.excel_ref('AF3')
-    if 'CO2 intensity SDG basis' in tab.name: 
+    if'CO2 intensity SDG basis' in tab.name:
+        year = tab.excel_ref('B4').expand(RIGHT).is_not_blank()
+        emission_intensity = tab.excel_ref('A5')
+        observations = year.fill(DOWN).is_not_blank()
         unit = tab.excel_ref('AD3')
-    
-    #Top part 
-    dimensions = [
-        HDim(section, 'Section breakdown', DIRECTLY, LEFT), # will be dropped 
-        HDim(section_name, 'Industry Section Name', DIRECTLY, LEFT), # will be dropped 
-        HDim(year, 'Year', DIRECTLY, ABOVE),
-        HDim(unit, 'Unit', CLOSEST, ABOVE),
-        HDimConst('Emission Intensity', tab.name),
-        ]
-    tidy_sheet = ConversionSegment(tab, dimensions, observations)
-    #savepreviewhtml(tidy_sheet, fname = tab.name+ "Preview.html")
-    table = tidy_sheet.topandas()
-    
-    remove_top_section = tab.excel_ref('A27').expand(UP).expand(RIGHT)
-    remove_notes = tab.excel_ref('A141').expand(DOWN).expand(RIGHT)
-    sic_group = tab.excel_ref('A27').expand(DOWN) - remove_notes
-    section = tab.excel_ref('B27').expand(DOWN) - remove_notes
-    section_name = tab.excel_ref('C4').expand(DOWN) - remove_top_section - remove_notes
-    observations = year.fill(DOWN).is_not_blank() - remove_top_section - remove_notes
-    
-    dimensions = [
-        HDim(sic_group, 'SIC(07)Group', DIRECTLY, LEFT),
-        HDim(section, 'Section breakdown', DIRECTLY, LEFT), # will be dropped 
-        HDim(section_name, 'Industry Section Name', DIRECTLY, LEFT), # will be dropped 
-        HDim(year, 'Year', DIRECTLY, ABOVE),
-        HDim(unit, 'Unit', CLOSEST, ABOVE),
-        HDimConst('Emission Intensity', tab.name),
+        measure_type = 'emissions-intensity-sdg-basis'
+        section = 'not-applicable'
+        emission_intensity = 'CO2'
+        dimensions = [
+            HDim(year, 'Year', DIRECTLY, ABOVE),
+            HDimConst('Section', section),
+            HDimConst('Emission Type', emission_intensity),
+            HDim(unit, 'Unit', CLOSEST, ABOVE),
+            HDimConst('Measure Type', measure_type),
         ]
     
-    tidy_sheet = ConversionSegment(tab, dimensions, observations)
-    #savepreviewhtml(tidy_sheet, fname = tab.name+ "Preview.html")
-    table = tidy_sheet.topandas()
-    table['Section'] = table.apply(lambda x: x['Industry Section Name'] if x['Section breakdown'] == '-' 
-                                   else (x['Industry Section Name'] if x['Section breakdown'] == '' 
-                                         else x['Section breakdown']), axis=1)
-    table['Section'] = table['Section'].apply(pathify_section_values)
-    tidied_sheets.append(table)
+        tidy_sheet = ConversionSegment(tab, dimensions, observations)
+       # savepreviewhtml(tidy_sheet, fname = tab.name+ "Preview.html")
+        table = tidy_sheet.topandas()
+        tidied_sheets_1.append(table)   
+        
+    else :
+        #Bottom part only needed. 
+        year = tab.excel_ref('B4').expand(RIGHT).is_not_blank()
+        if 'GHG' in tab.name: 
+            year = tab.excel_ref('D4').expand(RIGHT).is_not_blank()
+        section_name = tab.excel_ref('C28').expand(DOWN)
+        unit = tab.excel_ref('AF3')
+        if 'CO2 intensity SDG basis' in tab.name: 
+            unit = tab.excel_ref('AD3')
     
-    #Bottom part 
-    remove_top_section = tab.excel_ref('A27').expand(UP).expand(RIGHT)
-    remove_notes = tab.excel_ref('A141').expand(DOWN).expand(RIGHT)
-    sic_group = tab.excel_ref('A27').expand(DOWN) - remove_notes
-    section = tab.excel_ref('B27').expand(DOWN) - remove_notes
-    observations = year.fill(DOWN).is_not_blank() - remove_top_section - remove_notes
-    dimensions = [
-        HDim(sic_group, 'SIC(07)Group', DIRECTLY, LEFT),
-        HDim(section, 'Section breakdown', DIRECTLY, LEFT), # will be dropped 
-        HDim(section_name, 'Industry Section Name', DIRECTLY, LEFT), # will be dropped 
-        HDim(year, 'Year', DIRECTLY, ABOVE),
-        HDim(unit, 'Unit', CLOSEST, ABOVE),
-        HDimConst('Emission Intensity', tab.name),
-        ]
+        remove_top_section = tab.excel_ref('A27').expand(UP).expand(RIGHT)
+        remove_notes = tab.excel_ref('A141').expand(DOWN).expand(RIGHT)
+        sic_group = tab.excel_ref('A27').expand(DOWN) - remove_notes
+        section = tab.excel_ref('B27').expand(DOWN) - remove_notes
+        observations = year.fill(DOWN).is_not_blank() - remove_top_section - remove_notes
+        measure_type = 'emissions-intensity'
+        dimensions = [
+            HDim(sic_group, 'SIC(07)Group', DIRECTLY, LEFT),
+            HDim(section, 'Section breakdown', DIRECTLY, LEFT), # will be dropped 
+            HDim(section_name, 'Industry Section Name', DIRECTLY, LEFT), # will be dropped 
+            HDim(year, 'Year', DIRECTLY, ABOVE),
+            HDim(unit, 'Unit', CLOSEST, ABOVE),
+            HDimConst('Emission Type', tab.name),
+            HDimConst('Measure Type', measure_type)
+            ]
     
-    tidy_sheet = ConversionSegment(tab, dimensions, observations)
-    #savepreviewhtml(tidy_sheet, fname = tab.name+ "Preview.html")
-    table = tidy_sheet.topandas()
-    table['Section'] = table.apply(lambda x: x['Industy Section Name'] if x['SIC(07)Group'] == '-' 
+        tidy_sheet = ConversionSegment(tab, dimensions, observations)
+        #savepreviewhtml(tidy_sheet, fname = tab.name+ "Preview.html")
+        table = tidy_sheet.topandas()
+        table['Section'] = table.apply(lambda x: x['Industy Section Name'] if x['SIC(07)Group'] == '-' 
                                    else (x['Industry Section Name'] if x['SIC(07)Group'] == '' 
                                        else x['SIC(07)Group']), axis=1)
     
-    table['Section'] = table['Section'].str.rstrip("0")
-    table['Section'] = table['Section'].str.rstrip(".")
-    table['Section'] = table['Section'].apply(lambda x: '{0:0>2}'.format(x))
-    table['Section'] = table['Section'].apply(pathify_section_values)
-    table['Section'] = table['Section'].apply(pathify)
-    tidied_sheets.append(table)    
-    
+        table['Section'] = table['Section'].str.rstrip("0")
+        table['Section'] = table['Section'].str.rstrip(".")
+        table['Section'] = table['Section'].apply(lambda x: '{0:0>2}'.format(x))
+        table['Section'] = table['Section'].apply(pathify_section_values)
+        table['Section'] = table['Section'].apply(pathify)
+        tidied_sheets_1.append(table)    
+
 
 # +
-df = pd.concat(tidied_sheets, sort=True)
+df = pd.concat(tidied_sheets_1, sort=True)
 df.rename(columns={'OBS' : 'Value', 'DATAMARKER' : 'Marker'}, inplace=True)
 df = df.replace({'Section' : {'Total' : 'total', 'Consumer expenditure' : 'consumer-expenditure'}})
 df['Year'] = df['Year'].astype(str).replace('\.0', '', regex=True)
@@ -134,8 +119,13 @@ unique = 'http://gss-data.org.uk/data/gss_data/climate-change/' + title_id + '#c
 sic = 'http://business.data.gov.uk/companies/def/sic-2007/'
 #create the URI's from the section column 
 df['Section'] = df['Section'].map(lambda x: unique + x if '-' in x else (unique + x if 'total' in x else sic + x))
+df['Industry Section Name'] = df['Industry Section Name'].fillna('Not Applicable')
+df = df.replace({'Unit' : {'Thousand tonnes CO2 equivalent/£ million' : 'thousand-tonnes-co2-equivalent-ps-million'}})
+df['Emission Type'] = df['Emission Type'].str.replace(r'\bintensity$', '', regex=True).str.strip()
+df['Emission Type'] = df['Emission Type'].apply(pathify)
+
 #only need the following columns
-df = df[['Year','Section','Emission Intensity', 'Value', 'Unit']]
+df = df[['Year','Section','Emission Type', 'Value', 'Measure Type', 'Unit']]
 # -
 
 cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title)
