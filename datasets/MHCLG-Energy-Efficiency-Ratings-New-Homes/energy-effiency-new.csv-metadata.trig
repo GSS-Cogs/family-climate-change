@@ -33,7 +33,7 @@ ns1:mhclg-energy-efficiency-ratings-new-homes-metadata {
     dct:description ""@en;
     dct:issued "2021-02-02T09:30:00+00:00"^^xsd:dateTime;
     dct:modified "2021-07-09T13:56:03.633387+00:00"^^xsd:dateTime;
-    dct:publisher gov:mhclg
+    dct:publisher gov:mhclg;
     dct:title "Energy Efficiency Ratings New Homes"@en;
     void:sparqlEndpoint <http://gss-data.org.uk/sparql>;
     dcat:theme gdp:climate-change .
