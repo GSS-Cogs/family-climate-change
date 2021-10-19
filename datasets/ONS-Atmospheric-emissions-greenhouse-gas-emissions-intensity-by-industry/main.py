@@ -58,7 +58,7 @@ for tab in tabs:
             HDim(year, 'Year', DIRECTLY, ABOVE),
             HDimConst('Section', section),
             HDimConst('Emission Type', emission_intensity),
-            HDim(unit, 'Unit', CLOSEST, ABOVE),
+            HDim(unit, 'Units', CLOSEST, ABOVE),
             HDimConst('Measure Type', measure_type),
         ]
     
@@ -88,7 +88,7 @@ for tab in tabs:
             HDim(section, 'Section breakdown', DIRECTLY, LEFT), # will be dropped 
             HDim(section_name, 'Industry Section Name', DIRECTLY, LEFT), # will be dropped 
             HDim(year, 'Year', DIRECTLY, ABOVE),
-            HDim(unit, 'Unit', CLOSEST, ABOVE),
+            HDim(unit, 'Units', CLOSEST, ABOVE),
             HDimConst('Emission Type', tab.name),
             HDimConst('Measure Type', measure_type)
             ]
@@ -120,12 +120,12 @@ sic = 'http://business.data.gov.uk/companies/def/sic-2007/'
 #create the URI's from the section column 
 df['Section'] = df['Section'].map(lambda x: unique + x if '-' in x else (unique + x if 'total' in x else sic + x))
 df['Industry Section Name'] = df['Industry Section Name'].fillna('Not Applicable')
-df = df.replace({'Unit' : {'Thousand tonnes CO2 equivalent/£ million' : 'thousand-tonnes-co2-equivalent-ps-million'}})
+df = df.replace({'Units' : {'Thousand tonnes CO2 equivalent/£ million' : 'thousand-tonnes-co2-equivalent-ps-million'}})
 df['Emission Type'] = df['Emission Type'].str.replace(r'\bintensity$', '', regex=True).str.strip()
 df['Emission Type'] = df['Emission Type'].apply(pathify)
 
 #only need the following columns
-df = df[['Year','Section','Emission Type', 'Value', 'Measure Type', 'Unit']]
+df = df[['Year','Section','Emission Type', 'Value', 'Measure Type', 'Units']]
 # -
 
 cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title)
