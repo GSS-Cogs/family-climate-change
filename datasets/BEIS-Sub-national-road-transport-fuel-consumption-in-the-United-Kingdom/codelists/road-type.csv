@@ -1,0 +1,5 @@
+Label,Notation,Parent Notation,Sort Priority
+Motorways,motorways,,0
+A roads,a-roads,,1
+Minor roads,minor-roads,,2
+All,all,,3

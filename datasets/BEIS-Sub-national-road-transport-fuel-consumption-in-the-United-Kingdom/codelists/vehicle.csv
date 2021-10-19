@@ -1,0 +1,11 @@
+Label,Notation,Parent Notation,Sort Priority
+Buses,buses,all-personal,0
+Diesel cars,diesel-cars,all-personal,1
+Petrol cars,petrol-cars,all-personal,2
+Motorcycles,motorcycles,all-personal,3
+Hgv,hgv,all-freight,4
+Diesel lgv,diesel-lgv,all-freight,5
+Petrol lgv,petrol-lgv,all-freight,6
+All personal,all-personal,all,7
+All freight,all-freight,all,8
+All,all,all,9
