@@ -42,7 +42,7 @@ def pathify_section_values(section):
 # -
 
 tabs = distribution.as_databaker()
-tidied_sheets_1 = []
+tidied_sheets = []
 for tab in tabs:
     if 'Contents' in tab.name :
         continue
@@ -65,7 +65,7 @@ for tab in tabs:
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
        # savepreviewhtml(tidy_sheet, fname = tab.name+ "Preview.html")
         table = tidy_sheet.topandas()
-        tidied_sheets_1.append(table)   
+        tidied_sheets.append(table)   
         
     else :
         #Bottom part only needed. 
@@ -105,11 +105,11 @@ for tab in tabs:
         table['Section'] = table['Section'].apply(lambda x: '{0:0>2}'.format(x))
         table['Section'] = table['Section'].apply(pathify_section_values)
         table['Section'] = table['Section'].apply(pathify)
-        tidied_sheets_1.append(table)    
+        tidied_sheets.append(table)    
 
 
 # +
-df = pd.concat(tidied_sheets_1, sort=True)
+df = pd.concat(tidied_sheets, sort=True)
 df.rename(columns={'OBS' : 'Value', 'DATAMARKER' : 'Marker'}, inplace=True)
 df = df.replace({'Section' : {'Total' : 'total', 'Consumer expenditure' : 'consumer-expenditure'}})
 df['Year'] = df['Year'].astype(str).replace('\.0', '', regex=True)
@@ -125,7 +125,7 @@ df['Emission Type'] = df['Emission Type'].str.replace(r'\bintensity$', '', regex
 df['Emission Type'] = df['Emission Type'].apply(pathify)
 
 #only need the following columns
-df = df[['Year','Section','Emission Type', 'Value', 'Measure Type', 'Units']]
+df = df[['Year','Section','Emission Type', 'Value', 'Measure Type', 'Units', 'Marker']]
 # -
 
 cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title)
