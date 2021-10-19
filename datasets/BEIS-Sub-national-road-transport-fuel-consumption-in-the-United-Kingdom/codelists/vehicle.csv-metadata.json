@@ -1,0 +1,117 @@
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-sub-national-road-transport-fuel-consumption-in-the-united-kingdom#scheme/vehicle",
+    "url": "vehicle.csv",
+    "rdfs:label": "Vehicle",
+    "dc:title": "Vehicle",
+    "tableSchema": {
+        "columns": [
+            {
+                "titles": "Label",
+                "name": "label",
+                "datatype": "string",
+                "required": true,
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "titles": "Notation",
+                "name": "notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*$"
+                },
+                "required": true,
+                "propertyUrl": "skos:notation"
+            },
+            {
+                "titles": "Parent Notation",
+                "name": "parent_notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^(-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*|)$"
+                },
+                "required": false,
+                "propertyUrl": "skos:broader",
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/beis-sub-national-road-transport-fuel-consumption-in-the-united-kingdom#concept/vehicle/{+parent_notation}"
+            },
+            {
+                "titles": "Sort Priority",
+                "name": "sort_priority",
+                "datatype": "integer",
+                "required": false,
+                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "rdf:type",
+                "valueUrl": "skos:Concept"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "skos:inScheme",
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/beis-sub-national-road-transport-fuel-consumption-in-the-united-kingdom#scheme/vehicle"
+            }
+        ],
+        "primaryKey": "notation",
+        "aboutUrl": "http://gss-data.org.uk/data/gss_data/climate-change/beis-sub-national-road-transport-fuel-consumption-in-the-united-kingdom#concept/vehicle/{+notation}"
+    },
+    "prov:hadDerivation": {
+        "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-sub-national-road-transport-fuel-consumption-in-the-united-kingdom#scheme/vehicle",
+        "@type": [
+            "skos:ConceptScheme",
+            "http://publishmydata.com/pmdcat#ConceptScheme"
+        ]
+    },
+    "rdfs:seeAlso": [
+        {
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-sub-national-road-transport-fuel-consumption-in-the-united-kingdom#scheme/vehicle/dataset",
+            "@type": [
+                "dcat:Dataset",
+                "http://publishmydata.com/pmdcat#Dataset"
+            ],
+            "http://publishmydata.com/pmdcat#datasetContents": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-sub-national-road-transport-fuel-consumption-in-the-united-kingdom#scheme/vehicle"
+            },
+            "http://publishmydata.com/pmdcat#graph": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-sub-national-road-transport-fuel-consumption-in-the-united-kingdom#scheme/vehicle"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-10-19T14:22:10.870096"
+            },
+            "rdfs:label": "Vehicle",
+            "dc:title": "Vehicle",
+            "rdfs:comment": "Dataset representing the 'Vehicle' code list.",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-10-19T14:22:10.870096"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/catalog/vocabularies",
+            "dcat:record": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-sub-national-road-transport-fuel-consumption-in-the-united-kingdom#scheme/vehicle/catalog-record"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-sub-national-road-transport-fuel-consumption-in-the-united-kingdom#scheme/vehicle/catalog-record",
+            "@type": "dcat:CatalogRecord",
+            "foaf:primaryTopic": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-sub-national-road-transport-fuel-consumption-in-the-united-kingdom#scheme/vehicle/dataset"
+            },
+            "http://publishmydata.com/pmdcat#metadataGraph": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/beis-sub-national-road-transport-fuel-consumption-in-the-united-kingdom#scheme/vehicle"
+            },
+            "dc:title": "Vehicle Catalog Record",
+            "rdfs:label": "Vehicle Catalog Record",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-10-19T14:22:10.870096"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-10-19T14:22:10.870096"
+            }
+        }
+    ]
+}
