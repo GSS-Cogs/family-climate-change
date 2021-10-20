@@ -54,3 +54,4 @@ climate-change,industrial-consumption,Industrial Consumption,,,http://purl.org/l
 climate-change,consumption-per-unit-of-output,Consumption Per Unit of Output,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,services-consumption-excluding-agriculture,Services Consumption Excluding Agriculture,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,energy-consumption-per-unit-of-output,Energy Consumption Per Unit of Output,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,standard-area-measurement,Standard Area Measurement,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
