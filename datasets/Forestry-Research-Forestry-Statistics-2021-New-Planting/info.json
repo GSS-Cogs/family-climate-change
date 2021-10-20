@@ -35,7 +35,6 @@
                 "value": "http://gss-data.org.uk/def/concept/measurement-units/{units}"
             },
             "Value": {
-                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/thousand-hectares",
                 "datatype": "double"
             }
         }
