@@ -14,7 +14,7 @@ df.rename(columns={'value': 'Value',
 
                 }, inplace=True)
 
-df['Units'] = 'thousand-hectares'             
+df['Units'] = 'Thousand Hectares'             
 
 #df['Month'] = pd.to_datetime(df['Month'], dayfirst=True).dt.strftime('%Y-%m')
 
