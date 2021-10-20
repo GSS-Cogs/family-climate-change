@@ -32,9 +32,11 @@
             },
             "Units": {
                 "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
-                "value": "http://gss-data.org.uk/def/concept/measurement-units/{thousand-hectares}"
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{units}"
             },
             "Value": {
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/thousand-hectares",
+                "measure": "http://gss-data.org.uk/def/climate-change/measure/woodland",
                 "datatype": "double"
             }
         }
