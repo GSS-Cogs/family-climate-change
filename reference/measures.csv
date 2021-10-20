@@ -46,3 +46,14 @@ climate-change,new-broadleaves,New Broadleaves,,,http://purl.org/linked-data/sdm
 climate-change,total-new,Total New,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,emissions-intensity,Emissions Intensity,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,emissions-intensity-sdg-basis,Emissions intensity on a sustainable development goal basis,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,road-passenger-consumption,Road Passenger Consumption,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,output,Output,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,total-final-domestic-consumption,Total Final Domestic Consumption,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,no-households-000s,No Households 000s,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,consumption-per-household,Consumption Per Household,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,industrial-consumption,Industrial Consumption,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,industrial-output,Industrial Output,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,consumption-per-unit-of-output,Consumption Per Unit of Output,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,services-consumption-excluding-agriculture,Services Consumption Excluding Agriculture,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,services-output,Services Output,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,energy-consumption-per-unit-of-output,Energy Consumption Per Unit of Output,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
