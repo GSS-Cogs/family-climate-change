@@ -65,9 +65,5 @@ csvw_mapping.set_csv(out/"forestry-research-woodland-area-local-authority.csv")
 csvw_mapping.set_dataset_uri(f"http://gss-data.org.uk/data/gss_data/climate-change/{info_json['id']}")
 csvw_mapping.write(out/'forestry-research-woodland-area-local-authority.csv-metadata.json')
 
-shutil.copy("forestry-research-woodland-area-local-authority.trig", out/"forestry-research-woodland-area-local-authority.trig")
-# -
-
-
-
+shutil.copy("forestry-research-woodland-area-local-authority.csv-metadata.trig", out/"forestry-research-woodland-area-local-authority.csv-metadata.trig")
 
