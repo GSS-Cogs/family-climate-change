@@ -1,13 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[ ]:
 
-
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[60]:
 
 
 import pandas as pd
@@ -21,21 +16,24 @@ cubes = Cubes("info.json")
 info = json.load(open('info.json'))
 
 
-# In[61]:
+# In[ ]:
+
 
 
 scraper = Scraper(seed='info.json')
 scraper
 
 
-# In[62]:
+# In[ ]:
+
 
 
 dist = [x for x in scraper.distributions if '1.2' in x.title][0]
 dist
 
 
-# In[63]:
+# In[ ]:
+
 
 
 df = pd.read_csv("Energy Trends 1.2 IDP Extract.csv")
@@ -50,7 +48,8 @@ df = df.rename(columns={'Year' : 'Period'})
 df
 
 
-# In[64]:
+# In[ ]:
+
 
 
 df['Period'] = df.apply(lambda x: 'year/' + str(x['Period'])[:-2], axis = 1)
@@ -80,7 +79,8 @@ df = df.replace({'Fuel' : {'-natural-gas' : 'natural-gas',
 df
 
 
-# In[65]:
+# In[ ]:
+
 
 
 scraper.dataset.title = dist.title
@@ -94,13 +94,14 @@ csvName = 'observations'
 cubes.add_cube(scraper, df.drop_duplicates(), csvName)
 
 
-# In[66]:
+# In[ ]:
 
 
 cubes.output_all()
 
 
-# In[67]:
+# In[ ]:
+
 
 
 from IPython.core.display import HTML
@@ -111,7 +112,7 @@ for col in df:
         display(df[col].cat.categories)
 
 
-# In[67]:
+# In[ ]:
 
 
 
