@@ -20,16 +20,14 @@
             "Year": {
                 "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
                 "value": "http://reference.data.gov.uk/id/year/{+year}"
-                
             },
             "Sector": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/sector",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/sector{sector}"
-                
             },
             "Measure Type": {
                 "dimension": "http://purl.org/linked-data/cube#measureType",
-                "value": "http://gss-data.org.uk/def/measure/{measure_type}",
+                "value": "http://gss-data.org.uk/def/climate-change/measure/{measure_type}",
                 "types": [
                     "road-passenger-consumption",
                     "output",
@@ -43,12 +41,11 @@
                     "services-consumption-excluding-agriculture",
                     "services-output",
                     "energy-consumption-per-unit-of-output-1"
-
                 ]
             },
             "Unit": {
                 "dimension": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit{unit}"
+                "value": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/{unit}"
             },
             "Value": {
                 "datatype": "double"
