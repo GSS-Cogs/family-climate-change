@@ -23,7 +23,7 @@
             },
             "Sector": {
                 "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/sector",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/sector{sector}"
+                "value": "http://gss-data.org.uk/def/climate-change/concept/sector/{sector}"
             },
             "Measure Type": {
                 "dimension": "http://purl.org/linked-data/cube#measureType",
