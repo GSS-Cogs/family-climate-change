@@ -48,7 +48,7 @@ df = pd.melt(
 
 # +
 df["Unit"]= df['Measure Type'].str.extract('.*\((.*)\).*')
-df['Measure Type'] = df['Measure Type'].str.rstrip(' .1')
+#df['Measure Type'] = df['Measure Type'].str.rstrip(' .1')
 df['Measure Type'] = df['Measure Type'].str.replace(r"\(.*\)","").str.strip()
 df = df.replace({'Measure Type' : {'No Households' : "No Households ('000s)"}})
 df = df.replace({'Unit' : {"'000s" : "count",}})
@@ -61,6 +61,7 @@ sector_values = {
     'road-passenger-consumption' : 'road',
     'output': 'housing',
     'energy-consumption-per-unit-of-output': 'industrial',
+    'energy-consumption-per-unit-of-output-1' : 'industrial',
     'total-final-domestic-consumption' : 'services',
     'no-households-000s': 'housing',
     'consumption-per-household': 'housing',

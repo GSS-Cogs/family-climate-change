@@ -42,13 +42,13 @@
                     "consumption-per-unit-of-output",
                     "services-consumption-excluding-agriculture",
                     "services-output",
-                    "energy-consumption-per-unit-of-output"
+                    "energy-consumption-per-unit-of-output-1"
 
                 ]
             },
             "Unit": {
-                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
-                "value": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-unit{unit}"
+                "dimension": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit{unit}"
             },
             "Value": {
                 "datatype": "double"
