@@ -33,7 +33,7 @@ ns1:beis-energy-intensity-extract-metadata {
     dct:description ""@en;
     dct:issued "2021-02-02T09:30:00+00:00"^^xsd:dateTime;
     dct:modified "2021-07-09T13:56:03.633387+00:00"^^xsd:dateTime;
-    dct:publisher gov:BEIS;
+    dct:publisher gov:https://www.gov.uk/government/statistics/total-energy-section-1-energy-trends;
     dct:title "Energy Intensity Extract"@en;
     void:sparqlEndpoint <http://gss-data.org.uk/sparql>;
     dcat:theme gdp:climate-change .
@@ -42,8 +42,8 @@ ns1:beis-energy-intensity-extract-metadata {
     a dcat:CatalogRecord;
     rdfs:label "Energy Intensity Extract Catalog Record"@en;
     pmdcat:metadataGraph ns1:beis-energy-intensity-extract-metadata;
-    dct:issued "2021-02-02T09:30:00+00:00"^^xsd:dateTime;
-    dct:modified "2021-07-09T13:56:03.633387+00:00"^^xsd:dateTime;
+    dct:issued "2021-10-02T09:30:00+00:00"^^xsd:dateTime;
+    dct:modified "2021-10-09T13:56:03.633387+00:00"^^xsd:dateTime;
     ns2:primaryTopic <http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-intensity-extract-catalog-entry> .
   
 }
