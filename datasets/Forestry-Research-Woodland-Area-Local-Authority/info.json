@@ -34,7 +34,7 @@
             },
             "Unit": {
                 "dimension": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
-                "value": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-unit{unit}"
+                "value": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/{unit}
             },
             "Value": {
                 "datatype": "double"
