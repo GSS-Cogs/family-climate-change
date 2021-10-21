@@ -22,7 +22,7 @@
                 "value": "http://reference.data.gov.uk/id/year/{+year}"
             },
             "Sector": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/Sector",
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/sector",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/sector/{sector}"
             },
             "Measure Type": {
