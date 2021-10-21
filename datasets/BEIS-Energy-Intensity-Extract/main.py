@@ -76,4 +76,17 @@ df
 
 out = Path('out')
 out.mkdir(exist_ok=True)
-df.to_csv(out/'beis-energy-intensity-extract.csv', index = False)
+df.to_csv(out/'energy.csv', index = False)
+
+# ## No scraper present so we have created this manually
+
+# +
+with open('info.json') as f:
+    info_json = json.load(f)
+csvw_mapping = CSVWMapping()
+csvw_mapping.set_mapping(info_json)
+csvw_mapping.set_csv(out/"energy.csv")
+csvw_mapping.set_dataset_uri(f"http://gss-data.org.uk/data/gss_data/climate-change/{info_json['id']}")
+csvw_mapping.write(out/'energy.csv-metadata.json')
+
+shutil.copy("energy.csv-metadata.trig", out/"energy.csv-metadata.trig")
