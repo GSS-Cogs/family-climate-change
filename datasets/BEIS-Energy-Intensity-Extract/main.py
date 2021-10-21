@@ -18,6 +18,7 @@ from gssutils import *
 from pathlib import Path
 import shutil
 from gssutils.csvw.mapping import CSVWMapping
+import numpy as np
 
 # +
 df = pd.read_csv('raw.csv', encoding='ISO-8859-1')
@@ -48,7 +49,7 @@ df = pd.melt(
 
 # +
 df["Unit"]= df['Measure Type'].str.extract('.*\((.*)\).*')
-#df['Measure Type'] = df['Measure Type'].str.rstrip(' .1')
+df['Measure Type'] = df['Measure Type'].str.strip()
 df['Measure Type'] = df['Measure Type'].str.replace(r"\(.*\)","").str.strip()
 df = df.replace({'Measure Type' : {'No Households' : "No Households ('000s)"}})
 df = df.replace({'Unit' : {"'000s" : "count",}})
@@ -72,6 +73,8 @@ sector_values = {
     'services-output' : 'services'
 }
 df['Sector'] = df['Sector'].replace(sector_values)
+df = df.replace(r'^\s*$', np.nan, regex=True)
+df = df.dropna(subset=['Value'])
 df
 # -
 
@@ -91,3 +94,6 @@ csvw_mapping.set_dataset_uri(f"http://gss-data.org.uk/data/gss_data/climate-chan
 csvw_mapping.write(out/'energy.csv-metadata.json')
 
 shutil.copy("energy.csv-metadata.trig", out/"energy.csv-metadata.trig")
+# -
+
+
