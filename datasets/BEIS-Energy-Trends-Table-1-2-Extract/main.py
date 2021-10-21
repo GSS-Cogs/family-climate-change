@@ -1,6 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[2]:
+
+
+#!/usr/bin/env python
+# coding: utf-8
+
 # In[60]:
 
 
@@ -68,7 +74,8 @@ for col in df.columns.values.tolist():
 		raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
 df = df.replace({'Fuel' : {'-natural-gas' : 'natural-gas',
-                           'total' : 'all'}})
+                           'total' : 'all',
+                           'biogenergy-and-waste' : 'bioenergy-and-waste'}})
 
 df
 
