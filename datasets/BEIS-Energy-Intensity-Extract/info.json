@@ -15,7 +15,45 @@
     },
     "transform": {
         "airtable": "recGEACrywaGVq9Ox",
-        "main_issue": 45
+        "main_issue": 45,
+        "columns": {
+            "Year": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+                
+            },
+            "Sector": {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/sector",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/sector{sector}"
+                
+            },
+            "Measure Type": {
+                "dimension": "http://purl.org/linked-data/cube#measureType",
+                "value": "http://gss-data.org.uk/def/measure/{measure_type}",
+                "types": [
+                    "road-passenger-consumption",
+                    "output",
+                    "energy-consumption-per-unit-of-output",
+                    "total-final-domestic-consumption",
+                    "no-households-000s",
+                    "consumption-per-household",
+                    "industrial-consumption",
+                    "industrial-output",
+                    "consumption-per-unit-of-output",
+                    "services-consumption-excluding-agriculture",
+                    "services-output",
+                    "energy-consumption-per-unit-of-output"
+
+                ]
+            },
+            "Unit": {
+                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+                "value": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-unit{unit}"
+            },
+            "Value": {
+                "datatype": "double"
+            }     
+        }
     },
     "sizingNotes": "",
     "notes": "Priority dataset for Climate Change Platform project."
