@@ -32,7 +32,7 @@
                 },
                 "required": false,
                 "propertyUrl": "skos:broader",
-                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/forestry-research-woodland-area-local-authority#concept/local-authority-area/{+parent_notation}"
+                "valueUrl": "http://statistics.data.gov.uk/id/statistical-geography/{+parent_notation}"
             },
             {
                 "titles": "Sort Priority",
@@ -53,7 +53,7 @@
             }
         ],
         "primaryKey": "notation",
-        "aboutUrl": "http://gss-data.org.uk/data/gss_data/climate-change/forestry-research-woodland-area-local-authority#concept/local-authority-area/{+notation}"
+        "aboutUrl": "http://statistics.data.gov.uk/id/statistical-geography/{+notation}"
     },
     "prov:hadDerivation": {
         "@id": "http://gss-data.org.uk/data/gss_data/climate-change/forestry-research-woodland-area-local-authority#scheme/local-authority-area",

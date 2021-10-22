@@ -22,7 +22,8 @@
                 "value": "http://reference.data.gov.uk/id/year/{+year}"
             },
             "Local Authority Area": {
-                "description": "Local Authority Area"
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/local-authority-area",
+                "value": "http://statistics.data.gov.uk/id/statistical-geography/{+local_authority_area}"
             },
             "Measure Type": {
                 "dimension": "http://purl.org/linked-data/cube#measureType",
