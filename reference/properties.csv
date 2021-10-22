@@ -22,4 +22,4 @@ climate-change,Emission Type,dimension/emission-type,qb:DimensionProperty,,,skos
 climate-change,SIC Section,dimension/sic-section,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/sic-section,
 climate-change,Industry Section,dimension/industry-section,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/industry-section,
 climate-change,Sector,dimension/sector,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/sector,
-climate-change,Local Authority Area,dimension/local-authority-area,qb:DimensionProperty,,,skos:Concept,http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-area,
+climate-change,Local Authority Area,dimension/local-authority-area,qb:DimensionProperty,,,skos:Concept,,
