@@ -27,10 +27,10 @@
                 "value": "http://reference.data.gov.uk/id/{+period}",
                 "codelist": false
             },
-              "SIC Section" : {
-                "parent": "http://gss-data.org.uk/def/trade/property/dimension/industry",
+            "SIC Section": {
+                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/section",
                 "value": "{+sic_section}"
-             },
+            },
             "Fuel": {
                 "dimension": "http://gss-data.org.uk/def/energy/property/dimension/fuel",
                 "value": "http://gss-data.org.uk/def/energy/concept/fuel/{fuel}",
