@@ -25,16 +25,16 @@ ns1:met-office-average-climate-observations-uk-annual-rain-days-99-percentile-me
   
   <http://gss-data.org.uk/data/gss_data/climate-change/met-office-average-climate-observations-uk-annual-rain-days-99-percentile-catalog-entry>
     a pmdcat:Dataset;
-    rdfs:label "Regional average climate observations UK Annual rain days 99 percentile"@en;
+    rdfs:label "Average climate observations UK Annual rain days 99 percentile"@en;
     gdp:family gdp:climate-change;
     pmdcat:datasetContents <http://gss-data.org.uk/data/gss_data/climate-change/met-office-average-climate-observations-uk-annual-rain-days-99-percentile#dataset>;
     pmdcat:graph ns1:met-office-average-climate-observations-uk-annual-rain-days-99-percentile;
-    dct:creator gov:the-meteorological-office;
+    dct:creator gov:met-office;
     dct:description ""@en;
     dct:issued "2021-02-02T09:30:00+00:00"^^xsd:dateTime;
     dct:modified "2021-07-09T13:56:03.633387+00:00"^^xsd:dateTime;
     dct:publisher gov:met-office;
-    dct:title "Regional average climate observations UK Annual rain days 99 percentile"@en;
+    dct:title "Average climate observations UK Annual rain days 99 percentile"@en;
     void:sparqlEndpoint <http://gss-data.org.uk/sparql>;
     dcat:theme gdp:climate-change .
   

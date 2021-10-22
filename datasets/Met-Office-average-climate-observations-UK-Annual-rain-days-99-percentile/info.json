@@ -26,7 +26,7 @@
             },
             "Value": {
                 "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/millimetres",
-                "measure": "http://gss-data.org.uk/def/climate-change/measure/rainfall",
+                "measure": "http://gss-data.org.uk/def/climate-change/measure/rain-days",
                 "datatype": "double"
             }
         }

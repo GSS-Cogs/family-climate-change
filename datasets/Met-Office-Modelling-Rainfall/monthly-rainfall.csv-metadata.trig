@@ -29,7 +29,7 @@ ns1:met-office-modelling-rainfall-metadata {
     gdp:family gdp:climate-change;
     pmdcat:datasetContents <http://gss-data.org.uk/data/gss_data/climate-change/met-office-modelling-rainfall#dataset>;
     pmdcat:graph ns1:met-office-modelling-rainfall;
-    dct:creator gov:the-meteorological-office;
+    dct:creator gov:met-office;
     dct:description "The UK monthly rainfall data describe the rainfall accumulation and precipitation amount over a 24 hour period. The data are collected by observation stations across the UK and transmitted within the following message types: WADRAIN, NCM, AWSDLY, DLY3208, SSER and WAMRAIN. The data spans from 1853 to present. "@en;
     dct:issued "2021-02-02T09:30:00+00:00"^^xsd:dateTime;
     dct:modified "2021-07-09T13:56:03.633387+00:00"^^xsd:dateTime;

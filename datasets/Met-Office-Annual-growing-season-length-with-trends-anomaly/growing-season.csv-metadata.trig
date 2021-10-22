@@ -29,7 +29,7 @@ ns1:met-office-annual-growing-season-length-with-trends-anomaly-metadata {
     gdp:family gdp:climate-change;
     pmdcat:datasetContents <http://gss-data.org.uk/data/gss_data/climate-change/met-office-annual-growing-season-length-with-trends-anomaly#dataset>;
     pmdcat:graph ns1:met-office-annual-growing-season-length-with-trends-anomaly;
-    dct:creator gov:the-meteorological-office;
+    dct:creator gov:met-office;
     dct:description ""@en;
     dct:issued "2021-02-02T09:30:00+00:00"^^xsd:dateTime;
     dct:modified "2021-07-09T13:56:03.633387+00:00"^^xsd:dateTime;
