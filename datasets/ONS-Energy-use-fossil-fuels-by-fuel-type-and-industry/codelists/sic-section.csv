@@ -141,3 +141,24 @@ Total Non methane Volatile Organic Compound emissions (excl Natural World),http:
 Total Non methane Volatile Organic Compound emissions (incl Natural World),http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#concept/sic-2007/total-non-methane-volatile-organic-compound-emissions-incl-natural-world,,,,total-non-methane-volatile-organic-compound-emissions-incl-natural-world
 Total Benzene emissions (Natural World = 0),http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#concept/sic-2007/total-benzene-emissions-natural-world-0,,,,total-benzene-emissions-natural-world-0
 Total Butadiene emissions (Natural World = 0),http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#concept/sic-2007/total-butadiene-emissions-natural-world-0,,,,total-butadiene-emissions-natural-world-0
+"Agriculture, forestry and fishing",http://business.data.gov.uk/companies/def/sic-2007/A,http://business.data.gov.uk/companies/def/sic-2007/A,,,A
+Mining and quarrying,http://business.data.gov.uk/companies/def/sic-2007/B,http://business.data.gov.uk/companies/def/sic-2007/B,,,B
+Manufacturing,http://business.data.gov.uk/companies/def/sic-2007/C,http://business.data.gov.uk/companies/def/sic-2007/C,,,C
+"Electricity, gas, steam and air conditioning supply",http://business.data.gov.uk/companies/def/sic-2007/D,http://business.data.gov.uk/companies/def/sic-2007/D,,,D
+"Water supply; sewerage, waste management and remediation activities",http://business.data.gov.uk/companies/def/sic-2007/E,http://business.data.gov.uk/companies/def/sic-2007/E,,,E
+Construction,http://business.data.gov.uk/companies/def/sic-2007/F,http://business.data.gov.uk/companies/def/sic-2007/F,,,F
+Wholesale and retail trade; repair of motor vehicles and motorcycles,http://business.data.gov.uk/companies/def/sic-2007/G,http://business.data.gov.uk/companies/def/sic-2007/G,,,G
+Transport and storage,http://business.data.gov.uk/companies/def/sic-2007/H,http://business.data.gov.uk/companies/def/sic-2007/H,,,H
+Accommodation and food services,http://business.data.gov.uk/companies/def/sic-2007/I,http://business.data.gov.uk/companies/def/sic-2007/I,,,I
+Information and communication,http://business.data.gov.uk/companies/def/sic-2007/J,http://business.data.gov.uk/companies/def/sic-2007/J,,,J
+Financial and insurance activities,http://business.data.gov.uk/companies/def/sic-2007/K,http://business.data.gov.uk/companies/def/sic-2007/K,,,K
+Real estate activities,http://business.data.gov.uk/companies/def/sic-2007/L,http://business.data.gov.uk/companies/def/sic-2007/L,,,L
+"Professional, scientific and technical activities",http://business.data.gov.uk/companies/def/sic-2007/M,http://business.data.gov.uk/companies/def/sic-2007/M,,,M
+Administrative and support service activities,http://business.data.gov.uk/companies/def/sic-2007/N,http://business.data.gov.uk/companies/def/sic-2007/N,,,N
+Public administration and defence; compulsory social security,http://business.data.gov.uk/companies/def/sic-2007/O,http://business.data.gov.uk/companies/def/sic-2007/O,,,O
+Education,http://business.data.gov.uk/companies/def/sic-2007/P,http://business.data.gov.uk/companies/def/sic-2007/P,,,P
+Human health and social work activities,http://business.data.gov.uk/companies/def/sic-2007/Q,http://business.data.gov.uk/companies/def/sic-2007/Q,,,Q
+"Arts, entertainment and recreation",http://business.data.gov.uk/companies/def/sic-2007/R,http://business.data.gov.uk/companies/def/sic-2007/R,,,R
+Other service activities,http://business.data.gov.uk/companies/def/sic-2007/S,http://business.data.gov.uk/companies/def/sic-2007/S,,,S
+Activities of households as employers; undifferentiated goods and services-producing activities of households for own use,http://business.data.gov.uk/companies/def/sic-2007/T,http://business.data.gov.uk/companies/def/sic-2007/T,,,T
+Consumer expenditure,http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#concept/sic-2007/consumer-expenditure,,,,consumer-expenditure

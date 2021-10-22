@@ -1,109 +1,57 @@
 #!/usr/bin/env python
 # coding: utf-8
-
-# In[172]:
-
-
+# %%
 import json
-import pandas as pd
+import pandas as pandas
 from gssutils import *
 
 cubes = Cubes('info.json')
 info = json.load(open('info.json'))
-
 landingPage = info['landingPage']
-landingPage
-
-
-# In[173]:
-
-
-scraper = Scraper(seed="info.json")
-scraper
-
-
-# In[174]:
-
-
-distribution = scraper.distributions[0]
+metadata = Scraper(seed="info.json")
+distribution = metadata.distribution(latest = True, mediaType = Excel)
+title = distribution.title
 
 tabs = distribution.as_databaker(data_only=True)
-
 tabs = [tab for tab in tabs if tab.name not in ['Contents', 'Summary']]
-#Data contained in summary is present in other tabs
 
-for i in tabs:
-    print(i.name)
-
-
-# In[175]:
-
-
+# %%
 dataframes = []
-
 for tab in tabs:
-
+    pivot = tab.excel_ref("A1").shift(0, 4)
+    remove = tab.filter("Notes").expand(DOWN).expand(RIGHT) | tab.filter("SIC (07) group") | tab.filter("Section")
+    year = pivot.shift(3, 0).expand(RIGHT).is_not_blank()
+    sicSection = tab.filter("Section").expand(DOWN) - remove | tab.excel_ref('A5').expand(DOWN) - remove.expand(DOWN)
+    sicGroup = tab.filter("SIC (07) group").expand(DOWN) - remove | tab.excel_ref('B5').expand(DOWN) - remove.expand(DOWN)
+    industry = pivot.shift(2, 0).expand(DOWN).is_not_blank() - remove
+    
     if tab.name not in "Aviation fuel":
-
-        print(tab.name)
-
-        pivot = tab.excel_ref("A1").shift(0, 4)
-
-        remove = tab.filter("Notes").expand(DOWN).expand(RIGHT) | tab.filter("SIC (07) group") | tab.filter("Section")
-
-        year = pivot.shift(3, 0).expand(RIGHT).is_not_blank()
-
-        sicSection = tab.filter("Section").expand(DOWN) - remove #| tab.filter("SIC (07) group").expand(UP)) - remove
-
-        sicGroup = tab.filter("SIC (07) group").expand(DOWN) - remove #| tab.filter("Section").expand(UP)) - remove
-
-        industry = sicSection.shift(RIGHT).is_not_blank() - remove
-
-        print(tab.name)
-
+        
+        observations = industry.fill(RIGHT)
+        
         if tab.name == 'Fuel oil':
             fueltype = 'Oil'
         elif tab.name == 'Gas oil':
             fueltype = 'Gas Oil Including Marine Oil Excluding DERV'
         else:
             fueltype = tab.name
-
-        observations = industry.fill(RIGHT)
-
+            
         dimensions = [
-                HDim(year, 'Period', DIRECTLY, ABOVE),
-                HDim(industry, 'Industry', DIRECTLY, LEFT),
-                HDim(sicSection, 'SIC Section', DIRECTLY, LEFT),
-                HDim(sicGroup, 'SIC Group', DIRECTLY, LEFT),
-                HDimConst('Fuel', fueltype)
-            ]
-
+            HDim(year, 'Period', DIRECTLY, ABOVE),
+            HDim(industry, 'Industry', DIRECTLY, LEFT),
+            HDim(sicSection, 'SIC Section', DIRECTLY, LEFT),
+            HDim(sicGroup, 'SIC Group', DIRECTLY, LEFT),
+            HDimConst('Fuel', fueltype)
+        ]
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         df = tidy_sheet.topandas()
-        savepreviewhtml(tidy_sheet,fname=tab.name + "Preview.html")
-
         dataframes.append(df)
-
+   
     elif tab.name == "Aviation fuel":
-
-        print(tab.name)
-
-        pivot = tab.excel_ref("A1").shift(0, 4)
-
-        remove = tab.filter("Notes").expand(DOWN).expand(RIGHT) | tab.filter("SIC (07) group") | tab.filter("Section")
-
-        year = pivot.shift(3, 0).expand(RIGHT).is_not_blank()
-
-        sicSection = tab.filter("Section").expand(DOWN) - remove #| tab.filter("SIC (07) group").expand(UP)) - remove
-
-        sicGroup = tab.filter("SIC (07) group").expand(DOWN) - remove #| tab.filter("Section").expand(UP)) - remove
-
-        industry = sicSection.shift(RIGHT).is_not_blank() - remove
-
-        fuel = industry.shift(RIGHT)
-
-        observations = fuel.fill(RIGHT)
-
+        industry = tab.excel_ref('C6').expand(DOWN) - remove
+        fuel = tab.excel_ref('D6').expand(DOWN)
+        observations = fuel.fill(RIGHT).is_not_blank() - remove
+        
         dimensions = [
                 HDim(year, 'Period', DIRECTLY, ABOVE),
                 HDim(industry, 'Industry', DIRECTLY, LEFT),
@@ -114,34 +62,25 @@ for tab in tabs:
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         df = tidy_sheet.topandas()
-        savepreviewhtml(tidy_sheet,fname=tab.name + "Preview.html")
-
+        #savepreviewhtml(tidy_sheet,fname=tab.name + "Preview.html")
         dataframes.append(df)
 
-
-# In[176]:
-
-
+# %%
 df = pd.concat(dataframes)
-df
-
-
-# In[177]:
-
+df = df.rename(columns = {'DATAMARKER' : 'Marker', 'OBS' : 'Value'})
 
 df = df.replace({'DATAMARKER' : {'c' : 'confidential'},
                  'Fuel' : {"('DERV',)" : 'DERV'}})
 
 df['Period'] = df['Period'].astype(float).astype(int)
-
 df['Period'] = df.apply(lambda x: 'year/' + str(x['Period']), axis = 1)
-
 df['Measure Type'] = 'gross caloric values'
-
 df['Unit'] = 'millions-of-tonnes-of-oil-equivalent'
 
-df = df.rename(columns = {'DATAMARKER' : 'Marker', 'OBS' : 'Value'})
 
+df
+
+# %%
 indexNames = df[ df['Industry'] == 'Total' ].index
 df.drop(indexNames, inplace = True)
 
@@ -182,24 +121,7 @@ for col in df.columns.values.tolist():
 df
 
 
-# In[178]:
-
-
-scraper.dataset.title = info['title']
-scraper.dataset.family = 'climate-change'
-scraper.dataset.comment = info['description']
-
-cubes.add_cube(scraper, df.drop_duplicates(), scraper.dataset.title)
+# %%
+cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title)
 cubes.output_all()
-
-
-# In[179]:
-
-
-from IPython.core.display import HTML
-for col in df:
-    if col not in ['Value']:
-        df[col] = df[col].astype('category')
-        display(HTML(f"<h2>{col}</h2>"))
-        display(df[col].cat.categories)
 

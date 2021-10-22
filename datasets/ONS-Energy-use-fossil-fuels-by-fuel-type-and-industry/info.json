@@ -3,8 +3,7 @@
     "title": "Energy use: fossil fuels by fuel type and industry",
     "publisher": "International trade in services by subnational areas of the UK: 2018",
     "description": "The UK's fuel use by industry (SIC 2007 group - around 130 categories) and type (coal, natural gas, petrol, diesel oil for road vehicles (DERV), fuel oil, gas oil, aviation fuel and other); UK level fuel use of nuclear, hydro, wind, solar, geothermal aquifers and net imports, 1990 to 2019. This table excludes biofuels and waste.",
-    "landingPage": "https://www.ons.gov.uk/economy/environmentalaccounts/datasets/ukenvironmentalaccountsfuelusebytypeandindustry/current",
-    "dataURL": "https://www.ons.gov.uk/file?uri=/economy/environmentalaccounts/datasets/ukenvironmentalaccountsfuelusebytypeandindustry/current/fuelusebytypeandindustry.xls",
+    "landingPage": "https://www.ons.gov.uk/economy/environmentalaccounts/datasets/ukenvironmentalaccountsfuelusebytypeandindustry",
     "datasetNotes": [
         "On landing page scroll down to latest version."
     ],
