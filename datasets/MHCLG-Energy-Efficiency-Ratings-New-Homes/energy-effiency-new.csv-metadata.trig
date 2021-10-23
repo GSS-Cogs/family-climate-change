@@ -29,11 +29,11 @@ ns1:mhclg-energy-efficiency-ratings-new-homes-metadata {
     gdp:family gdp:climate-change;
     pmdcat:datasetContents <http://gss-data.org.uk/data/gss_data/climate-change/mhclg-energy-efficiency-ratings-new-homes#dataset>;
     pmdcat:graph ns1:mhclg-energy-efficiency-ratings-new-homes;
-    dct:creator gov:mhclg;
+    dct:creator gov:ministry-of-housing-communities-and-local-government;
     dct:description ""@en;
     dct:issued "2021-02-02T09:30:00+00:00"^^xsd:dateTime;
     dct:modified "2021-07-09T13:56:03.633387+00:00"^^xsd:dateTime;
-    dct:publisher gov:mhclg;
+    dct:publisher gov:ministry-of-housing-communities-and-local-government;
     dct:title "Energy Efficiency Ratings New Homes"@en;
     void:sparqlEndpoint <http://gss-data.org.uk/sparql>;
     dcat:theme gdp:climate-change .
