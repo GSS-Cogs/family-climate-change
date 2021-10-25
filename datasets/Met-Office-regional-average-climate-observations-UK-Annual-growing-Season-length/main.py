@@ -14,7 +14,7 @@ df.rename(columns={'period-start': 'Year',
                 'value': 'Value'
                 }, inplace=True)
 
-df['Month'] = pd.to_datetime(df['Month'], dayfirst=True).dt.strftime('%Y-%m')
+#df['Month'] = pd.to_datetime(df['Month'], dayfirst=True).dt.strftime('%Y-%m')
 
 #df['Geography'].replace({'ondon': 'london'}, inplace=True)
 df['Geography'] = df['Geography'].apply(pathify)
