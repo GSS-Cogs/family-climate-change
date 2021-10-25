@@ -1,9 +1,9 @@
 {
     "@context": "http://www.w3.org/ns/csvw",
-    "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/sic-section",
-    "url": "sic-section.csv",
-    "rdfs:label": "Sic Section",
-    "dc:title": "Sic Section",
+    "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section",
+    "url": "section.csv",
+    "rdfs:label": "Section",
+    "dc:title": "Section",
     "tableSchema": {
         "columns": [
             {
@@ -15,13 +15,11 @@
             },
             {
                 "titles": "URI",
-                "name": "uri",
-                "suppressOutput": true
+                "name": "uri"
             },
             {
                 "titles": "Parent URI",
-                "name": "parent_uri",
-                "propertyUrl": "skos:broader"
+                "name": "parent_uri"
             },
             {
                 "titles": "Sort Priority",
@@ -39,8 +37,7 @@
             },
             {
                 "titles": "Local Notation",
-                "name": "local_notation",
-                "propertyUrl": "skos:notation"
+                "name": "local_notation"
             },
             {
                 "virtual": true,
@@ -50,14 +47,14 @@
             {
                 "virtual": true,
                 "propertyUrl": "skos:inScheme",
-                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/sic-section"
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section"
             }
         ],
         "primaryKey": "uri",
         "aboutUrl": "{+uri}"
     },
     "prov:hadDerivation": {
-        "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/sic-section",
+        "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section",
         "@type": [
             "skos:ConceptScheme",
             "http://publishmydata.com/pmdcat#ConceptScheme"
@@ -65,53 +62,57 @@
     },
     "rdfs:seeAlso": [
         {
-            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/sic-section/dataset",
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section/dataset",
             "@type": [
                 "dcat:Dataset",
                 "http://publishmydata.com/pmdcat#Dataset"
             ],
             "http://publishmydata.com/pmdcat#datasetContents": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/sic-section"
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section"
             },
             "http://publishmydata.com/pmdcat#graph": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/sic-section"
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section"
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-10-18T19:36:43.841465"
+                "@value": "2021-10-25T10:56:04.665952"
             },
-            "rdfs:label": "Sic Section",
-            "dc:title": "Sic Section",
-            "rdfs:comment": "Dataset representing the 'Sic Section' code list.",
+            "rdfs:label": "Section",
+            "dc:title": "Section",
+            "rdfs:comment": "Dataset representing the 'Section' code list.",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-10-18T19:36:43.841465"
+                "@value": "2021-10-25T10:56:04.665952"
+            },
+            "http://publishmydata.com/pmdcat#markdownDescription": {
+                "@type": "https://www.w3.org/ns/iana/media-types/text/markdown#Resource",
+                "@value": "codelist-manager -c section.csv"
             }
         },
         {
             "@id": "http://gss-data.org.uk/catalog/vocabularies",
             "dcat:record": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/sic-section/catalog-record"
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section/catalog-record"
             }
         },
         {
-            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/sic-section/catalog-record",
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section/catalog-record",
             "@type": "dcat:CatalogRecord",
             "foaf:primaryTopic": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/sic-section/dataset"
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section/dataset"
             },
             "http://publishmydata.com/pmdcat#metadataGraph": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/sic-section"
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section"
             },
-            "dc:title": "Sic Section Catalog Record",
-            "rdfs:label": "Sic Section Catalog Record",
+            "dc:title": "Section Catalog Record",
+            "rdfs:label": "Section Catalog Record",
             "dc:issued": {
                 "@type": "dateTime",
-                "@value": "2021-10-18T19:36:43.841465"
+                "@value": "2021-10-25T10:56:04.665952"
             },
             "dc:modified": {
                 "@type": "dateTime",
-                "@value": "2021-10-18T19:36:43.841465"
+                "@value": "2021-10-25T10:56:04.665952"
             }
         }
     ]
