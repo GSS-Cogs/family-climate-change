@@ -56,3 +56,4 @@ climate-change,standard-area-measurement,Standard Area Measurement,,,http://purl
 climate-change,energy-consumption-per-unit-of-output-1,Energy consumption per unit of output 1,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,output,Output,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,energy-consumption-per-unit-of-output,Energy consumption per unit of output,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,rainfall-anomaly,"Rainfall Anomaly ",,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
