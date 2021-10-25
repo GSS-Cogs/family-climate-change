@@ -1,0 +1,12 @@
+Label,Notation,Parent Notation,Sort Priority
+Carbon based fuels,carbon-based-fuels,,1
+Coal,coal,,2
+Natural gas,natural-gas,,3
+Petrol,petrol,,4
+Derv,derv,,5
+Oil,oil,,6
+Gas Oil Including Marine Oil Excluding DERV,gas-oil-including-marine-oil-excluding-derv,,7
+Aviation spirit,aviation-spirit,,8
+Aviation turbine fuel,aviation-turbine-fuel,,9
+all,all,,10
+Other,other,,11

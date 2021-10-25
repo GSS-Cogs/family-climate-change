@@ -15,6 +15,11 @@ title = distribution.title
 tabs = distribution.as_databaker(data_only=True)
 tabs = [tab for tab in tabs if tab.name not in ['Contents', 'Summary']]
 
+#reterieve the id from info.json for URI's (use later)
+with open("info.json", "r") as read_file:
+    data = json.load(read_file)
+    title_id = data['id']
+
 # %%
 dataframes = []
 for tab in tabs:
@@ -27,7 +32,7 @@ for tab in tabs:
     
     if tab.name not in "Aviation fuel":
         
-        observations = industry.fill(RIGHT)
+        observations = industry.fill(RIGHT).is_not_blank()
         
         if tab.name == 'Fuel oil':
             fueltype = 'Oil'
@@ -44,12 +49,15 @@ for tab in tabs:
             HDimConst('Fuel', fueltype)
         ]
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
+        #savepreviewhtml(tidy_sheet,fname=tab.name + "Preview.html")
         df = tidy_sheet.topandas()
+        df['SIC Group'] = df['SIC Group'].str.rstrip("0")
+        df['SIC Group'] = df['SIC Group'].str.rstrip(".")
         dataframes.append(df)
    
     elif tab.name == "Aviation fuel":
         industry = tab.excel_ref('C6').expand(DOWN) - remove
-        fuel = tab.excel_ref('D6').expand(DOWN)
+        fuel = tab.excel_ref('D6').expand(DOWN) - tab.excel_ref('D25').expand(DOWN)
         observations = fuel.fill(RIGHT).is_not_blank() - remove
         
         dimensions = [
@@ -62,6 +70,8 @@ for tab in tabs:
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         df = tidy_sheet.topandas()
+        df['SIC Group'] = df['SIC Group'].str.rstrip("0")
+        df['SIC Group'] = df['SIC Group'].str.rstrip(".")
         #savepreviewhtml(tidy_sheet,fname=tab.name + "Preview.html")
         dataframes.append(df)
 
@@ -69,47 +79,37 @@ for tab in tabs:
 df = pd.concat(dataframes)
 df = df.rename(columns = {'DATAMARKER' : 'Marker', 'OBS' : 'Value'})
 
-df = df.replace({'DATAMARKER' : {'c' : 'confidential'},
+df = df.replace({'Marker' : {'c' : 'confidential'},
                  'Fuel' : {"('DERV',)" : 'DERV'}})
 
 df['Period'] = df['Period'].astype(float).astype(int)
-df['Period'] = df.apply(lambda x: 'year/' + str(x['Period']), axis = 1)
 df['Measure Type'] = 'gross caloric values'
 df['Unit'] = 'millions-of-tonnes-of-oil-equivalent'
 
+df['Fuel'] = df['Fuel'].fillna('all')
+df = df.replace({'Fuel' : {'' : 'all'}})
 
-df
+df['Industry'] = df['Industry'].apply(pathify)
+df['SIC Group'] = df['SIC Group'].apply(pathify)
 
-# %%
-indexNames = df[ df['Industry'] == 'Total' ].index
-df.drop(indexNames, inplace = True)
+df['SIC Group'] = df.apply(lambda x: x['SIC Section'] if x['SIC Group'] == '' or x['SIC Group'] == '-' else x['SIC Group'], axis=1)
+df['SIC Group'] = df.apply(lambda x: x['Industry'] if x['SIC Group'] == '-' and x['SIC Section'] == '-' else x['SIC Group'], axis=1)
+df['SIC Group'] = df.apply(lambda x: x['Industry'] if x['SIC Group'] == '' and x['SIC Section'] == '' else x['SIC Group'], axis=1)
 
-df['SIC Group'] = df.apply(lambda x: 'consumer-expenditure' if x['Industry'] == 'Consumer expenditure' else x['SIC Group'], axis = 1)
-
-#df['SIC Group'] = df.apply(lambda x: pathify(x['SIC Group']), axis = 1)
-
-#df['SIC Section'] = df.apply(lambda x: str(x['SIC Group']).replace('.', '-'), axis = 1)
-
-title = 'ons-' + pathify(info['title'])
-
-#info needed to create URI's for section
-unique = 'http://gss-data.org.uk/data/gss_data/climate-change/' + title + '#concept/sic-2007/'
+#info needed to create URI's for section 
+unique = 'http://gss-data.org.uk/data/gss_data/climate-change/' + title_id + '#concept/sic-2007/'
 sic = 'http://business.data.gov.uk/companies/def/sic-2007/'
 
-df['SIC Section'] = df.apply(lambda x: unique + pathify(x['SIC Group']) if x['SIC Group'][-2:] != '.0' else (sic + x['SIC Group'][:-2] if len(x['SIC Group']) != 3 else sic + '0' + x['SIC Group'][:-2]), axis = 1)
+#create the URI's from the section column 
+df['SIC Group'] = df['SIC Group'].map(lambda x: unique + x if '-' in x else (unique + x if 'total' in x else sic + x))
+df = df.drop(['SIC Section', 'Industry'], axis = 1)
 
-df['Fuel'] = df['Fuel'].fillna('all')
+# %%
+df = df.rename(columns = {'SIC Group' : 'Section', 'Period' : 'Year'})
 
-indexNames = df[ df['SIC Section'] == 'http://business.data.gov.uk/companies/def/sic-2007/' ].index
-df.drop(indexNames, inplace = True)
+df = df[['Year', 'Section', 'Fuel', 'Value', 'Marker', 'Measure Type', 'Unit']]
 
-indexNames = df[ df['SIC Section'] == 'http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#concept/sic-2007/' ].index
-df.drop(indexNames, inplace = True)
-
-df = df[['Period', 'SIC Section', 'Fuel', 'Value', 'Marker', 'Measure Type', 'Unit']]
-
-COLUMNS_TO_NOT_PATHIFY = ['Period', 'Marker', 'Value', 'SIC Section']
-
+COLUMNS_TO_NOT_PATHIFY = ['Period', 'Marker', 'Value', 'Section', 'Year']
 for col in df.columns.values.tolist():
 	if col in COLUMNS_TO_NOT_PATHIFY:
 		continue
