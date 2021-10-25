@@ -54,6 +54,9 @@
             }
         }
     },
+    "load": {
+        "publish": true
+    },
     "sizingNotes": "Multiple tables, not as straightforward structure as could be and footnotes.",
     "notes": "Priority dataset for Climate Change Platform project."
 }
