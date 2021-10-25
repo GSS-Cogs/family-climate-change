@@ -1,0 +1,22 @@
+{
+    "id": "defra-carbon-footprint-reduced-consumption-emissions-march-2021-final",
+    "title": "Carbon Footprint - Reduced Consumption Emissions March 2021 Final",
+    "publisher": "Department for Environment Food & Rural Affairs",
+    "description": "",
+    "datasetNotes": [
+        "No landing page as CC team have supplied this Bespoke file in CSV which is an extract from the Defra source data."
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "rec48EMmaIijRjcda",
+        "main_issue": 225
+    },
+    "sizingNotes": "",
+    "notes": "Priority dataset for Climate Change Platform project."
+}
