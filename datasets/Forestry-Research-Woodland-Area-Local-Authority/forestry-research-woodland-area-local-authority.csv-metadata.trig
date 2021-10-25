@@ -32,7 +32,7 @@ ns1:forestry-research-woodland-area-local-authority-metadata {
     dct:creator gov:forest-research;
     dct:description ""@en;
     dct:issued "2021-02-02T09:30:00+00:00"^^xsd:dateTime;
-    dct:modified "2021-07-09T13:56:03.633387+00:00"^^xsd:dateTime;
+    dct:modified "2021-10-25T13:56:03.633387+00:00"^^xsd:dateTime;
     dct:publisher gov:forest-research;
     dct:title "Woodland Area Local Authority"@en;
     void:sparqlEndpoint <http://gss-data.org.uk/sparql>;

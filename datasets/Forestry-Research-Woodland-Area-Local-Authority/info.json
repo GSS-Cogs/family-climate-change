@@ -42,6 +42,9 @@
             }
         }
     },
+    "load": {
+        "publish": true
+    },
     "sizingNotes": "",
     "notes": "Priority dataset for Climate Change Platform project."
 }
