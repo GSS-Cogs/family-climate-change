@@ -1,7 +1,7 @@
 {
     "id": "forestry-research-woodland-area-local-authority",
     "title": "Woodland Area Local Authority",
-    "publisher": "Forestry Research",
+    "publisher": "Forest Research",
     "description": "",
     "datasetNotes": [
         "No landing page for this dataset as it is a bespoke dataset supplied by Climate Change team."
@@ -22,7 +22,7 @@
                 "value": "http://reference.data.gov.uk/id/year/{+year}"
             },
             "Local Authority Area": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/local-authority-area",
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
                 "value": "http://statistics.data.gov.uk/id/statistical-geography/{+local_authority_area}"
             },
             "Measure Type": {
