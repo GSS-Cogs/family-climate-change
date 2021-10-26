@@ -57,3 +57,7 @@ climate-change,energy-consumption-per-unit-of-output-1,Energy consumption per un
 climate-change,output,Output,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,energy-consumption-per-unit-of-output,Energy consumption per unit of output,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
 climate-change,rainfall-anomaly,"Rainfall Anomaly ",,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,consumption-per-passenger-km,Consumption Per Passenger km,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,energy-consumption-per-household,Energy Consumption Per Household,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,industry-consumption-per-unit-of-output,Industry Consumption Per Unit of Output,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
+climate-change,services-excluding-agriculture-consumption-per-unit-of-output,Services Excluding Agriculture Consumption Per Unit of Output,,,http://purl.org/linked-data/sdmx/2009/measure#obsValue,xsd:decimal
