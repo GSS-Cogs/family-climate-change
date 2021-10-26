@@ -40,7 +40,11 @@
                     "consumption-per-unit-of-output",
                     "services-consumption-excluding-agriculture",
                     "services-output",
-                    "energy-consumption-per-unit-of-output-1"
+                    "energy-consumption-per-unit-of-output-1",
+                    "consumption-per-passenger-km",
+                    "energy-consumption-per-household",
+                    "industry-consumption-per-unit-of-output",
+                    "services-excluding-agriculture-consumption-per-unit-of-output"
                 ]
             },
             "Unit": {
