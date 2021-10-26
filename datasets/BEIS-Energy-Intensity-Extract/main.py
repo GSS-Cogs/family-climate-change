@@ -130,30 +130,13 @@ out = Path('out')
 out.mkdir(exist_ok=True)
 df.to_csv(out/'energy_intensity_extract_index.csv', index = False)
 
-with open("info.json", "r") as jsonFile:
-    data = json.load(jsonFile)
-data["title"] = "Energy Intensity - Extract (Index)"
-with open("info.json", "w") as jsonFile:
-    json.dump(data, jsonFile)
-del data
-
 # +
 with open('info.json') as f:
     info_json = json.load(f)
 csvw_mapping = CSVWMapping()
-print("TEST")
-print(csvw_mapping)
 csvw_mapping.set_mapping(info_json)
 csvw_mapping.set_csv(out/"energy_intensity_extract_index.csv")
 csvw_mapping.set_dataset_uri(f"http://gss-data.org.uk/data/gss_data/climate-change/{info_json['id']}")
 csvw_mapping.write(out/'energy_intensity_extract_index.csv-metadata.json')
 
 shutil.copy("energy_intensity_extract_index.csv-metadata.trig", out/"energy_intensity_extract_index.csv-metadata.trig")
-# -
-
-with open("info.json", "r") as jsonFile:
-    data = json.load(jsonFile)
-data["title"] = "Energy Intensity - Extract"
-with open("info.json", "w") as jsonFile:
-    json.dump(data, jsonFile)
-del data
