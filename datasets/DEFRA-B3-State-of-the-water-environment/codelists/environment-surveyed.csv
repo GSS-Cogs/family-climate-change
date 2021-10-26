@@ -1,12 +1,12 @@
 Label,Notation,Parent Notation,Sort Priority
-All Surface Water Bodies,all-surface-water-bodies,,1
-Coastal Waters: Saltmarch,coastal-waters-saltmarsh,,2
-Lakes: Phytoplankton,lakes-phytoplankton,,3
-Estuaries: Saltmarch,estuaries-saltmarsh,,4
-Rivers: Plants and Algae,rivers-plants-algae,,5
-Rivers: Invertebrates,rivers-invertebrates,,6
-Water Quality,water-quality,,7
-Water Quantity,water-quantity,,8
+All surface water bodies,all-surface-water-bodies,,1
+"Coastal taters, saltmarch",coastal-waters-saltmarsh,,2
+"Lakes, phytoplankton",lakes-phytoplankton,,3
+"Estuaries, saltmarch",estuaries-saltmarsh,,4
+"Rivers, plants and algae",rivers-plants-algae,,5
+"Rivers, invertebrates",rivers-invertebrates,,6
+Water quality,water-quality,,7
+Water quantity,water-quantity,,8
 Groundwater,groundwater,,9
-Surface Water,surface-water,,10
-Protected Wildlife Sites,protected-wildlife-sites,,11
+Surface water,surface-water,,10
+Protected wildlife sites,protected-wildlife-sites,,11
