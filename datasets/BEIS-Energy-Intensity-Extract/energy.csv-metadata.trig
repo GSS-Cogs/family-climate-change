@@ -32,7 +32,7 @@ ns1:beis-energy-intensity-extract-metadata {
     dct:creator gov:BEIS;
     dct:description ""@en;
     dct:issued "2021-02-02T09:30:00+00:00"^^xsd:dateTime;
-    dct:modified "2021-26-10T13:56:03.633387+00:00"^^xsd:dateTime;
+    dct:modified "2021-07-09T13:56:03.633387+00:00"^^xsd:dateTime;
     dct:publisher gov:department-for-business-energy-and-industrial-strategy;
     dct:title "Energy Intensity Extract"@en;
     void:sparqlEndpoint <http://gss-data.org.uk/sparql>;
@@ -43,7 +43,6 @@ ns1:beis-energy-intensity-extract-metadata {
     rdfs:label "Energy Intensity Extract Catalog Record"@en;
     pmdcat:metadataGraph ns1:beis-energy-intensity-extract-metadata;
     dct:issued "2021-10-02T09:30:00+00:00"^^xsd:dateTime;
-    dct:modified "2021-26-10T13:56:03.633387+00:00"^^xsd:dateTime;
+    dct:modified "2021-10-09T13:56:03.633387+00:00"^^xsd:dateTime;
     ns2:primaryTopic <http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-intensity-extract-catalog-entry> .
-  
 }

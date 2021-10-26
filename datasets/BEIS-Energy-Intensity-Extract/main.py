@@ -92,3 +92,4 @@ csvw_mapping.set_dataset_uri(f"http://gss-data.org.uk/data/gss_data/climate-chan
 csvw_mapping.write(out/'energy.csv-metadata.json')
 
 shutil.copy("energy.csv-metadata.trig", out/"energy.csv-metadata.trig")
+
