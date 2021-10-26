@@ -34,7 +34,7 @@ ns1:beis-energy-intensity-extract-metadata {
     dct:issued "2021-02-02T09:30:00+00:00"^^xsd:dateTime;
     dct:modified "2021-26-10T13:56:03.633387+00:00"^^xsd:dateTime;
     dct:publisher gov:department-for-business-energy-and-industrial-strategy;
-    dct:title "Energy Intensity Extract - Index"@en;
+    dct:title "Energy Intensity Extract - (Index, 2000 = 100)"@en;
     void:sparqlEndpoint <http://gss-data.org.uk/sparql>;
     dcat:theme gdp:climate-change .
   

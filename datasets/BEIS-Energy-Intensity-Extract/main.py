@@ -122,7 +122,7 @@ df['Measure Type'] = df['Measure Type'].str.rstrip('Index (2000 = 100)')
 df['Measure Type'] = df['Measure Type'].apply(pathify)
 df['Measure Type'] = df['Measure Type'].replace("energy-consumption-per-househol",'energy-consumption-per-household') 
 df['Unit'] = df['Unit'].apply(pathify)
-#energy-intensity-extract-index
+df = df.dropna(subset=['Value'])
 df
 # -
 
