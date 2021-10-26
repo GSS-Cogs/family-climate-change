@@ -88,7 +88,7 @@ with open('info.json') as f:
 csvw_mapping = CSVWMapping()
 csvw_mapping.set_mapping(info_json)
 csvw_mapping.set_csv(out/"energy.csv")
-csvw_mapping.set_dataset_uri(f"http://gss-data.org.uk/data/gss_data/climate-change/{info_json['id']}/energy-intensity-extract")
+csvw_mapping.set_dataset_uri(f"http://gss-data.org.uk/data/gss_data/climate-change/{info_json['id']}")
 csvw_mapping.write(out/'energy.csv-metadata.json')
 
 shutil.copy("energy.csv-metadata.trig", out/"energy.csv-metadata.trig")
