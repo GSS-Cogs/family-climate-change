@@ -14,7 +14,7 @@ df.rename(columns={
                 'value': 'Value'
                 }, inplace=True)
 
-df['Year'] = df['Year'].apply(lambda x: f'{x[0:4]}-20{x[5:7]}')
+#df['Year'] = df['Year'].apply(lambda x: f'{x[0:4]}-20{x[5:7]}')
 #df['Month'] = pd.to_datetime(df['Month'], dayfirst=True).dt.strftime('%Y-%m')
 
 #df['Geography'].replace({'ondon': 'london'}, inplace=True)
