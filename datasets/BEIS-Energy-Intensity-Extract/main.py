@@ -90,7 +90,7 @@ with open('info.json') as f:
 csvw_mapping = CSVWMapping()
 csvw_mapping.set_mapping(info_json)
 csvw_mapping.set_csv(out/"energy.csv")
-csvw_mapping.set_dataset_uri(f"http://gss-data.org.uk/data/gss_data/climate-change/{info_json['id']}")
+csvw_mapping.set_dataset_uri(f"http://gss-data.org.uk/data/gss_data/climate-change/{info_json['id']}/energy-intensity-extract")
 csvw_mapping.write(out/'energy.csv-metadata.json')
 
 shutil.copy("energy.csv-metadata.trig", out/"energy.csv-metadata.trig")
@@ -128,15 +128,18 @@ df
 
 out = Path('out')
 out.mkdir(exist_ok=True)
-df.to_csv(out/'energy_intensity_extract_index.csv', index = False)
+df.to_csv(out/'energy-intensity-extract-index.csv', index = False)
 
 # +
 with open('info.json') as f:
     info_json = json.load(f)
 csvw_mapping = CSVWMapping()
 csvw_mapping.set_mapping(info_json)
-csvw_mapping.set_csv(out/"energy_intensity_extract_index.csv")
-csvw_mapping.set_dataset_uri(f"http://gss-data.org.uk/data/gss_data/climate-change/{info_json['id']}")
-csvw_mapping.write(out/'energy_intensity_extract_index.csv-metadata.json')
+csvw_mapping.set_csv(out/"energy-intensity-extract-index.csv")
+csvw_mapping.set_dataset_uri(f"http://gss-data.org.uk/data/gss_data/climate-change/{info_json['id']}/energy-intensity-extract-index")
+csvw_mapping.write(out/'energy-intensity-extract-index.csv-metadata.json')
 
-shutil.copy("energy_intensity_extract_index.csv-metadata.trig", out/"energy_intensity_extract_index.csv-metadata.trig")
+shutil.copy("energy-intensity-extract-index.csv-metadata.trig", out/"energy-intensity-extract-index.csv-metadata.trig")
+# -
+
+
