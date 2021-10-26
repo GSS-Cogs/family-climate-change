@@ -34,7 +34,7 @@ ns1:met-office-regional-average-climate-observations-uk-monthly-average-mean-tem
     dct:issued "2021-02-02T09:30:00+00:00"^^xsd:dateTime;
     dct:modified "2021-07-09T13:56:03.633387+00:00"^^xsd:dateTime;
     dct:publisher gov:met-office;
-    dct:title "regional average climate observations UK Monthly Average Mean Temperature"@en;
+    dct:title "Regional average climate observations UK Monthly Average Mean Temperature"@en;
     void:sparqlEndpoint <http://gss-data.org.uk/sparql>;
     dcat:theme gdp:climate-change .
   
