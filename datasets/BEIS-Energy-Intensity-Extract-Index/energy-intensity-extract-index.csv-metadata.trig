@@ -16,7 +16,7 @@
 @prefix theme: <http://gss-data.org.uk/def/concept/statistics-authority-themes/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 
-ns1:beis-energy-intensity-extract-metadata {
+ns1:beis-energy-intensity-extract-index-metadata {
   <http://gss-data.org.uk/catalog/datasets> a dcat:Catalog;
     dcat:record <http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-intensity-extract-index-catalog-record> .
   
@@ -25,7 +25,7 @@ ns1:beis-energy-intensity-extract-metadata {
   
   <http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-intensity-extract-index-catalog-entry>
     a pmdcat:Dataset;
-    rdfs:label "Energy Intensity Extract"@en;
+    rdfs:label "Energy Intensity Extract Index"@en;
     gdp:family gdp:climate-change;
     pmdcat:datasetContents <http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-intensity-extract-index#dataset>;
     pmdcat:graph ns1:beis-energy-intensity-extract-index;
@@ -34,7 +34,7 @@ ns1:beis-energy-intensity-extract-metadata {
     dct:issued "2021-02-02T09:30:00+00:00"^^xsd:dateTime;
     dct:modified "2021-07-09T13:56:03.633387+00:00"^^xsd:dateTime;
     dct:publisher gov:department-for-business-energy-and-industrial-strategy;
-    dct:title "Energy Intensity Extract"@en;
+    dct:title "Energy Intensity Extract Index"@en;
     void:sparqlEndpoint <http://gss-data.org.uk/sparql>;
     dcat:theme gdp:climate-change .
   

@@ -12,7 +12,7 @@
 #     name: python3
 # ---
 
-# This issue related to only the last 4 columns in the raw.csv, which describes index values for Energy Entensiry Extract. Note the Thes rest of the data is transformed in a seperate folder called BEIS-Energy-Intensity-Extract-Index
+# This issue related to only the last 4 columns in the raw.csv, which describes index values for Energy Intensity Extract. Note the Thes rest of the data is transformed in a seperate folder called BEIS-Energy-Intensity-Extract-Index
 #
 
 import json 
