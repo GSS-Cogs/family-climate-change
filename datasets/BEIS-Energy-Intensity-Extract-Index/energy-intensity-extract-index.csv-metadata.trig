@@ -20,7 +20,7 @@ ns1:beis-energy-intensity-extract-index-metadata {
   <http://gss-data.org.uk/catalog/datasets> a dcat:Catalog;
     dcat:record <http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-intensity-extract-index-catalog-record> .
   
-  <http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-intensity-extract-index-extract#dataset>
+  <http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-intensity-extract-index#dataset>
     a pmdcat:DataCube .
   
   <http://gss-data.org.uk/data/gss_data/climate-change/beis-energy-intensity-extract-index-catalog-entry>
