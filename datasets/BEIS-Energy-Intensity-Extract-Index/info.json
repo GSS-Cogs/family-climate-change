@@ -1,0 +1,45 @@
+{
+    "id": "beis-energy-intensity-extract-index",
+    "title": "Energy Intensity - Extract Index",
+    "publisher": "Department for Business, Energy and Industrial Strategy",
+    "description": "",
+    "datasetNotes": [
+        "No landing page for this dataset as it is an extract from the above dataset \"Energy Intensity Extract\" supplied by BEIS and requested to be created by Shannon Black (Data Engineer) as part of Climate Change project Beta. Reason being as the index values have to be pulled out into a separate cube and due to the data coming in as a raw csv it is proving difficult to make them run through one pipeline together."
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "recsBcwjGf1vR6haO",
+        "main_issue": 230,
+        "columns": {
+            "Year": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Measure Type": {
+                "dimension": "http://purl.org/linked-data/cube#measureType",
+                "value": "http://gss-data.org.uk/def/climate-change/measure/{measure_type}",
+                "types": [
+                    "consumption-per-passenger-km",
+                    "energy-consumption-per-household",
+                    "industry-consumption-per-unit-of-output",
+                    "services-excluding-agriculture-consumption-per-unit-of-output"
+                ]
+            },
+            "Unit": {
+                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/{unit}"
+            },
+            "Value": {
+                "datatype": "double"
+            }   
+        }
+    },
+    "sizingNotes": "",
+    "notes": "Priority dataset for Climate Change Platform project."
+}

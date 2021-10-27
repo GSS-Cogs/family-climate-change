@@ -15,8 +15,11 @@
     },
     "transform": {
         "airtable": "rec48EMmaIijRjcda",
-        "main_issue": 225
+        "main_issue": 225,
+        "stage": [
+            "Hold"
+        ]
     },
     "sizingNotes": "",
-    "notes": "Priority dataset for Climate Change Platform project."
+    "notes": "On hold as the relevant data is contained in the 5 datasets above ie Carbon Footprint - GHG coicop\nCarbon Footprint - GHG direct\nCarbon Footprint - Summary Product 90-18\nCarbon Footprint - Summary Final Demand 90-18\nCarbon Footprint - Summary Source Region 90-18"
 }
