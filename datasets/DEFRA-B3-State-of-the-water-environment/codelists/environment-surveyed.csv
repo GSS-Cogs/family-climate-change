@@ -1,8 +1,8 @@
 Label,Notation,Parent Notation,Sort Priority
 All surface water bodies,all-surface-water-bodies,,1
-"Coastal waters, saltmarch",coastal-waters-saltmarsh,,2
+"Coastal waters, saltmarsh",coastal-waters-saltmarsh,,2
 "Lakes, phytoplankton",lakes-phytoplankton,,3
-"Estuaries, saltmarch",estuaries-saltmarsh,,4
+"Estuaries, saltmarsh",estuaries-saltmarsh,,4
 "Rivers, plants and algae",rivers-plants-algae,,5
 "Rivers, invertebrates",rivers-invertebrates,,6
 Water quality,water-quality,,7
