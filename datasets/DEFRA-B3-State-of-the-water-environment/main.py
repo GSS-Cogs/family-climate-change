@@ -7,8 +7,9 @@
 # ## DEFRA-B3-State-of-the-water-environment
 
 import json
-import pandas as pandas
 from gssutils import *
+import io
+import requests
 
 cubes = Cubes('info.json')
 info = json.load(open('info.json'))
@@ -16,19 +17,27 @@ landingPage = info['landingPage']
 landingPage
 
 
-# In[ ]:
+# In[2]:
+
 
 
 metadata = Scraper(seed="info.json")
 metadata.select_dataset(title = lambda x: "B3" in x)
 
-distribution = metadata.distribution(mediaType="text/csv")
+#for i in metadata.distributions:
+	#print(i.downloadURL)
+
+#distribution = metadata.distribution(mediaType="text/csv")
 
 metadata.dataset.title = info['title']
 metadata.dataset.family = 'climate-change'
 metadata.dataset.comment = info['description']
 
-df = distribution.as_pandas()
+#df = distribution.as_pandas()
+
+url = metadata.distributions[0].downloadURL
+s = requests.get(url).content
+df = pd.read_csv(io.StringIO(s.decode('utf-8')))
 
 df['Label'] = df['Year'].str.extract(r'([^(\d+)]+)')
 df['Year'] = df['Year'].str.extract(r'(\d+)')
@@ -56,14 +65,16 @@ df['Survey Type'] = df.apply(lambda x: 'ecological-status' if 'B3b' in x['Series
 df = df.drop(['Series'], axis = 1)
 
 
-# In[ ]:
+# In[3]:
+
 
 
 df = df[['Period', 'Region', 'Environment Surveyed', 'Survey Type', 'Survey Status', 'Value', 'Measure Type', 'Unit']]
 df = df.fillna('not available')
 
 
-# In[ ]:
+# In[4]:
+
 
 
 COLUMNS_TO_NOT_PATHIFY = ['Period', 'Region', 'Value']
@@ -77,7 +88,8 @@ for col in df.columns.values.tolist():
 		raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
 
-# In[ ]:
+# In[5]:
+
 
 
 cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title)
