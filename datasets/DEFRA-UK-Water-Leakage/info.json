@@ -18,8 +18,9 @@
         "main_issue": 136,
         "columns": {
             "Year": {
-                "description": "DEFRA bespoke governement year"
-                
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/government-year/{+year}",
+                "codelist": false 
             },
             "Geography": {
                 "description": "DEFRA bespoke geography area"
