@@ -1,0 +1,71 @@
+{
+    "id": "beis-2019-uk-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-source",
+    "title": "2019 UK greenhouse gas emissions: final figures \u2013 dataset of emissions by source",
+    "publisher": "Department for Business, Energy and Industrial Strategy",
+    "description": "This publication provides the final estimates of UK territorial greenhouse gas emissions going back to 1990.\nEstimates are presented by source in February of each year. They are updated each year in March, to include estimates by end-user and fuel type,\nin June to include estimates by Standard Industrial Classification (SIC)",
+    "landingPage": "https://www.gov.uk/government/statistics/final-uk-greenhouse-gas-emissions-national-statistics-1990-to-2020",
+    "datasetNotes": [
+        "On landing page scroll down to datasets under \"documents\" heading."
+    ],
+    "published": "2022-02-01",
+    "families": [
+        "Climate-Change"
+    ],
+    "transform": {
+        "stage": [
+            "Priority"
+        ],
+        "airtable": "recqrEhStypoIrWJ2",
+        "main_issue": 7,
+        "columns": {
+            "GHG": {
+                "type": "dimension"
+            },
+            "GHG Grouped": {
+                "type": "dimension"
+            },
+            "IPCC Code": {
+                "type": "dimension"
+            },
+            "Year": {
+                "type": "dimension"
+            },
+            "National Communication Sector": {
+                "type": "dimension"
+            },
+            "National Communication Sub-sector": {
+                "type": "dimension"
+            },
+            "National Communication Category": {
+                "type": "dimension"
+            },
+            "Source": {
+                "type": "dimension"
+            },
+            "National Communication Fuel Group": {
+                "type": "dimension"
+            },
+            "National Communication Fuel": {
+                "type": "dimension"
+            },
+            "Activity Name": {
+                "type": "dimension"
+            },
+            "Measure": {
+                "type": "measures"
+            },
+            "Value": {
+                "type": "observations",
+                "unit": {
+                    "label": "MtCO2e"
+                }
+            }
+        }
+    },
+    "sizingNotes": "Straightforward data CSV form.",
+    "notes": "Priority dataset for Climate Change Platform project.",
+    "extract": {
+        "source": "CSV",
+        "stage": "Prioritized"
+    }
+}
