@@ -2,10 +2,8 @@
 #
 # ## BEIS-2019-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-source
 
-import json
 import pandas as pd
 from gssutils import *
-
 
 metadata = Scraper(seed="info.json")
 distribution = metadata.distribution(
