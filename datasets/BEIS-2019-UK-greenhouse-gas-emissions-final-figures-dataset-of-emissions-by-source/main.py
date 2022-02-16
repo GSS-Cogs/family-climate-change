@@ -1,24 +1,20 @@
-
+# -*- coding: utf-8 -*-
+#
 # ## BEIS-2019-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-source
 
-#%% 
 import pandas as pd
 from gssutils import *
 
 
-#%% 
-metadata = Scraper(seed="ghg_emissions_by_source-info.json")
-#%% 
+metadata = Scraper(seed="info.json")
 distribution = metadata.distribution(
     mediaType="text/csv",
     latest=True,
     title=lambda x: "UK greenhouse gas emissions: final figures – dataset of emissions by source"
     in x,
 )
-#%% 
 df = distribution.as_pandas(encoding="ISO-8859-1").fillna(" ")
 
-#%% 
 df.loc[
     (df["National Communication Sub-sector"] == "(blank)"),
     "National Communication Sub-sector",
@@ -29,14 +25,12 @@ df.drop(
     df.columns[df.columns.str.contains("Unnamed", case=False)], axis=1, inplace=True
 )
 
-#%% 
 # Fixing BEIS' use of slashes in some columns:
 df["National Communication Category"] = df[
     "National Communication Category"
 ].str.replace("/", "-")
 df["Source"] = df["Source"].str.replace("/", "-").str.replace("-+", "-", regex=True)
 
-#%% 
 df = pd.melt(
     df,
     id_vars=[
@@ -57,11 +51,9 @@ df = pd.melt(
     value_name="Value",
 )
 
-#%% 
 df["Value"] = df["Value"].astype(float).round(5)
 df["Measure"] = df["Measure"].str.replace("MtCO2e, ", "")
 
-#%% 
-df.to_csv("ghg_emissions_by_source-observations.csv", index=False)
+df.to_csv("observations.csv", index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
-catalog_metadata.to_json_file("ghg_emissions_by_source-catalog-metadata.json")
+catalog_metadata.to_json_file("catalog-metadata.json")
