@@ -5,6 +5,7 @@
 import pandas as pd
 from gssutils import *
 
+
 metadata = Scraper(seed="info.json")
 distribution = metadata.distribution(
     mediaType="text/csv",
@@ -50,7 +51,8 @@ df = pd.melt(
     value_name="Value",
 )
 
-df["Value"] = df["Value"].astype(float).round(5)
+df['Value'] = pd.to_numeric(df['Value'], errors="raise", downcast="float")
+df["Value"] = df["Value"].astype(float).round(3)
 df["Measure"] = df["Measure"].str.replace("MtCO2e, ", "")
 
 df.to_csv("observations.csv", index=False)
