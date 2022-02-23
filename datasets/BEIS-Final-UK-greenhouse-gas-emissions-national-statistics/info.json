@@ -38,11 +38,11 @@
             "Measure": {
                 "type": "measures"
             },
-      		"Unit": {
-                "type": "units"
-            },
             "Value": {
                 "type": "observations"
+            },
+            "Unit": {
+                "type": "units"
             }
         }
     },
