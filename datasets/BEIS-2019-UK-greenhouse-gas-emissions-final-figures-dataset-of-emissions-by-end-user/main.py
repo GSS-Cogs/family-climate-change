@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # ---
 # jupyter:
 #   jupytext:
@@ -5,7 +6,7 @@
 #       extension: .py
 #       format_name: light
 #       format_version: '1.5'
-#       jupytext_version: 1.10.2
+#       jupytext_version: 1.13.5
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -15,22 +16,17 @@
 # ## BEIS-2019-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-end-user
 
 # + tags=[]
-import json
 import pandas as pd
 from gssutils import *
 # -
 
-cubes = Cubes('info.json')
-
-info = json.load(open('info.json'))
-landingPage = info['landingPage']
-
 metadata = Scraper(seed='info.json')
+# metadata
 
-distribution = metadata.distributions[-1]
+metadata.dataset.family = 'climate-change'
 
-title = distribution.title
-metadata.dataset.title = title
+distribution  = metadata.distribution(latest=True, mediaType="text/csv", title = lambda x:"UK greenhouse gas emissions: final figures – dataset of emissions by end user" in x)
+distribution
 
 df = distribution.as_pandas(encoding='ISO-8859-1').fillna(' ')
 
@@ -43,25 +39,14 @@ df.drop(columns=['TerritoryName', 'EmissionUnits'], axis=1, inplace=True)
 df.drop(df.columns[df.columns.str.contains('Unnamed',case = False)],axis = 1, inplace = True)
 df.query("(not `IPCC Code` == 'Aviation_Bunkers') & (not `IPCC Code` == 'Marine_Bunkers') & (not `IPCC Code` == 'non-IPCC')", inplace = True)
 
-df.rename(
-    columns={
-        'ActivityName' : 'Activity Name',
-	    'Emission' : 'Value'},
-	inplace=True)
+df.rename(columns={'ActivityName' : 'Activity Name','Emission' : 'Value'},inplace=True)
 
-df['Value'] = df['Value'].astype(float).round(5)
-
-for col in df.columns.values.tolist():
-    if col in ['GHG', 'GHG Grouped', 'IPCC Code', 'Emission Units', 'Year', 'Value']: 
-        continue
-    try:
-        df[col] = df[col].apply(pathify)
-    except Exception as err:
-        raise Exception('Failed to pathify column "{}".'.format(col)) from err
+df['Value'] = df['Value'].astype(float).round(3)
 
 # Fix BEIS' use of slashes in some columns:
 df['National Communication Category'] = df['National Communication Category'].str.replace('/', '-')
 df['Source'] = df['Source'].str.replace('/', '-').str.replace('-+', '-', regex = True)
 
-cubes.add_cube(metadata, df, metadata.dataset.title)
-cubes.output_all()
+df.to_csv('observations.csv', index=False)
+catalog_metadata = metadata.as_csvqb_catalog_metadata()
+catalog_metadata.to_json_file('catalog-metadata.json')
