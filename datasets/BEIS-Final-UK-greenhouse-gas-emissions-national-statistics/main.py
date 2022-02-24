@@ -7,21 +7,20 @@ import pandas as pd
 from gssutils import *
 
 metadata = Scraper(seed="info.json")
+
 distribution = metadata.distribution(
     latest=True, mediaType="application/vnd.oasis.opendocument.spreadsheet", title=lambda x: "UK greenhouse gas emissions: provisional figures - data tables" in x)
 
 tabs = distribution.as_databaker()
-for tab in tabs:
-    print(tab.name)
 
 sheets = []
 tabs = [tab for tab in tabs if 'Contents' not in tab.name]
 for tab in tabs:
-    if tab.name not in ['Table 3', 'Table 4']:  # tables 3 and 4 are moving averages
+    if tab.name not in ['Table_3', 'Table_4']:  # tables 3 and 4 are moving averages
         remove = tab.filter(contains_string(
             "2020 estimates")).expand(RIGHT).expand(DOWN)
         cell = tab.excel_ref("A2")
-        if tab.name not in ['Table 1', 'Table 2']:
+        if tab.name not in ['Table_1', 'Table_2']:
             period = cell.fill(RIGHT).is_not_blank().is_not_whitespace()
             quarter = period.shift(DOWN).expand(RIGHT)
         else:
@@ -30,7 +29,7 @@ for tab in tabs:
 
         area = 'K02000001'
 
-        if tab.name not in ['Table 2']:
+        if tab.name not in ['Table_2']:
             ncSector = cell.fill(DOWN).is_not_blank(
             ).is_not_whitespace() - remove
             fuel = 'all'
@@ -38,20 +37,20 @@ for tab in tabs:
             ncSector = 'all'
             fuel = cell.fill(DOWN).is_not_blank().is_not_whitespace() - remove
 
-        if tab.name in ['Table 1', 'Table 5']:
+        if tab.name in ['Table_1', 'Table_5']:
             measureType = 'greenhouse-gas-emissions'
             unit = 'millions-of-tonnes-of-co2-equivalent'
-        elif tab.name in ['Table 2']:
+        elif tab.name in ['Table_2']:
             measureType = 'carbon-dioxide-emissions'
             unit = 'millions-of-tonnes-of-co2'
-        elif tab.name in ['Table 6']:
+        elif tab.name in ['Table_6']:
             measureType = 'temperature-adjusted-greenhouse-gas-emissions'
             unit = 'millions-of-tonnes-of-co2-equivalent'
 
         observations = quarter.fill(
             DOWN).is_not_blank().is_not_whitespace() - remove
 
-        if tab.name not in ['Table 2']:
+        if tab.name not in ['Table_2']:
             dimensions = [
                 HDimConst('Area', area),
                 HDim(period, "Period", CLOSEST, LEFT),
@@ -74,8 +73,9 @@ for tab in tabs:
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         df = tidy_sheet.topandas()
         sheets.append(df)
+    print(tab.name)
 
-df = pd.concat(sheets)
+df = pd.concat(sheets).fillna('')
 
 # +
 df['Marker'] = df.apply(
@@ -91,15 +91,22 @@ df = df.replace({'National Communication Sector': {'     from power stations': '
 indexNames = df[df['Fuel'] == 'Total'].index
 df.drop(indexNames, inplace=True)
 
-df['National Communication Sector'] = df['National Communication Sector'].map(
-    lambda x: pathify(x))
-df['Fuel'] = df['Fuel'].map(lambda x: pathify(x))
-
 df = df.rename(columns={'OBS': 'Value'})
 df['Value'] = df['Value'].map(lambda x: round(x, 1))
-df = df[['Period', 'Area', 'National Communication Sector',
-         'Fuel', 'Value', 'Marker', 'Measure', 'Unit']]
 # -
+
+df = df.drop_duplicates()
+df = df.replace({
+    'Marker': {'': 'None'}
+})
+df = df[['Period', 'Area', 'National Communication Sector',
+         'Fuel', 'Marker', 'Measure', 'Unit', 'Value']]
+
+for col in df.columns.values.tolist()[2:-1]:
+    try:
+        df[col] = df[col].apply(pathify)
+    except Exception as err:
+        raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
 df.to_csv("observations.csv", index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
