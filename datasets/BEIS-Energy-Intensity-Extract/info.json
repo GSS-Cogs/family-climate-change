@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "beis-energy-intensity-extract",
     "title": "Energy Intensity - Extract",
     "publisher": "Department for Business, Energy and Industrial Strategy",
@@ -8,7 +9,7 @@
     ],
     "published": "",
     "families": [
-        "Climate Change"
+        "Climate-Change"
     ],
     "extract": {
         "source": "CSV"
@@ -18,39 +19,26 @@
         "main_issue": 45,
         "columns": {
             "Year": {
-                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-                "value": "http://reference.data.gov.uk/id/year/{+year}"
+                "type": "dimension"
             },
             "Sector": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/sector",
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/sector",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/sector/{sector}"
             },
             "Measure Type": {
-                "dimension": "http://purl.org/linked-data/cube#measureType",
-                "value": "http://gss-data.org.uk/def/climate-change/measure/{measure_type}",
-                "types": [
-                    "road-passenger-consumption",
-                    "output",
-                    "energy-consumption-per-unit-of-output",
-                    "total-final-domestic-consumption",
-                    "no-households-000s",
-                    "consumption-per-household",
-                    "industrial-consumption",
-                    "industrial-output",
-                    "consumption-per-unit-of-output",
-                    "services-consumption-excluding-agriculture",
-                    "services-output",
-                    "energy-consumption-per-unit-of-output-1"
-                ]
+                "type": "measures"
             },
             "Unit": {
-                "dimension": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/{unit}"
+                "type": "units"
             },
             "Value": {
-                "datatype": "double"
+                "type": "observations"
             }
         }
+    },
+    "load": {
+        "publish": true
     },
     "sizingNotes": "",
     "notes": "Priority dataset for Climate Change Platform project."
