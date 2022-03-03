@@ -96,9 +96,6 @@ df['Value'] = df['Value'].map(lambda x: round(x, 1))
 # -
 
 df = df.drop_duplicates()
-df = df.replace({
-    'Marker': {'': 'None'}
-})
 df = df[['Period', 'Area', 'National Communication Sector',
          'Fuel', 'Marker', 'Measure', 'Unit', 'Value']]
 
