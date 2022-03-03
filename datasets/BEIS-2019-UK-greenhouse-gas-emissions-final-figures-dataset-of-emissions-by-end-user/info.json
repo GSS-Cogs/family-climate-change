@@ -12,6 +12,10 @@
     "families": [
         "Climate-Change"
     ],
+    "extract": {
+        "source": "CSV",
+        "stage": "Prioritized"
+    },
     "transform": {
         "stage": [
             "Priority"
@@ -64,9 +68,5 @@
         }
     },
     "sizingNotes": "Straightforward data CSV form.",
-    "notes": "Priority dataset for Climate Change Platform project.",
-    "extract": {
-        "source": "CSV",
-        "stage": "Prioritized"
-    }
+    "notes": "Priority dataset for Climate Change Platform project."
 }

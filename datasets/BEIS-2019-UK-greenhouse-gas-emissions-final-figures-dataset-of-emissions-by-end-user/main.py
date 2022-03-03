@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # ---
 # jupyter:
 #   jupytext:
@@ -20,6 +21,7 @@ from gssutils import *
 # -
 
 metadata = Scraper(seed='info.json')
+# metadata
 
 metadata.dataset.family = 'climate-change'
 
