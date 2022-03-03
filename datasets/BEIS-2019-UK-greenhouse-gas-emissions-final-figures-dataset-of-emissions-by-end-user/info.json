@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "beis-2019-uk-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-end-user",
     "title": "2019 UK greenhouse gas emissions: final figures \u2013 dataset of emissions by end user",
     "publisher": "Department for Business, Energy and Industrial Strategy",
@@ -9,7 +10,7 @@
     ],
     "published": "2021-02-02",
     "families": [
-        "Climate Change"
+        "Climate-Change"
     ],
     "transform": {
         "stage": [
@@ -19,53 +20,45 @@
         "main_issue": 5,
         "columns": {
             "GHG": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/ghg",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{ghg}"
+                "type": "dimension"
             },
             "GHG Grouped": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/ghg-grouped",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{ghg_grouped}"
+                "type": "dimension"
             },
             "IPCC Code": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/ipcc-code",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/ipcc-code/{ipcc_code}"
+                "type": "dimension"
             },
             "Year": {
-                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-                "value": "http://reference.data.gov.uk/id/year/{year}"
+                "type": "dimension"
             },
             "National Communication Sector": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_sector}"
-            },
+                "type": "dimension"            },
             "National Communication Sub-sector": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sub-sector",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_sub_sector}"
+                "type": "dimension"
             },
             "National Communication Category": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-category",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_category}"
+                "type": "dimension"
             },
             "Source": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/source",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/source/{source}"
+                "type": "dimension"
             },
             "National Communication Fuel": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{national_communication_fuel}"
+               "type": "dimension"
             },
             "National Communication Fuel Group": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel-group",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{national_communication_fuel_group}"
+                "type": "dimension"
             },
             "Activity Name": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/activity-name",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{activity_name}"
+                "type": "dimension"
             },
             "Value": {
-                "unit": "http://gss-data.org.uk/def/concept/measurement-units/mt-gwp-co2-ar4",
-                "measure": "http://gss-data.org.uk/def/measure/gas-emissions",
-                "datatype": "double"
+                "type": "observations",
+                "unit": {
+                   "label": "http://gss-data.org.uk/def/concept/measurement-units/mt-gwp-co2-ar4"
+                },
+                "measure": {
+                    "label": "http://gss-data.org.uk/def/measure/gas-emissions"
+                }
             }
         }
     },
