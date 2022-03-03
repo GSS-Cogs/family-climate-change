@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "beis-sub-national-road-transport-fuel-consumption-in-the-united-kingdom",
     "title": "Sub-national road transport fuel consumption in the United Kingdom",
     "publisher": "International trade in services by subnational areas of the UK: 2018",
@@ -9,7 +10,7 @@
     ],
     "published": "2021-06-24",
     "families": [
-        "Climate Change"
+        "Climate-Change"
     ],
     "extract": {
         "source": "ODS, XLS",
@@ -23,30 +24,37 @@
         "main_issue": 34,
           "columns": {
               "Period": {
-                  "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-                  "value": "http://reference.data.gov.uk/id/{+period}",
+                  "type": "dimension",
+                  "new": {
+                  "label": "http://reference.data.gov.uk/id/{+period}",
                   "codelist": false
+                  }
               },
               "Road Type": {
-                  "description": "Type of road"
+                  "type": "dimension"
               },
               "Vehicle": {
-                  "description": "Type of Vehicle"
+                  "type": "dimension"
               },
               "Purpose": {
-                  "description": "Purpose of Vehicle/Travel"
+                  "type": "dimension"
               },
               "Region": {
-                "dimension": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+                  "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
                 "value": "http://statistics.data.gov.uk/id/statistical-geography/{region}"
               },
               "Value": {
-                  "unit": "http://gss-data.org.uk/def/concept/measurement-units/toe",
-                  "measure": "http://gss-data.org.uk/def/measure/energy-consumption",
-                  "datatype": "double"
+                  "type": "observations",
+                  "unit": { 
+                       "label": "http://gss-data.org.uk/def/concept/measurement-units/toe"
+                  },
+                  "measure": {
+                      "label": "http://gss-data.org.uk/def/measure/energy-consumption"
+                  }
               }
           }
     },
     "sizingNotes": "Consistent table structure across all pages",
     "notes": "In addition to these data tables, the following accompanying documents are also available:\t\t\t\t\t\t\t\t\t\n- A detailed methodology document created by Ricardo is published alongside these tables, available here:  \t\t\t\t\t\t\t\t\t\nhttps://www.gov.uk/government/collections/road-transport-consumption-at-regional-and-local-level\t\t\t\t\t\t\t\t\t\n- An Annex is included in this workbook which provides details of all BEIS sub-national consumption statistics datasets available.\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\nNote that the entire time series is revised each year to take account of methodological improvements. \t\t\t\t\t\t\t\t\t\nIn 2019 there were two notable changes made to the calculation of these statistics. Firstly, the Department for Transport (DfT) has carried out a routine benchmarking exercise for their estimates of road\t\t\t\t\t\t\t\t\t\ntraffic on minor roads; this exercise happens approximately every 10 years and aims to reduce incremental errors. The result of this exercise was an increase in their estimates of traffic flow on minor roads\t\t\t\t\t\t\t\t\t\nin each year from 2010 to 2018. This has led to an associated recalculation and increase in our estimates of minor road fuel use.\t\t\t\t\t\t\t\t\t\nThe second change relates to roads in Northern Ireland. An improvement this year has updated the urban/rural boundaries used in Northern Ireland from the historic urban boundaries to the 2015 settlement\t\t\t\t\t\t\t\t\t\ndevelopment limits. This means that some roads have changed status or have different urban/rural lengths. This affects fuel use as the urban status of a road changes the assumed average speed and \t\t\t\t\t\t\t\t\t\ntherefore the fuel consumption factors applied. Any changes in urban status are reflected across the entire time series."
-}
+}    
