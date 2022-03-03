@@ -1,14 +1,16 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "met-office-annual-growing-season-length-with-trends-actual",
     "title": "Annual growing season length with trends actual",
     "publisher": "Meteorological Office",
     "description": "Priority dataset for Climate Change Platform project.",
+    "landingPage": "Not available",
     "datasetNotes": [
         "No landing page for this dataset as it is a bespoke dataset supplied by Met Office directly to IDP-D as part of the Climate Change Platform project. It is a subset of the Met Office HAD large dataset."
     ],
-    "published": "",
+    "published": "2021-03-01",
     "families": [
-        "Climate Change"
+        "Climate-Change"
     ],
     "extract": {
         "source": "CSV"
@@ -18,16 +20,19 @@
         "main_issue": 127,
         "columns": {
             "Year": {
-                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-                "value": "http://reference.data.gov.uk/id/year/{year}"
+                "type": "dimension"
             },
             "Geography": {
-                "description": "Met Office bespoke geography area"
+                "type": "dimension"
             },
             "Value": {
-                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/day",
-                "measure": "http://gss-data.org.uk/def/climate-change/measure/annual-growing-season",
-                "datatype": "double"
+                "type": "observations",
+                "unit": {
+                    "label": "day"
+                },
+                "measure": {
+                    "label": "annual growing season"
+                }
             }
         }
     },
