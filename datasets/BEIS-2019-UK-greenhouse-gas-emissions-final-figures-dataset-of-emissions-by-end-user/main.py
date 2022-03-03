@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: light
 #       format_version: '1.5'
-#       jupytext_version: 1.13.5
+#       jupytext_version: 1.13.7
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -26,7 +26,6 @@ metadata = Scraper(seed='info.json')
 metadata.dataset.family = 'climate-change'
 
 distribution  = metadata.distribution(latest=True, mediaType="text/csv", title = lambda x:"UK greenhouse gas emissions: final figures – dataset of emissions by end user" in x)
-distribution
 
 df = distribution.as_pandas(encoding='ISO-8859-1').fillna(' ')
 

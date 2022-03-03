@@ -24,68 +24,46 @@
         "main_issue": 5,
         "columns": {
             "GHG": {
-               "type": "dimension",
-               "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/ghg",
-               "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{ghg}"
+                "type": "dimension"
             },
             "GHG Grouped": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/ghg-grouped",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{ghg_grouped}"
+                "type": "dimension"
             },
             "IPCC Code": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/ipcc-code",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/ipcc-code/{ipcc_code}"
+                "type": "dimension"
             },
             "Year": {
-                "type": "dimension",
-                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-                "value": "http://reference.data.gov.uk/id/year/{year}"
+                "type": "dimension"
             },
             "National Communication Sector": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_sector}"
+                "type": "dimension"            
             },
             "National Communication Sub-sector": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sub-sector",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_sub_sector}"
+                "type": "dimension"
             },
             "National Communication Category": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-category",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_category}"
+                "type": "dimension"
             },
             "Source": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/source",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/source/{source}"
+                "type": "dimension"
             },
             "National Communication Fuel": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{national_communication_fuel}"
-            },   
+               "type": "dimension"
+            },
             "National Communication Fuel Group": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel-group",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{national_communication_fuel_group}"
+                "type": "dimension"
             },
             "Activity Name": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/activity-name",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{activity_name}"
+                "type": "dimension"
             },
             "Value": {
                 "type": "observations",
+                "unit": {
+                   "label": "millions of tonnes of carbon dioxide (mt co2)"                
+                },
                 "measure": {
                     "label": "gas emissions(gwp-ar4)"
-                },
-                "unit": {
-                    "label": "millions of tonnes of carbon dioxide (mt co2)"
-                }  
+                }
             }
         }
     },

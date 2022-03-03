@@ -1,33 +1,18 @@
 #!/usr/bin/env python
 # coding: utf-8
-
-# In[137]:
-
-
-# ## BEIS-Sub-national-road-transport-fuel-consumption-in-the-United-Kingdom
-
-import json
 import pandas as pd
 from gssutils import *
 
-pd.set_option('display.float_format', lambda x: '%.1f' % x)
-
-cubes = Cubes('info.json')
-info = json.load(open('info.json'))
-landingPage = info['landingPage']
 metadata = Scraper(seed='info.json')
+
+metadata.dataset.family = 'climate-change'
+
 distribution = metadata.distribution(title = lambda x: "Sub-national road transport fuel consumption statistics, 2005-2019 (Excel)" in x, latest = True)
+
 tabs = distribution.as_databaker()
-title = metadata.title
-
-
-# In[138]:
-
 
 tidied_sheets = []
 for tab in tabs[2:-1]:
-
-    print(tab.name)
 
     pivot = tab.excel_ref('A5')
 
@@ -46,15 +31,12 @@ for tab in tabs[2:-1]:
 
     tidy_sheet = ConversionSegment(tab, dimensions, observations)
     df = tidy_sheet.topandas()
-    savepreviewhtml(tidy_sheet,fname=tab.name + "Preview.html")
-
     tidied_sheets.append(df)
 
 
-# In[139]:
-
-
 df = pd.concat(tidied_sheets, sort=True)
+
+# +
 df.rename(columns={'OBS' : 'Value'}, inplace=True)
 
 df['Local Authority Code'] = df.apply(lambda x: x['Geography'] if x['Local Authority Code'] == '' else x['Local Authority Code'], axis = 1)
@@ -96,19 +78,9 @@ for col in df.columns.values.tolist():
 		df[col] = df[col].apply(pathify)
 	except Exception as err:
 		raise Exception('Failed to pathify column "{}".'.format(col)) from err
-
-df
-
-
-# In[140]:
+# -
 
 
-cubes.add_cube(metadata, df.drop_duplicates(), title)
-cubes.output_all()
-
-
-# In[140]:
-
-
-
-
+df.to_csv('observations.csv', index=False)
+catalog_metadata = metadata.as_csvqb_catalog_metadata()
+catalog_metadata.to_json_file('catalog-metadata.json')
