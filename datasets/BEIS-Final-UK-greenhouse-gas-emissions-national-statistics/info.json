@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "beis-final-uk-greenhouse-gas-emissions-national-statistics",
     "title": "Final UK greenhouse gas emissions national statistics",
     "publisher": "Department for Business, Energy and Industrial Strategy",
@@ -7,9 +8,9 @@
     "datasetNotes": [
         "On landing page scroll down to contents click the most recent date, this will display a link , click the link this will open another page, scroll down to \"Documents\" and the data can be found in XLS and ODS"
     ],
-    "published": "2020-02-04",
+    "published": "2021-03-25",
     "families": [
-        "Climate Change"
+        "Climate-Change"
     ],
     "extract": {
         "source": "XLS, ODS",
@@ -20,39 +21,28 @@
         "main_issue": 9,
         "columns": {
             "Period": {
-                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-                "value": "http://reference.data.gov.uk/id/{+period}"
+                "type": "dimension"
             },
             "National Communication Sector": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_sector}"
+                "type": "dimension"
             },
             "Fuel": {
-                  "description": "Fuel used in creation of emissions"
+                "type": "dimension"
             },
             "Area": {
-                "dimension": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
-                "value": "http://statistics.data.gov.uk/id/statistical-geography/{area}"
+                "type": "dimension"
             },
-      		"Unit": {
-                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
-                "value": "http://gss-data.org.uk/def/concept/measurement-units/{unit}"
-              },
-              "Value": {
-                "datatype": "double"
-              },
-              "Measure Type": {
-                "dimension": "http://purl.org/linked-data/cube#measureType",
-                "value": "http://gss-data.org.uk/def/measure/{measure_type}",
-                "types": [
-                    "greenhouse-gas-emissions",
-                    "carbon-dioxide-emissions",
-                    "temperature-adjusted-greenhouse-gas-emissions"
-                ]
-              },
             "Marker": {
-                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#obsStatus",
-                "value": "http://gss-data.org.uk/def/concept/cogs-markers/{marker}"
+                "type": "attribute"
+            },
+            "Measure": {
+                "type": "measures"
+            },
+            "Value": {
+                "type": "observations"
+            },
+            "Unit": {
+                "type": "units"
             }
         }
     },
