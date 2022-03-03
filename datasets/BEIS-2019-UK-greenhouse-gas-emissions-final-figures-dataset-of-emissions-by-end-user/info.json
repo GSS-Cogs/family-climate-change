@@ -32,7 +32,8 @@
                 "type": "dimension"
             },
             "National Communication Sector": {
-                "type": "dimension"            },
+                "type": "dimension"            
+            },
             "National Communication Sub-sector": {
                 "type": "dimension"
             },
