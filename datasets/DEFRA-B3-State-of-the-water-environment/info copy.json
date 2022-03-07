@@ -1,0 +1,61 @@
+{
+    "id": "defra-b3-state-of-the-water-environment",
+    "title": "B3: State of the water environment",
+    "publisher": "Department for Environment Food & Rural Affairs",
+    "description": "Part of The Outcome Indicator Framework, a comprehensive set of indicators describing environmental change that relates to the 10 goals within the 25 Year Environment Plan. The framework contains 66 indicators, arranged into 10 broad themes. The indicators are extensive; they cover natural capital assets (for example, land, freshwater, air and seas) and together they show the condition of these assets, the pressures acting upon them and the provision of services or benefits they provide.",
+    "landingPage": "https://oifdata.defra.gov.uk/2/",
+    "datasetNotes": [
+        "On landing page scroll down to dataset link with dataset title.",
+        "Direct link to download: https://oifdata.defra.gov.uk/en/data/2-3-1.csv",
+        "Dashboard landing page is https://oifdata.defra.gov.uk/."
+    ],
+    "published": "2021-06-11",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV",
+        "stage": "Documented"
+    },
+    "transform": {
+        "stage": [
+            "Priority"
+        ],
+        "airtable": "recxtROlgCRJbGgrb",
+        "main_issue": 42,
+        "columns": {
+            "Period": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/{+period}",
+                "codelist": false
+            },
+            "Region": {
+                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+                "value": "http://statistics.data.gov.uk/id/statistical-geography/{region}",
+                "description": "",
+                "codelist": false
+            },
+            "Measure Type": {
+                "dimension": "http://purl.org/linked-data/cube#measureType",
+                "value": "http://gss-data.org.uk/def/measure/{measure_type}",
+                "types": [
+                    "status-of-surface-waters",
+                    "status-of-ground-waters",
+                    "status-of-waters-specially-protected-for-specific-uses"
+                ]
+            },
+            "Unit": {
+                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{unit}"
+            },
+            "Value": {
+                "datatype": "double"
+            },
+            "Environment Surveyed": "The type of ecological environment being surveyed",
+            "Survey Type": "The type of survey being done at which environment",
+            "Survey Status": "The breakdown of the outcomes of the survey"
+        }
+    },
+    "sizingNotes": "Small, simple CSV dataset",
+    "notes": "Priority dataset for Climate Change Platform project."
+}
