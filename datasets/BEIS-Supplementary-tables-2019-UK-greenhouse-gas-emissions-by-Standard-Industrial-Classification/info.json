@@ -26,15 +26,13 @@
             "Year": {
                 "type": "dimension",
                 "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-                "value": "http://reference.data.gov.uk/id/year/{year}"
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
             },
             "Estimated territorial emissions type" : {
                 "type": "dimension"
              },
              "Section" : {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/section",
-                "value": "{+section}"
+                "type": "dimension"
              },
             "National Communication Sector": {
                 "type": "dimension",
