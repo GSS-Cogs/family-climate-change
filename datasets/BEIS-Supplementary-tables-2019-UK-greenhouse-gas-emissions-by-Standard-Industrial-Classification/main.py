@@ -131,6 +131,7 @@ for col in ['Estimated territorial emissions type', 'National Communication Sect
     df[col] = df[col].apply(pathify)
 
 df = df.drop_duplicates().replace({'National Communication Sector' : {'lulucf' : 'land-use-land-use-change-and-forestry'}})
+
 # -
 
 
