@@ -5,7 +5,7 @@
 #       extension: .py
 #       format_name: light
 #       format_version: '1.5'
-#       jupytext_version: 1.11.3
+#       jupytext_version: 1.13.7
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -19,9 +19,6 @@ import json
 import pandas as pd
 from gssutils import *
 
-cubes = Cubes("info.json")
-info = json.load(open("info.json"))
-landingPage = info["landingPage"]
 metadata = Scraper(seed="info.json")
 distribution = metadata.distributions[-4] #Could probably change this to check mediatype and name to get distribution 
 tabs = distribution.as_databaker()
@@ -130,11 +127,11 @@ df = df[['Year', 'Estimated territorial emissions type','Section', 'National Com
 for col in ['Estimated territorial emissions type', 'National Communication Sector']:
     df[col] = df[col].apply(pathify)
 
-df = df.replace({'National Communication Sector' : {'lulucf' : 'land-use-land-use-change-and-forestry'}})
+df = df.drop_duplicates().replace({'National Communication Sector' : {'lulucf' : 'land-use-land-use-change-and-forestry'}})
+
+# -
 
 
-
-# +
-cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title)
-
-cubes.output_all()
+df.to_csv('observations.csv', index=False)
+catalog_metadata = metadata.as_csvqb_catalog_metadata()
+catalog_metadata.to_json_file('catalog-metadata.json')
