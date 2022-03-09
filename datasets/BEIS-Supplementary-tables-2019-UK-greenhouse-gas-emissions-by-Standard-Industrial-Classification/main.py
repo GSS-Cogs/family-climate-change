@@ -20,9 +20,11 @@ import pandas as pd
 from gssutils import *
 
 metadata = Scraper(seed="info.json")
-distribution = metadata.distributions[-4] #Could probably change this to check mediatype and name to get distribution 
-tabs = distribution.as_databaker()
 # -
+
+distribution = metadata.distribution(title=lambda x: 'UK greenhouse gas emissions by Standard Industrial Classification (Excel)' in x, latest=True, mediaType='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') 
+
+tabs = distribution.as_databaker()
 
 #reterieve the id from info.json for URI's (use later)
 with open("info.json", "r") as read_file:
@@ -31,8 +33,9 @@ with open("info.json", "r") as read_file:
 
 tidied_sheets = []
 for tab in tabs:
-    tab_list = [tab.name for tab in tabs]
-    if tab.name in tab_list[1:-1]:
+    if tab.name == 'Contents':
+        continue
+    elif tab.name != '8.9':
         emissions_type = tab.excel_ref('A1').is_not_blank()
         section = tab.excel_ref('A4').expand(DOWN) - tab.excel_ref('A27').expand(DOWN)
         section_name = tab.excel_ref('C4').expand(DOWN) - tab.excel_ref('C27').expand(DOWN) 
@@ -72,6 +75,7 @@ for tab in tabs:
         table['Section'] = table['Section'].apply(lambda x: '{0:0>2}'.format(x))
         table['Section'] = table['Section'].apply(pathify)
         tidied_sheets.append(table)
+        print(tab.name)
     
     elif tab.name == '8.9':   
         emissions_type = tab.excel_ref('A1').is_not_blank()
@@ -98,8 +102,8 @@ for tab in tabs:
         table['Section'] = table['Section'].apply(lambda x: '{0:0>2}'.format(x))
         table['Section'] = table['Section'].apply(pathify)
         tidied_sheets.append(table)
-    else :
-        continue
+        print(tab.name)
+    
 
 # +
 df = pd.concat(tidied_sheets, sort=True).fillna('Not applicable')
@@ -110,7 +114,6 @@ end = ' by'
 df['Estimated territorial emissions type'] = df['Estimated territorial emissions type'].str.split(start).str[1].str.split(end).str[0]
 
 df['Year'] = df['Year'].str.replace('\.0', '')
-#df['Year'] = 'year/' + df['Year']
 df['Value'] = df['Value'].astype(str).astype(float).round(1)
 df = df.replace({'Section' : {'Consumer expenditure' : 'consumer-expenditure' , 
                               'Land use, land use change and forestry (LULUCF)' : 'land-use-land-use-change-and-forestry-lulucf'}})
@@ -128,7 +131,6 @@ for col in ['Estimated territorial emissions type', 'National Communication Sect
     df[col] = df[col].apply(pathify)
 
 df = df.drop_duplicates().replace({'National Communication Sector' : {'lulucf' : 'land-use-land-use-change-and-forestry'}})
-
 # -
 
 
