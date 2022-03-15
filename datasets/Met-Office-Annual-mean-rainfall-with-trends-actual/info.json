@@ -29,8 +29,12 @@
             },
             "Value": {
                 "type": "observations",
-                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/millimetres",
-                "measure": "http://gss-data.org.uk/def/climate-change/measure/rainfall"
+                "unit": {
+                    "label": "millimetres"
+                },
+                "measure": {
+                    "label": "rainfall"
+                }
             }
         }
     },
