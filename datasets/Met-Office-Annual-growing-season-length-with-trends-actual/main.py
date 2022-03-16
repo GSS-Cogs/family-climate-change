@@ -4,14 +4,10 @@ from csvcubed.models.cube.qb.catalog import CatalogMetadata
 from datetime import datetime
 
 df = pd.read_csv("raw.csv", encoding='ISO-8859-1')
-
 df = pd.melt(df, id_vars=['Year'])
-
 df.rename(columns={ 'variable': 'Geography','value': 'Value'}, inplace=True)
-
 df['Geography'] = df['Geography'].apply(pathify)
-
-df['Year'] = df['Year'].astype(str)
+df['Year'] = df['Year'].astype(str).astype(int)
 
 df.to_csv('observations.csv', index=False)
 catalog_metadata = CatalogMetadata(
