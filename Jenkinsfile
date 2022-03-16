@@ -11,9 +11,6 @@ pipeline {
                     alwaysPull true
                 }
             }
-            environment {
-                RECORD_MODE = 'none'
-            }
             steps {
                 script {
                     def pipelineInfo = readJSON(text: readFile(file: 'datasets/info.json'))

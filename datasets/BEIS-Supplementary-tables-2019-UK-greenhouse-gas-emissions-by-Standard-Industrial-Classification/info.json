@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "beis-supplementary-tables-2019-uk-greenhouse-gas-emissions-by-standard-industrial-classification",
     "title": "Supplementary tables: 2019 UK greenhouse gas emissions by Standard Industrial Classification",
     "publisher": "Department for Business, Energy and Industrial Strategy",
@@ -23,24 +24,25 @@
         "main_issue": 23,
          "columns": {
             "Year": {
-                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-                "value": "http://reference.data.gov.uk/id/year/{year}"
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
             },
             "Estimated territorial emissions type" : {
-                "description": "territorial emissions, meaning emissions that occur within the UK's borders, and are reported on a source basis"
+                "type": "dimension"
              },
              "Section" : {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/section",
-                "value": "{+section}"
+                "type": "dimension"
              },
             "National Communication Sector": {
-                "dimension": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_sector}"
             },
             "Value": {
+                "type": "observations",
                 "unit": "http://gss-data.org.uk/def/concept/measurement-units/kt-co2",
-                "measure": "http://gss-data.org.uk/def/measure/gas-emissions",
-                "datatype": "double"
+                "measure": "http://gss-data.org.uk/def/measure/gas-emissions"
             }
          } 
     },
