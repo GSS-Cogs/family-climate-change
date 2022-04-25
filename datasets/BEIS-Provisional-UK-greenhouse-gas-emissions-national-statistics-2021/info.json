@@ -1,0 +1,21 @@
+{
+    "id": "beis-provisional-uk-greenhouse-gas-emissions-national-statistics-2021",
+    "title": "Provisional UK greenhouse gas emissions national statistics 2021",
+    "publisher": "Department for Business, Energy and Industrial Strategy",
+    "description": "Provisional estimates of UK territorial greenhouse gas emissions for 2021, including quarterly emissions estimates. Put on at request of Data Eng Osamede",
+    "landingPage": "https://www.gov.uk/government/statistics/provisional-uk-greenhouse-gas-emissions-national-statistics-2021",
+    "published": "2022-03-31",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "XLS, ODS",
+        "stage": "Documented"
+    },
+    "transform": {
+        "airtable": "rechCy8gnn08otShM",
+        "main_issue": 407
+    },
+    "sizingNotes": "",
+    "notes": ""
+}

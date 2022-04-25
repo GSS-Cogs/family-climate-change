@@ -1,0 +1,24 @@
+{
+    "id": "beis-final-uk-greenhouse-gas-emissions-national-statistics-1990-to-2020",
+    "title": "Final UK greenhouse gas emissions national statistics: 1990 to 2020",
+    "publisher": "Department for Business, Energy and Industrial Strategy",
+    "description": "Final estimates of UK territorial greenhouse gas emissions. Added to Airtable at request of DE Osamede.",
+    "landingPage": "https://www.gov.uk/government/statistics/final-uk-greenhouse-gas-emissions-national-statistics-1990-to-2020",
+    "datasetNotes": [
+        "XLS 2020 UK greenhouse gas emissions: final figures - data tables (Excel) to be used for this dataset."
+    ],
+    "published": "2022-02-01",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "XLS",
+        "stage": "Documented"
+    },
+    "transform": {
+        "airtable": "recLqH5z7Gq0Elt4A",
+        "main_issue": 405
+    },
+    "sizingNotes": "",
+    "notes": ""
+}
