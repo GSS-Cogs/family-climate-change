@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "beis-provisional-uk-greenhouse-gas-emissions-national-statistics-2021",
     "title": "Provisional UK greenhouse gas emissions national statistics 2021",
     "publisher": "Department for Business, Energy and Industrial Strategy",
@@ -6,7 +7,7 @@
     "landingPage": "https://www.gov.uk/government/statistics/provisional-uk-greenhouse-gas-emissions-national-statistics-2021",
     "published": "2022-03-31",
     "families": [
-        "Climate Change"
+        "Climate-Change"
     ],
     "extract": {
         "source": "XLS, ODS",
@@ -14,8 +15,42 @@
     },
     "transform": {
         "airtable": "rechCy8gnn08otShM",
-        "main_issue": 407
+        "main_issue": 407,
+        "columns": {
+            "Period": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/{+period}"
+            },
+            "National Communication Sector": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_sector}"
+            },
+            "Fuel": {
+                "type": "dimension"
+            },
+            "Area": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+                "value": "http://statistics.data.gov.uk/id/statistical-geography/{area}"  
+            },
+            "Marker": {
+                "type": "attribute",
+                "uri": "http://purl.org/linked-data/sdmx/2009/attribute#obsStatus",
+                "value": "http://gss-data.org.uk/def/concept/cogs-markers/{marker}"   
+            },
+            "Measure": {
+                "type": "measures"
+            },
+            "Value": {
+                "type": "observations"
+            },
+            "Unit": {
+                "type": "units"
+            }
+        }    
     },
     "sizingNotes": "",
-    "notes": ""
+    "notes": "" 
 }
