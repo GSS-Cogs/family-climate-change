@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "beis-2020-uk-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-source",
     "title": "2020 UK greenhouse gas emissions: final figures \u2013 dataset of emissions by source",
     "publisher": "Department for Business, Energy and Industrial Strategy",
@@ -9,7 +10,7 @@
     ],
     "published": "2022-02-01",
     "families": [
-        "Climate Change"
+        "Climate-Change"
     ],
     "extract": {
         "source": "CSV",
@@ -17,7 +18,73 @@
     },
     "transform": {
         "airtable": "recVTUBppQva8SoBP",
-        "main_issue": 406
+        "main_issue": 406,
+        "columns": {
+            "GHG": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/ghg",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{ghg}"
+            },
+            "GHG Grouped": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/ghg-grouped",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{ghg_grouped}"
+            },
+            "IPCC Code": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/ipcc-code",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/ipcc-code/{ipcc_code}" 
+            },
+            "Year": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{year}"
+            },
+            "National Communication Sector": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_sector}"
+            },
+            "National Communication Sub-sector": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sub-sector",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_sub_sector}"
+            },
+            "National Communication Category": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-category",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_category}"
+            },
+            "Source": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/source",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/source/{source}"
+            },
+            "National Communication Fuel Group": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel-group",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{national_communication_fuel_group}"
+            },
+            "National Communication Fuel": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{national_communication_fuel}"
+            },
+            "Activity Name": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/activity-name",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{activity_name}"
+            },
+            "Measure": {
+                "type": "measures"
+            },
+            "Value": {
+                "type": "observations",
+                "unit": {
+                    "label": "MtCO2e"
+                }
+            }
+        }
     },
     "sizingNotes": "",
     "notes": ""
