@@ -78,11 +78,11 @@
             "Measure": {
                 "type": "measures"
             },
+            "Unit": {
+                "type": "units"
+            },
             "Value": {
-                "type": "observations",
-                "unit": {
-                    "label": "MtCO2e"
-                }
+                "type": "observations"
             }
         }
     },
