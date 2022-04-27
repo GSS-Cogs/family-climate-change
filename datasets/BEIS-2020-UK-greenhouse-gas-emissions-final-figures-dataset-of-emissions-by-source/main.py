@@ -54,6 +54,28 @@ df = pd.melt(
 df['Value'] = pd.to_numeric(df['Value'], errors="raise", downcast="float")
 df["Value"] = df["Value"].astype(float).round(3)
 df["Measure"] = df["Measure"].str.replace("MtCO2e, ", "")
+df['Unit'] = 'millions of tonnes of carbon dioxide equivalent (mtco2e)'
+
+df = df[['GHG',
+         'GHG Grouped',
+         'IPCC Code',
+         'Year',
+         'National Communication Sector',
+         'National Communication Sub-sector',
+         'National Communication Category',
+         'Source',
+         'National Communication Fuel Group',
+         'National Communication Fuel',
+         'Activity Name',
+         'Measure',
+         'Unit',
+         'Value']]
+
+for col in df.columns.values.tolist()[4:-1]:
+    try:
+        df[col] = df[col].apply(pathify)
+    except Exception as err:
+        raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
 df.to_csv("observations.csv", index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
