@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",   
     "id": "beis-final-uk-greenhouse-gas-emissions-national-statistics-1990-to-2020",
     "title": "Final UK greenhouse gas emissions national statistics: 1990 to 2020",
     "publisher": "Department for Business, Energy and Industrial Strategy",
@@ -9,7 +10,7 @@
     ],
     "published": "2022-02-01",
     "families": [
-        "Climate Change"
+        "Climate-Change"
     ],
     "extract": {
         "source": "XLS",
@@ -17,7 +18,37 @@
     },
     "transform": {
         "airtable": "recLqH5z7Gq0Elt4A",
-        "main_issue": 405
+        "main_issue": 405,
+        "columns": {
+            "Period": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/{+period}"
+            },
+            "Geographic Coverage": {
+                "type": "dimension"
+            },
+            "NC Sector": {
+                "type": "dimension",
+                "value": "http://gss-data.org.uk/def/energy/concept/nc-sectors/{nc_sector}"
+            },
+            "NC Sub Sector": {
+                "type": "dimension",
+                "value": "http://gss-data.org.uk/def/energy/concept/nc-sectors/{nc_sub_sector}"
+            },
+            "NC Category": {
+                "type": "dimension",
+                "value": "http://gss-data.org.uk/def/energy/concept/nc-sectors/{nc_category}"
+            },
+            "Gas": {
+               "type": "dimension"
+            },
+            "Value": {
+                "type": "observations",
+                "unit": "http://gss-data.org.uk/def/concept/measurement-units/millions-of-tonnes-of-co2-equivalent",
+                "measure": "http://gss-data.org.uk/def/measure/gas-emissions"
+            }
+        }
     },
     "sizingNotes": "",
     "notes": ""
