@@ -43,6 +43,9 @@
             "Gas": {
                "type": "dimension"
             },
+            "Breakdown": {
+                "type": "dimension"
+            },
             "Value": {
                 "type": "observations",
                 "unit": "http://gss-data.org.uk/def/concept/measurement-units/millions-of-tonnes-of-co2-equivalent",
