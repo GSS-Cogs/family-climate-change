@@ -22,20 +22,34 @@ from gssutils import *
 
 metadata = Scraper(seed='info.json')
 
+metadata.dataset.family = 'climate-change'
+
 distribution = metadata.distribution(latest=True, mediaType="text/csv",
                                      title=lambda x: "UK greenhouse gas emissions: final figures – dataset of emissions by end user" in x)
 
-df = distribution.as_pandas(encoding='ISO-8859-1').fillna(' ')
+df = distribution.as_pandas(encoding='ISO-8859-1').fillna('')
 
-df.loc[
-    (df["National Communication Sub-sector"] == "(blank)"),
-    "National Communication Sub-sector",
-] = "Not Applicable"
 df.drop(columns="TerritoryName", axis=1, inplace=True)
 df.rename(columns={"ActivityName": "Activity Name"}, inplace=True)
 df.drop(
     df.columns[df.columns.str.contains("Unnamed", case=False)], axis=1, inplace=True
 )
+
+# +
+df.loc[
+    (df["National Communication Sub-sector"] == "(blank)"),
+    "National Communication Sub-sector",
+] = "Not Applicable"
+
+df.loc[
+    (df["National Communication Sector"] == ''),
+    "National Communication Sector",
+] = "Not Applicable"
+
+df.loc[(df['National Communication Category'] == ''), 'National Communication Category'] = 'Not Applicable'
+df.loc[(df['National Communication Fuel'] == ''), 'National Communication Fuel'] = 'Not Applicable'
+df.loc[(df['National Communication Fuel Group'] == ''), 'National Communication Fuel Group'] = 'Not Applicable'
+# -
 
 # Fixing BEIS' use of slashes in some columns:
 df["National Communication Category"] = df[
@@ -69,11 +83,7 @@ df['Value'] = pd.to_numeric(df['Value'], errors="raise", downcast="float")
 df["Value"] = df["Value"].astype(float).round(3)
 df["Measure"] = df["Measure"].str.replace("MtCO2e, ", "")
 
-df.drop(df.columns[df.columns.str.contains(
-    'Unnamed', case=False)], axis=1, inplace=True)
 df.query("(not `IPCC Code` == 'Aviation_Bunkers') & (not `IPCC Code` == 'Marine_Bunkers') & (not `IPCC Code` == 'non-IPCC')", inplace=True)
-
-df = df.drop_duplicates()
 
 df = df[['GHG',
          'GHG Grouped',
@@ -94,6 +104,8 @@ for col in df.columns.values.tolist()[4:-1]:
         df[col] = df[col].apply(pathify)
     except Exception as err:
         raise Exception('Failed to pathify column "{}".'.format(col)) from err
+
+df = df.drop_duplicates()
 
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
