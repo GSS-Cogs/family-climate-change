@@ -29,7 +29,8 @@ df.drop(
 df["National Communication Category"] = df[
     "National Communication Category"
 ].str.replace("/", "-")
-df["Source"] = df["Source"].str.replace("/", "-").str.replace("-+", "-", regex=True)
+df["Source"] = df["Source"].str.replace(
+    "/", "-").str.replace("-+", "-", regex=True)
 
 df = pd.melt(
     df,
@@ -46,7 +47,8 @@ df = pd.melt(
         "National Communication Fuel",
         "Activity Name",
     ],
-    value_vars=["Emissions (MtCO2e, AR4 GWPs)", "Emissions (MtCO2e, AR5 GWPs)"],
+    value_vars=["Emissions (MtCO2e, AR4 GWPs)",
+                "Emissions (MtCO2e, AR5 GWPs)"],
     var_name="Measure",
     value_name="Value",
 )
@@ -54,7 +56,6 @@ df = pd.melt(
 df['Value'] = pd.to_numeric(df['Value'], errors="raise", downcast="float")
 df["Value"] = df["Value"].astype(float).round(3)
 df["Measure"] = df["Measure"].str.replace("MtCO2e, ", "")
-df['Unit'] = 'millions of tonnes of carbon dioxide equivalent (mtco2e)'
 
 df = df[['GHG',
          'GHG Grouped',
@@ -68,7 +69,6 @@ df = df[['GHG',
          'National Communication Fuel',
          'Activity Name',
          'Measure',
-         'Unit',
          'Value']]
 
 for col in df.columns.values.tolist()[4:-1]:
