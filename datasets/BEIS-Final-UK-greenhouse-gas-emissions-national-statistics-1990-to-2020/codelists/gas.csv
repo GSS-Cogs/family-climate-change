@@ -1,0 +1,12 @@
+Label,Notation,Parent Notation,Sort Priority
+All,all,,1
+Net CO2 Emissions - Minus Removals,net-co2-emissions-emissions-minus-removals,all,2
+Methane - CH4,methane-ch4,all,3
+Nitrous Oxide - N2O,nitrous-oxide-n2o,all,4
+Hydrofluorocarbons - HFC,hydrofluorocarbons-hfc,all,5
+Perfluorocarbons - PFC,perfluorocarbons-pfc,all,6
+Sulphur Hexafluoride - SF6,sulphur-hexafluoride-sf6,all,7
+Nitrogen Trifluoride - NF3,nitrogen-trifluoride-nf3,all,8
+All,total-greenhouse-gas-emissions,all,9
+Carbon Dioxide - CO2,carbon-dioxide-co2,all,10
+Fluorinated Gases - F Gases,fluorinated-gases-f-gases,all,11
