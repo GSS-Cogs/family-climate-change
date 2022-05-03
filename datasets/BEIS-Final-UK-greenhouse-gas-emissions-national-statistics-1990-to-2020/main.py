@@ -2,6 +2,7 @@
 # coding: utf-8
 # ## BEIS-Final-UK-greenhouse-gas-emissions-national-statistics-1990-to-2020
 
+# %%
 import json
 import pandas as pd
 from gssutils import *
@@ -15,12 +16,12 @@ distribution = metadata.distribution(
     title=lambda x: "UK greenhouse gas emissions: final figures - data tables (alternative ODS format)"
     in x,
 )
-
+# %%
 tabs = distribution.as_databaker()
 tabs = [
     tab for tab in tabs if tab.name in ["1_1", "1_2", "1_3", "1_4", "1_5", "1_6", "3_1"]
 ]
-
+# %%
 tidied_sheets = []
 for tab in tabs:
     if tab.name == "1_1":
@@ -123,7 +124,7 @@ for tab in tabs:
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         df = tidy_sheet.topandas()
         tidied_sheets.append(df)
-
+# %%
 df = pd.concat(tidied_sheets, sort=False).fillna("")
 
 df.rename(
@@ -133,6 +134,7 @@ df.rename(
 df["Value"] = pd.to_numeric(df["Value"], errors="raise", downcast="float")
 df["Value"] = df["Value"].astype(float).round(3)
 df["Period"] = df["Period"].astype(float).astype(int)
+df['Period'] = 'year/' + df['Period'].astype(str)
 
 df["NC Sub Sector"] = df.apply(
     lambda x: "All" if x["NC Sub Sector"] == x["NC Sector"] else x["NC Sub Sector"],
@@ -206,7 +208,7 @@ df = df.replace(
     }
 )
 # -
-
+# %%
 df = df[
     [
         "Period",
@@ -219,7 +221,9 @@ df = df[
         "Value",
     ]
 ]
-
+# %%
 df.to_csv("observations.csv", index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file("catalog-metadata.json")
+
+# %%
