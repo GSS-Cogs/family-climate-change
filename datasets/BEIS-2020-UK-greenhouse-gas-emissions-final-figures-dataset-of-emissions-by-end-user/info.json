@@ -54,9 +54,7 @@
                 "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_category}"
             },
             "Source": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/source",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/source/{source}"
+                "type": "dimension"
             },
             "National Communication Fuel": {
                 "type": "dimension",
