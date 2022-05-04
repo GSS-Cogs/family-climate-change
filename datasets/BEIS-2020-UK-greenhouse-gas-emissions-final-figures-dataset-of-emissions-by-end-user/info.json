@@ -31,10 +31,7 @@
                 "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{ghg_grouped}"
             },
             "IPCC Code": {
-                "type": "dimension",
-                "new": {
-                    "codelist": "./codelists/ipcc-code.csv-metadata.json"
-                }
+                "type": "dimension"
             },
             "Year": {
                 "type": "dimension",
@@ -72,10 +69,7 @@
                 "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{national_communication_fuel_group}"
             },
             "Activity Name": {
-                "type": "dimension",
-                "new": {
-                    "codelist": "./codelists/activity-name.csv-metadata.json"
-                }
+                "type": "dimension"
             },
             "Measure": {
                 "type": "measures"
