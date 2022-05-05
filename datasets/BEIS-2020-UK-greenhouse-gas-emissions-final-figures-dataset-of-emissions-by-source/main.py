@@ -5,7 +5,6 @@
 import pandas as pd
 from gssutils import *
 
-
 metadata = Scraper(seed="info.json")
 distribution = metadata.distribution(
     mediaType="text/csv",
@@ -52,6 +51,11 @@ df = pd.melt(
     var_name="Measure",
     value_name="Value",
 )
+
+df = df.replace({'IPCC Code': {'2.00E+01': '20',
+                                '4.00E+01': '40',
+                                '4.00E+02': '400'
+}})
 
 df['Value'] = pd.to_numeric(df['Value'], errors="raise", downcast="float")
 df["Value"] = df["Value"].astype(float).round(3)
