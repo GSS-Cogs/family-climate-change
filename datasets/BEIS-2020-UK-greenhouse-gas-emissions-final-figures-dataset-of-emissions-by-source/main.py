@@ -28,6 +28,12 @@ df.drop(
 df["National Communication Category"] = df[
     "National Communication Category"
 ].str.replace("/", "-")
+df["Activity Name"] = df[
+   "Activity Name"
+].str.replace("/", "-")
+df["National Communication Fuel"] = df[
+    "National Communication Fuel"
+].str.replace("/", "-")
 df["Source"] = df["Source"].str.replace(
     "/", "-").str.replace("-+", "-", regex=True)
 
