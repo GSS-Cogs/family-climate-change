@@ -8,7 +8,7 @@
 #       format_version: '1.5'
 #       jupytext_version: 1.13.7
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: Python 3.9.10 64-bit
 #     language: python
 #     name: python3
 # ---
@@ -23,6 +23,7 @@ from gssutils import *
 metadata = Scraper(seed='info.json')
 
 metadata.dataset.family = 'climate-change'
+metadata.dataset.title='2020-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-end-user'
 
 distribution = metadata.distribution(latest=True, mediaType="text/csv",
                                      title=lambda x: "UK greenhouse gas emissions: final figures – dataset of emissions by end user" in x)
@@ -54,6 +55,12 @@ df.loc[(df['National Communication Fuel Group'] == ''), 'National Communication 
 # Fixing BEIS' use of slashes in some columns:
 df["National Communication Category"] = df[
     "National Communication Category"
+].str.replace("/", "-")
+df["Activity Name"] = df[
+   "Activity Name"
+].str.replace("/", "-")
+df["National Communication Fuel"] = df[
+    "National Communication Fuel"
 ].str.replace("/", "-")
 df["Source"] = df["Source"].str.replace(
     "/", "-").str.replace("-+", "-", regex=True)
