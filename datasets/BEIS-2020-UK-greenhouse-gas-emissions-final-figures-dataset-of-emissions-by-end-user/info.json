@@ -1,7 +1,7 @@
 {
     "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "beis-2020-uk-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-end-user",
-    "title": "2020 UK greenhouse gas emissions: final figures \u2013 dataset of emissions by end user",
+    "title": "2020 UK greenhouse gas emissions: final figures - dataset of emissions by end user",
     "publisher": "Department for Business, Energy and Industrial Strategy",
     "description": "Final estimates of UK territorial greenhouse gas emissions. Added to Airtable at request of DE Osamede.",
     "landingPage": "https://www.gov.uk/government/statistics/final-uk-greenhouse-gas-emissions-national-statistics-1990-to-2020",
