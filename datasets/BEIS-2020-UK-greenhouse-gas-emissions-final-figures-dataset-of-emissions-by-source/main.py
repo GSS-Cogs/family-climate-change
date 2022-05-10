@@ -5,7 +5,12 @@
 import pandas as pd
 from gssutils import *
 
+
 metadata = Scraper(seed="info.json")
+
+metadata.dataset.family = 'climate-change'
+metadata.dataset.title='2020-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-source'
+
 distribution = metadata.distribution(
     mediaType="text/csv",
     latest=True,
