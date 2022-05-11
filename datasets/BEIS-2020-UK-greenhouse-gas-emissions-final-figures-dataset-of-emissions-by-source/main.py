@@ -2,14 +2,15 @@
 #
 # ## BEIS-2020-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-source
 
+import json
 import pandas as pd
 from gssutils import *
 
-
+info = json.load(open("info.json"))
 metadata = Scraper(seed="info.json")
 
 metadata.dataset.family = 'climate-change'
-metadata.dataset.title='2020-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-source'
+metadata.dataset.title = info['title']
 
 distribution = metadata.distribution(
     mediaType="text/csv",
@@ -86,7 +87,7 @@ df = df[['GHG',
          'Measure',
          'Value']]
 
-for col in df.columns.values.tolist()[4:-1]:
+for col in df.columns.values.tolist()[4:-2]:
     try:
         df[col] = df[col].apply(pathify)
     except Exception as err:
