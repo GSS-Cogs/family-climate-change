@@ -108,7 +108,7 @@ df = df[['GHG',
          'Measure',
          'Value']]
 
-for col in df.columns.values.tolist()[4:-2]:
+for col in df.columns.values.tolist()[4:-3]:
     if col == 'Source':
         continue
     else:
