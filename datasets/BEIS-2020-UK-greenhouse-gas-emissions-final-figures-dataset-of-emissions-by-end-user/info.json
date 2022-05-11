@@ -75,7 +75,7 @@
             "Value": {
                 "type": "observations",
                 "unit": {
-                   "label": "millions of tonnes of carbon dioxide (mtco2)"                
+                   "label": "MtCO2e)"                
                 }
             }
         }
