@@ -16,14 +16,16 @@
 # ## BEIS-2020-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-end-user
 
 # + tags=[]
+import json
 import pandas as pd
 from gssutils import *
 # -
 
+info = json.load(open("info.json"))
 metadata = Scraper(seed='info.json')
 
 metadata.dataset.family = 'climate-change'
-metadata.dataset.title='2020-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-end-user'
+metadata.dataset.title = info['title']
 
 distribution = metadata.distribution(latest=True, mediaType="text/csv",
                                      title=lambda x: "UK greenhouse gas emissions: final figures – dataset of emissions by end user" in x)
@@ -106,11 +108,14 @@ df = df[['GHG',
          'Measure',
          'Value']]
 
-for col in df.columns.values.tolist()[4:-1]:
-    try:
-        df[col] = df[col].apply(pathify)
-    except Exception as err:
-        raise Exception('Failed to pathify column "{}".'.format(col)) from err
+for col in df.columns.values.tolist()[4:-2]:
+    if col == 'Source':
+        continue
+    else:
+        try:
+            df[col] = df[col].apply(pathify)
+        except Exception as err:
+            raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
 df = df.drop_duplicates()
 
