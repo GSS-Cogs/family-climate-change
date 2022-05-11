@@ -6,6 +6,7 @@ import json
 import pandas as pd
 from gssutils import *
 
+
 info = json.load(open("info.json"))
 metadata = Scraper(seed="info.json")
 
@@ -73,6 +74,8 @@ df['Value'] = pd.to_numeric(df['Value'], errors="raise", downcast="float")
 df["Value"] = df["Value"].astype(float).round(3)
 df["Measure"] = df["Measure"].str.replace("MtCO2e, ", "")
 
+df.columns.values.tolist()
+
 df = df[['GHG',
          'GHG Grouped',
          'IPCC Code',
@@ -88,10 +91,13 @@ df = df[['GHG',
          'Value']]
 
 for col in df.columns.values.tolist()[4:-2]:
-    try:
-        df[col] = df[col].apply(pathify)
-    except Exception as err:
-        raise Exception('Failed to pathify column "{}".'.format(col)) from err
+    if col == 'Source':
+        continue
+    else:
+        try:
+            df[col] = df[col].apply(pathify)
+        except Exception as err:
+            raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
 df.to_csv("observations.csv", index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
