@@ -6,7 +6,6 @@ import json
 import pandas as pd
 from gssutils import *
 
-
 info = json.load(open("info.json"))
 metadata = Scraper(seed="info.json")
 
@@ -74,8 +73,6 @@ df['Value'] = pd.to_numeric(df['Value'], errors="raise", downcast="float")
 df["Value"] = df["Value"].astype(float).round(3)
 df["Measure"] = df["Measure"].str.replace("MtCO2e, ", "")
 
-df.columns.values.tolist()
-
 df = df[['GHG',
          'GHG Grouped',
          'IPCC Code',
@@ -90,7 +87,7 @@ df = df[['GHG',
          'Measure',
          'Value']]
 
-for col in df.columns.values.tolist()[4:-2]:
+for col in df.columns.values.tolist()[4:-3]:
     if col == 'Source':
         continue
     else:
