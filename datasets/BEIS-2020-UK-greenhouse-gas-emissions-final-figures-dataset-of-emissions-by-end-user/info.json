@@ -75,7 +75,7 @@
             "Value": {
                 "type": "observations",
                 "unit": {
-                   "label": "MtCO2e)"                
+                   "label": "MtCO2e"                
                 }
             }
         }
