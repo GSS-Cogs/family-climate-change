@@ -44,10 +44,10 @@
                 "type": "measures"
             },
             "Value": {
-                "type": "observations"
-            },
-            "Unit": {
-                "type": "units"
+                "type": "observations",
+                "unit": {
+                    "label": "Millions of tonnes of Carbon-dioxide equivalent (MtCO2e)"
+                }
             }
         }    
     },
