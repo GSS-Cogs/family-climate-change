@@ -69,9 +69,7 @@
                 "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{national_communication_fuel}"
             },
             "Activity Name": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/activity-name",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{activity_name}"
+                "type": "dimension"
             },
             "Measure": {
                 "type": "measures"
