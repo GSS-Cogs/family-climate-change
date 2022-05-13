@@ -6,25 +6,20 @@ import json
 import pandas as pd
 from gssutils import *
 
-
 metadata = Scraper(seed="info.json")
-
 
 distribution = metadata.distribution(
     latest=True, mediaType="application/vnd.oasis.opendocument.spreadsheet", title=lambda x: "UK greenhouse gas emissions: provisional figures - data tables" in x)
 
-
 tabs = distribution.as_databaker()
-
 
 sheets = []
 tabs = [tab for tab in tabs if tab.name not in ['Cover', 'Contents', 'Notes']]
 for tab in tabs:
-
     if tab.name not in ['Table3', 'Table4']:  # tables 3 and 4 are moving averages
         if tab.name not in ['Table2']:
             ncSector = tab.filter("NC Sector").fill(DOWN).is_not_blank()
-            fuel = 'all'
+            fuel = 'All'
             period = tab.filter("NC Sector").fill(RIGHT).is_not_blank()
         else:
             sector = tab.filter('Sector').fill(DOWN).is_not_blank()
@@ -32,23 +27,22 @@ for tab in tabs:
             period = tab.filter('Fuel Type').fill(RIGHT).is_not_blank()
 
         if tab.name in ['Table1', 'Table5']:
-            measureType = 'greenhouse-gas-emissions'
+            measureType = 'Greenhouse Gas Emissions'
 
         elif tab.name == 'Table2':
-            measureType = 'carbon-dioxide-emissions'
+            measureType = 'Carbon-dioxide Emissions'
 
         elif tab.name in ['Table6']:
-            measureType = 'temperature-adjusted-greenhouse-gas-emissions'
+            measureType = 'Temperature-adjusted Greenhouse Gas Emissions'
 
         elif tab.name in ['AR5_Table1']:
-            measureType = 'greenhouse-gas-emissions (GWP AR5)'
+            measureType = 'Greenhouse Gas Emissions(GWPs AR5)'
 
         else:
             continue
 
         area = 'K02000001'
         observations = period.fill(DOWN).is_not_blank()
-        unit = 'millions-of-tonnes-of-co2-equivalent'
 
         if tab.name not in ['Table2']:
             dimensions = [
@@ -56,8 +50,7 @@ for tab in tabs:
                 HDim(ncSector, "National Communication Sector", DIRECTLY, LEFT),
                 HDimConst('Area', area),
                 HDimConst('Fuel', fuel),
-                HDimConst('Measure', measureType),
-                HDimConst('Unit', unit)
+                HDimConst('Measure', measureType)
             ]
         else:
             dimensions = [
@@ -66,7 +59,6 @@ for tab in tabs:
                 HDim(sector, "National Communication Sector", CLOSEST, ABOVE),
                 HDimConst('Area', area),
                 HDimConst('Measure', measureType),
-                HDimConst('Unit', unit)
             ]
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
@@ -74,9 +66,7 @@ for tab in tabs:
         sheets.append(df)
         print(tab.name)
 
-
 df = pd.concat(sheets).fillna('')
-
 
 # +
 df['Marker'] = df.apply(
@@ -112,19 +102,19 @@ df['Value'] = df['Value'].map(lambda x: round(x, 1))
 
 df = df.drop_duplicates()
 
-
 df = df[['Period', 'Area', 'National Communication Sector',
-         'Fuel', 'Marker', 'Measure', 'Unit', 'Value']]
+         'Fuel', 'Marker', 'Measure', 'Value']]
 
-
-for col in df.columns.values.tolist()[2:-1]:
-    try:
-        df[col] = df[col].apply(pathify)
-    except Exception as err:
-        raise Exception('Failed to pathify column "{}".'.format(col)) from err
-
+for col in df.columns.values.tolist()[2:-2]:
+    if col == 'Fuel':
+        continue
+    else:
+        try:
+            df[col] = df[col].apply(pathify)
+        except Exception as err:
+            raise Exception(
+                'Failed to pathify column "{}".'.format(col)) from err
 
 df.to_csv("observations.csv", index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file("catalog-metadata.json")
-
