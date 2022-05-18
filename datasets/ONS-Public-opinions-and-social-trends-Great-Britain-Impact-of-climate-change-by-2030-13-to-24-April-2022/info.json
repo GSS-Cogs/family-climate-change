@@ -1,10 +1,11 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "ons-public-opinions-and-social-trends-great-britain-impact-of-climate-change-by-2030-13-to-24-april-2022",
     "title": "Public opinions and social trends, Great Britain: Impact of climate change by 2030, 13 to 24 April 2022",
     "publisher": "ONS",
     "description": "Bespoke XLS supplied by Delivery Manager PF. No associated information",
     "landingPage": "https://www.ons.gov.uk/economy/environmentalaccounts/datasets/impactofclimatechangeby2030",
-    "published": "",
+    "published": "2022-05-12",
     "families": [
         "Climate Change"
     ],
@@ -22,30 +23,18 @@
             "Percentage Estimates By Age":{
                 "type":"dimension"
             },
-            "Confidence Interval":{
+            "Confidence Intervals":{
                 "type":"dimension"
             },
             "Impact Parameters":{
                 "type":"dimension"
             },
-            "Unit": {
-                "type": "units",
-                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
-            },
             "Value": {
                 "type": "observations",
+                "measure": "http://gss-data.org.uk/def/trade/measure/some-measure",
+                "unit": "http://gss-data.org.uk/def/concept/measurement-units/some-unit",
                 "datatype": "integer"
-            },
-            "Measure Type": {
-                "type": "measures",
-                "value": "http://gss-data.org.uk/def/measure/{+measure_type}"
-            },
-            "Marker": {
-                "type": "attribute",
-                "uri": "http://purl.org/linked-data/sdmx/2009/attribute#obsStatus",
-                "value": "http://gss-data.org.uk/def/concept/trade/markers/{+marker}"
-              }
-
+            }
         }
     },
     "sizingNotes": "Simple table structure and dimensions with some footnotes.",
