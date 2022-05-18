@@ -25,11 +25,14 @@
                 "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
                 "value": "http://reference.data.gov.uk/id/{+period}"
             },
-            "Geographic Coverage": {
-                "type": "dimension",
-                "new": {
-                  "codelist": "./codelists/geographic-coverage.csv-metadata.json"
-                }
+            "Breakdown": {
+                "type" : "dimension"
+            },
+            "Gas": {
+                "type" : "dimension"
+            },
+            "Geographic Coverage" : {
+                "type" : "dimension"
             },
             "NC Sector": {
                 "type": "dimension",
@@ -45,18 +48,6 @@
                 "type": "dimension", 
                 "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-category",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{nc_category}"
-            },
-            "Gas": {
-               "type": "dimension",
-               "new": {
-                "codelist": "./codelists/gas.csv-metadata.json"
-              }
-            },
-            "Breakdown": {
-                "type": "dimension",
-                "new": {
-                    "codelist": "./codelists/breakdown.csv-metadata.json"
-                  }
             },
             "Value": {
                 "type": "observations",
