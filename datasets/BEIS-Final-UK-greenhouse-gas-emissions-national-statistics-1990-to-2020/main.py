@@ -185,6 +185,8 @@ df = df.replace(
     }
 )
 
+
+
 # +
 COLUMNS_TO_NOT_PATHIFY = ["Period", "Value", "Geographic Coverage", "Breakdown", "Gas"]
 
@@ -213,6 +215,9 @@ df = df.replace({'Gas' : {'Nitrous Oxide N2O' : 'Nitrous oxide (N2O)',
                           'Methane CH4' : 'Methane (CH4)',
                           'Carbon Dioxide CO2' :'Carbon dioxide (CO2)'}})
 
+
+df['Unit'] = "millions-of-tonnes-of-co2-equivalent"
+df['Measure Type'] = "gas-emissions"
 # -
 # %%
 df = df[
@@ -224,6 +229,8 @@ df = df[
         "NC Category",
         "Gas",
         "Breakdown",
+        "Measure Type",
+        "Unit",
         "Value",
     ]
 ]

@@ -51,8 +51,15 @@
             },
             "Value": {
                 "type": "observations",
-                "unit": "http://gss-data.org.uk/def/concept/measurement-units/millions-of-tonnes-of-co2-equivalent",
-                "measure": "http://gss-data.org.uk/def/measure/gas-emissions"
+                "datatype": "double"
+            },
+            "Measure Type": {
+                "type": "measures",
+                "value": "http://gss-data.org.uk/def/measure/{+measure_type}"
+            },
+            "Unit": {
+                "type": "units",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
             }
         }
     },
