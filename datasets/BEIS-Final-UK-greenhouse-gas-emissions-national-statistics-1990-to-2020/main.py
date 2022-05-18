@@ -186,7 +186,7 @@ df = df.replace(
 )
 
 # +
-COLUMNS_TO_NOT_PATHIFY = ["Period", "Value"]
+COLUMNS_TO_NOT_PATHIFY = ["Period", "Value", "Geographic Coverage", "Breakdown", "Gas"]
 
 for col in df.columns.values.tolist():
     if col in COLUMNS_TO_NOT_PATHIFY:
@@ -198,15 +198,21 @@ for col in df.columns.values.tolist():
 
 # +
 df["NC Category"] = df["NC Category"].str.replace("/", "-")
-df["Breakdown"] = df["Breakdown"].str.replace("/", "-")
 
 df = df.replace(
     {
         "Breakdown": {
-            "excluding-net-emissions-removals-from-land-use-land-use-change-and-forestry-lulucf": "excluding-net-emissions-removals-from-lulucf"
+            "Excluding net emissions/removals from land use, land use change and forestry (LULUCF)": "Excluding net emissions and removals from LULUCF"
         }
     }
 )
+
+df["Breakdown"] = df["Breakdown"].str.replace("/", " and ")
+
+df = df.replace({'Gas' : {'Nitrous Oxide N2O' : 'Nitrous oxide (N2O)',
+                          'Methane CH4' : 'Methane (CH4)',
+                          'Carbon Dioxide CO2' :'Carbon dioxide (CO2)'}})
+
 # -
 # %%
 df = df[
