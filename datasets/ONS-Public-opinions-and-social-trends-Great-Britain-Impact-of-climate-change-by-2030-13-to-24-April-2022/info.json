@@ -29,11 +29,17 @@
             "Impact Parameters":{
                 "type":"dimension"
             },
+            "Unit": {
+                "type": "units",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
+            },
             "Value": {
                 "type": "observations",
-                "measure": "http://gss-data.org.uk/def/trade/measure/some-measure",
-                "unit": "http://gss-data.org.uk/def/concept/measurement-units/some-unit",
                 "datatype": "integer"
+            },
+            "Measure Type": {
+                "type": "measures",
+                "value": "http://gss-data.org.uk/def/measure/{+measure_type}"
             }
         }
     },
