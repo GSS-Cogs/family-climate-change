@@ -46,10 +46,15 @@ tabs = [tab for tab in tabs if tab.name not in ['Cover_sheet', 'Notes']]
 for tab in tabs:
 
     print(tab.name)
+
     anchor_1c = tab.excel_ref("A1")
+
     percentage_estimates_by_age_1c = anchor_1c.shift(1, 23).expand(RIGHT).is_not_blank().is_not_whitespace()
+    
     impact_parameters_1c = tab.filter("Weighted count").expand(DOWN).is_not_blank().is_not_whitespace()
+    
     observations_1c = impact_parameters_1c.waffle(percentage_estimates_by_age_1c)
+    
     dimensions_1c = [
         HDim(percentage_estimates_by_age_1c, "Percentage Estimates By Age", DIRECTLY, ABOVE),
         HDim(impact_parameters_1c, "Impact Parameters", DIRECTLY, LEFT)
