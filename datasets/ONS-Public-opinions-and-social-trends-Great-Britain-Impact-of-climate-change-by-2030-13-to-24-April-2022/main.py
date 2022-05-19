@@ -6,42 +6,59 @@ from gssutils import *
 metadata = Scraper(seed="info.json")
 metadata
 # -
-distribution = metadata.distribution(latest = True)
+distribution = metadata.distribution(latest = True, 
+                mediaType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", 
+                title = lambda x: "Impact of climate change by 2030 - 2022-05-12" )
 distribution
 
-tabs = {tab.name: tab for tab in metadata.distribution(latest = True).as_databaker()}
+tabs = distribution.as_databaker()
 
-list(tabs)
+tabs = [tab for tab in tabs if tab.name not in ['Cover_sheet', 'Notes']]
 
 tidied_sheets = []
-for name, tab in tabs.items():
-    if 'Cover_sheet' in name or 'Notes' in name:
-        continue
+tabs = [tab for tab in tabs if tab.name not in ['Cover_sheet', 'Notes']]
+for tab in tabs:
+
     print(tab.name)
 
+    anchor = tab.excel_ref("A1")
 
     unwanted = tab.filter(contains_string("Which of the following"))
 
-    unwanted_columns = tab.filter(contains_string("Table 1a: Estimates")).fill(DOWN).one_of(["Survey question and response options", 
-                                                                                            "Table 1c: Associated weighted counts and sample sizes", 
-                                                                                            "Survey question"]) | unwanted
+    unwanted_columns = tab.filter(contains_string("None of these")).fill(DOWN)
 
-    percentage_estimates_by_age = tab.filter(contains_string("Survey question")).fill(RIGHT).is_not_blank().is_not_whitespace()
+    percentage_estimates_by_age = tab.filter(contains_string("Survey question and response options")).fill(RIGHT).is_not_blank().is_not_whitespace()
 
-    impact_parameters = tab.filter(contains_string("Survey question")).fill(DOWN).is_not_blank().is_not_whitespace() - unwanted_columns
+    impact_parameters = tab.filter(contains_string("Survey question and response options")).fill(DOWN).is_not_blank().is_not_whitespace() - unwanted_columns
 
     observations = impact_parameters.fill(RIGHT).is_not_blank().is_not_whitespace()
 
 
     dimensions = [
         HDim(percentage_estimates_by_age, "Percentage Estimates By Age", DIRECTLY, ABOVE),
-        HDim(impact_parameters, "Impact Parameters", DIRECTLY, LEFT)
+        HDim(impact_parameters, "Impact Parameters", DIRECTLY, LEFT),
     ]
     tidy_sheet = ConversionSegment(tab, dimensions, observations)
+    # savepreviewhtml(tidy_sheet, fname=tab.name + "Preview.html")
     tidied_sheets.append(tidy_sheet.topandas())
-    
 
-df = pd.concat(tidied_sheets, sort = True)
+tabs = [tab for tab in tabs if tab.name not in ['Cover_sheet', 'Notes']]
+for tab in tabs:
+
+    print(tab.name)
+    anchor_1c = tab.excel_ref("A1")
+    percentage_estimates_by_age_1c = anchor_1c.shift(1, 23).expand(RIGHT).is_not_blank().is_not_whitespace()
+    impact_parameters_1c = tab.filter("Weighted count").expand(DOWN).is_not_blank().is_not_whitespace()
+    observations_1c = impact_parameters_1c.waffle(percentage_estimates_by_age_1c)
+    dimensions_1c = [
+        HDim(percentage_estimates_by_age_1c, "Percentage Estimates By Age", DIRECTLY, ABOVE),
+        HDim(impact_parameters_1c, "Impact Parameters", DIRECTLY, LEFT)
+    ]
+    tidy_sheet_1c = ConversionSegment(tab, dimensions_1c, observations_1c)
+    # savepreviewhtml(tidy_sheet_1c, fname=tab.name + "Preview.html")
+    tidied_sheets.append(tidy_sheet_1c.topandas())
+
+df = pd.concat(tidied_sheets, sort = True).fillna('')
 
 df
 
@@ -49,7 +66,9 @@ df["Impact Parameters"].unique()
 
 df["Percentage Estimates By Age"].unique()
 
-df["Percentage Estimates By Age"] = df["Percentage Estimates By Age"].map(lambda x: x.rstrip('\n% ')).replace(r'\n', '', regex = True)
+df["Percentage Estimates By Age"] = df["Percentage Estimates By Age"].replace(r'\n', '', regex = True)
+# .map(lambda x: x.rstrip('\n% '))
+# .replace(r'\n', '', regex = True)
 
 df["Percentage Estimates By Age"].unique()
 
@@ -96,7 +115,7 @@ df["Confidence Intervals"].unique()
 
 df.columns
 
-df[['Percentage Estimates By Age','Confidence Intervals','Impact Parameters', 'OBS']]
+df = df[['Percentage Estimates By Age','Impact Parameters', 'Confidence Intervals','OBS']]
 
 df
 
@@ -106,4 +125,11 @@ df.to_csv("observations.csv", index = False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file('catalog-metadata.json')
 
+# +
+# Tabl1a:
+# persons/population
+# percentage
+
+# Table1b:
+# persons/population
 
