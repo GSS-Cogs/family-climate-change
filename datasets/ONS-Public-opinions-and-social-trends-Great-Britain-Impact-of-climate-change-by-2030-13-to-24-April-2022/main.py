@@ -21,10 +21,6 @@ for tab in tabs:
 
     print(tab.name)
 
-    anchor = tab.excel_ref("A1")
-
-    unwanted = tab.filter(contains_string("Which of the following"))
-
     unwanted_columns = tab.filter(contains_string("None of these")).fill(DOWN)
 
     percentage_estimates_by_age = tab.filter(contains_string("Survey question and response options")).fill(RIGHT).is_not_blank().is_not_whitespace()
