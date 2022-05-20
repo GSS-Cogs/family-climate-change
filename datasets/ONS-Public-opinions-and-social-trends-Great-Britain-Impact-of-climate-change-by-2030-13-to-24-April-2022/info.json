@@ -38,7 +38,30 @@
                 "datatype": "double"
             },
             "Measure Type": {
-                "type": "measures"
+                "type": "measures",
+                "new": [
+                    {
+                        "label": "Percentage Estimates",
+                        "comment": "The estimates included here are based on data collected between 13 and 24 April 2022"
+                    },
+                    {
+                        "label": "Lower Confidence Interval",
+                        "comment": "Refer lower 95% confidence intervals, respectively. These form a confidence interval, which is a measure of the statistical precision of an estimate and shows the range of uncertainty around the calculated estimate"
+                    },
+                    {
+                        "label": "Upper Confidence Interval",
+                        "comment": "Refer upper 95% confidence intervals, respectively. These form a confidence interval, which is a measure of the statistical precision of an estimate and shows the range of uncertainty around the calculated estimate"
+                    },
+                    {
+                        "label": "Sample size",
+                        "comment": "This refers to the total number of respondents for each breakdown. Please note this refers to the total number who responded to each question rounded to the nearest 10, rather than the number who provided each response category. Estimates based on sample sizes of 30 or fewer respondents should be treated with caution."
+                    },
+                    {
+                        "label": "Weighted count",
+                        "comment": "In order to make the sample of a survey representative of the population, responses are weighted. 'Weighted count' provides the representative count for each breakdown; this also takes into account survey design and non-response.",
+                        "isDefinedBy": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandlifeexpectancies/methodologies/opinionsandlifestylesurveyqmi"
+                    }
+                ]
             }
         }
     },

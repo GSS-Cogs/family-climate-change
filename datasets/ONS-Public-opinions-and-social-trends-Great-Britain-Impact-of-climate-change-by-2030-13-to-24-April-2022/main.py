@@ -45,6 +45,7 @@ for name, tab in tabs.items():
 
 df = pd.concat(tidied_sheets, sort=True).fillna(
     '').replace(r'\r+|\n+|\t+', ' ', regex=True)
+
 df.rename(columns={'OBS': 'Value'}, inplace=True)
 
 df["Gender"] = df['age_gender_to_split'].apply(lambda x: 'Male' if 'Men' in x
@@ -52,9 +53,10 @@ df["Gender"] = df['age_gender_to_split'].apply(lambda x: 'Male' if 'Men' in x
 df["Age"] = df['age_gender_to_split'].apply(lambda x: 'all' if 'Men' in x
                                             else ('all' if 'Women' in x else ('all' if 'All' in x else x)))
 df["Measure Type"] = df.apply(lambda x: 'Percentage Estimates' if '%' in x['age_gender_to_split']
-                              else 'LCL' if 'LCL' in x['age_gender_to_split']
-                              else 'UCL' if 'UCL' in x['age_gender_to_split']
+                              else 'Lower Confidence Interval' if 'LCL' in x['age_gender_to_split']
+                              else 'Upper Confidence Interval' if 'UCL' in x['age_gender_to_split']
                               else x["Measure Type"], axis=1)
+
 del df['age_gender_to_split']
 
 df['Question'].replace({
@@ -62,10 +64,8 @@ df['Question'].replace({
     "Sample size": "Not Applicable",
 }, inplace=True)
 
-df['Age'] = df['Age'].map(lambda x: x.lstrip('Aged ').rstrip(' %'))
+df['Age'] = df['Age'].map(lambda x: x.lstrip('Aged ').rstrip(' %').rstrip(' UCL').rstrip(' LCL'))
 df = df[["Question", "Gender", "Age", "Measure Type", "Unit", "Value"]]
-
-df
 
 # %%
 df.to_csv("observations.csv", index=False)
