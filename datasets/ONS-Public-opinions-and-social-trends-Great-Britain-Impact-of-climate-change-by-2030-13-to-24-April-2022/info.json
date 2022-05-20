@@ -20,26 +20,25 @@
         "airtable": "recOSMUAlIpk60t40",
         "main_issue": 468,
         "columns":{
-            "Percentage Estimates By Age":{
+            "Question":{
                 "type":"dimension"
             },
-            "Confidence Intervals":{
+            "Gender":{
                 "type":"dimension"
             },
-            "Impact Parameters":{
+            "Age":{
                 "type":"dimension"
             },
             "Unit": {
                 "type": "units",
-                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
+                "value": "http://qudt.org/vocab/unit/{+unit}"
             },
             "Value": {
                 "type": "observations",
-                "datatype": "integer"
+                "datatype": "double"
             },
             "Measure Type": {
-                "type": "measures",
-                "value": "http://gss-data.org.uk/def/measure/{+measure_type}"
+                "type": "measures"
             }
         }
     },
