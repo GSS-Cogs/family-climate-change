@@ -1,10 +1,11 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "ons-public-opinions-and-social-trends-great-britain-impact-of-climate-change-by-2030-13-to-24-april-2022",
     "title": "Public opinions and social trends, Great Britain: Impact of climate change by 2030, 13 to 24 April 2022",
     "publisher": "ONS",
     "description": "Bespoke XLS supplied by Delivery Manager PF. No associated information",
     "landingPage": "https://www.ons.gov.uk/economy/environmentalaccounts/datasets/impactofclimatechangeby2030",
-    "published": "",
+    "published": "2022-05-12",
     "families": [
         "Climate Change"
     ],
@@ -17,7 +18,52 @@
             "Priority"
         ],
         "airtable": "recOSMUAlIpk60t40",
-        "main_issue": 468
+        "main_issue": 468,
+        "columns":{
+            "Question":{
+                "type":"dimension"
+            },
+            "Gender":{
+                "type":"dimension"
+            },
+            "Age":{
+                "type":"dimension"
+            },
+            "Unit": {
+                "type": "units",
+                "value": "http://qudt.org/vocab/unit/{+unit}"
+            },
+            "Value": {
+                "type": "observations",
+                "datatype": "double"
+            },
+            "Measure Type": {
+                "type": "measures",
+                "new": [
+                    {
+                        "label": "Percentage Estimates",
+                        "comment": "The estimates included here are based on data collected between 13 and 24 April 2022"
+                    },
+                    {
+                        "label": "Lower Confidence Interval",
+                        "comment": "Refer lower 95% confidence intervals, respectively. These form a confidence interval, which is a measure of the statistical precision of an estimate and shows the range of uncertainty around the calculated estimate"
+                    },
+                    {
+                        "label": "Upper Confidence Interval",
+                        "comment": "Refer upper 95% confidence intervals, respectively. These form a confidence interval, which is a measure of the statistical precision of an estimate and shows the range of uncertainty around the calculated estimate"
+                    },
+                    {
+                        "label": "Sample size",
+                        "comment": "This refers to the total number of respondents for each breakdown. Please note this refers to the total number who responded to each question rounded to the nearest 10, rather than the number who provided each response category. Estimates based on sample sizes of 30 or fewer respondents should be treated with caution."
+                    },
+                    {
+                        "label": "Weighted count",
+                        "comment": "In order to make the sample of a survey representative of the population, responses are weighted. 'Weighted count' provides the representative count for each breakdown; this also takes into account survey design and non-response.",
+                        "isDefinedBy": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandlifeexpectancies/methodologies/opinionsandlifestylesurveyqmi"
+                    }
+                ]
+            }
+        }
     },
     "sizingNotes": "Simple table structure and dimensions with some footnotes.",
     "notes": "Priority dataset for Climate Change Platform project."
