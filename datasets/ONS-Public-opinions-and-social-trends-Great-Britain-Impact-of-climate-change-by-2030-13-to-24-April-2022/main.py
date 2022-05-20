@@ -21,7 +21,7 @@ for name, tab in tabs.items():
         HDim(question, "Question", DIRECTLY, LEFT),
         HDim(age_gender, "age_gender_to_split", DIRECTLY, ABOVE),
         HDimConst("Measure Type", ''),
-        HDimConst("Unit", 'PERCENT'),
+        HDimConst("Unit", 'Percent'),
         
     ]
     c1 = ConversionSegment(tab, dimensions, observations)
@@ -36,7 +36,7 @@ for name, tab in tabs.items():
         HDim(question, "Question", DIRECTLY, LEFT),
         HDim(age_gender, "age_gender_to_split", DIRECTLY, ABOVE),
         HDim(question, "Measure Type", DIRECTLY, LEFT),
-        HDimConst("Unit", 'NUM'),
+        HDimConst("Unit", 'Number'),
 
     ]
     c1 = ConversionSegment(tab, dimensions, observations)

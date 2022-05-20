@@ -31,7 +31,19 @@
             },
             "Unit": {
                 "type": "units",
-                "value": "http://qudt.org/vocab/unit/{+Unit}"
+                "new": [
+                    {
+                        "label": "Number",
+                        "baseUnit": "http://qudt.org/vocab/unit/NUM",
+                        "baseUnitScalingFactor": 1
+                    },
+                    {
+                        "label": "Percent",
+                        "baseUnit": "http://qudt.org/vocab/unit/PERCENT",
+                        "baseUnitScalingFactor": 1
+                    }
+
+                ]
             },
             "Value": {
                 "type": "observations",
