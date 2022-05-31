@@ -1,14 +1,16 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "mhclg-energy-efficiency-ratings-new-homes",
     "title": "Energy Efficiency Ratings New Homes",
     "publisher": "Ministry for Housing, Communities and Local Government",
-    "description": "",
+    "description": "Summary of energy efficiency rating by new homes",
+    "landingPage": "Not available",
     "datasetNotes": [
         "Although I've added a landing page for this dataset, it's actually a bespoke CSV dataset supplied by Climate Change team. The landing page is the source data from which the CC took the origianl data."
     ],
-    "published": "",
+    "published": "2020",
     "families": [
-        "Climate Change"
+        "Climate-Change"
     ],
     "extract": {
         "source": "CSV"
@@ -18,29 +20,21 @@
         "main_issue": 91,
         "columns": {
             "Year": {
-                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-                "value": "http://reference.data.gov.uk/id/year/{year}",
-                "codelist": false
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
             },
             "Measure Type": {
-                "dimension": "http://purl.org/linked-data/cube#measureType",
-                "value": "http://gss-data.org.uk/def/climate-change/measure/{measure_type}",
-                "types": [
-                    "A",
-                    "B",
-                    "C",
-                    "D",
-                    "E",
-                    "F",
-                    "G"
-                ]
+                "type": "dimension",
+                "value": "http://gss-data.org.uk/def/climate-change/measure/{+measure_type}"
             },
-            "Units": {
-                "attribute": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
-                "value": "http://gss-data.org.uk/def/concept/measurement-units/{units}"
+            "Unit": {
+                "type": "units",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+units}"
             },
             "Value": {
-                "datatype": "double"
+                "type": "observations",
+                "datatype": "int"        
             }
         }
     },
