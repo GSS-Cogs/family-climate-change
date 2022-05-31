@@ -1,40 +1,30 @@
-import json 
 import pandas as pd 
 from gssutils import *
-from pathlib import Path
-import shutil
-from gssutils.csvw.mapping import CSVWMapping
+from csvcubed.models.cube.qb.catalog import CatalogMetadata
+from datetime import datetime
 
 df = pd.read_csv("raw.csv")
-#df.drop(columns='daycount', axis=1, inplace=True)
 
 df = pd.melt(df, id_vars=['Year'])
+
 df.rename(columns={'value': 'Value',
-                   'variable':'Measure Type'
+                   'variable':'Measure Type'}, inplace=True)
 
-                }, inplace=True)
+df
 
-#df['Month'] = pd.to_datetime(df['Month'], dayfirst=True).dt.strftime('%Y-%m')
+df["Measure Type"].unique()
 
-#df['Geography'].replace({'ondon': 'london'}, inplace=True)
-#df['Geography'] = df['Geography'].apply(pathify)
-#df['Rainfall'] = df['Rainfall'].astype(str).astype(float).round(2)
+df["units"]="some-unit"
 
-out = Path('out')
-out.mkdir(exist_ok=True)
-df.to_csv(out/'energy-effiency-new.csv', index = False)
+df
 
-# ## No scraper present so we have created this manually
+df["Value"].dtype
 
-# +
-with open('info.json') as f:
-    info_json = json.load(f)
-csvw_mapping = CSVWMapping()
-csvw_mapping.set_mapping(info_json)
-csvw_mapping.set_csv(out/"energy-effiency-new.csv")
-csvw_mapping.set_dataset_uri(f"http://gss-data.org.uk/data/gss_data/climate-change/{info_json['id']}")
-csvw_mapping.write(out/'energy-effiency-new.csv-metadata.json')
+df.info()
 
-shutil.copy("energy-effiency-new.csv-metadata.trig", out/"energy-effiency-new.csv-metadata.trig")
-
-
+df.to_csv('observations.csv', index=False)
+catalog_metadata = CatalogMetadata(
+    title = "Energy Efficiency Ratings New Homes",
+    description = "Summary of energy efficiency rating by new homes"
+)
+catalog_metadata.to_json_file('catalog-metadata.json')
