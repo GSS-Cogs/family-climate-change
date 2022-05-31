@@ -25,16 +25,16 @@
                 "value": "http://reference.data.gov.uk/id/year/{+year}"
             },
             "Measure Type": {
-                "type": "dimension",
+                "type": "measures",
                 "value": "http://gss-data.org.uk/def/climate-change/measure/{+measure_type}"
             },
             "Unit": {
                 "type": "units",
-                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+units}"
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
             },
             "Value": {
                 "type": "observations",
-                "datatype": "int"        
+                "datatype": "integer"        
             }
         }
     },

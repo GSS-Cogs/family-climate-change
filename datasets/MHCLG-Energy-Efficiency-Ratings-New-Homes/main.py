@@ -14,14 +14,6 @@ df
 
 df["Measure Type"].unique()
 
-df["units"]="some-unit"
-
-df
-
-df["Value"].dtype
-
-df.info()
-
 df.to_csv('observations.csv', index=False)
 catalog_metadata = CatalogMetadata(
     title = "Energy Efficiency Ratings New Homes",
