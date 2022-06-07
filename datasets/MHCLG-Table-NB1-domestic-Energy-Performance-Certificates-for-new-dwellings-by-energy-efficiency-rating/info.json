@@ -1,0 +1,23 @@
+{
+    "id": "mhclg-table-nb1-domestic-energy-performance-certificates-for-new-dwellings-by-energy-efficiency-rating",
+    "title": "Table NB1: domestic Energy Performance Certificates for new dwellings by energy efficiency rating",
+    "publisher": "Ministry for Housing, Communities and Local Government",
+    "description": "This live table contains 5 data tables relating to the Energy Performance of Buildings Certificates published alongside the Energy Performance of Buildings Certificates Statistical release January to March 2022.",
+    "landingPage": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-energy-performance-of-buildings-certificates",
+    "datasetNotes": [
+        "Scroll to section \"EPCs for all new domestic properties (including new build dwellings, conversions and change of use)\""
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "ODS"
+    },
+    "transform": {
+        "airtable": "recu2XiRjEhSM4Eim",
+        "main_issue": 471
+    },
+    "sizingNotes": "Simple structure. Data broken down by geography on different tabs",
+    "notes": ""
+}
