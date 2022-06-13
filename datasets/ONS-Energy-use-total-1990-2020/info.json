@@ -13,7 +13,34 @@
     },
     "transform": {
         "airtable": "recrk8moAAVOrTDcj",
-        "main_issue": 474
+        "main_issue": 474,
+        "columns": {
+            "Year": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Energy Consumption Source": {
+                "type": "dimension"
+            },
+            "Industry Section": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/industry-section",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/industry-section/{+industry_section}"
+            },
+            "Unit": {
+                "type": "units",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
+            },
+            "Value": {
+                "type": "observations",
+                "datatype": "double"
+            },
+            "Measure Type": {
+                "type": "measures",
+                "value": "http://gss-data.org.uk/def/measure/{+measure_type}"
+            }
+        }
     },
     "sizingNotes": "Simple table structure",
     "notes": "Featured in \"UK Environmental Accounts: 2022\" @ https://www.ons.gov.uk/economy/environmentalaccounts/bulletins/ukenvironmentalaccounts/2022"
