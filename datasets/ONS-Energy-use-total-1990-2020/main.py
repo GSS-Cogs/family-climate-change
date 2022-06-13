@@ -35,6 +35,7 @@ df['Industry Section'] = df['Industry Section'].apply(pathify)
 df['Measure Type'] = 'gross-caloric-values'
 df["Unit"]= df['Unit'].str.extract('.*\((.*)\).*')
 df['Unit'] = df['Unit'].apply(pathify)
+df = df.drop_duplicates()
 df = df[['Year', 'Energy Consumption Source', 'Industry Section', 'Value', 'Measure Type', 'Unit']]
 
 # %%
