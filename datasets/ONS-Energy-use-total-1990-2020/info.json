@@ -1,0 +1,20 @@
+{
+    "id": "ons-energy-use-total-1990-2020",
+    "title": "Energy use: total 1990 - 2020",
+    "publisher": "ONS",
+    "description": "The UK's direct use of energy from fossil fuels and other sources (nuclear, net imports, renewables, biofuels and waste and reallocated use of energy by industry (SIC 2007 section - 21 categories), 1990 to 2020.",
+    "landingPage": "https://www.ons.gov.uk/economy/environmentalaccounts/datasets/ukenvironmentalaccountstotalenergyconsumptionbyindustry",
+    "published": "2022-09-06",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "XLS"
+    },
+    "transform": {
+        "airtable": "recrk8moAAVOrTDcj",
+        "main_issue": 474
+    },
+    "sizingNotes": "Simple table structure",
+    "notes": "Featured in \"UK Environmental Accounts: 2022\" @ https://www.ons.gov.uk/economy/environmentalaccounts/bulletins/ukenvironmentalaccounts/2022"
+}
