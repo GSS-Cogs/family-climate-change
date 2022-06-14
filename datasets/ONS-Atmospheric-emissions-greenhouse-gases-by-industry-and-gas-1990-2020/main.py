@@ -19,12 +19,14 @@ import pandas as pandas
 from gssutils import *
 
 info = json.load(open('info.json'))
-title = info['title']
-
 metadata = Scraper(seed="info.json")
+title = info['title']
+metadata.dataset.title = title
 
 distribution = metadata.distribution(
     mediaType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", latest=True)
+
+metadata.dataset.title = title
 
 # +
 # reterieve the id from info.json for URI's (use later)
@@ -41,6 +43,7 @@ def pathify_section_values(section):
         return section
     else:
         return section
+
 
 # -
 
@@ -107,6 +110,8 @@ for tab in tabs:
     table['Section'] = table['Section'].apply(pathify_section_values)
     table['Section'] = table['Section'].apply(pathify)
     tidied_sheets.append(table)
+
+#
 
 # +
 df = pd.concat(tidied_sheets, sort=True)
