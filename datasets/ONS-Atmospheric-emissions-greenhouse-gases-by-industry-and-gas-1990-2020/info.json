@@ -23,7 +23,6 @@
             },
             "Section": {
                 "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/section",
                 "value": "{+section}"
             },
             "Emission Type": {
