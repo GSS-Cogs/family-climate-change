@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas-1990-2020",
     "title": "Atmospheric emissions: greenhouse gases by industry and gas 1990 - 2020",
     "publisher": "International trade in services by subnational areas of the UK: 2018",
@@ -13,7 +14,32 @@
     },
     "transform": {
         "airtable": "recUkNKVhBYerG3qE",
-        "main_issue": 473
+        "main_issue": 473,
+        "columns": {
+            "Year": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Section": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/section",
+                "value": "{+section}"
+            },
+            "Emission Type": {
+                "type": "dimension",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/emission-type/{emission_type}"
+            },
+            "Measure Type": {
+                "type": "measures"
+            },
+            "Value": {
+                "type": "observations",
+                "unit": {
+                    "label": "thousand-tonnes"
+                }
+            }
+        }
     },
     "sizingNotes": "Several tabs of data, each tab has two tables",
     "notes": "Featured in \"UK Environmental Accounts: 2022\" @ https://www.ons.gov.uk/economy/environmentalaccounts/bulletins/ukenvironmentalaccounts/2022"
