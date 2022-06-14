@@ -1,17 +1,4 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.13.7
-#   kernelspec:
-#     display_name: Python 3.9.1 64-bit
-#     language: python
-#     name: python3
-# ---
-
+# %%
 # ## ONS-Atmospheric-emissions-greenhouse-gases-by-industry-and-gas-1990-2020
 
 import json
@@ -28,7 +15,7 @@ distribution = metadata.distribution(
 
 metadata.dataset.title = title
 
-# +
+# %%
 # reterieve the id from info.json for URI's (use later)
 with open("info.json", "r") as read_file:
     data = json.load(read_file)
@@ -45,7 +32,7 @@ def pathify_section_values(section):
         return section
 
 
-# -
+# %%
 
 tabs = distribution.as_databaker()
 tidied_sheets = []
@@ -113,7 +100,7 @@ for tab in tabs:
 
 #
 
-# +
+# %%
 df = pd.concat(tidied_sheets, sort=True)
 df.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inplace=True)
 df = df.replace(
@@ -128,19 +115,19 @@ sic = 'http://business.data.gov.uk/companies/def/sic-2007/'
 df['Section'] = df['Section'].map(
     lambda x: unique + x if '-' in x else (unique + x if 'total' in x else sic + x))
 
-# df['Emission Type'] = df['Emission Type'].apply(pathify)
+df['Emission Type'] = df['Emission Type'].apply(pathify)
 df = df.replace({'Emission Type': {'total-ghg': 'ghg-total'}})
 df['Measure Type'] = df['Measure Type'].str.strip()
 df['Measure Type'] = df['Measure Type'].map(
     lambda x: 'Mass of air emissions of carbon dioxide equivalent' if 'carbon dioxide' in x else 'Mass of air emissions')
-# df['Measure Type'] = df['Measure Type'].apply(pathify)
+df['Measure Type'] = df['Measure Type'].apply(pathify)
 # df['Units'] = 'thousand-tonnes'
 # only need the following columns
 df = df[['Year', 'Section', 'Emission Type', 'Measure Type', 'Value']]
 # -
-
+# %%
 df = df.drop_duplicates()
-
+# %%
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file('catalog-metadata.json')
