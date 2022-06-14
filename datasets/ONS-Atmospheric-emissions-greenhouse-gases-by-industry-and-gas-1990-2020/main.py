@@ -42,7 +42,6 @@ def pathify_section_values(section):
     else:
         return section
 
-
 # -
 
 tabs = distribution.as_databaker()
@@ -109,8 +108,6 @@ for tab in tabs:
     table['Section'] = table['Section'].apply(pathify)
     tidied_sheets.append(table)
 
-#
-
 # +
 df = pd.concat(tidied_sheets, sort=True)
 df.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inplace=True)
@@ -131,7 +128,7 @@ df = df.replace({'Emission Type': {'total-ghg': 'ghg-total'}})
 df['Measure Type'] = df['Measure Type'].str.strip()
 df['Measure Type'] = df['Measure Type'].map(
     lambda x: 'Mass of air emissions of carbon dioxide equivalent' if 'carbon dioxide' in x else 'Mass of air emissions')
-df['Measure Type'] = df['Measure Type'].apply(pathify)
+# df['Measure Type'] = df['Measure Type'].apply(pathify)
 # df['Units'] = 'thousand-tonnes'
 # only need the following columns
 df = df[['Year', 'Section', 'Emission Type', 'Measure Type', 'Value']]
