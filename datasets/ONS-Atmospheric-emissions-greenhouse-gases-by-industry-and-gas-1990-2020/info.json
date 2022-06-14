@@ -22,9 +22,7 @@
                 "value": "http://reference.data.gov.uk/id/year/{+year}"
             },
             "Section": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/section",
-                "value": "{+section}"
+                "type": "dimension"
             },
             "Emission Type": {
                 "type": "dimension"
