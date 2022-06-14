@@ -28,17 +28,21 @@
                 "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/industry-section",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/industry-section/{+industry_section}"
             },
-            "Unit": {
-                "type": "units",
-                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
-            },
             "Value": {
                 "type": "observations",
+                "measure" : "http://gss-data.org.uk/def/measure/gross-caloric-values",
+                "unit" : "http://gss-data.org.uk/def/concept/measurement-units/pj",
                 "datatype": "double"
             },
-            "Measure Type": {
-                "type": "measures",
-                "value": "http://gss-data.org.uk/def/measure/{+measure_type}"
+            "Million tonnes of oil equivalent": {
+                "type" : "attribute", 
+                "new" : {
+                    "comment": "This expresses the observed value in Million tonnes of oil equivalent",
+                    "isDefinedBy": "http://gss-data.org.uk/def/concept/measurement-units/mtoe",
+                    "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+                    "literalValuesDataType": "double"        
+                }
+
             }
         }
     },
