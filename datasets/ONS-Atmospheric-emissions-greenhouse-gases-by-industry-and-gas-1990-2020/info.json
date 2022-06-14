@@ -22,7 +22,10 @@
                 "value": "http://reference.data.gov.uk/id/year/{+year}"
             },
             "Section": {
-                "type": "dimension",
+                "type" : "dimension",
+                "new": {
+                    "codelist": "./codelists/section.csv-metadata.json"
+                },
                 "value": "{+section}"
             },
             "Emission Type": {
