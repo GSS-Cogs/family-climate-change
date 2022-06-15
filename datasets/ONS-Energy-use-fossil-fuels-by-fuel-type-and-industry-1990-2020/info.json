@@ -13,7 +13,41 @@
     },
     "transform": {
         "airtable": "recMyvUFJcADfvQfT",
-        "main_issue": 472
+        "main_issue": 472,
+        "columns": {
+            "Year": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Section": {
+                "type" : "dimension",
+                "new": {
+                    "codelist": "./codelists/section.csv-metadata.json"
+                },
+                "value": "{+section}"
+            },
+            "Fuel": {
+                "type" : "dimension"
+            },
+            "Unit": {
+                "type" : "units",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
+            },
+            "Value": {
+                "type" : "observations",
+                "datatype": "double"
+            },
+            "Measure Type": {
+                "type" :"measures",
+                "value": "http://gss-data.org.uk/def/measure/{+measure_type}"
+            },
+            "Marker": {
+                "type": "attribute",
+                "uri": "http://purl.org/linked-data/sdmx/2009/attribute#obsStatus",
+                "value": "http://gss-data.org.uk/def/concept/cogs-markers/{+marker}"
+            }
+        }
     },
     "sizingNotes": "Several tabs, each tab has two tables",
     "notes": "Featured in \"UK Environmental Accounts: 2022\" @ https://www.ons.gov.uk/economy/environmentalaccounts/bulletins/ukenvironmentalaccounts/2022"

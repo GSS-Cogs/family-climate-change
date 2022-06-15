@@ -1,0 +1,119 @@
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section",
+    "url": "section.csv",
+    "rdfs:label": "Section",
+    "dc:title": "Section",
+    "tableSchema": {
+        "columns": [
+            {
+                "titles": "Label",
+                "name": "label",
+                "datatype": "string",
+                "required": true,
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "titles": "URI",
+                "name": "uri"
+            },
+            {
+                "titles": "Parent URI",
+                "name": "parent_uri"
+            },
+            {
+                "titles": "Sort Priority",
+                "name": "sort_priority",
+                "datatype": "integer",
+                "required": false,
+                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "titles": "Description",
+                "name": "description",
+                "datatype": "string",
+                "required": false,
+                "propertyUrl": "rdfs:comment"
+            },
+            {
+                "titles": "Local Notation",
+                "name": "local_notation"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "rdf:type",
+                "valueUrl": "skos:Concept"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "skos:inScheme",
+                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section"
+            }
+        ],
+        "primaryKey": "uri",
+        "aboutUrl": "{+uri}"
+    },
+    "prov:hadDerivation": {
+        "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section",
+        "@type": [
+            "skos:ConceptScheme",
+            "http://publishmydata.com/pmdcat#ConceptScheme"
+        ]
+    },
+    "rdfs:seeAlso": [
+        {
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section/dataset",
+            "@type": [
+                "dcat:Dataset",
+                "http://publishmydata.com/pmdcat#Dataset"
+            ],
+            "http://publishmydata.com/pmdcat#datasetContents": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section"
+            },
+            "http://publishmydata.com/pmdcat#graph": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-10-25T10:56:04.665952"
+            },
+            "rdfs:label": "Section",
+            "dc:title": "Section",
+            "rdfs:comment": "Dataset representing the 'Section' code list.",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-10-25T10:56:04.665952"
+            },
+            "http://publishmydata.com/pmdcat#markdownDescription": {
+                "@type": "https://www.w3.org/ns/iana/media-types/text/markdown#Resource",
+                "@value": "codelist-manager -c section.csv"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/catalog/vocabularies",
+            "dcat:record": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section/catalog-record"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section/catalog-record",
+            "@type": "dcat:CatalogRecord",
+            "foaf:primaryTopic": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section/dataset"
+            },
+            "http://publishmydata.com/pmdcat#metadataGraph": {
+                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-energy-use-fossil-fuels-by-fuel-type-and-industry#scheme/section"
+            },
+            "dc:title": "Section Catalog Record",
+            "rdfs:label": "Section Catalog Record",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-10-25T10:56:04.665952"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-10-25T10:56:04.665952"
+            }
+        }
+    ]
+}
