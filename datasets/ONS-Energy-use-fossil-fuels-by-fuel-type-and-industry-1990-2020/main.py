@@ -109,7 +109,7 @@ df = df.rename(columns = {'SIC Group' : 'Section', 'Period' : 'Year'})
 
 df = df[['Year', 'Section', 'Fuel', 'Value', 'Marker', 'Measure Type', 'Unit']]
 
-COLUMNS_TO_NOT_PATHIFY = ['Period', 'Marker', 'Value', 'Section', 'Year']
+COLUMNS_TO_NOT_PATHIFY = ['Period', 'Marker', 'Value', 'Section', 'Year', 'Fuel']
 for col in df.columns.values.tolist():
 	if col in COLUMNS_TO_NOT_PATHIFY:
 		continue
@@ -117,8 +117,8 @@ for col in df.columns.values.tolist():
 		df[col] = df[col].apply(pathify)
 	except Exception as err:
 		raise Exception('Failed to pathify column "{}".'.format(col)) from err
-df
 
+df = df.drop_duplicates()
 
 # %%
 metadata.dataset.title = "Energy use: fossil fuels by fuel type and industry 1990 - 2020"
