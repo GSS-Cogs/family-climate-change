@@ -39,6 +39,7 @@ df = pd.pivot_table(df, values = 'Value', index=['Energy Consumption Source','In
 df.rename(columns={'PJ' : 'Value'}, inplace=True)
 df = df[['Year', 'Energy Consumption Source', 'Industry Section', 'Value', 'Million tonnes of oil equivalent']]
 # %%
+metadata.dataset.title = "Energy use: total 1990 - 2020"
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file('catalog-metadata.json')
