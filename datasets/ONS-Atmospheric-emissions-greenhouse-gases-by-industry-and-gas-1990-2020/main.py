@@ -1,18 +1,17 @@
 # ## ONS-Atmospheric-emissions-greenhouse-gases-by-industry-and-gas-1990-2020
-
-# +
+# %%
 import json
 import pandas as pandas
 from gssutils import *
-
+# %%
 info = json.load(open('info.json'))
 metadata = Scraper(seed="info.json")
 metadata.dataset.title = info['title']
-
+# %%
 distribution = metadata.distribution(
     mediaType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", latest=True)
 
-# +
+# %%
 # reterieve the id from info.json for URI's (use later)
 title_id = info['id']
 
@@ -27,8 +26,7 @@ def pathify_section_values(section):
         return section
 
 
-# -
-
+# %%
 tabs = distribution.as_databaker()
 tidied_sheets = []
 for tab in tabs:
@@ -61,7 +59,7 @@ for tab in tabs:
     # Bottom part
 
     # remove_top_section = tab.excel_ref('A27').expand(UP).expand(RIGHT)
-    remove_notes = tab.excel_ref('A164').expand(DOWN).expand(RIGHT)
+    remove_notes = tab.excel_ref('A162').expand(DOWN).expand(RIGHT)
 
     sic_group = tab.excel_ref('A31').expand(DOWN) - remove_notes
     section = tab.excel_ref('B31').expand(DOWN) - remove_notes
@@ -91,13 +89,13 @@ for tab in tabs:
     table['Section'] = table['Section'].apply(pathify)
     tidied_sheets.append(table)
 
-# +
+# %%
 df = pd.concat(tidied_sheets, sort=True)
 df.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inplace=True)
 df = df.replace(
     {'Section': {'Total': 'total', 'Consumer expenditure': 'consumer-expenditure'}})
 df['Year'] = df['Year'].astype(str).replace('\.0', '', regex=True)
-
+# %%
 # info needed to create URI's for section
 unique = 'http://gss-data.org.uk/data/gss_data/climate-change/' + \
     title_id + '#concept/sic-2007/'
@@ -106,7 +104,7 @@ sic = 'http://business.data.gov.uk/companies/def/sic-2007/'
 df['Section'] = df['Section'].map(
     lambda x: unique + x if '-' in x else (unique + x if 'total' in x else sic + x))
 
-# df['Emission Type'] = df['Emission Type'].apply(pathify)
+df['Emission Type'] = df['Emission Type'].apply(pathify)
 # df = df.replace({'Emission Type': {'total-ghg': 'ghg-total'}})
 df['Measure Type'] = df['Measure Type'].str.strip()
 df['Measure Type'] = df['Measure Type'].map(
@@ -115,8 +113,11 @@ df['Measure Type'] = df['Measure Type'].map(
 
 # only need the following columns
 df = df[['Year', 'Section', 'Emission Type', 'Measure Type', 'Value']]
-# -
+df
+# %%
 df = df.drop_duplicates()
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file('catalog-metadata.json')
+
+# %%

@@ -29,7 +29,9 @@
                 "value": "{+section}"
             },
             "Emission Type": {
-                "type": "dimension"
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/emission-type",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/emission-type/{+emission_type}"
             },
             "Measure Type": {
                 "type": "measures"
