@@ -1,6 +1,6 @@
 {
     "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
-    "id": "ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas-1990-2020",
+    "id": "ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas",
     "title": "Atmospheric emissions: greenhouse gases by industry and gas 1990 - 2020",
     "publisher": "International trade in services by subnational areas of the UK: 2018",
     "description": "The emissions of carbon dioxide, methane, nitrous oxide, hydro-fluorocarbons, perfluorocarbons, sulphur hexafluoride, nitrogen trifluoride and total greenhouse gas emissions, by industry (SIC 2007 group - around 130 categories), UK, 1990 to 2020.",
@@ -22,7 +22,11 @@
                 "value": "http://reference.data.gov.uk/id/year/{+year}"
             },
             "Section": {
-                "type" : "dimension"
+                "type" : "dimension",
+                "new": {
+                    "codelist": "./codelists/section.csv-metadata.json"
+                },
+                "value": "{+section}"
             },
             "Emission Type": {
                 "type": "dimension"
