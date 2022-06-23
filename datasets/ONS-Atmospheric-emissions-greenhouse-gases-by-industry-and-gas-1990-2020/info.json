@@ -30,8 +30,7 @@
                 "value": "{+section}"
             },
             "Emission Type": {
-                "type": "dimension",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/emission-type/{+emission_type}"
+                "type": "dimension"
             },
             "Measure Type": {
                 "type": "measures"
