@@ -1,17 +1,14 @@
 # ## ONS-Atmospheric-emissions-greenhouse-gases-by-industry-and-gas-1990-2020
-# %%
 import json
 import pandas as pandas
 from gssutils import *
-# %%
 info = json.load(open('info.json'))
 metadata = Scraper(seed="info.json")
 metadata.dataset.title = info['title']
-# %%
 distribution = metadata.distribution(
     mediaType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", latest=True)
 
-# %%
+# +
 # reterieve the id from info.json for URI's (use later)
 title_id = info['id']
 
@@ -26,7 +23,8 @@ def pathify_section_values(section):
         return section
 
 
-# %%
+# -
+
 tabs = distribution.as_databaker()
 tidied_sheets = []
 for tab in tabs:
@@ -89,13 +87,12 @@ for tab in tabs:
     table['Section'] = table['Section'].apply(pathify)
     tidied_sheets.append(table)
 
-# %%
 df = pd.concat(tidied_sheets, sort=True)
 df.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inplace=True)
 df = df.replace(
     {'Section': {'Total': 'total', 'Consumer expenditure': 'consumer-expenditure'}})
 df['Year'] = df['Year'].astype(str).replace('\.0', '', regex=True)
-# %%
+# +
 # info needed to create URI's for section
 unique = 'http://gss-data.org.uk/data/gss_data/climate-change/' + \
     title_id + '#concept/sic-2007/'
@@ -113,11 +110,8 @@ df['Measure Type'] = df['Measure Type'].map(
 
 # only need the following columns
 df = df[['Year', 'Section', 'Emission Type', 'Measure Type', 'Value']]
-df
-# %%
+# -
 df = df.drop_duplicates()
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file('catalog-metadata.json')
-
-# %%
