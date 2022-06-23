@@ -15,6 +15,7 @@
     "transform": {
         "airtable": "recUkNKVhBYerG3qE",
         "main_issue": 473,
+        "csvcubed_uri_style": "WithoutFileExtensions",
         "columns": {
             "Year": {
                 "type": "dimension",
@@ -22,7 +23,11 @@
                 "value": "http://reference.data.gov.uk/id/year/{+year}"
             },
             "Section": {
-                "type" : "dimension"
+                "type" : "dimension",
+                "new": {
+                    "codelist": "./codelists/section.csv-metadata.json"
+                },
+                "value": "{+section}"
             },
             "Emission Type": {
                 "type": "dimension"
