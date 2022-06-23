@@ -100,7 +100,7 @@ sic = 'http://business.data.gov.uk/companies/def/sic-2007/'
 df['Section'] = df['Section'].map(
     lambda x: unique + x if '-' in x else (unique + x if 'total' in x else sic + x))
 
-df['Emission Type'] = df['Emission Type'].apply(pathify)
+# df['Emission Type'] = df['Emission Type'].apply(pathify)
 # df = df.replace({'Emission Type': {'total-ghg': 'ghg-total'}})
 df['Measure Type'] = df['Measure Type'].str.strip()
 df['Measure Type'] = df['Measure Type'].map(
