@@ -15,7 +15,6 @@
     "transform": {
         "airtable": "recUkNKVhBYerG3qE",
         "main_issue": 473,
-        "csvcubed_uri_style": "WithoutFileExtensions",
         "columns": {
             "Year": {
                 "type": "dimension",
