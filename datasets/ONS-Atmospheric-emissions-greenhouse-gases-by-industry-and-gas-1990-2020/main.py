@@ -22,7 +22,6 @@ def pathify_section_values(section):
     else:
         return section
 
-
 # -
 
 tabs = distribution.as_databaker()
