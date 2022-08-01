@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",   
     "id": "mhclg-table-eb1-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating",
     "title": "Table EB1: domestic Energy Performance Certificates for existing dwellings by energy efficiency rating",
     "publisher": "Ministry for Housing, Communities and Local Government",
@@ -16,7 +17,30 @@
     },
     "transform": {
         "airtable": "recEwdrRd0JRngt74",
-        "main_issue": 470
+        "main_issue": 470,
+        "columns": {
+            "Period" : {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/{+period}"
+            },
+            "Location" : {
+                "type": "dimension",
+                "new": {
+                    "codelist": "./codelists/location.csv-metadata.json"
+                }
+            },
+            "Lodgements" : {
+                "type" : "attribute"
+            },
+            "Efficieny Rating" : {
+                "type" : "dimension"
+            }, 
+            "Total Floor Area (m2)" : {
+                "type" : "attribute"
+
+            }
+        }
     },
     "sizingNotes": "Simple structure. Data broken down by geography on different tabs",
     "notes": ""
