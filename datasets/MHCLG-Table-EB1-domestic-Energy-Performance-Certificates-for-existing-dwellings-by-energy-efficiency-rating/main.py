@@ -1,24 +1,16 @@
 # %%
 from gssutils import *
 import json
-#Format Date/Quarter
-def left(s, amount):
-    return s[:amount]
-def right(s, amount):
-    return s[-amount:]
-def date_time(date):
-    if len(date)  == 4:
-        return 'year/' + date
-    elif len(date) == 6:
-        return 'quarter/' + left(date,4) + '-0' + right(date,1)
-    else:
-        return ""
+
 
 info = json.load(open('info.json'))
 metadata = Scraper(seed="info.json")
 distribution = metadata.distribution(title=lambda x: "Table EB1" in x)
+distribution
 # %%
-tabs = distribution.as_databaker(data_only=True)
+tabs = distribution.as_databaker()
+
+# %%
 tabs = [tab for tab in tabs if tab.name not in [
     'Cover_sheet', 'Notes', 'Table_of_contents']]
 # reterieve the id from info.json for URI's (use later)
@@ -26,7 +18,7 @@ title_id = info['id']
 # %%
 dataframes = []
 for tab in tabs:
-    
+
     year = tab.filter("Year").shift(0, 1).expand(
         DOWN)  # refPeriod for all tabs
     quarter = tab.filter("Quarter").shift(
@@ -87,6 +79,21 @@ df = pd.concat(dataframes, sort=True)
 df.rename(columns={'OBS': 'Value'}, inplace=True)
 df['Year'] = df['Year'].astype(str).replace('\.0', '', regex=True)
 df['Period'] = df['Quarter'] + df['Year']
+
+#Format Date/Quarter
+def left(s, amount):
+    return s[:amount]
+def right(s, amount):
+    return s[-amount:]
+def date_time(date):
+    if len(date)  == 4:
+        return 'year/' + date
+    elif len(date) == 6:
+        return 'quarter/' + left(date,4) + '-0' + right(date,1)
+    else:
+        return ""
+
+
 df["Period"] =  df["Period"].apply(date_time)
 df = df.drop(["Year", "Quarter"], axis=1)
 # %%
@@ -114,4 +121,3 @@ df['Location'] = df['Location'].map(
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file('catalog-metadata.json')
-# %%
