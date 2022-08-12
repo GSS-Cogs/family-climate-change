@@ -8,15 +8,12 @@ title_id = info['id']
 
 metadata = Scraper(seed="info.json")
 distribution = [x for x in metadata.distributions if 'Table EB1' in x.title][0]
-
 # %%
 excluded =  ['Cover_sheet', 'Notes', 'Table_of_contents']
 tabs = [x for x in distribution.as_databaker() if x.name not in excluded]
-
 # %%
 dataframes = []
 for tab in tabs:
-    print(tab.name)
     year = tab.filter("Year").shift(0, 1).expand(
         DOWN)  # refPeriod for all tabs
     quarter = tab.filter("Quarter").shift(
@@ -55,6 +52,7 @@ for tab in tabs:
 
         if tab.name == "EB1_By_Region":
             location = tab.filter("Region").shift(0, 1).expand(DOWN)
+            observations = tab.excel_ref('E15').expand(RIGHT).expand(DOWN).is_not_blank()
         if tab.name == "EB1_by_LA":
             location = tab.filter(
                 "Local Authority Code").shift(0, 1).expand(DOWN)
