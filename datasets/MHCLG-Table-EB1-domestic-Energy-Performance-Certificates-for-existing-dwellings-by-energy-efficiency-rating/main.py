@@ -2,23 +2,21 @@
 from gssutils import *
 import json
 
-
-info = json.load(open('info.json'))
-metadata = Scraper(seed="info.json")
-distribution = metadata.distribution(title=lambda x: "Table EB1" in x)
-distribution
-# %%
-tabs = distribution.as_databaker()
-
-# %%
-tabs = [tab for tab in tabs if tab.name not in [
-    'Cover_sheet', 'Notes', 'Table_of_contents']]
 # reterieve the id from info.json for URI's (use later)
+info = json.load(open('info.json'))
 title_id = info['id']
+
+metadata = Scraper(seed="info.json")
+distribution = [x for x in metadata.distributions if 'Table EB1' in x.title][0]
+
+# %%
+excluded =  ['Cover_sheet', 'Notes', 'Table_of_contents']
+tabs = [x for x in distribution.as_databaker() if x.name not in excluded]
+
 # %%
 dataframes = []
 for tab in tabs:
-
+    print(tab.name)
     year = tab.filter("Year").shift(0, 1).expand(
         DOWN)  # refPeriod for all tabs
     quarter = tab.filter("Quarter").shift(
