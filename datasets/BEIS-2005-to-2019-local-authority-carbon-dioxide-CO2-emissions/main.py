@@ -54,6 +54,13 @@ df = df.drop_duplicates()
 df = df[['Year', 'Country', 'Local Authority', 'Local Authority Code', 'LA CO2 Sector',
          'LA CO2 Sub-sector', 'Measure', 'Value', 'Unit']]
 
+for col in ['Country', 'Local Authority', 'LA CO2 Sector',
+         'LA CO2 Sub-sector', 'Measure']:
+    try:
+        df[col] = df[col].apply(pathify)
+    except Exception as err:
+        raise Exception('Failed to pathify column "{}".'.format(col)) from err
+
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file('catalog-metadata.json')
