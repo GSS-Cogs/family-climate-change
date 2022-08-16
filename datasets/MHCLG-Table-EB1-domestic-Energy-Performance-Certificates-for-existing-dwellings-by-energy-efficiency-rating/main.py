@@ -8,15 +8,12 @@ title_id = info['id']
 
 metadata = Scraper(seed="info.json")
 distribution = [x for x in metadata.distributions if 'Table EB1' in x.title][0]
-
 # %%
 excluded =  ['Cover_sheet', 'Notes', 'Table_of_contents']
 tabs = [x for x in distribution.as_databaker() if x.name not in excluded]
-
 # %%
 dataframes = []
 for tab in tabs:
-    print(tab.name)
     year = tab.filter("Year").shift(0, 1).expand(
         DOWN)  # refPeriod for all tabs
     quarter = tab.filter("Quarter").shift(
@@ -55,6 +52,7 @@ for tab in tabs:
 
         if tab.name == "EB1_By_Region":
             location = tab.filter("Region").shift(0, 1).expand(DOWN)
+            observations = tab.excel_ref('E15').expand(RIGHT).expand(DOWN).is_not_blank()
         if tab.name == "EB1_by_LA":
             location = tab.filter(
                 "Local Authority Code").shift(0, 1).expand(DOWN)
@@ -115,7 +113,19 @@ df = df.replace({'Location': {
 sic = 'http://statistics.data.gov.uk/id/statistical-geography/'
 df['Location'] = df['Location'].map(
     lambda x: sic + x if 'E0' in x else (  sic + x if 'W0' in x else x))
+
+df = df.replace({'Efficieny Rating': {
+    "Not recorded": "Not Recorded",
+    "not-recorded": 'Not Recorded'
+    }})
+# %%
+df['Measure Type'] = 'energy-performance-certificates'
+df['Unit'] = 'count'
+df = df[['Period', 'Efficieny Rating', 'Location', 'Lodgements', 'Total Floor Area (m2)','Measure Type', 'Unit', 'Value']]
+#valid to drop
+df = df.drop_duplicates()
 # %%
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file('catalog-metadata.json')
+# %%

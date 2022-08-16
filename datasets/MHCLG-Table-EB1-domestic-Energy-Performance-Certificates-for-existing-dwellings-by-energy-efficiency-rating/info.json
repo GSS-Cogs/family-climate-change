@@ -5,10 +5,10 @@
     "publisher": "Ministry for Housing, Communities and Local Government",
     "description": "This live table contains 5 data tables relating to the Energy Performance of Buildings Certificates published alongside the Energy Performance of Buildings Certificates Statistical release January to March 2022.",
     "landingPage": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-energy-performance-of-buildings-certificates",
+    "published": "2022-07-22",
     "datasetNotes": [
         "Scroll to section \"EPCs for existing domestic properties\""
     ],
-    "published": "",
     "families": [
         "Climate Change"
     ],
@@ -38,7 +38,18 @@
             }, 
             "Total Floor Area (m2)" : {
                 "type" : "attribute"
-
+            },
+            "Unit": {
+                "type" : "units",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
+            },
+            "Value": {
+                "type" : "observations",
+                "datatype": "double"
+            },
+            "Measure Type": {
+                "type" :"measures",
+                "value": "http://gss-data.org.uk/def/measure/{+measure_type}"
             }
         }
     },
