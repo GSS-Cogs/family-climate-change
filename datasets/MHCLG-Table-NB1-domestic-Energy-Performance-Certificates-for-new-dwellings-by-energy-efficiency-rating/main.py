@@ -45,12 +45,7 @@ multi_lists[0]
 multi_lists[1]
 
 df1 = pd.DataFrame(multi_lists[0])
-# type(df1)
-# len(df)
-
-# +
-# df
-# -
+df1
 
 df2 = pd.DataFrame(multi_lists[1])
 df2
@@ -59,15 +54,34 @@ df3 = pd.DataFrame(multi_lists[2])
 df3
 
 df = pd.concat([df1,df2, df3])
+# df = pd.concat([df1,df2])
 
 df
 
 df.Quarter.fillna(df.Year, inplace = True)
 del df["Year"]
+# df.rename(columns={'Not  Recorded': 'Not Recorded'}, inplace=True)
 df
 
 # +
 #Completed first three tabs
 # -
 
+df.columns
+# 'Not Recorded'
+# 'Not Recorded'
 
+df["Not  Recorded"].value_counts()
+
+df["Not Recorded"] = df["Not Recorded"].fillna(df.pop("Not  Recorded"))
+df
+
+df["Not Recorded"].value_counts()
+
+df.columns
+
+# +
+# efficiency_rating
+
+pd.melt(df, id_vars = ['Quarter', 'Number of Lodgements', 'Total Floor Area (m2)'], value_vars = ['A', 'B',
+       'C', 'D', 'E', 'F', 'G', 'Not Recorded'], ignore_index=False)
