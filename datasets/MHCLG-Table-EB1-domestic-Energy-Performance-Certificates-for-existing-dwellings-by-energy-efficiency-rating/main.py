@@ -122,7 +122,8 @@ df = df.replace({'Efficieny Rating': {
 df['Measure Type'] = 'energy-performance-certificates'
 df['Unit'] = 'count'
 df = df[['Period', 'Efficieny Rating', 'Location', 'Lodgements', 'Total Floor Area (m2)','Measure Type', 'Unit', 'Value']]
-
+#valid to drop
+df = df.drop_duplicates()
 # %%
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
