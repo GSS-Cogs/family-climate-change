@@ -113,7 +113,18 @@ df = df.replace({'Location': {
 sic = 'http://statistics.data.gov.uk/id/statistical-geography/'
 df['Location'] = df['Location'].map(
     lambda x: sic + x if 'E0' in x else (  sic + x if 'W0' in x else x))
+
+df = df.replace({'Efficieny Rating': {
+    "Not recorded": "Not Recorded",
+    "not-recorded": 'Not Recorded'
+    }})
+# %%
+df['Measure Type'] = 'energy-performance-certificates'
+df['Unit'] = 'count'
+df = df[['Period', 'Efficieny Rating', 'Location', 'Lodgements', 'Total Floor Area (m2)','Measure Type', 'Unit', 'Value']]
+
 # %%
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file('catalog-metadata.json')
+# %%
