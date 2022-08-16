@@ -24,25 +24,41 @@
         "main_issue": 21,
         "columns": {
             "Year": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Country": {
                 "type": "dimension"
+            },
+            "Local Authority": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/local-authority-area/{local_authority}"  
             },
             "Local Authority Code": {
-                "type": "dimension"
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/local-authority-code/{local_authority_code}"
             },
             "LA CO2 Sector": {
-                "type": "dimension"
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/la-co2-sector",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/la-co2-sector/{la_co2_sector}"
             },
             "LA CO2 Sub-sector": {
-                "type": "dimension"
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/la-co2-sub-sector",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/la-co2-sub-sector/{la_co2_sub_sector}"
             },
             "Measure": {
                 "type": "measures"
             },
+            "Unit": {
+                "type": "units"
+            },
             "Value": {
-                "type": "observations",
-                "unit": {
-                    "label": "kt-CO2"
-                }
+                "type": "observations"
             }
         }
     },
