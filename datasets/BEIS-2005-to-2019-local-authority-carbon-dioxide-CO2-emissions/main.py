@@ -16,6 +16,7 @@
 
 import json
 import pandas as pd
+import numpy as np
 from gssutils import *
 
 metadata = Scraper(seed='info.json')
@@ -46,8 +47,9 @@ df = pd.melt(df, id_vars=['Country', 'Local Authority', 'Local Authority Code', 
 df['Unit'] = df.apply(lambda x: 'kt CO2' if x['Measure'] == 'Territorial emissions' else 'kt CO2' if x['Measure'] == 'Emissions within the scope of influence of LAs' else 'CO2/person' if x['Measure']
                       == 'Territorial Emissions per capital' else 'CO2/m2' if x['Measure'] == 'Territorial Emissions per area' else ' ', axis=1)
 
+df['Value'] = df.apply(lambda x: 0 if np.isnan(x['Value']) else x['Value'], axis=1)
+df = df.fillna('Unallocated')
 df = df.drop_duplicates()
-df = df.fillna('Unallocated consumption')
 
 df = df[['Year', 'Country', 'Local Authority', 'Local Authority Code', 'LA CO2 Sector',
          'LA CO2 Sub-sector', 'Measure', 'Value', 'Unit']]
