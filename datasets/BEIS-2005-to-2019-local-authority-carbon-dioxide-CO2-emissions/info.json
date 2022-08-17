@@ -32,14 +32,12 @@
                 "type": "dimension"
             },
             "Local Authority": {
-                "type": "dimension",
-                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
-                "value": "http://statistics.data.gov.uk/id/statistical-geography/{local_authority}"  
+                "type": "dimension"
             },
             "Local Authority Code": {
                 "type": "dimension",
                 "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
-                "value": "http://statistics.data.gov.uk/id/statistical-geography{local_authority_code}"
+                "value": "{+local_authority_code}"
             },
             "LA CO2 Sector": {
                 "type": "dimension",
