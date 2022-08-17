@@ -42,12 +42,10 @@ for tab in tabs:
             HDimConst('Location', location)
         ]
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
-        #savepreviewhtml(tidy_sheet, fname=tab.name + "Preview.html")
         df = tidy_sheet.topandas()
         dataframes.append(df)
 
     else:
-        local_auth = tab.excel_ref('B5').expand(DOWN)
         observations = efficieny_rating.fill(DOWN).is_not_blank()
 
         if tab.name == "EB1_By_Region":
@@ -62,12 +60,10 @@ for tab in tabs:
             HDim(lodgements, 'Lodgements', DIRECTLY, LEFT),
             HDim(efficieny_rating, 'Efficieny Rating', DIRECTLY, ABOVE),
             HDim(area, 'Total Floor Area (m2)', DIRECTLY, LEFT),
-            HDim(local_auth, 'local_auth', DIRECTLY, LEFT),
             HDim(location, 'Location', DIRECTLY, LEFT),
             HDimConst('Year', "")
         ]
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
-        #savepreviewhtml(tidy_sheet, fname=tab.name + "Preview.html")
         df = tidy_sheet.topandas()
         dataframes.append(df)
 # %%
