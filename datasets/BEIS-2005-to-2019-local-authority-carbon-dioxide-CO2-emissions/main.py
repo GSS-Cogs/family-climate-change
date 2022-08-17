@@ -48,13 +48,15 @@ df['Unit'] = df.apply(lambda x: 'kt CO2' if x['Measure'] == 'Territorial emissio
                       == 'Territorial Emissions per capital' else 'CO2/m2' if x['Measure'] == 'Territorial Emissions per area' else ' ', axis=1)
 
 df['Value'] = df.apply(lambda x: 0 if np.isnan(x['Value']) else x['Value'], axis=1)
-df = df.fillna('Unallocated')
+df = df.fillna('unallocated consumption')
 df = df.drop_duplicates()
 
 df = df[['Year', 'Country', 'Local Authority', 'Local Authority Code', 'LA CO2 Sector',
          'LA CO2 Sub-sector', 'Measure', 'Value', 'Unit']]
 
-for col in ['Country', 'Local Authority', 'LA CO2 Sector',
+df['Local Authority Code'] = df.apply(lambda x: 'unallocated-consumption' if str(x['Local Authority Code']) == 'unallocated consumption' else x['Local Authority Code'], axis=1)
+
+for col in ['LA CO2 Sector',
          'LA CO2 Sub-sector', 'Measure']:
     try:
         df[col] = df[col].apply(pathify)
