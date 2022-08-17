@@ -140,7 +140,13 @@ frames = [frame1, frame2, frame3]
 
 tidy = pd.concat(frames).fillna('')
 
-tidy.rename(columns = {"Quarter":"period"}, inplace = True)
+tidy.rename(columns = {"Quarter":"Period"}, inplace = True)
+tidy
+
+tidy["Period"] =  tidy["Period"].astype(str).apply(lambda x: "year/" + x[:4] if len(x) == 4 else "quarter/" + x[:4] + "-0" + x[5:6])
+
+tidy["Period"].unique()
+
 tidy
 
 
