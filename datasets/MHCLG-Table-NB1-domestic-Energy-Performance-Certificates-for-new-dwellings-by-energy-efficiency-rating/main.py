@@ -209,7 +209,7 @@ tidy["Period"].unique()
 
 tidy
 
-tidy = tidy.replace({'Location': {
+tidy = tidy.replace({'location': {
     "East Midlands": "http://data.europa.eu/nuts/code/UKF",
     "London": "http://data.europa.eu/nuts/code/UKI",
     "North East": "http://data.europa.eu/nuts/code/UKC",
