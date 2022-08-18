@@ -65,6 +65,15 @@ df3
 df = pd.concat([df1,df2, df3])
 # df = pd.concat([df1,df2])
 
+df.columns
+
+df.iloc[0:1]
+
+# +
+# df.drop(df.loc[df["Year"] == "Total"].index, inplace = True)
+# df[~df["Year"].isin(["Total"])]
+# -
+
 df
 
 df.Quarter.fillna(df.Year, inplace = True)
@@ -183,6 +192,10 @@ frames = [frame1, frame2, frame3]
 tidy = pd.concat(frames).fillna('')
 
 tidy.rename(columns = {"Quarter":"Period"}, inplace = True)
+tidy
+
+tidy = tidy[~tidy["Period"].isin(["Total"])]
+
 tidy
 
 tidy["Period"] =  tidy["Period"].astype(str).apply(lambda x: "year/" + x[:4] if len(x) == 4 else "quarter/" + x[:4] + "-0" + x[5:6])
