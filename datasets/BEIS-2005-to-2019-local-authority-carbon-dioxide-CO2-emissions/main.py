@@ -34,30 +34,33 @@ df.rename(columns={'Calendar Year': 'Year',
                    'Area (km2)': 'Area'
                    }, inplace=True)
 
-df['Territorial Emissions per capital'] = df['Territorial emissions']/df['Population']
-df['Territorial Emissions per area'] = df['Territorial emissions']/df['Area']
+
+df['Territorial emissions per capita'] = df['Territorial emissions']/df['Population']
+df['Territorial emissions per area'] = df['Territorial emissions']/df['Area']
 
 for col in ['Territorial emissions', 'Emissions within the scope of influence of LAs',
-            'Territorial Emissions per capital', 'Territorial Emissions per area']:
-    df[col] = df[col].astype(str).astype(float).round(2)
+            'Territorial emissions per capita', 'Territorial emissions per area']:
+    df[col] = df[col].astype(str).astype(float).round(4)
 
 df = pd.melt(df, id_vars=['Country', 'Local Authority', 'Local Authority Code', 'Year', 'LA CO2 Sector', 'LA CO2 Sub-sector'], value_vars=[
-             "Territorial emissions", "Emissions within the scope of influence of LAs", 'Territorial Emissions per capital', 'Territorial Emissions per area'], var_name='Measure', value_name='Value')
+             "Territorial emissions", "Emissions within the scope of influence of LAs", 'Territorial emissions per capita', 'Territorial emissions per area'], var_name='Measure', value_name='Value')
 
-df['Unit'] = df.apply(lambda x: 'kt CO2' if x['Measure'] == 'Territorial emissions' else 'kt CO2' if x['Measure'] == 'Emissions within the scope of influence of LAs' else 'CO2/person' if x['Measure']
-                      == 'Territorial Emissions per capital' else 'CO2/m2' if x['Measure'] == 'Territorial Emissions per area' else ' ', axis=1)
+df['Unit'] = df.apply(lambda x: 'kt CO2' if x['Measure'] == 'Territorial emissions' else 'kt CO2' if x['Measure'] == 'Emissions within the scope of influence of LAs' else 'tonnes of CO2' if x['Measure']
+                      == 'Territorial emissions per capita' else 'CO2/m2' if x['Measure'] == 'Territorial emissions per area' else ' ', axis=1)
 
-df['Value'] = df.apply(lambda x: 0 if np.isnan(x['Value']) else x['Value'], axis=1)
+df['Value'] = df.apply(lambda x: 0 if np.isnan(
+    x['Value']) else x['Value'], axis=1)
 df = df.fillna('unallocated consumption')
 df = df.drop_duplicates()
 
 df = df[['Year', 'Country', 'Local Authority', 'Local Authority Code', 'LA CO2 Sector',
          'LA CO2 Sub-sector', 'Measure', 'Value', 'Unit']]
 
-df['Local Authority Code'] = df.apply(lambda x: 'unallocated-consumption' if str(x['Local Authority Code']) == 'unallocated consumption' else x['Local Authority Code'], axis=1)
+df['Local Authority Code'] = df.apply(lambda x: 'unallocated-consumption' if str(
+    x['Local Authority Code']) == 'unallocated consumption' else x['Local Authority Code'], axis=1)
 
 for col in ['LA CO2 Sector',
-         'LA CO2 Sub-sector', 'Measure']:
+            'LA CO2 Sub-sector']:
     try:
         df[col] = df[col].apply(pathify)
     except Exception as err:
