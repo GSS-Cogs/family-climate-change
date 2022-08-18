@@ -42,12 +42,10 @@ for tab in tabs:
             HDimConst('Location', location)
         ]
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
-        #savepreviewhtml(tidy_sheet, fname=tab.name + "Preview.html")
         df = tidy_sheet.topandas()
         dataframes.append(df)
 
     else:
-        local_auth = tab.excel_ref('B5').expand(DOWN)
         observations = efficieny_rating.fill(DOWN).is_not_blank()
 
         if tab.name == "EB1_By_Region":
@@ -62,12 +60,10 @@ for tab in tabs:
             HDim(lodgements, 'Lodgements', DIRECTLY, LEFT),
             HDim(efficieny_rating, 'Efficieny Rating', DIRECTLY, ABOVE),
             HDim(area, 'Total Floor Area (m2)', DIRECTLY, LEFT),
-            HDim(local_auth, 'local_auth', DIRECTLY, LEFT),
             HDim(location, 'Location', DIRECTLY, LEFT),
             HDimConst('Year', "")
         ]
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
-        #savepreviewhtml(tidy_sheet, fname=tab.name + "Preview.html")
         df = tidy_sheet.topandas()
         dataframes.append(df)
 # %%
@@ -113,7 +109,19 @@ df = df.replace({'Location': {
 sic = 'http://statistics.data.gov.uk/id/statistical-geography/'
 df['Location'] = df['Location'].map(
     lambda x: sic + x if 'E0' in x else (  sic + x if 'W0' in x else x))
+
+df = df.replace({'Efficieny Rating': {
+    "Not recorded": "Not Recorded",
+    "not-recorded": 'Not Recorded'
+    }})
+# %%
+df['Measure Type'] = 'energy-performance-certificates'
+df['Unit'] = 'count'
+df = df[['Period', 'Efficieny Rating', 'Location', 'Lodgements', 'Total Floor Area (m2)','Measure Type', 'Unit', 'Value']]
+#valid to drop
+df = df.drop_duplicates()
 # %%
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file('catalog-metadata.json')
+# %%
