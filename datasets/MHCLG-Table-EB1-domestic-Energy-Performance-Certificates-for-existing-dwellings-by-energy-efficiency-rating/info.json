@@ -41,7 +41,7 @@
             },
             "Unit": {
                 "type" : "units",
-                "value": "http://gss-data.org.uk/def/climate-change/measurement-units/{+unit}"
+                "value": "http://gss-data.org.uk/def/climate-change/concept/measurement-units/{+unit}"
             },
             "Value": {
                 "type" : "observations",
