@@ -103,6 +103,48 @@ second_list_df
 
 type(second_list_df)
 
+second_list_df = pd.DataFrame(second_list_df)
+
+type(second_list_df)
+
+# +
+# second_list_df[0:10, 4:12] = 0
+# second_list_df[second_list_df.Quarter == 2008/4]
+# -
+
+second_list_df
+
+# +
+# stop
+# -
+
+second_list_df["Quarter"] = second_list_df["Quarter"].fillna("This row needs to be changed")
+# second_list_df = second_list_df.loc[second_list_df["Quarter"] == np.nan, "Quarter"] = "This row needs to be changed"
+# second_list_df["Quarter"] = second_list_df["Quarter"].map(lambda x: "This row needs to be changed" if x["Quarter"] == np.nan else x)
+
+second_list_df["Quarter"].value_counts()
+
+index = second_list_df[second_list_df["Quarter"] == "This row needs to be changed"].index
+
+second_list_df.loc[index, ["A", "B", "C", "D", "E", "F", "G", "Not Recorded"]] = ''
+
+# second_list_df = second_list_df.loc[second_list_df["Quarter"] == "This row needs to be changed", "Quarter"] = np.nan
+index = second_list_df[second_list_df["Quarter"] == "This row needs to be changed"].index
+
+second_list_df.loc[index, ["Quarter"]] = np.nan
+
+second_list_df
+
+second_list_df["Quarter"].value_counts()
+
+type(second_list_df)
+
+second_list_df.iloc[0:10, 4:12]
+
+second_list_df
+
+type(second_list_df)
+
 second_list_df.rename(columns = {"Region":"location"}, inplace = True)
 
 second_list_df
