@@ -115,13 +115,25 @@ second_list_df
 
 type(second_list_df)
 
-second_list_df = pd.DataFrame(second_list_df)
+# +
+# second_list_df = pd.DataFrame(second_list_df)
+# -
 
 type(second_list_df)
 
-# +
-# second_list_df[0:10, 4:12] = 0
+unwanted_list = second_list_df.iloc[0:10, 4:12]
 # second_list_df[second_list_df.Quarter == 2008/4]
+
+unwanted_list
+
+df=second_list_df[~second_list_df.isin(unwanted_list)].dropna(how = 'all')
+
+df
+
+df.iloc[0:10, 4:12]
+
+# +
+# stop
 # -
 
 second_list_df
