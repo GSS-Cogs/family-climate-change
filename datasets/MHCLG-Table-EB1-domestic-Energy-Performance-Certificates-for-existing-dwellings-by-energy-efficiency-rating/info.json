@@ -40,8 +40,12 @@
                 "type" : "attribute"
             },
             "Unit": {
-                "type" : "units",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/measurement-units/{+unit}"
+                    "type": "units",
+                    "new": [
+                        {
+                            "label": "Count"
+                        }
+                    ]
             },
             "Value": {
                 "type" : "observations",
