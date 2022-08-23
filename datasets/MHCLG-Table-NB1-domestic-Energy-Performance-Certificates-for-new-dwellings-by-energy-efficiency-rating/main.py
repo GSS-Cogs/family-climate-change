@@ -51,18 +51,21 @@ df1 = pd.DataFrame(multi_lists[0])
 df1
 
 df1["location"] = "England and Wales"
+df1["sheet"] = "NB1"
 df1
 
 df2 = pd.DataFrame(multi_lists[1])
 df2
 
 df2["location"] = "http://statistics.data.gov.uk/id/statistical-geography/E92000001"
+df2["sheet"] = "NB1_England_Only"
 df2
 
 df3 = pd.DataFrame(multi_lists[2])
 df3
 
 df3["location"] = "http://data.europa.eu/nuts/code/UKL"
+df3["sheet"] = "NB1_Wales_Only"
 df3
 
 df = pd.concat([df1,df2, df3])
@@ -92,19 +95,27 @@ df.columns
 # 'Not Recorded'
 # 'Not Recorded'
 
-df["Not  Recorded"].value_counts()
+# +
+# df["Not  Recorded"].value_counts()
+# -
 
+#get rid of "Not  Recorded" while keeping "Not Recorded" column
 df["Not Recorded"] = df["Not Recorded"].fillna(df.pop("Not  Recorded"))
 df
 
-df["Not Recorded"].value_counts()
+# +
+# df["Not Recorded"].unique()
+
+# +
+# df["Not Recorded"].value_counts()
+# -
 
 df.columns
 
 # +
 # efficiency_rating
 
-frame1 = pd.melt(df, id_vars = ['Quarter', 'Number of Lodgements', 'Total Floor Area (m2)', 'location'], value_vars = ['A', 'B',
+frame1 = pd.melt(df, id_vars = ['Quarter', 'Number of Lodgements', 'Total Floor Area (m2)', 'location', 'sheet'], value_vars = ['A', 'B',
        'C', 'D', 'E', 'F', 'G', 'Not Recorded'], var_name = "Efficieny Rating", ignore_index=False)
 # -
 
@@ -113,70 +124,92 @@ frame1
 second_list_df = pd.read_excel(distribution.downloadURL, sheet_name = "NB1_By_Region", header = 3)
 second_list_df
 
-type(second_list_df)
+df2 = second_list_df.drop(second_list_df.index[0:10])
+
+# +
+# second_list_df
+
+# +
+# type(second_list_df)
 
 # +
 # second_list_df = pd.DataFrame(second_list_df)
-# -
 
-type(second_list_df)
+# +
+# type(second_list_df)
 
-unwanted_list = second_list_df.iloc[0:10, 4:12]
+# +
+# unwanted_list = second_list_df.iloc[0:10, 4:12]
 # second_list_df[second_list_df.Quarter == 2008/4]
 
-unwanted_list
+# +
+# unwanted_list
 
-df=second_list_df[~second_list_df.isin(unwanted_list)].dropna(how = 'all')
+# +
+# df2=second_list_df[~second_list_df.isin(unwanted_list)].dropna(how = 'all')
 
-df
+# +
+# df2
 
-df.iloc[0:10, 4:12]
+# +
+# df2.iloc[0:10, 4:12]
 
 # +
 # stop
 # -
 
-second_list_df
+df2
 
 # +
 # stop
-# -
 
-second_list_df["Quarter"] = second_list_df["Quarter"].fillna("This row needs to be changed")
+# +
+# second_list_df["Quarter"] = second_list_df["Quarter"].fillna("This row needs to be changed")
 # second_list_df = second_list_df.loc[second_list_df["Quarter"] == np.nan, "Quarter"] = "This row needs to be changed"
 # second_list_df["Quarter"] = second_list_df["Quarter"].map(lambda x: "This row needs to be changed" if x["Quarter"] == np.nan else x)
 
-second_list_df["Quarter"].value_counts()
+# +
+# second_list_df["Quarter"].value_counts()
 
-index = second_list_df[second_list_df["Quarter"] == "This row needs to be changed"].index
+# +
+# index = second_list_df[second_list_df["Quarter"] == "This row needs to be changed"].index
 
-second_list_df.loc[index, ["A", "B", "C", "D", "E", "F", "G", "Not Recorded"]] = ''
+# +
+# second_list_df.loc[index, ["A", "B", "C", "D", "E", "F", "G", "Not Recorded"]] = ''
 
+# +
 # second_list_df = second_list_df.loc[second_list_df["Quarter"] == "This row needs to be changed", "Quarter"] = np.nan
-index = second_list_df[second_list_df["Quarter"] == "This row needs to be changed"].index
+# index = second_list_df[second_list_df["Quarter"] == "This row needs to be changed"].index
 
-second_list_df.loc[index, ["Quarter"]] = np.nan
+# +
+# second_list_df.loc[index, ["Quarter"]] = np.nan
 
-second_list_df
+# +
+# second_list_df
 
-second_list_df["Quarter"].value_counts()
+# +
+# second_list_df["Quarter"].value_counts()
 
-type(second_list_df)
+# +
+# type(second_list_df)
 
-second_list_df.iloc[0:10, 4:12]
+# +
+# second_list_df.iloc[0:10, 4:12]
 
-second_list_df
+# +
+# second_list_df
+# -
 
-type(second_list_df)
+type(df2)
 
-second_list_df.rename(columns = {"Region":"location"}, inplace = True)
+df2.rename(columns = {"Region":"location"}, inplace = True)
 
-second_list_df
+df2["sheet"] = "NB1_By_Region or NB1_By_LA"
 
 # +
 # efficiency_rating
 
-frame2 = pd.melt(second_list_df, id_vars = ['Quarter', 'Number of Lodgements', 'Total Floor Area (m2)', 'location'], value_vars = ['A', 'B',
+frame2 = pd.melt(df2, id_vars = ['Quarter', 'Number of Lodgements', 'Total Floor Area (m2)', 'location', "sheet"], value_vars = ['A', 'B',
        'C', 'D', 'E', 'F', 'G', 'Not Recorded'], var_name = "Efficieny Rating", ignore_index=False)
 # -
 
@@ -193,10 +226,12 @@ third_list_df.rename(columns = {"Local Authority Code":"location"}, inplace = Tr
 
 third_list_df
 
+third_list_df["sheet"] = "NB1_By_Region or NB1_By_LA"
+
 # +
 # efficiency_rating
 
-frame3 = pd.melt(third_list_df, id_vars = ['Quarter', 'Number of Lodgements', 'Total Floor Area (m2)', 'location'], value_vars = ['A', 'B',
+frame3 = pd.melt(third_list_df, id_vars = ['Quarter', 'Number of Lodgements', 'Total Floor Area (m2)', 'location', "sheet"], value_vars = ['A', 'B',
        'C', 'D', 'E', 'F', 'G', 'Not Recorded'], var_name = "Efficieny Rating", ignore_index=False)
 # -
 
@@ -204,10 +239,14 @@ frame3
 
 frames = [frame1, frame2, frame3]
 
-tidy = pd.concat(frames).fillna('')
+tidy = pd.concat(frames).fillna('').drop_duplicates()
 
 tidy.rename(columns = {"Quarter":"Period"}, inplace = True)
 tidy
+
+# +
+# tidy["location"].unique()
+# -
 
 tidy = tidy[~tidy["Period"].isin(["Total"])]
 
@@ -215,7 +254,38 @@ tidy
 
 tidy["Period"].unique()
 
-tidy["Period"] =  tidy["Period"].astype(str).apply(lambda x: "year/" + x[:4] if len(x) == 4 else "quarter/" + x[:4] + "-0" + x[5:6] if len(x) == 6 else '')
+
+# +
+# tidy["Period"] =  tidy["Period"].astype(str).apply(lambda x: "year/" + x[:4] if len(x) == 4 else "quarter/" + x[:4] + "-0" + x[5:6] if len(x) == 6 else np.nan)
+
+#Format Date/Quarter
+def left(s, amount):
+    return s[:amount]
+def right(s, amount):
+    return s[-amount:]
+def date_time(date):
+    if len(date)  == 4:
+        return 'year/' + date
+    elif len(date) == 6:
+        return 'quarter/' + left(date,4) + '-0' + right(date,1)
+    else:
+        return ''
+
+
+# -
+
+tidy["Period"] =  tidy["Period"].astype(str).apply(date_time)
+
+baddates =   [n for n,x in enumerate(tidy['Period'].tolist()) if x.strip() in ['']]
+
+# +
+#Trouble shooting Period column
+# for n,x in enumerate(tidy["Period"]):
+#     if x.strip() in ['']:
+#         print(f"{n}, {x}")
+# -
+
+baddates
 
 tidy["Period"].unique()
 
@@ -252,8 +322,97 @@ tidy['Unit'] = 'count'
 
 tidy.columns
 
-tidy = tidy[['Period', 'Number of Lodgements', 'Total Floor Area (m2)', 'location',
-       'Efficieny Rating', 'value', 'Measure Type', 'Unit']]
+tidy.rename(columns = {"Number of Lodgements" : "Lodgements", "location" : "Location", "value": "Value"}, inplace = True, errors = "raise")
+
+tidy = tidy[['Period', 'Lodgements', 'Total Floor Area (m2)', 'Location',
+       'Efficieny Rating', 'Value', 'Measure Type', 'Unit', 'sheet']]
+
+tidy
+
+tidy.columns
+
+type(tidy)
+
+print('' in tidy['Value'].values)
+
+# +
+# for x in tidy["Value"]:
+#     if x.strip in ['']:
+#         print(f"{x}")
+# -
+
+badTidy = tidy[tidy.duplicated(['Period', 'sheet', 'Value', 'Lodgements', 'Total Floor Area (m2)', 'Location',
+       'Efficieny Rating', 'Measure Type', 'Unit'], keep = False)]
+
+badTidy.sort_values(by = ['Period', 'sheet', 'Value', 'Lodgements', 'Total Floor Area (m2)', 'Location',
+       'Efficieny Rating', 'Measure Type', 'Unit']).to_csv("badTidy.csv")
+
+unwanted = badTidy.iloc[:, [0, 8]]
+
+unwanted["sheet"].unique()
+
+unwanted.sort_values
+
+print(0.0 in badTidy["Value"].values)
+
+tidy
+
+tidy = tidy.drop_duplicates()
+
+tidy
+
+tidy.columns
+
+print('' in tidy["Period"].unique())
+
+# +
+# n = 0
+# for x in tidy["Period"]:
+#     if x == '':
+#         n += 1
+#         print(n, x)
+# -
+
+print('' in tidy["Lodgements"].unique())
+
+print('' in tidy["Total Floor Area (m2)"].unique())
+
+print('' in tidy["Location"].unique())
+
+print('' in tidy["Efficieny Rating"].unique())
+
+print('' in tidy["Value"].unique())
+
+n = 0
+for x in tidy["Value"]:
+    if x == '':
+        n += 1
+        print(n, x)
+
+# +
+# tidy.loc[tidy["Value"] == ''] = "Not applicable"
+
+# +
+# n = 0
+# for x in tidy["Value"]:
+#     if x == '':
+#         n += 1
+#         print(n, x)
+# -
+
+print("Not applicable" in tidy["Value"].unique())
+
+print('' in tidy["Value"].unique())
+
+# +
+# badTidy = tidy[tidy.duplicated(['Period', 'Lodgements', 'Total Floor Area (m2)', 'Location',
+#        'Efficieny Rating', 'value', 'Measure Type', 'Unit', 'sheet'], keep = False)]
+
+# +
+# badTidy
+# -
+
+tidy
 
 tidy.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
