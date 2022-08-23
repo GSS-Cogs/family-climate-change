@@ -116,12 +116,16 @@ df = df.replace({'Efficieny Rating': {
     }})
 # %%
 df['Measure Type'] = 'energy-performance-certificates'
-df['Unit'] = 'count'
+df['Unit'] = 'Count'
 df = df[['Period', 'Efficieny Rating', 'Location', 'Lodgements', 'Total Floor Area (m2)','Measure Type', 'Unit', 'Value']]
 #valid to drop
 df = df.drop_duplicates()
+
+# %%
+metadata.dataset.title = "Domestic Energy Performance Certificates for existing dwellings by energy efficiency rating"
+metadata.dataset.description = "This data relates to the Energy Performance of Buildings Certificates published alongside the Energy Performance of Buildings Certificates Statistical release April to June 2022."
+
 # %%
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file('catalog-metadata.json')
-# %%
