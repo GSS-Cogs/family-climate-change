@@ -239,7 +239,8 @@ frame3
 
 frames = [frame1, frame2, frame3]
 
-tidy = pd.concat(frames).fillna('').drop_duplicates()
+tidy = pd.concat(frames).fillna('')
+# .drop_duplicates()
 
 tidy.rename(columns = {"Quarter":"Period"}, inplace = True)
 tidy
@@ -347,17 +348,23 @@ badTidy = tidy[tidy.duplicated(['Period', 'sheet', 'Value', 'Lodgements', 'Total
 badTidy.sort_values(by = ['Period', 'sheet', 'Value', 'Lodgements', 'Total Floor Area (m2)', 'Location',
        'Efficieny Rating', 'Measure Type', 'Unit']).to_csv("badTidy.csv")
 
-unwanted = badTidy.iloc[:, [0, 8]]
+# +
+# unwanted = badTidy.iloc[:, [0, 8]]
 
-unwanted["sheet"].unique()
+# +
+# unwanted["sheet"].unique()
 
-unwanted.sort_values
+# +
+# unwanted.sort_values
+# -
 
 print(0.0 in badTidy["Value"].values)
 
 tidy
 
-tidy = tidy.drop_duplicates()
+# +
+# tidy = tidy.drop_duplicates()
+# -
 
 tidy
 
