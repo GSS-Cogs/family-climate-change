@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "mhclg-table-nb1-domestic-energy-performance-certificates-for-new-dwellings-by-energy-efficiency-rating",
     "title": "Table NB1: domestic Energy Performance Certificates for new dwellings by energy efficiency rating",
     "publisher": "Ministry for Housing, Communities and Local Government",
