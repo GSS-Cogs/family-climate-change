@@ -1,188 +1,84 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.13.8
-#   kernelspec:
-#     display_name: Python 3.9.13 64-bit
-#     language: python
-#     name: python3
-# ---
-
 from gssutils import *
 import json
 import pandas as pd
 import numpy as np
 
-metadata = Scraper(seed="info.json")
-distribution = metadata.distribution(title = lambda x: "Table NB1" in x)
+def distribution_and_title_id(info_json):
+    metadata = Scraper(seed=info_json)
+    distribution = metadata.distribution(title = lambda x: "Table NB1" in x)
+    return  distribution
 
-info = json.load(open('info.json'))
-title_id = info['id']
+def get_metadata(info_json):
+    metadata = Scraper(seed=info_json)
+    return metadata
 
-distribution
+def title_id(info_json):
+    info = json.load(open("info.json"))
+    title_id = info['id']
+    return title_id
 
-df = pd.read_excel(distribution.downloadURL, sheet_name = ["NB1", "NB1_England_Only", "NB1_Wales_Only"], header = 3)
-df
+def dataframe_from_excel_or_ods(distro, sheet_name, header):
+    if sheet_name == "NB1" or "NB1_England_Only" or "NB1_Wales_Only" or "NB1_By_Region" or "NB1_By_LA":
+        df = pd.read_excel(distro.downloadURL, sheet_name, header)
+        # return df
 
-df = df.values()
+        if sheet_name == ["NB1", "NB1_England_Only", "NB1_Wales_Only"]:
+            dict_values = df.values()
+            every_list = [x for x in dict_values]
+ 
+            df1 = pd.DataFrame(every_list[0])
+            df1["Location"] = "England and Wales"
+ 
+            df2 = pd.DataFrame(every_list[1])
+            df2["Location"] = "http://statistics.data.gov.uk/id/statistical-geography/E92000001"
+            
+            df3 = pd.DataFrame(every_list[2])
+            df3["Location"] = "http://data.europa.eu/nuts/code/UKL"
+ 
+            df4 = pd.concat([df1, df2, df3])
+ 
+            df4.drop(df4.loc[df4["Year"] == "Total"].index, inplace = True)
+            df4 = df4[~df4["Year"].isin(["Total"])]
+ 
+            df4.Quarter.fillna(df4.Year, inplace = True)
+            del df4["Year"]
+ 
+            df4["Not Recorded"] = df4["Not Recorded"].fillna(df4.pop("Not  Recorded"))
+            df4.rename(columns = {"Quarter":"Period", "Number of Lodgements":"Lodgements"}, inplace = True)
+            return df4
+        
+        if sheet_name == ["NB1_By_Region"]:
+            second_dict_values = df.values()
+            second_list = [x for x in second_dict_values]
 
-df
+            df5 = pd.DataFrame(second_list[0])
+            df5 = df5.drop(df5.index[0:10])
+ 
+            df5.rename(columns = {"Region":"Location", "Number of Lodgements":"Lodgements", "Quarter":"Period"}, inplace = True)
+            return df5
 
-multi_lists = [x for x in df]
+        if sheet_name == ["NB1_By_LA"]:
+            third_dict_values = df.values()
+            third_list = [x for x in third_dict_values]
 
+            df6 = pd.DataFrame(third_list[0])
+            df6 = df6.drop(["Local Authority"], axis = 1)
+ 
+            df6.rename(columns = {"Local Authority Code":"Location", "Number of Lodgements":"Lodgements", "Quarter":"Period"}, inplace = True)
+            return df6
 
-multi_lists[0]
+def melting_multiple_dataframes(data_frame):
+    frames = pd.melt(data_frame, id_vars = ['Period', 'Lodgements', 'Total Floor Area (m2)', 'Location'], value_vars = ['A', 'B',
+           'C', 'D', 'E', 'F', 'G', 'Not Recorded'], var_name = "Efficieny Rating", ignore_index=False)
+    return frames
 
-multi_lists[1]
-
-df1 = pd.DataFrame(multi_lists[0])
-df1
-
-df1["location"] = "England and Wales"
-df1
-
-df2 = pd.DataFrame(multi_lists[1])
-df2
-
-df2["location"] = "http://statistics.data.gov.uk/id/statistical-geography/E92000001"
-df2
-
-df3 = pd.DataFrame(multi_lists[2])
-df3
-
-df3["location"] = "http://data.europa.eu/nuts/code/UKL"
-df3
-
-df = pd.concat([df1,df2, df3])
-# df = pd.concat([df1,df2])
-
-df.columns
-
-df.iloc[0:1]
-
-df.drop(df.loc[df["Year"] == "Total"].index, inplace = True)
-df = df[~df["Year"].isin(["Total"])]
-
-df
-
-df.Quarter.fillna(df.Year, inplace = True)
-del df["Year"]
-# df.rename(columns={'Not  Recorded': 'Not Recorded'}, inplace=True)
-df
-
-# +
-#Completed first three tabs
-# -
-
-df.columns
-# 'Not Recorded'
-# 'Not Recorded'
-
-# +
-# df["Not  Recorded"].value_counts()
-# -
-
-#get rid of "Not  Recorded" while keeping "Not Recorded" column
-df["Not Recorded"] = df["Not Recorded"].fillna(df.pop("Not  Recorded"))
-df
-
-# +
-# df["Not Recorded"].unique()
-
-# +
-# df["Not Recorded"].value_counts()
-# -
-
-df.columns
-
-# +
-# efficiency_rating
-
-frame1 = pd.melt(df, id_vars = ['Quarter', 'Number of Lodgements', 'Total Floor Area (m2)', 'location'], value_vars = ['A', 'B',
-       'C', 'D', 'E', 'F', 'G', 'Not Recorded'], var_name = "Efficieny Rating", ignore_index=False)
-# -
-
-frame1
-
-second_list_df = pd.read_excel(distribution.downloadURL, sheet_name = "NB1_By_Region", header = 3)
-second_list_df
-
-df2 = second_list_df.drop(second_list_df.index[0:10])
-
-df2
-
-df2.rename(columns = {"Region":"location"}, inplace = True)
-
-# +
-# efficiency_rating
-
-frame2 = pd.melt(df2, id_vars = ['Quarter', 'Number of Lodgements', 'Total Floor Area (m2)', 'location'], value_vars = ['A', 'B',
-       'C', 'D', 'E', 'F', 'G', 'Not Recorded'], var_name = "Efficieny Rating", ignore_index=False)
-# -
-
-frame2
-
-third_list_df = pd.read_excel(distribution.downloadURL, sheet_name = "NB1_By_LA", header = 3)
-third_list_df
-
-third_list_df.drop(["Local Authority"], axis = 1, inplace = True)
-
-third_list_df
-
-third_list_df.rename(columns = {"Local Authority Code":"location"}, inplace = True)
-
-third_list_df
-
-# +
-# efficiency_rating
-
-frame3 = pd.melt(third_list_df, id_vars = ['Quarter', 'Number of Lodgements', 'Total Floor Area (m2)', 'location'], value_vars = ['A', 'B',
-       'C', 'D', 'E', 'F', 'G', 'Not Recorded'], var_name = "Efficieny Rating", ignore_index=False)
-# -
-
-frame3
-
-frames = [frame1, frame2, frame3]
-
-tidy = pd.concat(frames).fillna('')
-# .drop_duplicates()
-
-tidy.rename(columns = {"Quarter":"Period"}, inplace = True)
-tidy
-
-tidy = tidy[~tidy["Period"].isin(["Total"])]
-
-tidy
-
-
-# +
-# tidy["Period"] =  tidy["Period"].astype(str).apply(lambda x: "year/" + x[:4] if len(x) == 4 else "quarter/" + x[:4] + "-0" + x[5:6] if len(x) == 6 else np.nan)
-
-#Format Date/Quarter
-def left(s, amount):
-    return s[:amount]
-def right(s, amount):
-    return s[-amount:]
-def date_time(date):
-    if len(date)  == 4:
-        return 'year/' + date
-    elif len(date) == 6:
-        return 'quarter/' + left(date,4) + '-0' + right(date,1)
-    else:
-        return ''
-
-
-# -
-
-tidy["Period"] =  tidy["Period"].astype(str).apply(date_time)
-
-tidy
-
-tidy = tidy.replace({'location': {
+def combining_frames_postprocessing(multiple_frames):
+    # return multiple_frames, type(multiple_frames)
+    tidy = pd.concat(multiple_frames).fillna('')
+    tidy = tidy[~tidy["Period"].isin(["Total"])]
+    tidy["Period"] =  tidy["Period"].astype(str).apply(lambda x: "year/" + x[:4] if len(x) == 4 else "quarter/" + x[:4] + "-0" + x[5:6] if len(x) == 6 else '')
+    tidy.rename(columns = {"value":"Value"}, inplace = True)
+    tidy = tidy.replace({'Location': {
     "East Midlands": "http://data.europa.eu/nuts/code/UKF",
     "London": "http://data.europa.eu/nuts/code/UKI",
     "North East": "http://data.europa.eu/nuts/code/UKC",
@@ -193,102 +89,37 @@ tidy = tidy.replace({'location': {
     "West Midlands": "http://data.europa.eu/nuts/code/UKG",
     "Yorkshire and The Humber": "http://data.europa.eu/nuts/code/UKE",
     "Unknown": 'http://gss-data.org.uk/data/gss_data/climate-change/' +
-    title_id + '#concept/local-authority-code/unknown',
+    t1 + '#concept/local-authority-code/unknown',
     "England and Wales" : 'http://gss-data.org.uk/data/gss_data/climate-change/' +
-    title_id + '#concept/local-authority-code/england-wales'
-}})
-
-sic = 'http://statistics.data.gov.uk/id/statistical-geography/'
-tidy['location'] = tidy['location'].map(
+    t1 + '#concept/local-authority-code/england-wales'
+    }})
+    sic = 'http://statistics.data.gov.uk/id/statistical-geography/'
+    tidy['Location'] = tidy['Location'].map(
     lambda x: sic + x if 'E0' in x else (  sic + x if 'W0' in x else x))
-
-tidy = tidy.replace({'Efficieny Rating': {
+    tidy = tidy.replace({'Efficieny Rating': {
     "Not recorded": "Not Recorded",
     "not-recorded": 'Not Recorded'
     }})
-
-tidy['Measure Type'] = 'energy-performance-certificates'
-tidy['Unit'] = 'count'
-# tidy = tidy[['Period', 'Efficieny Rating', 'Location', 'Lodgements', 'Total Floor Area (m2)','Measure Type', 'Unit', 'Value']]
-
-tidy.columns
-
-tidy.rename(columns = {"Number of Lodgements" : "Lodgements", "location" : "Location", "value": "Value"}, inplace = True, errors = "raise")
-
-tidy = tidy[['Period', 'Lodgements', 'Total Floor Area (m2)', 'Location',
+    tidy['Measure Type'] = 'energy-performance-certificates'
+    tidy['Unit'] = 'count'
+    tidy = tidy[['Period', 'Lodgements', 'Total Floor Area (m2)', 'Location',
        'Efficieny Rating', 'Value', 'Measure Type', 'Unit']]
+    tidy = tidy[['Period', 'Lodgements', 'Total Floor Area (m2)', 'Location',
+       'Efficieny Rating', 'Value', 'Measure Type', 'Unit']]
+    return tidy
 
-tidy
-
-tidy.columns
-
-badTidy = tidy[tidy.duplicated(['Period', 'Value', 'Lodgements', 'Total Floor Area (m2)', 'Location',
-       'Efficieny Rating', 'Measure Type', 'Unit'], keep = False)]
-
-badTidy.sort_values(by = ['Period', 'Value', 'Lodgements', 'Total Floor Area (m2)', 'Location',
-       'Efficieny Rating', 'Measure Type', 'Unit']).to_csv("badTidy.csv")
-
-print(0.0 in badTidy["Value"].values)
-
-tidy
-
-# +
-# tidy = tidy.drop_duplicates()
-# -
-
-tidy
-
-tidy.columns
-
-print('' in tidy["Period"].unique())
-
-# +
-# n = 0
-# for x in tidy["Period"]:
-#     if x == '':
-#         n += 1
-#         print(n, x)
-# -
-
-print('' in tidy["Lodgements"].unique())
-
-print('' in tidy["Total Floor Area (m2)"].unique())
-
-print('' in tidy["Location"].unique())
-
-print('' in tidy["Efficieny Rating"].unique())
-
-print('' in tidy["Value"].unique())
-
-n = 0
-for x in tidy["Value"]:
-    if x == '':
-        n += 1
-        print(n, x)
-
-# +
-# tidy.loc[tidy["Value"] == ''] = "Not applicable"
-
-# +
-# n = 0
-# for x in tidy["Value"]:
-#     if x == '':
-#         n += 1
-#         print(n, x)
-# -
-
-print('' in tidy["Value"].unique())
-
-# +
-# badTidy = tidy[tidy.duplicated(['Period', 'Lodgements', 'Total Floor Area (m2)', 'Location',
-#        'Efficieny Rating', 'value', 'Measure Type', 'Unit', 'sheet'], keep = False)]
-
-# +
-# badTidy
-# -
-
-tidy
-
-tidy.to_csv('observations.csv', index=False)
-catalog_metadata = metadata.as_csvqb_catalog_metadata()
-catalog_metadata.to_json_file('catalog-metadata.json')
+if __name__ == "__main__":
+    d1 = distribution_and_title_id("info.json")
+    m1 = get_metadata("info.json")
+    t1 = title_id("info.json")
+    nb1 = dataframe_from_excel_or_ods(distro = d1, sheet_name = ["NB1", "NB1_England_Only", "NB1_Wales_Only"], header = 3)
+    nb1_region = dataframe_from_excel_or_ods(distro = d1, sheet_name = ["NB1_By_Region"], header = 3)
+    nb1_la = dataframe_from_excel_or_ods(distro = d1, sheet_name = ["NB1_By_LA"], header = 3)
+    frame1 = melting_multiple_dataframes(nb1)
+    frame2 = melting_multiple_dataframes(nb1_region)
+    frame3 = melting_multiple_dataframes(nb1_la)
+    tidy = combining_frames_postprocessing([frame1, frame2, frame3])
+    
+    tidy.to_csv('observations.csv', index=False)
+    catalog_metadata = m1.as_csvqb_catalog_metadata()
+    catalog_metadata.to_json_file('catalog-metadata.json')
