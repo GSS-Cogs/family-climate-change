@@ -46,7 +46,7 @@
                         "label": "Count"
                     }
                 ]
-        },
+            },
             "Value": {
                 "type" : "observations",
                 "datatype": "double"
