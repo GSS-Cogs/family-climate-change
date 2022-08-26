@@ -34,16 +34,16 @@ def dataframe_from_excel_or_ods(distro, sheet_name, header):
     dict_values = all_df.values()
     every_list = [x for x in dict_values]
 
-    for dict_keys in all_df.keys():
-        if dict_keys == "NB1":
+    for dict_key in all_df.keys():
+        if dict_key == "NB1":
             df1 = pd.DataFrame(every_list[0])
             df1["Location"] = "England and Wales"
 
-        elif dict_keys == "NB1_England_Only":
+        elif dict_key == "NB1_England_Only":
             df2 = pd.DataFrame(every_list[1])
             df2["Location"] = "http://statistics.data.gov.uk/id/statistical-geography/E92000001"
 
-        elif dict_keys == "NB1_Wales_Only":
+        elif dict_key == "NB1_Wales_Only":
             df3 = pd.DataFrame(every_list[2])
             df3["Location"] = "http://data.europa.eu/nuts/code/UKL"
 
@@ -58,12 +58,12 @@ def dataframe_from_excel_or_ods(distro, sheet_name, header):
             df4["Not Recorded"] = df4["Not Recorded"].fillna(df4.pop("Not  Recorded"))
             df4.rename(columns = {"Quarter":"Period", "Number of Lodgements":"Lodgements"}, inplace = True)
 
-        elif dict_keys == "NB1_By_Region":
+        elif dict_key == "NB1_By_Region":
             df5 = pd.DataFrame(every_list[3])
             df5 = df5.drop(df5.index[0:10])
             df5.rename(columns = {"Region":"Location", "Number of Lodgements":"Lodgements", "Quarter":"Period"}, inplace = True)
 
-        elif dict_keys == "NB1_By_LA":
+        elif dict_key == "NB1_By_LA":
             df6 = pd.DataFrame(every_list[4])
             df6 = df6.drop(["Local Authority"], axis = 1)
             df6.rename(columns = {"Local Authority Code":"Location", "Number of Lodgements":"Lodgements", "Quarter":"Period"}, inplace = True)
@@ -122,7 +122,7 @@ if __name__ == "__main__":
     df7 = dataframe_from_excel_or_ods(distro = distribution, sheet_name = ["NB1", "NB1_England_Only", "NB1_Wales_Only", "NB1_By_Region", "NB1_By_LA"], header = 3)
     tidy_df = melting_dataframe(data_frame = df7)
     df = postprocessing_the_dataframe(tidy = tidy_df)
-    print(df)
+
     df.to_csv('observations.csv', index=False)
     catalog_metadata = metadata.as_csvqb_catalog_metadata()
     catalog_metadata.to_json_file('catalog-metadata.json')
