@@ -12,29 +12,30 @@ def get_metadata(info_json):
     metadata = Scraper(seed=info_json)
     return metadata
 
-def title_id(info_json):
-    info = json.load(open("info.json"))
+def get_title_id(info_json):
+    info = json.load(open(info_json))
     title_id = info['id']
     return title_id
 
 def dataframe_from_excel_or_ods(distro, sheet_name, header):
-    if sheet_name == "NB1" or "NB1_England_Only" or "NB1_Wales_Only" or "NB1_By_Region" or "NB1_By_LA":
-        df = pd.read_excel(distro.downloadURL, sheet_name, header)
-        # return df
+    all_df = pd.read_excel(distro.downloadURL, sheet_name, header)
 
-        if sheet_name == ["NB1", "NB1_England_Only", "NB1_Wales_Only"]:
-            dict_values = df.values()
+    for dict_keys in all_df.keys():
+        if dict_keys == "NB1":
+            dict_values = all_df.values()
             every_list = [x for x in dict_values]
  
             df1 = pd.DataFrame(every_list[0])
             df1["Location"] = "England and Wales"
- 
+
+        elif dict_keys == "NB1_England_Only":
             df2 = pd.DataFrame(every_list[1])
             df2["Location"] = "http://statistics.data.gov.uk/id/statistical-geography/E92000001"
-            
+
+        elif dict_keys == "NB1_Wales_Only":
             df3 = pd.DataFrame(every_list[2])
             df3["Location"] = "http://data.europa.eu/nuts/code/UKL"
- 
+
             df4 = pd.concat([df1, df2, df3])
  
             df4.drop(df4.loc[df4["Year"] == "Total"].index, inplace = True)
@@ -45,36 +46,26 @@ def dataframe_from_excel_or_ods(distro, sheet_name, header):
  
             df4["Not Recorded"] = df4["Not Recorded"].fillna(df4.pop("Not  Recorded"))
             df4.rename(columns = {"Quarter":"Period", "Number of Lodgements":"Lodgements"}, inplace = True)
-            return df4
-        
-        if sheet_name == ["NB1_By_Region"]:
-            second_dict_values = df.values()
-            second_list = [x for x in second_dict_values]
 
-            df5 = pd.DataFrame(second_list[0])
+        elif dict_keys == "NB1_By_Region":
+            df5 = pd.DataFrame(every_list[3])
             df5 = df5.drop(df5.index[0:10])
- 
             df5.rename(columns = {"Region":"Location", "Number of Lodgements":"Lodgements", "Quarter":"Period"}, inplace = True)
-            return df5
 
-        if sheet_name == ["NB1_By_LA"]:
-            third_dict_values = df.values()
-            third_list = [x for x in third_dict_values]
-
-            df6 = pd.DataFrame(third_list[0])
+        elif dict_keys == "NB1_By_LA":
+            df6 = pd.DataFrame(every_list[4])
             df6 = df6.drop(["Local Authority"], axis = 1)
- 
             df6.rename(columns = {"Local Authority Code":"Location", "Number of Lodgements":"Lodgements", "Quarter":"Period"}, inplace = True)
-            return df6
 
-def melting_multiple_dataframes(data_frame):
-    frames = pd.melt(data_frame, id_vars = ['Period', 'Lodgements', 'Total Floor Area (m2)', 'Location'], value_vars = ['A', 'B',
+            df7 = pd.concat([df4, df5, df6]).fillna('')
+            return df7
+
+def melting_dataframes(data_frame):
+    tidy_df = pd.melt(data_frame, id_vars = ['Period', 'Lodgements', 'Total Floor Area (m2)', 'Location'], value_vars = ['A', 'B',
            'C', 'D', 'E', 'F', 'G', 'Not Recorded'], var_name = "Efficieny Rating", ignore_index=False)
-    return frames
+    return tidy_df
 
-def combining_frames_postprocessing(multiple_frames):
-    # return multiple_frames, type(multiple_frames)
-    tidy = pd.concat(multiple_frames).fillna('')
+def postprocessing_the_frames(tidy):
     tidy = tidy[~tidy["Period"].isin(["Total"])]
     tidy["Period"] =  tidy["Period"].astype(str).apply(lambda x: "year/" + x[:4] if len(x) == 4 else "quarter/" + x[:4] + "-0" + x[5:6] if len(x) == 6 else '')
     tidy.rename(columns = {"value":"Value"}, inplace = True)
@@ -89,9 +80,9 @@ def combining_frames_postprocessing(multiple_frames):
     "West Midlands": "http://data.europa.eu/nuts/code/UKG",
     "Yorkshire and The Humber": "http://data.europa.eu/nuts/code/UKE",
     "Unknown": 'http://gss-data.org.uk/data/gss_data/climate-change/' +
-    t1 + '#concept/local-authority-code/unknown',
+    title_id + '#concept/local-authority-code/unknown',
     "England and Wales" : 'http://gss-data.org.uk/data/gss_data/climate-change/' +
-    t1 + '#concept/local-authority-code/england-wales'
+    title_id + '#concept/local-authority-code/england-wales'
     }})
     sic = 'http://statistics.data.gov.uk/id/statistical-geography/'
     tidy['Location'] = tidy['Location'].map(
@@ -101,25 +92,21 @@ def combining_frames_postprocessing(multiple_frames):
     "not-recorded": 'Not Recorded'
     }})
     tidy['Measure Type'] = 'energy-performance-certificates'
-    tidy['Unit'] = 'count'
-    tidy = tidy[['Period', 'Lodgements', 'Total Floor Area (m2)', 'Location',
+    tidy['Unit'] = 'Count'
+    df = tidy[['Period', 'Lodgements', 'Total Floor Area (m2)', 'Location',
        'Efficieny Rating', 'Value', 'Measure Type', 'Unit']]
-    tidy = tidy[['Period', 'Lodgements', 'Total Floor Area (m2)', 'Location',
-       'Efficieny Rating', 'Value', 'Measure Type', 'Unit']]
-    return tidy
+    return df
+
+
 
 if __name__ == "__main__":
-    d1 = distribution_and_title_id("info.json")
-    m1 = get_metadata("info.json")
-    t1 = title_id("info.json")
-    nb1 = dataframe_from_excel_or_ods(distro = d1, sheet_name = ["NB1", "NB1_England_Only", "NB1_Wales_Only"], header = 3)
-    nb1_region = dataframe_from_excel_or_ods(distro = d1, sheet_name = ["NB1_By_Region"], header = 3)
-    nb1_la = dataframe_from_excel_or_ods(distro = d1, sheet_name = ["NB1_By_LA"], header = 3)
-    frame1 = melting_multiple_dataframes(nb1)
-    frame2 = melting_multiple_dataframes(nb1_region)
-    frame3 = melting_multiple_dataframes(nb1_la)
-    tidy = combining_frames_postprocessing([frame1, frame2, frame3])
-    
-    tidy.to_csv('observations.csv', index=False)
-    catalog_metadata = m1.as_csvqb_catalog_metadata()
+    distribution = distribution_and_title_id("info.json")
+    metadata = get_metadata("info.json")
+    title_id = get_title_id("info.json")
+    df7 = dataframe_from_excel_or_ods(distro = distribution, sheet_name = ["NB1", "NB1_England_Only", "NB1_Wales_Only", "NB1_By_Region", "NB1_By_LA"], header = 3)
+    tidy_df = melting_dataframes(data_frame = df7)
+    df = postprocessing_the_frames(tidy = tidy_df)
+
+    df.to_csv('observations.csv', index=False)
+    catalog_metadata = metadata.as_csvqb_catalog_metadata()
     catalog_metadata.to_json_file('catalog-metadata.json')
