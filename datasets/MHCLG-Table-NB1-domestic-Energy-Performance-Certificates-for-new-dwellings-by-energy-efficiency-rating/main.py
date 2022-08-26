@@ -1,7 +1,6 @@
 from gssutils import *
 import json
 import pandas as pd
-import numpy as np
 
 def get_distribution(info_json):
     """
@@ -83,9 +82,13 @@ def postprocessing_the_dataframe(tidy):
     """
     Formatting the date column and post processing the dataframe
     """
-    tidy = tidy[~tidy["Period"].isin(["Total"])]
     tidy["Period"] =  tidy["Period"].astype(str).apply(lambda x: "year/" + x[:4] if len(x) == 4 else "quarter/" + x[:4] + "-0" + x[5:6] if len(x) == 6 else '')
+
+    tidy = tidy[~tidy["Period"].isin(["Total"])]
     tidy.rename(columns = {"value":"Value"}, inplace = True)
+    tidy['Measure Type'] = 'energy-performance-certificates'
+    tidy['Unit'] = 'Count'
+
     tidy = tidy.replace({'Location': {
     "East Midlands": "http://data.europa.eu/nuts/code/UKF",
     "London": "http://data.europa.eu/nuts/code/UKI",
@@ -101,17 +104,14 @@ def postprocessing_the_dataframe(tidy):
     "England and Wales" : 'http://gss-data.org.uk/data/gss_data/climate-change/' +
     title_id + '#concept/local-authority-code/england-wales'
     }})
+
     sic = 'http://statistics.data.gov.uk/id/statistical-geography/'
     tidy['Location'] = tidy['Location'].map(
     lambda x: sic + x if 'E0' in x else (  sic + x if 'W0' in x else x))
-    tidy = tidy.replace({'Efficieny Rating': {
-    "Not recorded": "Not Recorded",
-    "not-recorded": 'Not Recorded'
-    }})
-    tidy['Measure Type'] = 'energy-performance-certificates'
-    tidy['Unit'] = 'Count'
+
     df = tidy[['Period', 'Lodgements', 'Total Floor Area (m2)', 'Location',
        'Efficieny Rating', 'Value', 'Measure Type', 'Unit']]
+
     return df
 
 
