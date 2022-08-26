@@ -31,12 +31,11 @@ def dataframe_from_excel_or_ods(distro, sheet_name, header):
     With the help of distribution, sheets are converted to one single dataframe
     """
     all_df = pd.read_excel(distro.downloadURL, sheet_name, header)
+    dict_values = all_df.values()
+    every_list = [x for x in dict_values]
 
     for dict_keys in all_df.keys():
         if dict_keys == "NB1":
-            dict_values = all_df.values()
-            every_list = [x for x in dict_values]
- 
             df1 = pd.DataFrame(every_list[0])
             df1["Location"] = "England and Wales"
 
@@ -123,7 +122,7 @@ if __name__ == "__main__":
     df7 = dataframe_from_excel_or_ods(distro = distribution, sheet_name = ["NB1", "NB1_England_Only", "NB1_Wales_Only", "NB1_By_Region", "NB1_By_LA"], header = 3)
     tidy_df = melting_dataframe(data_frame = df7)
     df = postprocessing_the_dataframe(tidy = tidy_df)
-
+    print(df)
     df.to_csv('observations.csv', index=False)
     catalog_metadata = metadata.as_csvqb_catalog_metadata()
     catalog_metadata.to_json_file('catalog-metadata.json')
