@@ -3,21 +3,33 @@ import json
 import pandas as pd
 import numpy as np
 
-def distribution_and_title_id(info_json):
+def get_distribution(info_json):
+    """
+    Gets distribution from landing page using info.json based on title of the sheet
+    """
     metadata = Scraper(seed=info_json)
     distribution = metadata.distribution(title = lambda x: "Table NB1" in x)
     return  distribution
 
 def get_metadata(info_json):
+    """
+    Obtain metadata using info.json
+    """
     metadata = Scraper(seed=info_json)
     return metadata
 
 def get_title_id(info_json):
+    """
+    Gets title id from info.json
+    """
     info = json.load(open(info_json))
     title_id = info['id']
     return title_id
 
 def dataframe_from_excel_or_ods(distro, sheet_name, header):
+    """
+    With the help of distribution, sheets are converted to one single dataframe
+    """
     all_df = pd.read_excel(distro.downloadURL, sheet_name, header)
 
     for dict_keys in all_df.keys():
@@ -60,12 +72,18 @@ def dataframe_from_excel_or_ods(distro, sheet_name, header):
             df7 = pd.concat([df4, df5, df6]).fillna('')
             return df7
 
-def melting_dataframes(data_frame):
+def melting_dataframe(data_frame):
+    """
+    The dataframe is melted from wide to long format
+    """
     tidy_df = pd.melt(data_frame, id_vars = ['Period', 'Lodgements', 'Total Floor Area (m2)', 'Location'], value_vars = ['A', 'B',
            'C', 'D', 'E', 'F', 'G', 'Not Recorded'], var_name = "Efficieny Rating", ignore_index=False)
     return tidy_df
 
-def postprocessing_the_frames(tidy):
+def postprocessing_the_dataframe(tidy):
+    """
+    Formatting the date column and post processing the dataframe
+    """
     tidy = tidy[~tidy["Period"].isin(["Total"])]
     tidy["Period"] =  tidy["Period"].astype(str).apply(lambda x: "year/" + x[:4] if len(x) == 4 else "quarter/" + x[:4] + "-0" + x[5:6] if len(x) == 6 else '')
     tidy.rename(columns = {"value":"Value"}, inplace = True)
@@ -98,14 +116,13 @@ def postprocessing_the_frames(tidy):
     return df
 
 
-
 if __name__ == "__main__":
-    distribution = distribution_and_title_id("info.json")
+    distribution = get_distribution("info.json")
     metadata = get_metadata("info.json")
     title_id = get_title_id("info.json")
     df7 = dataframe_from_excel_or_ods(distro = distribution, sheet_name = ["NB1", "NB1_England_Only", "NB1_Wales_Only", "NB1_By_Region", "NB1_By_LA"], header = 3)
-    tidy_df = melting_dataframes(data_frame = df7)
-    df = postprocessing_the_frames(tidy = tidy_df)
+    tidy_df = melting_dataframe(data_frame = df7)
+    df = postprocessing_the_dataframe(tidy = tidy_df)
 
     df.to_csv('observations.csv', index=False)
     catalog_metadata = metadata.as_csvqb_catalog_metadata()
