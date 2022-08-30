@@ -112,12 +112,9 @@ def postprocessing_the_dataframe(tidy):
     df = tidy[['Period', 'Lodgements', 'Total Floor Area (m2)', 'Location',
        'Efficieny Rating', 'Value', 'Measure Type', 'Unit']]
 
-<<<<<<< HEAD
     #valid to drop
     df = df.drop_duplicates()
 
-=======
->>>>>>> e3afdbb695d94a681171bceb87a7432211e1340d
     return df
 
 
