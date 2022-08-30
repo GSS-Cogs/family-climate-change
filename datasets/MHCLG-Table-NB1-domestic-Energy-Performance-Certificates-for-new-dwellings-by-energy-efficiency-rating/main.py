@@ -126,6 +126,8 @@ if __name__ == "__main__":
     tidy_df = melting_dataframe(data_frame = df7)
     df = postprocessing_the_dataframe(tidy = tidy_df)
 
+    metadata.dataset.title = "Domestic Energy Performance Certificates for new dwellings by energy efficiency rating"
+    metadata.dataset.description = "This data relates to the Energy Performance of Buildings Certificates published alongside the Energy Performance of Buildings Certificates Statistical release January to March 2022"
     df.to_csv('observations.csv', index=False)
     catalog_metadata = metadata.as_csvqb_catalog_metadata()
     catalog_metadata.to_json_file('catalog-metadata.json')
