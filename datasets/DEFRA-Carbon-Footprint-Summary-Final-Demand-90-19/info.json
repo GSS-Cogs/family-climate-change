@@ -1,0 +1,23 @@
+{
+    "id": "defra-carbon-footprint-summary-final-demand-90-19",
+    "title": "Carbon Footprint - Summary Final Demand 90-19",
+    "publisher": "Department for Environment Food & Rural Affairs",
+    "description": "Greenhouse gas emissions by; region, households, consumables, services...",
+    "landingPage": "https://www.gov.uk/government/statistics/uks-carbon-footprint",
+    "datasetNotes": [
+        "Scroll down from landing page"
+    ],
+    "published": "2022-03-08",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "ODS"
+    },
+    "transform": {
+        "airtable": "recEIusV3xVun5T42",
+        "main_issue": 502
+    },
+    "sizingNotes": "",
+    "notes": "Tab required: Summary_final_demand_90-19"
+}
