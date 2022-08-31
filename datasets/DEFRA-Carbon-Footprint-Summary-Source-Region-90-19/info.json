@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "defra-carbon-footprint-summary-source-region-90-19",
     "title": "Carbon Footprint - Summary Source Region 90-19",
     "publisher": "Department for Environment Food & Rural Affairs",
@@ -16,7 +17,32 @@
     },
     "transform": {
         "airtable": "recH10Qi9h3RvKTwL",
-        "main_issue": 504
+        "main_issue": 504,
+          "columns": {
+              "Period": {
+                  "type": "dimension",
+                  "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                  "value": "http://reference.data.gov.uk/id/{+period}"
+             },    
+             "Country": {
+                "type": "dimension"
+            },
+            "Country Code": {
+                "type": "dimension"
+            },
+            "Measure": {
+                "type": "measures",
+                "value": "http://gss-data.org.uk/def/measure/{+measure_type}"
+            },
+            "Unit": {
+                "type": "units",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
+            },
+            "Value": {
+                "type": "observations",
+                "datatype": "double"
+            }
+        }
     },
     "sizingNotes": "",
     "notes": ""
