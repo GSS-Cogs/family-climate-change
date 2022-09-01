@@ -10,7 +10,7 @@
     ],
     "published": "2022-03-08",
     "families": [
-        "Climate Change"
+        "Climate-Change"
     ],
     "extract": {
         "source": "ODS"
@@ -30,16 +30,14 @@
             "Final Demand Breakdown": {
                 "type": "dimension"
             },
-            "Measure": {
-                "type": "measures",
-                "value": "http://gss-data.org.uk/def/measure/{+measure}"
-            },
-            "Unit": {
-                "type": "units",
-                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
-            },
             "Value": {
                 "type": "observations",
+                "measure": {
+                    "label": "http://gss-data.org.uk/def/measure/{+measure}"
+                },
+                "unit": {
+                    "label": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
+                },
                 "datatype": "double"
             }
         }
