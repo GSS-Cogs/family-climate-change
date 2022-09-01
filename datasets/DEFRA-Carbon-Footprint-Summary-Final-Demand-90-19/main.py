@@ -6,17 +6,14 @@ import pandas as pd
 from gssutils import *
 
 metadata = Scraper(seed='info.json')
-metadata
 
 distribution = metadata.distribution(
     mediaType="application/vnd.oasis.opendocument.spreadsheet",
     title=lambda x: "UK full dataset 1990 - 2019, including conversion factors by SIC code"
     in x,
 )
-distribution
 
 title = distribution.title
-title
 
 tabs = {tab.name: tab for tab in distribution.as_databaker()}
 
@@ -97,7 +94,6 @@ df['Period'] = df['Period'].map(lambda x: 'year/' + str(x))
 df['Final Demand Breakdown'] = df['Final Demand Breakdown'].map(lambda x: pathify(x))
 
 df = df[['Period', 'Final Demand', 'Final Demand Breakdown', 'Measure', 'Unit', 'Value']]
-df
 
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
