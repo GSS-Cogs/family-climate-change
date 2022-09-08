@@ -31,10 +31,12 @@
                   "type": "dimension"
               },
               "Measure": {
-                "type": "measures"
+                "type": "measures",
+                "value": "http://gss-data.org.uk/def/measure/{+measure}"
               },
               "Unit": {
-                 "type": "units"
+                 "type": "units",
+                 "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
               },
               "Value": {
                   "type": "observations"
