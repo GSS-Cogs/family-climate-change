@@ -78,12 +78,15 @@ df = df.replace({'Product Code' : {'Total' : 'All','R&H' : 'RH'}})
 
 df = df.drop_duplicates()
 
-# +
-df['Unit'] = df['Unit'].map(lambda x: pathify(x))
+columns_to_pathify = ['Product', 'Product Code', 'Measure', 'Unit']
 
-df['Measure'] = df['Measure'].map(lambda x: pathify(x))
-
-# -
+for col in df.columns.values.tolist():
+    if col not in columns_to_pathify:
+        continue
+    try:
+        df[col] = df[col].apply(pathify)
+    except Exception as err:
+        raise Exception("Failed to pathify column '{}'.".format(col)) from err
 
 df = df[['Period', 'Product', 'Product Code', 'Measure', 'Unit', 'Value']]
 
