@@ -35,8 +35,7 @@
                 "value": "http://gss-data.org.uk/def/measure/{+measure}"
               },
               "Unit": {
-                 "type": "units",
-                 "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
+                 "type": "units"
               },
               "Value": {
                   "type": "observations"

@@ -32,7 +32,7 @@
             },
             "Measure": {
                 "type": "measures",
-                "value": "http://gss-data.org.uk/def/measure/{+measure_type}"
+                "value": "http://gss-data.org.uk/def/measure/{+measure}"
             },
             "Unit": {
                 "type": "units",
