@@ -31,7 +31,8 @@
                   "type": "dimension"
               },
               "Measure": {
-                "type": "measures"
+                "type": "measures",
+                "value": "http://gss-data.org.uk/def/measure/{+measure}"
               },
               "Unit": {
                  "type": "units"
