@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "defra-carbon-footprint-summary-final-demand-90-19",
     "title": "Carbon Footprint - Summary Final Demand 90-19",
     "publisher": "Department for Environment Food & Rural Affairs",
@@ -9,7 +10,7 @@
     ],
     "published": "2022-03-08",
     "families": [
-        "Climate Change"
+        "Climate-Change"
     ],
     "extract": {
         "source": "ODS"
@@ -29,13 +30,13 @@
             "Final Demand Breakdown": {
                 "type": "dimension"
             },
-            "measure": {
-                "type": "dimension",
-                "value": "http://gss-data.org.uk/def/measure/gas-emissions"
+            "Measure": {
+                "type": "measures",
+                "value": "http://gss-data.org.uk/def/measure/{+measure}"
             },
-            "unit": {
-                "type": "dimension",
-                "value": "http://gss-data.org.uk/def/concept/measurement-units/kt-co2e"
+            "Unit": {
+                "type": "units",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
             },
             "Value": {
                 "type": "observations",
