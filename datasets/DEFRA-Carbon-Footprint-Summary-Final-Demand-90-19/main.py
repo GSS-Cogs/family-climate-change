@@ -13,14 +13,11 @@ distribution = metadata.distribution(
     in x,
 )
 
-title = distribution.title
-
 tabs = {tab.name: tab for tab in distribution.as_databaker()}
 
 # +
 tidied_sheets = []
 for name, tab in tabs.items():
-    datasetTitle = 'UK full dataset 1990 - 2019, including conversion factors by SIC code'
     
     if 'Summary_final_demand_90-19' not in name:
         continue
@@ -91,9 +88,19 @@ df['Period'] = df['Period'].astype(float).astype(int)
 df['Period'] = df['Period'].map(lambda x: 'year/' + str(x))
 
 
-df['Final Demand Breakdown'] = df['Final Demand Breakdown'].map(lambda x: pathify(x))
+for col in ['Measure', 'Unit']:
+    try:
+        df[col] = df[col].apply(pathify)
+    except Exception as err:
+        raise Exception("Failed to pathify column '{}'.".format(col)) from err
+
+df["Value"] = df["Value"].astype(float).round(3)
 
 df = df[['Period', 'Final Demand', 'Final Demand Breakdown', 'Measure', 'Unit', 'Value']]
+
+metadata.dataset.title = "Carbon Footprint - Summary Final Demand 90-19"
+
+metadata.dataset.comment = "Greenhouse gas emissions by; region, households, consumables, services"
 
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
