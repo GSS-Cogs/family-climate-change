@@ -65,8 +65,10 @@ df = pd.concat(tidied_sheets, sort=True)
 df = df.replace({'Final Demand Breakdown': {
                                    'Non-profitinstitutions servinghouseholds' : 'Non-profit institutions serving households',
                                    'Gross fixedcapitalformation' : 'Gross fixed capital formation',
-                                   '' : 'All',
-                                   'Total' : 'All'}}) 
+                                   '' : 'Total'}}) 
+
+indexNames = df[df['Final Demand Breakdown'] == 'Total'].index
+df.drop(indexNames, inplace=True)
 
 df['Final Demand'] = df['Final Demand Breakdown']
 
@@ -77,8 +79,7 @@ df = df.replace({'Final Demand' : {'Households' : 'FD1',
                                    'Local Government' : 'FD4',
                                    'Gross fixed capital formation' : 'FD5',
                                    'Valuables' : 'FD6',
-                                   'Changes in inventories' : 'FD7',
-                                   'Total' : 'All'}}) 
+                                   'Changes in inventories' : 'FD7'}}) 
 
 df.rename(columns={'OBS' : 'Value'}, inplace=True)
 df['Period'] = df['Period'].astype(float).astype(int)
