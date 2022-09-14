@@ -42,7 +42,8 @@
                   "type": "observations",
                   "datatype": "double"
               }
-         }
+         },
+         "csvcubed_uri_style": "WithoutFileExtensions"
     },
     "sizingNotes": "",
     "notes": ""
