@@ -70,6 +70,7 @@ df.rename(columns={'OBS' : 'Value'}, inplace=True)
 df['Period'] = df['Period'].astype(float).astype(int)
 df['Period'] = df['Period'].map(lambda x: 'year/' + str(x))
 df = df.replace({'Product Code' : {'Total' : 'All','R&H' : 'RH'}})
+df['Value'] = df['Value'].astype(str).astype(float).round(3)
 df = df.drop_duplicates()
 
 for col in ['Measure', 'Unit']:
