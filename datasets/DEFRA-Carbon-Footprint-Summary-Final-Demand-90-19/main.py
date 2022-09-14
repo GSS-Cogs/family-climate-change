@@ -13,6 +13,9 @@ distribution = metadata.distribution(
     in x,
 )
 
+metadata.dataset.title = "Carbon Footprint - Summary Final Demand 90-19"
+metadata.dataset.comment = "Greenhouse gas emissions by; region, households, consumables, services"
+
 tabs = {tab.name: tab for tab in distribution.as_databaker()}
 
 # +
@@ -21,7 +24,6 @@ for name, tab in tabs.items():
     
     if 'Summary_final_demand_90-19' not in name:
         continue
-    print(name)
 
     # Greenhouse Gas emissions - GHG - Ktonnes CO2e	
     unwanted_cell = tab.excel_ref("A34").expand(DOWN).expand(RIGHT)
@@ -59,14 +61,13 @@ for name, tab in tabs.items():
         HDimConst("Unit", unit)
     ]
     tidy_sheet = ConversionSegment(tab, dimensions, observations) 
-    # savepreviewhtml(tidy_sheet,fname=tab.name + "Preview.html")
     tidied_sheets.append(tidy_sheet.topandas())
+    # savepreviewhtml(tidy_sheet,fname=tab.name + "Preview.html")
 # -
 
 df = pd.concat(tidied_sheets, sort=True)
 
 df["Final Demand"] = df.apply(lambda x: "Not Applicable" if x["Final Demand"] == '' else x["Final Demand"], axis = 1)
-
 df["Final Demand Breakdown"] = df.apply(lambda x: "Not Applicable" if x["Final Demand Breakdown"] == '' else x["Final Demand Breakdown"], axis = 1)
 
 df = df.replace({'Final Demand' : {'Households' : 'FD1',
@@ -77,16 +78,13 @@ df = df.replace({'Final Demand' : {'Households' : 'FD1',
                                    'Gross fixed capital formation' : 'FD5',
                                    'Valuables' : 'FD6',
                                    'Changes in inventories' : 'FD7',
-                                   'Total' : 'all'},
-                 'Final Demand Breakdown' : {'Total' : 'all'}}) 
+                                   'Total' : 'All'},
+                 'Final Demand Breakdown' : {'Total' : 'All'}}) 
 
 df.rename(columns={'OBS' : 'Value'}, inplace=True)
-
 df['Period'] = df['Period'].astype(float).astype(int)
-
-
 df['Period'] = df['Period'].map(lambda x: 'year/' + str(x))
-
+df["Value"] = df["Value"].astype(float).round(3)
 
 for col in ['Measure', 'Unit']:
     try:
@@ -94,13 +92,7 @@ for col in ['Measure', 'Unit']:
     except Exception as err:
         raise Exception("Failed to pathify column '{}'.".format(col)) from err
 
-df["Value"] = df["Value"].astype(float).round(3)
-
 df = df[['Period', 'Final Demand', 'Final Demand Breakdown', 'Measure', 'Unit', 'Value']]
-
-metadata.dataset.title = "Carbon Footprint - Summary Final Demand 90-19"
-
-metadata.dataset.comment = "Greenhouse gas emissions by; region, households, consumables, services"
 
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
