@@ -28,7 +28,6 @@ for name, tab in tabs.items():
     # Greenhouse Gas emissions - GHG - Ktonnes CO2e	
     unwanted_cell = tab.excel_ref("A34").expand(DOWN).expand(RIGHT)
     period = tab.excel_ref("B4").expand(DOWN).is_not_blank().is_not_whitespace() - unwanted_cell
-    final_demand = tab.excel_ref("C2").expand(RIGHT)
     final_demand_breakdown = tab.excel_ref("C3").expand(RIGHT).is_not_blank().is_not_whitespace()
     observations = tab.excel_ref("C4").expand(DOWN).expand(RIGHT).is_not_blank() - unwanted_cell
     measure = 'Greenhouse gas emissions'
@@ -36,7 +35,6 @@ for name, tab in tabs.items():
     
     dimensions = [
         HDim(period,'Period',DIRECTLY,LEFT),
-        HDim(final_demand,'Final Demand',DIRECTLY, ABOVE),
         HDim(final_demand_breakdown, 'Final Demand Breakdown',DIRECTLY,ABOVE),
         HDimConst("Measure", measure),
         HDimConst("Unit", unit)
@@ -44,10 +42,8 @@ for name, tab in tabs.items():
     tidy_sheet = ConversionSegment(tab, dimensions, observations) 
     tidied_sheets.append(tidy_sheet.topandas())
 
-
 # from Carbon Dioxide Emission
     period = tab.excel_ref("B38").expand(DOWN).is_not_blank().is_not_whitespace()
-    final_demand = tab.excel_ref("C36").expand(RIGHT)
     final_demand_breakdown = tab.excel_ref("C37").expand(RIGHT)
     observations = tab.excel_ref("C38").expand(DOWN).expand(RIGHT).is_not_blank().is_not_whitespace()
     measure = 'Carbon dioxide emissions'
@@ -55,7 +51,6 @@ for name, tab in tabs.items():
 
     dimensions = [
         HDim(period,'Period',DIRECTLY,LEFT),
-        HDim(final_demand,'Final Demand',DIRECTLY, ABOVE),
         HDim(final_demand_breakdown, 'Final Demand Breakdown',DIRECTLY,ABOVE),
         HDimConst("Measure", measure),
         HDimConst("Unit", unit)
@@ -67,8 +62,13 @@ for name, tab in tabs.items():
 
 df = pd.concat(tidied_sheets, sort=True)
 
-df["Final Demand"] = df.apply(lambda x: "Not Applicable" if x["Final Demand"] == '' else x["Final Demand"], axis = 1)
-df["Final Demand Breakdown"] = df.apply(lambda x: "Not Applicable" if x["Final Demand Breakdown"] == '' else x["Final Demand Breakdown"], axis = 1)
+df = df.replace({'Final Demand Breakdown': {
+                                   'Non-profitinstitutions servinghouseholds' : 'Non-profit institutions serving households',
+                                   'Gross fixedcapitalformation' : 'Gross fixed capital formation',
+                                   '' : 'All',
+                                   'Total' : 'All'}}) 
+
+df['Final Demand'] = df['Final Demand Breakdown']
 
 df = df.replace({'Final Demand' : {'Households' : 'FD1',
                                    'Households direct' : 'FD1',
@@ -78,13 +78,13 @@ df = df.replace({'Final Demand' : {'Households' : 'FD1',
                                    'Gross fixed capital formation' : 'FD5',
                                    'Valuables' : 'FD6',
                                    'Changes in inventories' : 'FD7',
-                                   'Total' : 'All'},
-                 'Final Demand Breakdown' : {'Total' : 'All'}}) 
+                                   'Total' : 'All'}}) 
 
 df.rename(columns={'OBS' : 'Value'}, inplace=True)
 df['Period'] = df['Period'].astype(float).astype(int)
 df['Period'] = df['Period'].map(lambda x: 'year/' + str(x))
 df["Value"] = df["Value"].astype(float).round(3)
+df = df.drop_duplicates()
 
 for col in ['Measure', 'Unit']:
     try:
