@@ -67,9 +67,14 @@ df = pd.concat(tidied_sheets, sort=True)
 df.rename(columns={'OBS' : 'Value'}, inplace=True)
 df['Period'] = df['Period'].astype(float).astype(int)
 df['Period'] = df['Period'].map(lambda x: 'year/' + str(x))
-df = df.replace({'Country Code' : {'Total' : 'All'}})
-df['Value'] = df['Value'].astype(str).astype(float).round(3)
+df['Value'] = df['Value'].astype(float).round(3)
 df = df.drop_duplicates()
+
+indexNames = df[df['Country'] == 'Total'].index
+df.drop(indexNames, inplace=True)
+
+indexNames = df[df['Country Code'] == 'Total'].index
+df.drop(indexNames, inplace=True)
 
 df['Measure'] = df['Measure'].apply(pathify)
 df['Unit'] = df['Unit'].apply(pathify)
