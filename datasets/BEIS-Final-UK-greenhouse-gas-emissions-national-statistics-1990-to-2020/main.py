@@ -26,6 +26,7 @@ for tab in tabs:
     if tab.name in ["1_3", "1_4", "1_5", "1_6"]:
         cell = tab.filter("NC Sector")
         period = cell.shift(RIGHT).fill(RIGHT).is_not_blank().is_not_whitespace()
+        # unit = "Million of tonnes of carbon dioxide equivalent (MtCO2e)"
         stop_cell = tab.filter("Grand Total").expand(RIGHT).expand(DOWN)
         nc_category = tab.filter("NC Category").fill(DOWN) - stop_cell
         nc_sector = nc_category.is_blank().shift(LEFT)
@@ -56,12 +57,12 @@ for tab in tabs:
 
     elif tab.name == "3_1":
         cell = tab.filter("Geographic coverage")
+        stop_cell = tab.filter("Total greenhouse gas emissions reported to the UNFCCC").expand(RIGHT).expand(DOWN)
+        period = cell.shift(2).fill(RIGHT).is_not_blank().is_not_whitespace()
+        gas = cell.shift(2).fill(DOWN).is_not_blank().is_not_whitespace() - stop_cell
+        inclusions = cell.shift(1).fill(DOWN).is_not_blank().is_not_whitespace() - stop_cell
 
-        period = cell.shift(2).fill(RIGHT).is_not_whitespace()
-        gas = cell.shift(2).fill(DOWN).is_not_whitespace()
-        inclusions = cell.shift(1).fill(DOWN).is_not_whitespace()
-
-        geographic_coverage = cell.fill(DOWN).is_not_whitespace()
+        geographic_coverage = cell.fill(DOWN).is_not_blank().is_not_whitespace() - stop_cell
 
         observations = period.waffle(gas)
 
@@ -121,7 +122,7 @@ df = df.replace(
 
 df = df.replace(
     {
-        "Geographic Coverage": {"United Kingdom only": "United Kingdom"},
+        "Geographic Coverage": {"United Kingdom only": "United Kingdom"}
     }
 )
 
@@ -180,6 +181,8 @@ for col in df.columns.values.tolist():
         raise Exception('Failed to pathify column "{}".'.format(col)) from err
 # -
 
+df = df.drop_duplicates()
+
 df = df[
     [
         "Period",
@@ -195,5 +198,3 @@ df = df[
 df.to_csv("observations.csv", index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file("catalog-metadata.json")
-
-df.dtypes
