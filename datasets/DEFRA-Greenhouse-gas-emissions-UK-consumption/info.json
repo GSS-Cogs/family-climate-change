@@ -1,0 +1,24 @@
+{
+    "id": "defra-greenhouse-gas-emissions-uk-consumption",
+    "title": "Greenhouse gas emissions UK consumption",
+    "publisher": "Department for Environment Food & Rural Affairs",
+    "description": "Loaded to Airtable at the request of DE (Osamede).",
+    "landingPage": "https://www.gov.uk/government/statistics/uks-carbon-footprint/carbon-footprint-for-the-uk-and-england-to-2019#greenhouse-gas-emissions-associated-with-consumption",
+    "datasetNotes": [
+        "Actual dataset from landing page for transform is this:",
+        "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1085191/Fig_1.csv"
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "recJD65bhWvOB8eOs",
+        "main_issue": 513
+    },
+    "sizingNotes": "",
+    "notes": ""
+}

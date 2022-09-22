@@ -26,7 +26,6 @@ for tab in tabs:
     if tab.name in ["1_3", "1_4", "1_5", "1_6"]:
         cell = tab.filter("NC Sector")
         period = cell.shift(RIGHT).fill(RIGHT).is_not_blank().is_not_whitespace()
-        # unit = "Million of tonnes of carbon dioxide equivalent (MtCO2e)"
         stop_cell = tab.filter("Grand Total").expand(RIGHT).expand(DOWN)
         nc_category = tab.filter("NC Category").fill(DOWN) - stop_cell
         nc_sector = nc_category.is_blank().shift(LEFT)
@@ -198,5 +197,3 @@ catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file("catalog-metadata.json")
 
 df.dtypes
-
-

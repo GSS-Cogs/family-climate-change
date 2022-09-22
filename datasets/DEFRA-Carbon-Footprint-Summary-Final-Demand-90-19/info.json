@@ -1,0 +1,50 @@
+{
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
+    "id": "defra-carbon-footprint-summary-final-demand-90-19",
+    "title": "Carbon Footprint - Summary Final Demand 90-19",
+    "publisher": "Department for Environment Food & Rural Affairs",
+    "description": "Greenhouse gas emissions by; region, households, consumables, services...",
+    "landingPage": "https://www.gov.uk/government/statistics/uks-carbon-footprint",
+    "datasetNotes": [
+        "Scroll down from landing page"
+    ],
+    "published": "2022-03-08",
+    "families": [
+        "Climate-Change"
+    ],
+    "extract": {
+        "source": "ODS"
+    },
+    "transform": {
+        "airtable": "recEIusV3xVun5T42",
+        "main_issue": 502,
+        "columns": {
+            "Period": {
+                "type":"dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/{+period}"
+            },
+            "Final Demand": {
+                "type": "dimension"
+            },
+            "Final Demand Breakdown": {
+                "type": "dimension"
+            },
+            "Measure": {
+                "type": "measures",
+                "value": "http://gss-data.org.uk/def/measure/{+measure}"
+            },
+            "Unit": {
+                "type": "units",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
+            },
+            "Value": {
+                "type": "observations",
+                "datatype": "double"
+            }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
+    },
+    "sizingNotes": "",
+    "notes": "Tab required: Summary_final_demand_90-19"
+}

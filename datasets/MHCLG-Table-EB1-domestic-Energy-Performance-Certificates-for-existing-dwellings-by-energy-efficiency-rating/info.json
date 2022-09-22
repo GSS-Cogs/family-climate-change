@@ -1,13 +1,14 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",   
     "id": "mhclg-table-eb1-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating",
     "title": "Table EB1: domestic Energy Performance Certificates for existing dwellings by energy efficiency rating",
     "publisher": "Ministry for Housing, Communities and Local Government",
     "description": "This live table contains 5 data tables relating to the Energy Performance of Buildings Certificates published alongside the Energy Performance of Buildings Certificates Statistical release January to March 2022.",
     "landingPage": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-energy-performance-of-buildings-certificates",
+    "published": "2022-07-22",
     "datasetNotes": [
         "Scroll to section \"EPCs for existing domestic properties\""
     ],
-    "published": "",
     "families": [
         "Climate Change"
     ],
@@ -16,7 +17,45 @@
     },
     "transform": {
         "airtable": "recEwdrRd0JRngt74",
-        "main_issue": 470
+        "main_issue": 470,
+        "columns": {
+            "Period" : {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/{+period}"
+            },
+            "Location" : {
+                "type": "dimension",
+                "new": {
+                    "codelist": "./codelists/location.csv-metadata.json"
+                }
+            },
+            "Lodgements" : {
+                "type" : "attribute"
+            },
+            "Efficieny Rating" : {
+                "type" : "dimension"
+            }, 
+            "Total Floor Area (m2)" : {
+                "type" : "attribute"
+            },
+            "Unit": {
+                    "type": "units",
+                    "new": [
+                        {
+                            "label": "Count"
+                        }
+                    ]
+            },
+            "Value": {
+                "type" : "observations",
+                "datatype": "double"
+            },
+            "Measure Type": {
+                "type" :"measures",
+                "value": "http://gss-data.org.uk/def/climate-change/measure/{+measure_type}"
+            }
+        }
     },
     "sizingNotes": "Simple structure. Data broken down by geography on different tabs",
     "notes": ""

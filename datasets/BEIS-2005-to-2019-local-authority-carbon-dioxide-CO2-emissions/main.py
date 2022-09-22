@@ -5,9 +5,9 @@
 #       extension: .py
 #       format_name: light
 #       format_version: '1.5'
-#       jupytext_version: 1.13.1
+#       jupytext_version: 1.13.8
 #   kernelspec:
-#     display_name: Python 3 (ipykernel)
+#     display_name: Python 3.9.1 64-bit
 #     language: python
 #     name: python3
 # ---
@@ -16,6 +16,7 @@
 
 import json
 import pandas as pd
+import numpy as np
 from gssutils import *
 
 metadata = Scraper(seed='info.json')
@@ -25,26 +26,41 @@ distribution = metadata.distribution(latest=True, mediaType='text/csv',
 metadata.dataset.title = distribution.title
 df = distribution.as_pandas()
 
-df.drop(columns=df.columns.values.tolist()[0:6], axis=1, inplace=True)
-df.drop(columns=df.columns.values.tolist()[-2:], axis=1, inplace=True)
+df.drop(columns=df.columns.values.tolist()[1:5], axis=1, inplace=True)
 df.rename(columns={'Calendar Year': 'Year',
                    'Territorial emissions (kt CO2)': 'Territorial emissions',
                    'Emissions within the scope of influence of LAs (kt CO2)': 'Emissions within the scope of influence of LAs',
+                   'Mid-year Population (thousands)': 'Population',
+                   'Area (km2)': 'Area'
                    }, inplace=True)
 
-for col in df.columns.values.tolist()[-2:]:
-    df[col] = df[col].astype(str).astype(float).round(2)
 
-df = df.drop_duplicates()
+df['Territorial emissions per capita'] = df['Territorial emissions']/df['Population']
+df['Territorial emissions per area'] = df['Territorial emissions']/df['Area']
+
+for col in ['Territorial emissions', 'Emissions within the scope of influence of LAs',
+            'Territorial emissions per capita', 'Territorial emissions per area']:
+    df[col] = df[col].astype(str).astype(float).round(4)
+
+df = pd.melt(df, id_vars=['Country', 'Local Authority', 'Local Authority Code', 'Year', 'LA CO2 Sector', 'LA CO2 Sub-sector'], value_vars=[
+             "Territorial emissions", "Emissions within the scope of influence of LAs", 'Territorial emissions per capita', 'Territorial emissions per area'], var_name='Measure', value_name='Value')
+
+df['Unit'] = df.apply(lambda x: 'kt CO2' if x['Measure'] == 'Territorial emissions' else 'kt CO2' if x['Measure'] == 'Emissions within the scope of influence of LAs' else 'tonnes of CO2' if x['Measure']
+                      == 'Territorial emissions per capita' else 'CO2/m2' if x['Measure'] == 'Territorial emissions per area' else ' ', axis=1)
+
+df['Value'] = df.apply(lambda x: 0 if np.isnan(
+    x['Value']) else x['Value'], axis=1)
 df = df.fillna('unallocated consumption')
+df = df.drop_duplicates()
 
-df = pd.melt(df, id_vars=['Local Authority Code', 'Year', 'LA CO2 Sector', 'LA CO2 Sub-sector'], value_vars=[
-             "Territorial emissions", "Emissions within the scope of influence of LAs"], var_name='Measure', value_name='Value')
+df = df[['Year', 'Country', 'Local Authority', 'Local Authority Code', 'LA CO2 Sector',
+         'LA CO2 Sub-sector', 'Measure', 'Value', 'Unit']]
 
-df = df[['Year', 'Local Authority Code', 'LA CO2 Sector',
-         'LA CO2 Sub-sector', 'Measure', 'Value']]
+df['Local Authority Code'] = df.apply(lambda x: 'unallocated-consumption' if str(
+    x['Local Authority Code']) == 'unallocated consumption' else x['Local Authority Code'], axis=1)
 
-for col in df.columns.values.tolist()[2:-1]:
+for col in ['LA CO2 Sector',
+            'LA CO2 Sub-sector']:
     try:
         df[col] = df[col].apply(pathify)
     except Exception as err:
