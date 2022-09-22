@@ -151,7 +151,7 @@ indexNames = df[df["NC Category"] == ""].index
 df.drop(indexNames, inplace=True)
 
 df.rename(
-    columns={"NC Category": "NC Sub-sector"},inplace=True)
+    columns={"NC Category": "NC Sub sector"},inplace=True)
 
 df = df.fillna("")
 
@@ -165,7 +165,7 @@ df["Breakdown"] = df.apply(
 df = df.replace(
     {   
         "NC Sector": {"": "All sectors"},
-        "NC Sub-sector": {"": "All sub-sectors"}
+        "NC Sub sector": {"": "All sub-sectors"}
     })
 
 # +
@@ -184,7 +184,7 @@ df = df[
     [
         "Period",
         "NC Sector",
-        "NC Sub-sector",
+        "NC Sub sector",
         "Geographic Coverage",
         "Breakdown",
         "Gas",
@@ -195,3 +195,5 @@ df = df[
 df.to_csv("observations.csv", index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file("catalog-metadata.json")
+
+df.dtypes
