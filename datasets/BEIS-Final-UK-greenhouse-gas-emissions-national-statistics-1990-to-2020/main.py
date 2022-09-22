@@ -90,8 +90,8 @@ df["Period"] = df["Period"].astype(float).astype(int)
 df['Period'] = 'year/' + df['Period'].astype(str)
 
 # Fix missing sub-sector
-combustion_categories = ["Stationary and mobile combustion", "Incidental lubricant combustion in engines - agriculture"]
-df.loc[df["NC Category"].isin(combustion_categories), "NC Category"] = "Combustion"
+# combustion_categories = ["Stationary and mobile combustion", "Incidental lubricant combustion in engines - agriculture"]
+# df.loc[df["NC Category"].isin(combustion_categories), "NC Category"] = "Combustion"
  
 df["NC Sector"] = df["NC Sector"].str.replace("/", "-")
 df["NC Category"] = df["NC Category"].str.replace("/", "-")
