@@ -92,10 +92,6 @@ df["Value"] = df["Value"].astype(float).round(3)
 df["Period"] = df["Period"].astype(float).astype(int)
 df['Period'] = 'year/' + df['Period'].astype(str)
 
-# Fix missing sub-sector
-# combustion_categories = ["Stationary and mobile combustion", "Incidental lubricant combustion in engines - agriculture"]
-# df.loc[df["NC Category"].isin(combustion_categories), "NC Category"] = "Combustion"
- 
 df["NC Sector"] = df["NC Sector"].str.replace("/", "-")
 df["NC Category"] = df["NC Category"].str.replace("/", "-")
 
@@ -154,8 +150,8 @@ df = df.fillna("")
 
 df = df.replace(
     {   
-        "NC Sector": {"": "All sectors"},
-        "NC Sub Sector": {"": "All sub-sectors"}
+        "NC Sector": {"": "All"},
+        "NC Sub Sector": {"": "All"}
     })
 
 for col in ['NC Sector', 'NC Sub Sector']:
