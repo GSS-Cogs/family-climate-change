@@ -26,7 +26,6 @@ for tab in tabs:
     if tab.name in ["1_3", "1_4", "1_5", "1_6"]:
         cell = tab.filter("NC Sector")
         period = cell.shift(RIGHT).fill(RIGHT).is_not_blank().is_not_whitespace()
-        # unit = "Million of tonnes of carbon dioxide equivalent (MtCO2e)"
         stop_cell = tab.filter("Grand Total").expand(RIGHT).expand(DOWN)
         nc_category = tab.filter("NC Category").fill(DOWN) - stop_cell
         nc_sector = nc_category.is_blank().shift(LEFT)
@@ -42,17 +41,21 @@ for tab in tabs:
 
         observations = period.waffle(nc_category).is_not_blank().is_not_whitespace()
         geographic_coverage = 'United Kingdom'
+        inclusions = 'None'
 
         dimensions = [
             HDim(period, "Period", DIRECTLY, ABOVE),
             HDim(nc_category, "NC Category", DIRECTLY, LEFT),
             HDim(nc_sector, "NC Sector", CLOSEST, ABOVE),
             HDimConst("Gas", gas),
-            HDimConst("Geographic Coverage", geographic_coverage)
+            HDimConst("Geographic Coverage", geographic_coverage),
+            HDimConst("Inclusions-Exclusions", inclusions)
         ]
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         df = tidy_sheet.topandas()
+        indexNames = df[df["NC Category"] == ""].index
+        df.drop(indexNames, inplace=True)
         tidied_sheets.append(df)
 
     elif tab.name == "3_1":
@@ -103,21 +106,16 @@ badInheritance = [
     "Shipping between UK and Overseas Territories",
     "Aviation between the Crown Dependencies and Overseas Territories"
 ]
-
+# -
 df["Breakdown"] = df.apply(
-    lambda x: x["Geographic Coverage"] if x["Geographic Coverage"] in badInheritance else x["Breakdown"],
+    lambda x: "" if x["Geographic Coverage"] in badInheritance else x["Breakdown"],
     axis=1,
 )
+
 # +
-df = df.replace(
-    {
-        "Geographic Coverage": {"Aviation between UK and Crown Dependencies": "UK Crown Dependencies",
-                                "Shipping between UK and Crown Dependencies": "UK Crown Dependencies",
-                                "Aviation between UK and Overseas Territories": "Overseas Territories",
-                                "Shipping between UK and Overseas Territories": "Overseas Territories",
-                                "Aviation between the Crown Dependencies and Overseas Territories": "Overseas Territories"
-                                }
-    }
+df["Breakdown"] = df.apply(
+    lambda x: "None" if x["Geographic Coverage"] in badInheritance else x["Breakdown"],
+    axis=1,
 )
 
 df = df.replace(
@@ -125,6 +123,7 @@ df = df.replace(
         "Geographic Coverage": {"United Kingdom only": "United Kingdom"}
     }
 )
+# -
 
 indexNames = df[df["Breakdown"] == "Net emissions/removals from LULUCF"].index
 df.drop(indexNames, inplace=True)
@@ -148,20 +147,10 @@ df = df.replace({'Gas' : {'Nitrous Oxide N2O' : 'Nitrous oxide (N2O)',
                           'Carbon Dioxide CO2' :'Carbon dioxide (CO2)'}})
 # -
 
-indexNames = df[df["NC Category"] == ""].index
-df.drop(indexNames, inplace=True)
-
 df.rename(
     columns={"NC Category": "NC Sub sector"},inplace=True)
 
 df = df.fillna("")
-
-df["Breakdown"] = df.apply(
-    lambda x: "None"
-    if "" in x["Breakdown"] and x["Geographic Coverage"] == "United Kingdom"
-    else x["Breakdown"],
-    axis=1
-)
 
 df = df.replace(
     {   
@@ -169,17 +158,11 @@ df = df.replace(
         "NC Sub sector": {"": "All sub-sectors"}
     })
 
-# +
-COLUMNS_TO_NOT_PATHIFY = ["Period", "Geographic Coverage", "Breakdown", "Gas", "Value"]
-
-for col in df.columns.values.tolist():
-    if col in COLUMNS_TO_NOT_PATHIFY:
-        continue
+for col in ['NC Sector', 'NC Sub sector']:
     try:
         df[col] = df[col].apply(pathify)
     except Exception as err:
         raise Exception('Failed to pathify column "{}".'.format(col)) from err
-# -
 
 df = df.drop_duplicates()
 
