@@ -148,17 +148,17 @@ df = df.replace({'Gas' : {'Nitrous Oxide N2O' : 'Nitrous oxide (N2O)',
 # -
 
 df.rename(
-    columns={"NC Category": "NC Sub sector"},inplace=True)
+    columns={"NC Category": "NC Sub Sector"},inplace=True)
 
 df = df.fillna("")
 
 df = df.replace(
     {   
         "NC Sector": {"": "All sectors"},
-        "NC Sub sector": {"": "All sub-sectors"}
+        "NC Sub Sector": {"": "All sub-sectors"}
     })
 
-for col in ['NC Sector', 'NC Sub sector']:
+for col in ['NC Sector', 'NC Sub Sector']:
     try:
         df[col] = df[col].apply(pathify)
     except Exception as err:
@@ -170,7 +170,7 @@ df = df[
     [
         "Period",
         "NC Sector",
-        "NC Sub sector",
+        "NC Sub Sector",
         "Geographic Coverage",
         "Breakdown",
         "Gas",
