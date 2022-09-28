@@ -19,6 +19,6 @@ var_name='Measure', value_name='Value')
 df.to_csv('observations.csv', index=False)
 catalog_metadata = CatalogMetadata(
     title = "Greenhouse gas emissions UK consumption",
-    description = "Final estimates consumption of UK greenhouse gas emissions. Loaded to Airtable at the request of DE (Osamede)."
+    description = "Final estimates consumption of UK greenhouse gas emissions."
 )
 catalog_metadata.to_json_file('catalog-metadata.json')
