@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "defra-greenhouse-gas-emissions-uk-consumption",
     "title": "Greenhouse gas emissions UK consumption",
     "publisher": "Department for Environment Food & Rural Affairs",
@@ -8,16 +9,34 @@
         "Actual dataset from landing page for transform is this:",
         "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1085191/Fig_1.csv"
     ],
-    "published": "",
+    "published": "2022-09-16",
     "families": [
-        "Climate Change"
+        "Climate-Change"
     ],
     "extract": {
         "source": "CSV"
     },
     "transform": {
         "airtable": "recJD65bhWvOB8eOs",
-        "main_issue": 513
+        "main_issue": 513,
+        "columns": {
+            "Year": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Measure" : {
+                "type": "measures"
+            },
+            "Value": {
+                "type": "observations",
+                "unit": {
+                    "label": "million tonnes"
+                },
+                "datatype": "double"
+            }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
     },
     "sizingNotes": "",
     "notes": ""
