@@ -31,9 +31,8 @@
             "Value": {
                 "type": "observations",
                 "unit": {
-                    "label": "Million of tonnes of carbon dioxide equivalent (MtCO2e)"
-                },
-                "datatype": "double"
+                    "label": "Million of tonnes of carbon dioxide equivalent"
+                }
             }
         },
         "csvcubed_uri_style": "WithoutFileExtensions"
