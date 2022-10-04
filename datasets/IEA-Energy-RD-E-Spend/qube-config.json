@@ -1,0 +1,48 @@
+{
+    "$schema": "https://purl.org/csv-cubed/qube-config/v1",
+    "title": "Energy Technology RD&D Budgets",
+    "license": "IEA (2022) Energy Technology RD&D Budget, www.iea.org/reports, All rights reserved.",
+    "publisher": "",
+    "themes": " ",
+    "columns": {
+        "Year": {
+            "label": "Year",
+            "from_template": "year"
+        },
+        "Economic Indicators": {
+            "type": "dimension"
+        },
+        "Country": {
+            "type": "dimension",
+            "label": "Country",
+            "code_list": {
+                "title": "Country",
+                "license": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+                "concepts": [
+                    {
+                        "label": "United Kingdom",
+                        "notation": "United Kingdom",
+                        "same_as": "http://statistics.data.gov.uk/id/statistical-geography/K02000001"
+                    }
+                ]
+            }
+        },
+        "Currency": {
+            "type": "measures",
+            "values": [
+                {
+                    "label": "National currency (nominal)"
+                },
+                {
+                    "label": "National Currency (2021 prices)"
+                }
+            ]
+        },
+        "Value": {
+            "type": "observations"
+        },
+        "Unit": {
+            "type": "units"
+        }
+    }
+}
