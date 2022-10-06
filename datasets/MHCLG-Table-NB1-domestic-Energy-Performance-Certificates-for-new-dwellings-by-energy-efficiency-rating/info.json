@@ -33,7 +33,7 @@
             "Lodgements" : {
                 "type" : "attribute"
             },
-            "Efficieny Rating" : {
+            "Efficiency Rating" : {
                 "type" : "dimension"
             }, 
             "Total Floor Area (m2)" : {

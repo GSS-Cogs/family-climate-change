@@ -75,7 +75,7 @@ def melting_dataframe(data_frame):
     The dataframe is melted from wide to long format
     """
     tidy_df = pd.melt(data_frame, id_vars = ['Period', 'Lodgements', 'Total Floor Area (m2)', 'Location'], value_vars = ['A', 'B',
-           'C', 'D', 'E', 'F', 'G', 'Not Recorded'], var_name = "Efficieny Rating", ignore_index=False)
+           'C', 'D', 'E', 'F', 'G', 'Not Recorded'], var_name = "Efficiency Rating", ignore_index=False)
     return tidy_df
 
 def postprocessing_the_dataframe(tidy):
@@ -110,7 +110,7 @@ def postprocessing_the_dataframe(tidy):
     lambda x: sic + x if 'E0' in x else (  sic + x if 'W0' in x else x))
 
     df = tidy[['Period', 'Lodgements', 'Total Floor Area (m2)', 'Location',
-       'Efficieny Rating', 'Value', 'Measure Type', 'Unit']]
+       'Efficiency Rating', 'Value', 'Measure Type', 'Unit']]
 
     #valid to drop
     df = df.drop_duplicates()

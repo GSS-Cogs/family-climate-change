@@ -14,6 +14,7 @@
     "pmd": "http://staging.gss-data.org.uk",
     "pipelines": [
         "BEIS-2005-to-2019-local-authority-carbon-dioxide-CO2-emissions",
+        "BEIS-2005-to-2020-local-authority-greenhouse-gas-emissions",
         "BEIS-2019-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-end-user",
         "BEIS-2019-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-source",
         "BEIS-2020-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-end-user",
@@ -21,6 +22,7 @@
         "BEIS-Energy-Intensity-Extract",
         "BEIS-Energy-Intensity-Extract-Index",
         "BEIS-Energy-Trends-Table-1-2-Extract",
+        "BEIS-Energy-Trends-Table-1-2-Extract-2021",
         "BEIS-Final-UK-greenhouse-gas-emissions-national-statistics",
         "BEIS-Final-UK-greenhouse-gas-emissions-national-statistics-1990-to-2020",
         "BEIS-Provisional-UK-greenhouse-gas-emissions-national-statistics-2021",
@@ -40,6 +42,7 @@
         "DEFRA-D7-Species-supporting-ecosystem-functions",
         "DEFRA-E8-Efficient-use-of-water",
         "DEFRA-ENV01-Emissions-of-air-pollutants",
+        "DEFRA-Greenhouse-gas-emissions-UK-consumption",
         "DEFRA-UK-Emissions",
         "DEFRA-UK-Water-Leakage",
         "EA-Regulating-for-people-the-environment-and-growth-or-Pollution-Incidents-Data-or-another",

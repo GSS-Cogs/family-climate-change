@@ -37,7 +37,7 @@ for tab in tabs:
             HDim(year, 'Year', DIRECTLY, LEFT),
             HDim(quarter, 'Quarter', DIRECTLY, LEFT),
             HDim(lodgements, 'Lodgements', DIRECTLY, LEFT),
-            HDim(efficieny_rating, 'Efficieny Rating', DIRECTLY, ABOVE),
+            HDim(efficieny_rating, 'Efficiency Rating', DIRECTLY, ABOVE),
             HDim(area, 'Total Floor Area (m2)', DIRECTLY, LEFT),
             HDimConst('Location', location)
         ]
@@ -58,7 +58,7 @@ for tab in tabs:
         dimensions = [
             HDim(quarter, 'Quarter', DIRECTLY, LEFT),
             HDim(lodgements, 'Lodgements', DIRECTLY, LEFT),
-            HDim(efficieny_rating, 'Efficieny Rating', DIRECTLY, ABOVE),
+            HDim(efficieny_rating, 'Efficiency Rating', DIRECTLY, ABOVE),
             HDim(area, 'Total Floor Area (m2)', DIRECTLY, LEFT),
             HDim(location, 'Location', DIRECTLY, LEFT),
             HDimConst('Year', "")
@@ -110,14 +110,14 @@ sic = 'http://statistics.data.gov.uk/id/statistical-geography/'
 df['Location'] = df['Location'].map(
     lambda x: sic + x if 'E0' in x else (  sic + x if 'W0' in x else x))
 
-df = df.replace({'Efficieny Rating': {
+df = df.replace({'Efficiency Rating': {
     "Not recorded": "Not Recorded",
     "not-recorded": 'Not Recorded'
     }})
 # %%
 df['Measure Type'] = 'energy-performance-certificates'
 df['Unit'] = 'Count'
-df = df[['Period', 'Efficieny Rating', 'Location', 'Lodgements', 'Total Floor Area (m2)','Measure Type', 'Unit', 'Value']]
+df = df[['Period', 'Efficiency Rating', 'Location', 'Lodgements', 'Total Floor Area (m2)','Measure Type', 'Unit', 'Value']]
 #valid to drop
 df = df.drop_duplicates()
 

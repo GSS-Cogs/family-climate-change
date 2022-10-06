@@ -25,43 +25,31 @@
                 "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
                 "value": "http://reference.data.gov.uk/id/{+period}"
             },
-            "Breakdown": {
-                "type" : "dimension"
-            },
-            "Gas": {
-                "type" : "dimension"
-            },
-            "Geographic Coverage" : {
-                "type" : "dimension"
-            },
             "NC Sector": {
                 "type": "dimension",
                 "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{nc_sector}"
             },
-            "NC Sub Sector": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sub-sector",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{nc_sub_sector}"
-            },
             "NC Category": {
-                "type": "dimension", 
+                "type": "dimension",
                 "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-category",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{nc_category}"
             },
+            "Gas": {
+                "type" : "dimension"
+            },
             "Value": {
                 "type": "observations",
-                "datatype": "double"
-            },
-            "Measure Type": {
-                "type": "measures",
-                "value": "http://gss-data.org.uk/def/measure/{+measure_type}"
-            },
-            "Unit": {
-                "type": "units",
-                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
+                "measure": {
+                    "label": "Gas Emissions"
+                },
+                "unit": {
+                    "label": "Million of tonnes of carbon dioxide equivalent (MtCO2e)"
+                }
+                
             }
-        }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
     },
     "sizingNotes": "",
     "notes": ""
