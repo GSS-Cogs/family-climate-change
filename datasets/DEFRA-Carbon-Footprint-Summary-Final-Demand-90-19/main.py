@@ -70,17 +70,6 @@ df = df.replace({'Final Demand Breakdown': {
 indexNames = df[df['Final Demand Breakdown'] == 'Total'].index
 df.drop(indexNames, inplace=True)
 
-df['Final Demand'] = df['Final Demand Breakdown']
-
-df = df.replace({'Final Demand' : {'Households' : 'FD1',
-                                   'Households direct' : 'FD1',
-                                   'Non-profit institutions serving households' : 'FD2',
-                                   'Central Government' : 'FD3',
-                                   'Local Government' : 'FD4',
-                                   'Gross fixed capital formation' : 'FD5',
-                                   'Valuables' : 'FD6',
-                                   'Changes in inventories' : 'FD7'}}) 
-
 df.rename(columns={'OBS' : 'Value'}, inplace=True)
 df['Period'] = df['Period'].astype(float).astype(int)
 df['Period'] = df['Period'].map(lambda x: 'year/' + str(x))
@@ -93,7 +82,7 @@ for col in ['Measure', 'Unit']:
     except Exception as err:
         raise Exception("Failed to pathify column '{}'.".format(col)) from err
 
-df = df[['Period', 'Final Demand', 'Final Demand Breakdown', 'Measure', 'Unit', 'Value']]
+df = df[['Period', 'Final Demand Breakdown', 'Measure', 'Unit', 'Value']]
 
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
