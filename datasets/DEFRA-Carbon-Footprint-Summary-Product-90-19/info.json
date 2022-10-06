@@ -27,9 +27,6 @@
               "Product": {
                   "type": "dimension"
               },
-              "Product Code": {
-                  "type": "dimension"
-              },
               "Measure": {
                 "type": "measures",
                 "value": "http://gss-data.org.uk/def/measure/{+measure}"
