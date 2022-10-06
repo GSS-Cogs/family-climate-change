@@ -1,0 +1,23 @@
+{
+    "id": "beis-2005-to-2020-local-authority-greenhouse-gas-emissions",
+    "title": "2005 to 2020 local authority greenhouse gas emissions",
+    "publisher": "Department for Business, Energy and Industrial Strategy",
+    "description": "",
+    "landingPage": "https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-national-statistics-2005-to-2020",
+    "datasetNotes": [
+        "On landing page, navigate to the csv file - \u20182005 to 2020 local authority greenhouse gas emissions dataset\u2019"
+    ],
+    "published": "2022-06-30",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": ""
+    },
+    "transform": {
+        "airtable": "recJkE35jlY1W74gG",
+        "main_issue": 524
+    },
+    "sizingNotes": "",
+    "notes": "CO2 emissions now included in the regional GHG publication. Prior to the 2005 to 2020 publication the statistics covered emissions of CO2 only."
+}
