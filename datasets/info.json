@@ -14,6 +14,7 @@
     "pmd": "http://staging.gss-data.org.uk",
     "pipelines": [
         "BEIS-2005-to-2019-local-authority-carbon-dioxide-CO2-emissions",
+        "BEIS-2005-to-2020-local-authority-greenhouse-gas-emissions",
         "BEIS-2019-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-end-user",
         "BEIS-2019-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-source",
         "BEIS-2020-UK-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-end-user",
