@@ -88,7 +88,6 @@ indexNames = df[df['Final Demand Breakdown'] == 'Total'].index
 df.drop(indexNames, inplace=True)
 
 df.drop(columns ='Final Demand Breakdown', inplace=True)
-# -
 
 df.rename(columns={'OBS' : 'Value'}, inplace=True)
 df['Period'] = df['Period'].astype(float).astype(int)
