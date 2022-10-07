@@ -1,0 +1,23 @@
+{
+    "id": "defra-e8-efficient-use-of-water-20-21",
+    "title": "E8: Efficient use of water 20 - 21",
+    "publisher": "Department for Environment Food & Rural Affairs",
+    "description": "",
+    "landingPage": "https://oifdata.defra.gov.uk/5-8-1/",
+    "datasetNotes": [
+        "On landing page, navigate to Table E8b: Per capita water consumption in England, and download Table CSV."
+    ],
+    "published": "2022-05-19",
+    "families": [
+        "Climate-Change"
+    ],
+    "extract": {
+        "source": ""
+    },
+    "transform": {
+        "airtable": "rec6EJdugkB8msvGb",
+        "main_issue": 531
+    },
+    "sizingNotes": "",
+    "notes": ""
+}

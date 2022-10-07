@@ -1,0 +1,23 @@
+{
+    "id": "forestry-research-forestry-statistics-2022-new-planting",
+    "title": "Forestry Statistics 2022 New Planting",
+    "publisher": "Forestry Research",
+    "description": "",
+    "landingPage": "https://www.forestresearch.gov.uk/tools-and-resources/statistics/forestry-statistics/forestry-statistics-2022/1-woodland-area-planting/",
+    "datasetNotes": [
+        "On the landing page, navigate to Chapter 1 - Woodland Area & Planting data set (xlsx). The required data is on the sheet: Fig_1.5_data"
+    ],
+    "published": "2022-09-29",
+    "families": [
+        "Climate-Change"
+    ],
+    "extract": {
+        "source": ""
+    },
+    "transform": {
+        "airtable": "rec0yQ41dNjqs8P15",
+        "main_issue": 530
+    },
+    "sizingNotes": "",
+    "notes": "Data for 2021/22 or financial year ending 31 March 2022"
+}
