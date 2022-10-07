@@ -19,15 +19,15 @@
         "airtable": "rect0gFc8uVpxFsa9",
         "main_issue": 523,
         "columns": {
-            "Period": {
+            "Year": {
                 "type": "dimension",
                 "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-                "value": "http://reference.data.gov.uk/id/{+period}"
+                "value": "http://reference.data.gov.uk/id/year/{year}"
             },
             "Fuel": {
                 "type": "dimension",    
                 "uri": "http://gss-data.org.uk/def/energy/property/dimension/fuel",
-                "value": "http://gss-data.org.uk/def/energy/concept/fuel/{+fuel}"
+                "value": "http://gss-data.org.uk/def/energy/concept/fuel/{fuel}"
             }, 
             "Value": {
                 "type": "observations",
