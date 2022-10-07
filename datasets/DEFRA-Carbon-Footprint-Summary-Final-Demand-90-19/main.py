@@ -28,6 +28,7 @@ for name, tab in tabs.items():
     # Greenhouse Gas emissions - GHG - Ktonnes CO2e	
     unwanted_cell = tab.excel_ref("A34").expand(DOWN).expand(RIGHT)
     period = tab.excel_ref("B4").expand(DOWN).is_not_blank().is_not_whitespace() - unwanted_cell
+    final_demand = tab.excel_ref("C2").expand(RIGHT)
     final_demand_breakdown = tab.excel_ref("C3").expand(RIGHT).is_not_blank().is_not_whitespace()
     observations = tab.excel_ref("C4").expand(DOWN).expand(RIGHT).is_not_blank() - unwanted_cell
     measure = 'Greenhouse gas emissions'
@@ -35,6 +36,7 @@ for name, tab in tabs.items():
     
     dimensions = [
         HDim(period,'Period',DIRECTLY,LEFT),
+        HDim(final_demand, 'Final Demand',DIRECTLY, ABOVE),
         HDim(final_demand_breakdown, 'Final Demand Breakdown',DIRECTLY,ABOVE),
         HDimConst("Measure", measure),
         HDimConst("Unit", unit)
@@ -44,6 +46,7 @@ for name, tab in tabs.items():
 
 # from Carbon Dioxide Emission
     period = tab.excel_ref("B38").expand(DOWN).is_not_blank().is_not_whitespace()
+    final_demand = tab.excel_ref("C36").expand(RIGHT)
     final_demand_breakdown = tab.excel_ref("C37").expand(RIGHT)
     observations = tab.excel_ref("C38").expand(DOWN).expand(RIGHT).is_not_blank().is_not_whitespace()
     measure = 'Carbon dioxide emissions'
@@ -51,6 +54,7 @@ for name, tab in tabs.items():
 
     dimensions = [
         HDim(period,'Period',DIRECTLY,LEFT),
+        HDim(final_demand, 'Final Demand',DIRECTLY, ABOVE),
         HDim(final_demand_breakdown, 'Final Demand Breakdown',DIRECTLY,ABOVE),
         HDimConst("Measure", measure),
         HDimConst("Unit", unit)
@@ -67,8 +71,23 @@ df = df.replace({'Final Demand Breakdown': {
                                    'Gross fixedcapitalformation' : 'Gross fixed capital formation',
                                    '' : 'Total'}}) 
 
+df['Final Demand'] = df['Final Demand Breakdown']
+
+df = df.replace({'Final Demand' : {'Households' : 'FD1',
+                                   'Households direct' : 'FD1',
+                                   'Non-profit institutions serving households' : 'FD2',
+                                   'Central Government' : 'FD3',
+                                   'Local Government' : 'FD4',
+                                   'Gross fixed capital formation' : 'FD5',
+                                   'Valuables' : 'FD6',
+                                   'Changes in inventories' : 'FD7'}}) 
+
+
+# +
 indexNames = df[df['Final Demand Breakdown'] == 'Total'].index
 df.drop(indexNames, inplace=True)
+
+df.drop(columns ='Final Demand Breakdown', inplace=True)
 
 df.rename(columns={'OBS' : 'Value'}, inplace=True)
 df['Period'] = df['Period'].astype(float).astype(int)
@@ -82,7 +101,7 @@ for col in ['Measure', 'Unit']:
     except Exception as err:
         raise Exception("Failed to pathify column '{}'.".format(col)) from err
 
-df = df[['Period', 'Final Demand Breakdown', 'Measure', 'Unit', 'Value']]
+df = df[['Period', 'Final Demand', 'Measure', 'Unit', 'Value']]
 
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
