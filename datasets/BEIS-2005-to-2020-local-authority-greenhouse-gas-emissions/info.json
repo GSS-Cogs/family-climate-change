@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "beis-2005-to-2020-local-authority-greenhouse-gas-emissions",
     "title": "2005 to 2020 local authority greenhouse gas emissions",
     "publisher": "Department for Business, Energy and Industrial Strategy",
@@ -49,8 +50,13 @@
             "LA GHG Sub-sector": {
                 "type": "dimension"
             },
-            "Greenhouse gas": {
-                "type":"dimension"
+            "Greenhouse Gas": {
+                "type": "dimension",
+                "uri" : "http://gss-data.org.uk/def/climate-change/property/dimension/ghg",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{greenhouse_gas}"
+            },
+            "Second Tier Authority" :{
+                "type": "dimension"
             },
             "Measure": {
                 "type": "measures"
