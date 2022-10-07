@@ -49,6 +49,9 @@
             "LA GHG Sub-sector": {
                 "type": "dimension"
             },
+            "Greenhouse gas": {
+                "type":"dimension"
+            },
             "Measure": {
                 "type": "measures"
             },
