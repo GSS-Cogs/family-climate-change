@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-#       "Energy Trends Table 1.2 - Extract 2021"
+# ## Energy Trends Table 1.2 - Extract 2021
 
 import pandas as pd
 from gssutils import *
@@ -26,7 +26,7 @@ for tab in tabs:
         observations = fuel.fill(DOWN).is_not_blank().is_not_whitespace()
 
         dimensions = [
-            HDim(year, 'Period', CLOSEST, ABOVE),
+            HDim(year, 'Year', CLOSEST, ABOVE),
             HDim(fuel, 'Fuel', DIRECTLY, ABOVE),
         ]
 
@@ -37,14 +37,13 @@ for tab in tabs:
 df = pd.concat(tidied_sheets, sort = True).fillna('')
 
 df = df.rename(columns={'OBS' : 'Value'})
-df['Period'] = df['Period'].astype(float).astype(int)
+df['Year'] = df['Year'].astype(float).astype(int)
 df['Value'] = df['Value'].astype(str).astype(float).round(2)
-
 
 df.replace({'Coal [note 2]': 'Coal', 
             'Petroleum [note 3]' : 'Petroleum', 
             'Natural gas [note 4]': 'Natural gas',
-            'Bioenergy & waste [note 5 ] [note 6] [note 7]' : 'Bioenergy & waste',
+            'Bioenergy & waste [note 5 ] [note 6] [note 7]' : 'Bioenergy and waste',
             'Primary electricity - nuclear' : 'Nuclear', 
             'Primary electricity - wind, solar and hydro [note 8]' : 'Wind, solar and hydro',
             'Primary electricity - net imports' : 'Net imports'
@@ -52,7 +51,7 @@ df.replace({'Coal [note 2]': 'Coal',
 
 df['Fuel'] = df['Fuel'].apply(pathify)
 df = df.drop_duplicates()
-df = df[['Period', 'Fuel', 'Value']]
+df = df[['Year', 'Fuel', 'Value']]
 
 metadata.dataset.family = 'climate-change'
 metadata.dataset.title = distribution.title + ' ' + str(2021)
