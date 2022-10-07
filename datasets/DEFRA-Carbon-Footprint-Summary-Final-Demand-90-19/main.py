@@ -29,7 +29,7 @@ for name, tab in tabs.items():
     unwanted_cell = tab.excel_ref("A34").expand(DOWN).expand(RIGHT)
     period = tab.excel_ref("B4").expand(DOWN).is_not_blank().is_not_whitespace() - unwanted_cell
     final_demand = tab.excel_ref("C2").expand(RIGHT)
-    final_demand_breakdown = tab.excel_ref("C3").expand(RIGHT).is_not_blank().is_not_whitespace()
+    final_demand_breakdown = tab.excel_ref("C3").expand(RIGHT).is_not_blank()
     observations = tab.excel_ref("C4").expand(DOWN).expand(RIGHT).is_not_blank() - unwanted_cell
     measure = 'Greenhouse gas emissions'
     unit = 'kt CO2e'
@@ -83,7 +83,6 @@ df = df.replace({'Final Demand' : {'Households' : 'FD1',
                                    'Changes in inventories' : 'FD7'}}) 
 
 
-# +
 indexNames = df[df['Final Demand Breakdown'] == 'Total'].index
 df.drop(indexNames, inplace=True)
 
@@ -95,6 +94,7 @@ df['Period'] = df['Period'].map(lambda x: 'year/' + str(x))
 df["Value"] = df["Value"].astype(float).round(3)
 df = df.drop_duplicates()
 
+# +
 for col in ['Measure', 'Unit']:
     try:
         df[col] = df[col].apply(pathify)
@@ -102,6 +102,7 @@ for col in ['Measure', 'Unit']:
         raise Exception("Failed to pathify column '{}'.".format(col)) from err
 
 df = df[['Period', 'Final Demand', 'Measure', 'Unit', 'Value']]
+# -
 
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
