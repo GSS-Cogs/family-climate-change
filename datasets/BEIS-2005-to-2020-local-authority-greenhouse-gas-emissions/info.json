@@ -12,11 +12,54 @@
         "Climate Change"
     ],
     "extract": {
-        "source": ""
+        "source": "XLS, ODS, CSV"
     },
     "transform": {
         "airtable": "recJkE35jlY1W74gG",
-        "main_issue": 524
+        "main_issue": 524,
+        "columns": {
+            "Year": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Country": {
+                "type": "dimension"
+            },
+            "Country Code": {
+                "type": "dimension"
+            },
+            "Region": {
+                "type": "dimension"
+            },
+            "Region Code": {
+                "type": "dimension"
+            },
+            "Local Authority": {
+                "type": "dimension"
+            },
+            "Local Authority Code": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/local-authority-code/{local_authority_code}"
+            },
+            "LA GHG Sector": {
+                "type": "dimension"
+            },
+            "LA GHG Sub-sector": {
+                "type": "dimension"
+            },
+            "Measure": {
+                "type": "measures"
+            },
+            "Unit": {
+                "type": "units"
+            },
+            "Value": {
+                "type": "observations"
+            }
+        }
+
     },
     "sizingNotes": "",
     "notes": "CO2 emissions now included in the regional GHG publication. Prior to the 2005 to 2020 publication the statistics covered emissions of CO2 only."
