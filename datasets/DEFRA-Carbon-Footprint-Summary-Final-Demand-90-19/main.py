@@ -80,7 +80,7 @@ df.drop(indexNames, inplace=True)
 indexNames = df[df['Final Demand Code'] == 'Total'].index
 df.drop(indexNames, inplace=True)
 
-df.drop(columns ='Final Demand Code', inplace=True)
+df.drop(columns ='Final Demand Breakdown', inplace=True)
 # -
 
 df.rename(columns={'OBS' : 'Value'}, inplace=True)
@@ -96,7 +96,7 @@ for col in ['Measure', 'Unit']:
     except Exception as err:
         raise Exception("Failed to pathify column '{}'.".format(col)) from err
 
-df = df[['Period', 'Final Demand Breakdown', 'Measure', 'Unit', 'Value']]
+df = df[['Period', 'Final Demand Code', 'Measure', 'Unit', 'Value']]
 # -
 
 df.to_csv('observations.csv', index=False)
