@@ -80,7 +80,7 @@ df.drop(indexNames, inplace=True)
 indexNames = df[df['Final Demand Code'] == 'Total'].index
 df.drop(indexNames, inplace=True)
 
-df.drop(columns ='Final Demand Breakdown', inplace=True)
+df.drop(columns ='Final Demand Code', inplace=True)
 # -
 
 df.rename(columns={'OBS' : 'Value'}, inplace=True)
@@ -90,13 +90,13 @@ df['Period'] = df['Period'].map(lambda x: 'year/' + str(x))
 df = df.drop_duplicates()
 
 # +
-for col in ['Measure', 'Unit']:
+for col in ['Final Demand Breakdown', 'Measure', 'Unit']:
     try:
         df[col] = df[col].apply(pathify)
     except Exception as err:
         raise Exception("Failed to pathify column '{}'.".format(col)) from err
 
-df = df[['Period', 'Final Demand Code', 'Measure', 'Unit', 'Value']]
+df = df[['Period', 'Final Demand Breakdown', 'Measure', 'Unit', 'Value']]
 # -
 
 df.to_csv('observations.csv', index=False)
