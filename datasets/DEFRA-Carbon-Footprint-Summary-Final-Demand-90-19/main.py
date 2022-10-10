@@ -36,7 +36,7 @@ for name, tab in tabs.items():
     
     dimensions = [
         HDim(period,'Period',DIRECTLY,LEFT),
-        HDim(final_demand, 'Final Demand',DIRECTLY, ABOVE),
+        HDim(final_demand, 'Final Demand Code',DIRECTLY, ABOVE),
         HDim(final_demand_breakdown, 'Final Demand Breakdown',DIRECTLY,ABOVE),
         HDimConst("Measure", measure),
         HDimConst("Unit", unit)
@@ -54,7 +54,7 @@ for name, tab in tabs.items():
 
     dimensions = [
         HDim(period,'Period',DIRECTLY,LEFT),
-        HDim(final_demand, 'Final Demand',DIRECTLY, ABOVE),
+        HDim(final_demand, 'Final Demand Code',DIRECTLY, ABOVE),
         HDim(final_demand_breakdown, 'Final Demand Breakdown',DIRECTLY,ABOVE),
         HDimConst("Measure", measure),
         HDimConst("Unit", unit)
@@ -66,32 +66,23 @@ for name, tab in tabs.items():
 
 df = pd.concat(tidied_sheets, sort=True)
 
-df = df.replace({'Final Demand Breakdown': {
-                                   'Non-profitinstitutions servinghouseholds' : 'Non-profit institutions serving households',
-                                   'Gross fixedcapitalformation' : 'Gross fixed capital formation',
-                                   '' : 'Total'}}) 
-
-df['Final Demand'] = df['Final Demand Breakdown']
-
-df = df.replace({'Final Demand' : {'Households' : 'FD1',
-                                   'Households direct' : 'FD1',
-                                   'Non-profit institutions serving households' : 'FD2',
-                                   'Central Government' : 'FD3',
-                                   'Local Government' : 'FD4',
-                                   'Gross fixed capital formation' : 'FD5',
-                                   'Valuables' : 'FD6',
-                                   'Changes in inventories' : 'FD7'}}) 
-
+# +
+df['Final Demand Code'] = df.apply(lambda x: 'UK FD 1' if x['Final Demand Breakdown'] == 'Households direct' else x['Final Demand Code'], axis=1)
+df["Final Demand Code"] = df["Final Demand Code"].str.replace("UK ", "")
 
 indexNames = df[df['Final Demand Breakdown'] == 'Total'].index
 df.drop(indexNames, inplace=True)
 
-df.drop(columns ='Final Demand Breakdown', inplace=True)
+indexNames = df[df['Final Demand Code'] == 'Total'].index
+df.drop(indexNames, inplace=True)
+
+df.drop(columns ='Final Demand Code', inplace=True)
+# -
 
 df.rename(columns={'OBS' : 'Value'}, inplace=True)
+df["Value"] = df["Value"].astype(float).round(3)
 df['Period'] = df['Period'].astype(float).astype(int)
 df['Period'] = df['Period'].map(lambda x: 'year/' + str(x))
-df["Value"] = df["Value"].astype(float).round(3)
 df = df.drop_duplicates()
 
 # +
@@ -101,7 +92,7 @@ for col in ['Measure', 'Unit']:
     except Exception as err:
         raise Exception("Failed to pathify column '{}'.".format(col)) from err
 
-df = df[['Period', 'Final Demand', 'Measure', 'Unit', 'Value']]
+df = df[['Period', 'Final Demand Breakdown', 'Measure', 'Unit', 'Value']]
 # -
 
 df.to_csv('observations.csv', index=False)
