@@ -24,7 +24,7 @@
                 "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
                 "value": "http://reference.data.gov.uk/id/{+period}"
             },
-            "Final Demand": {
+            "Final Demand Breakdown": {
                 "type": "dimension"
             },
             "Measure": {
