@@ -2,7 +2,7 @@
     "id": "defra-uk-water-leakage-20-21",
     "title": "UK Water Leakage 20 - 21",
     "publisher": "Department for Environment Food & Rural Affairs",
-    "description": "",
+    "description": "Summary of geographical water leaakage in England Only",
     "landingPage": "https://oifdata.defra.gov.uk/5-8-1/",
     "datasetNotes": [
         "On landing page, navigate to Table E8a: Water leakage in England, and download Table CSV."
@@ -16,7 +16,28 @@
     },
     "transform": {
         "airtable": "rec0bsZDDkNWbPCfW",
-        "main_issue": 529
+        "main_issue": 529,
+        "columns": {
+            "Year": {
+                "type":"dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/government-year/{+year}"
+            },
+            "Geography": {
+                "type": "dimension"
+            },
+            "Value": {
+                "type": "observations",
+                "unit": {
+                    "label": "megalitres"
+                },
+                "measure": {
+                    "label": "water-leakage"
+                },
+                "datatype": "double"
+            }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
     },
     "sizingNotes": "",
     "notes": ""
