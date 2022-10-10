@@ -27,9 +27,9 @@ for tab in tabs:
         # Greenhouse Gas emissions - GHG - Ktonnes CO2e	
         unwanted_cell = tab.excel_ref("A34").expand(DOWN).expand(RIGHT)
         period = tab.excel_ref("B4").expand(DOWN).is_not_blank().is_not_whitespace() - unwanted_cell
-        final_demand = tab.excel_ref("C2").expand(RIGHT)
-        final_demand_breakdown = tab.excel_ref("C3").expand(RIGHT).is_not_blank()
-        observations = tab.excel_ref("C4").expand(DOWN).expand(RIGHT).is_not_blank() - unwanted_cell
+        final_demand = tab.excel_ref("C2").expand(RIGHT) - tab.excel_ref("L2").expand(RIGHT)
+        final_demand_breakdown = tab.excel_ref("C3").expand(RIGHT) - tab.excel_ref("L3").expand(RIGHT)
+        observations = period.waffle(final_demand_breakdown)
         measure = 'Greenhouse gas emissions'
         unit = 'kt CO2e'
         
@@ -45,9 +45,9 @@ for tab in tabs:
 
         # from Carbon Dioxide Emission
         period = tab.excel_ref("B38").expand(DOWN).is_not_blank().is_not_whitespace()
-        final_demand = tab.excel_ref("C36").expand(RIGHT)
-        final_demand_breakdown = tab.excel_ref("C37").expand(RIGHT)
-        observations = tab.excel_ref("C38").expand(DOWN).expand(RIGHT).is_not_blank().is_not_whitespace()
+        final_demand = tab.excel_ref("C36").expand(RIGHT) - tab.excel_ref("L36").expand(RIGHT)
+        final_demand_breakdown = tab.excel_ref("C37").expand(RIGHT) - tab.excel_ref("L37").expand(RIGHT)
+        observations = period.waffle(final_demand_breakdown)
         measure = 'Carbon dioxide emissions'
         unit = 'kt CO2'
 
@@ -63,9 +63,7 @@ for tab in tabs:
         # savepreviewhtml(tidy_sheet,fname=tab.name + "Preview.html")
 # -
 
-df = pd.concat(tidied_sheets, sort=True)
-
-df['Final Demand Breakdown'].unique()
+df = pd.concat(tidied_sheets).fillna('')
 
 df = df.replace({'Final Demand Breakdown': {
                                    'Non-profitinstitutions servinghouseholds' : 'Non-profit institutions serving households',
