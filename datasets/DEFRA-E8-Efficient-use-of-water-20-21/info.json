@@ -1,8 +1,9 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "defra-e8-efficient-use-of-water-20-21",
     "title": "E8: Efficient use of water 20 - 21",
     "publisher": "Department for Environment Food & Rural Affairs",
-    "description": "",
+    "description": "Summary of geographical water consumption in England Only",
     "landingPage": "https://oifdata.defra.gov.uk/5-8-1/",
     "datasetNotes": [
         "On landing page, navigate to Table E8b: Per capita water consumption in England, and download Table CSV."
@@ -12,25 +13,28 @@
         "Climate-Change"
     ],
     "extract": {
-        "source": "The Water Services Regulation Authority"
+        "source": "CSV"
     },
     "transform": {
         "airtable": "rec6EJdugkB8msvGb",
         "main_issue": 531,
         "columns": {
-            "Period": {
+            "Year": {
                 "type": "dimension",
                 "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-                "value": "http://reference.data.gov.uk/id/{+period}"         
+                "value": "http://reference.data.gov.uk/id/{+year}"       
+            },
+            "Geography": {
+                "type": "dimension"
             },
             "Value": {
                 "type": "observations",
                 "datatype": "double",
                 "unit": {
-                    "label": "Litres/person/day"
+                    "label": "Weighted average per Day"
                 },
                 "measure":{
-                    "label": "Per capita water consumption"
+                    "label": "Water Consumption"
                 }
             }
         },
