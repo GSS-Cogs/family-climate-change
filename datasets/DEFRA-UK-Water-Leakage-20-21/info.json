@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "defra-uk-water-leakage-20-21",
     "title": "UK Water Leakage 20 - 21",
     "publisher": "Department for Environment Food & Rural Affairs",
@@ -12,7 +13,7 @@
         "Climate-Change"
     ],
     "extract": {
-        "source": ""
+        "source": "CSV"
     },
     "transform": {
         "airtable": "rec0bsZDDkNWbPCfW",
@@ -28,13 +29,12 @@
             },
             "Value": {
                 "type": "observations",
-                "unit": {
-                    "label": "megalitres"
-                },
                 "measure": {
-                    "label": "water-leakage"
+                    "label": "Water leakage"
                 },
-                "datatype": "double"
+                "unit": {
+                    "label": "Megalitres"
+                }
             }
         },
         "csvcubed_uri_style": "WithoutFileExtensions"
