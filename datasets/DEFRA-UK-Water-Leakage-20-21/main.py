@@ -6,11 +6,9 @@ from csvcubed.models.cube.qb.catalog import CatalogMetadata
 
 df = pd.read_csv("raw.csv")
 
+df['Year'] = df['Year'].str.replace('-20', '-')
 df = pd.melt(df, id_vars=['Year'])
-
 df.rename(columns={'variable': 'Geography','value': 'Value'}, inplace=True)
-
-df['Geography'] = df['Geography'].apply(pathify)
 
 df.to_csv('observations.csv', index=False)
 catalog_metadata = CatalogMetadata(
