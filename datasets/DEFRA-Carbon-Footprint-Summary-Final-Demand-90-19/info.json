@@ -24,20 +24,19 @@
                 "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
                 "value": "http://reference.data.gov.uk/id/{+period}"
             },
-            "Final Demand": {
+            "Final Demand Breakdown": {
                 "type": "dimension"
             },
             "Measure": {
                 "type": "measures",
-                "value": "http://gss-data.org.uk/def/measure/{+measure}"
+                "value": "http://gss-data.org.uk/def/measure/{measure}"
             },
             "Unit": {
                 "type": "units",
-                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{unit}"
             },
             "Value": {
-                "type": "observations",
-                "datatype": "double"
+                "type": "observations"
             }
         },
         "csvcubed_uri_style": "WithoutFileExtensions"
