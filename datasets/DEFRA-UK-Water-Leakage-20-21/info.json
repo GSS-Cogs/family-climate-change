@@ -30,10 +30,10 @@
             "Value": {
                 "type": "observations",
                 "measure": {
-                    "label": "water-leakage"
+                    "label": "Water leakage"
                 },
                 "unit": {
-                    "label": "megalitres"
+                    "label": "Megalitres"
                 }
             }
         },
