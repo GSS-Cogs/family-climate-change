@@ -1,17 +1,24 @@
-# DEFRA-E8-EFFICIENT-USE-OF-WATER-20-21"
+# DEFRA E8: Efficient use of water 20 - 21
 
 import pandas as pd 
 from gssutils import *
 from csvcubed.models.cube.qb.catalog import CatalogMetadata
 
-df = pd.read_csv("raw.csv")
+metadata = Scraper(seed='info.json')
+metadata.select_dataset(title = lambda x: 'E8: Efficient use of water' in x)
+
+distribution = metadata.distribution(mediaType='text/csv', latest=True)
+df = distribution.as_pandas()
+
+indexNames = df[df['Series'] == 'E8a'].index
+df.drop(indexNames, inplace=True)
+df.drop(columns=['Series'], inplace=True)
+
 df['Year'] = df['Year'].str.replace(r'-20', r'-')
 df['Year'] = df.apply(lambda x: 'government-year/' + x['Year'], axis = 1)
 df = df.rename(columns={'Year' : 'Period'})
-df = pd.melt(df, id_vars=['Period'])
-df.rename(columns={'variable': 'Geography','value': 'Value'}, inplace=True)
-df = df.drop('Geography', axis = 1)
-df.drop_duplicates()
+df['Value'] = pd.to_numeric(df['Value'], downcast='float')
+df['Value'] = df['Value'].astype(str).astype(float).round(2)
 
 df.to_csv('observations.csv', index=False) 
 catalog_metadata = CatalogMetadata(
