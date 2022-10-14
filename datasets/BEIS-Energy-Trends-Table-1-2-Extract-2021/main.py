@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-# # Energy Trends Table 1.2 - Extract 2021
+# ### Energy Trends Table 1.2 - Extract 2021
 
 import pandas as pd
 from gssutils import *
@@ -32,7 +32,6 @@ for tab in tabs:
         ]
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
-        # # savepreviewhtml(tidy_sheet, fname= tab.name + "Preview.html")
         tidied_sheets.append(tidy_sheet.topandas())
 
 df = pd.concat(tidied_sheets, sort=True).fillna('')
@@ -57,7 +56,7 @@ df = df[['Year', 'Fuel', 'Value']]
 metadata.dataset.family = 'climate-change'
 metadata.dataset.title = "Inland energy consumption: primary fuel input basis 2021"
 metadata.dataset.comment = """
-An overview of the trends in energy production and consumption in the United Kingdom.
+An overview of the trends in energy consumption in the United Kingdom.
 """
 metadata.dataset.description = ''' 
 An overview of the trends in energy consumption in the United Kingdom for the previous quarter, focusing on:​
