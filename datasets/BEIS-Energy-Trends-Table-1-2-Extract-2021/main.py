@@ -32,6 +32,7 @@ for tab in tabs:
         ]
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
+        # # savepreviewhtml(tidy_sheet, fname= tab.name + "Preview.html")
         tidied_sheets.append(tidy_sheet.topandas())
 
 df = pd.concat(tidied_sheets, sort=True).fillna('')
@@ -59,12 +60,7 @@ metadata.dataset.comment = """
 An overview of the trends in energy consumption in the United Kingdom.
 """
 metadata.dataset.description = ''' 
-An overview of the trends in energy consumption in the United Kingdom for the previous quarter, focusing on:​
-
-consumption, both primary and final by broad sector​ 
-dependency rates of imports, fossil fuels and low carbon fuels
-
-We publish this document on the last Thursday of each calendar quarter (March, June, September and December).
+An overview of the trends in energy consumption in the United Kingdom for the previous quarter, focusing on: \n\nconsumption, both primary and final by broad sector \ndependency rates of imports, fossil fuels and low carbon fuels \n\nWe publish this document on the last Thursday of each calendar quarter (March, June, September and December)
 
 '''
 metadata.dataset.contactPoint = "energy.stats@beis.gov.uk"
