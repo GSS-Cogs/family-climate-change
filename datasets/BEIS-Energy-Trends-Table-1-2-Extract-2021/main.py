@@ -62,7 +62,7 @@ An overview of the trends in energy consumption in the United Kingdom.
 metadata.dataset.description = ''' 
 An overview of the trends in energy consumption in the United Kingdom for the previous quarter, focusing on: 
 
-consumption, both primary and final by broad sector \ndependency rates of imports, fossil fuels and low carbon fuels 
+consumption, both primary and final by broad sector as well as dependency rates of imports, fossil fuels and low carbon fuels 
 
 We publish this document on the last Thursday of each calendar quarter (March, June, September and December)
 
