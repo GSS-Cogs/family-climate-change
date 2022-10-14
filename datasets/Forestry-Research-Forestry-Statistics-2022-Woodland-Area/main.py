@@ -15,13 +15,15 @@ df = df.replace({'Country': {"UK": "K02000001", "Northern Ireland": "N92000002",
 
 df.to_csv("observations.csv", index=False)
 catalog_metadata = CatalogMetadata(
-    title = "Forestry Statistics 2022 Woodland Area",
-    summary = "Woodland area by country since 1998.",
-    publisher_uri = "https://www.gov.uk/government/organisations/forest-research",
-    #theme_uris = "https://uksa.statisticsauthority.gov.uk/themes/agriculture-energy-environment",
-    #landing_page_uris = "https://www.forestresearch.gov.uk/tools-and-resources/statistics/forestry-statistics/forestry-statistics-2022/1-woodland-area-planting/",
-    #dataset_issue = "2022-09-29",
-    description = """ 
+    title="Forestry Statistics 2022 Woodland Area",
+    summary="Woodland area by country since 1998.",
+    publisher_uri="https://www.gov.uk/government/organisations/forest-research",
+    theme_uris=[
+        "https://uksa.statisticsauthority.gov.uk/themes/agriculture-energy-environment"],
+    landing_page_uris=[
+        "https://www.forestresearch.gov.uk/tools-and-resources/statistics/forestry-statistics/forestry-statistics-2022/1-woodland-area-planting/"],
+    #dataset_issue="2022-09-29",
+    description=""" 
 Woodland is defined in UK forestry statistics as land under stands of trees with a
 minimum area of 0.5 hectares and a canopy cover of at least 20%, or having the
 potential to achieve this. The definition relates to land use, rather than land cover,
