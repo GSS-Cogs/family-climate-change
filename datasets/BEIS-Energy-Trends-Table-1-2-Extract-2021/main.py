@@ -41,7 +41,6 @@ df = df.rename(columns={'OBS': 'Value'})
 df['Year'] = df['Year'].astype(float).astype(int)
 df['Value'] = df['Value'].astype(str).astype(float).round(2)
 
-
 df.replace({'Coal [note 2]': 'Coal',
             'Petroleum [note 3]': 'Petroleum',
             'Natural gas [note 4]': 'Natural gas',
@@ -60,16 +59,13 @@ metadata.dataset.title = "Inland energy consumption: primary fuel input basis 20
 metadata.dataset.comment = """
 An overview of the trends in energy production and consumption in the United Kingdom.
 """
-metadata.datset.description = ''' 
-An overview of the trends in energy consumption
-in the United Kingdom for the previous quarter, 
-focusing on:​
+metadata.dataset.description = ''' 
+An overview of the trends in energy consumption in the United Kingdom for the previous quarter, focusing on:​
 
 consumption, both primary and final by broad sector​ 
 dependency rates of imports, fossil fuels and low carbon fuels
 
-We publish this document on the last Thursday of each 
-calendar quarter (March, June, September and December).
+We publish this document on the last Thursday of each calendar quarter (March, June, September and December).
 
 '''
 metadata.dataset.contactPoint = "energy.stats@beis.gov.uk"
@@ -77,5 +73,3 @@ metadata.dataset.contactPoint = "energy.stats@beis.gov.uk"
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file('catalog-metadata.json')
-
-#
