@@ -16,6 +16,8 @@ df = df.replace({'Marker': {"[r]": "revised", "[p]": "provisional",
 df['Year'] = df['Year'].astype('str')     
 df['Year'] = df['Year'].str[:4]
 df['Measure Type'] = df['Measure Type'].str.replace(r"\(.*?\)", "", regex=True).str.rstrip().str.strip("[note 3]").str.strip("United Kingdom ")
+df = df.replace({'Marker': {"Conifers Total": "new-conifers", "Broadleaves Total": "new-broadleaves",
+                            "Total": "total-new"}})
 df['Unit'] = 'thousand-hectares' 
 
 # %%
