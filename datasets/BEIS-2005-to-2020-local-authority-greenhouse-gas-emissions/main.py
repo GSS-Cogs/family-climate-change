@@ -30,6 +30,7 @@ level.
 """
 
 df = distribution.as_pandas()
+df.drop(columns=df.columns.values.tolist()[1:5], axis=1, inplace=True)
 
 df.rename(columns={"Calendar Year": "Year",
                    "Greenhouse gas": "Greenhouse Gas",
@@ -45,19 +46,11 @@ for col in ['Territorial emissions', 'Emissions within the scope of influence of
             'Territorial emissions per capita', 'Territorial emissions per area']:
     df[col] = df[col].astype(str).astype(float).round(4)
 
-val_vars = ["Territorial emissions", "Emissions within the scope of influence of LAs",
-            'Territorial emissions per capita', 'Territorial emissions per area']
-other_vars = df.columns.difference(val_vars)
-df = pd.melt(
-    df,
-    id_vars=other_vars,
-    value_vars=val_vars,
-    var_name='Measure',
-    value_name='Value'
-)
+df = pd.melt(df, id_vars=['Country', 'Local Authority', 'Local Authority Code', 'Year', 'LA GHG Sector', 'LA GHG Sub-sector', 'Greenhouse Gas'], value_vars=[
+             "Territorial emissions", "Emissions within the scope of influence of LAs", 'Territorial emissions per capita', 'Territorial emissions per area'], var_name='Measure', value_name='Value')
 
-df['Unit'] = df.apply(lambda x: 'kt CO2' if x['Measure'] == 'Territorial emissions' else 'kt CO2' if x['Measure'] == 'Emissions within the scope of influence of LAs' else 'tonnes of CO2' if x['Measure']
-                      == 'Territorial emissions per capita' else 'CO2/m2' if x['Measure'] == 'Territorial emissions per area' else ' ', axis=1)
+df['Unit'] = df.apply(lambda x: 'kt CO2e' if x['Measure'] == 'Territorial emissions' else 'kt CO2e' if x['Measure'] == 'Emissions within the scope of influence of LAs' else 'tonnes of CO2e' if x['Measure']
+                      == 'Territorial emissions per capita' else 'CO2e/m2' if x['Measure'] == 'Territorial emissions per area' else ' ', axis=1)
 
 df['Value'] = df.apply(lambda x: 0 if np.isnan(
     x['Value']) else x['Value'], axis=1)
