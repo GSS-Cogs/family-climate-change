@@ -40,10 +40,9 @@ df['Unit'] = df.apply(lambda x: 'kt CO2' if x['Measure'] == 'Territorial emissio
 
 df = df.fillna('unallocated consumption')
 
-df = df[['Year', 'Country', 'Country Code', 'Region', 'Region Code', 
-       'Local Authority', 'Local Authority Code', 'LA GHG Sector', 'LA GHG Sub-sector',
-       'Greenhouse Gas', 'Second Tier Authority',
-       'Measure', 'Value', 'Unit']]
+df = df[['Year', 'Country', 'Local Authority', 'Local Authority Code', 
+       'LA GHG Sector', 'LA GHG Sub-sector', 'Greenhouse Gas', 
+       'Second Tier Authority', 'Measure', 'Value', 'Unit']]
 
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
