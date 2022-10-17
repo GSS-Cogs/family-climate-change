@@ -40,7 +40,8 @@
                 "uri": "http://purl.org/linked-data/sdmx/2009/attribute#obsStatus",
                 "value": "http://gss-data.org.uk/def/concept/cogs-markers/{+marker}"
             }
-        }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
     },
     "sizingNotes": "",
     "notes": "Data for 2021/22 or financial year ending 31 March 2022"
