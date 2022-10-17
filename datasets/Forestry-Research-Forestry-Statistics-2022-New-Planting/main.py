@@ -10,8 +10,8 @@ df = pd.read_excel("NPRS-machinereadable-16jun22.ods", sheet_name='C11', skiprow
 df = pd.melt(frame=df, id_vars=['Year'],
              var_name='Measure Type', value_name='Value').dropna()
 df['Marker'] = df['Year'].str.split(" ").str[1]
-# [r] = revision, [p] = provisional, [z] = not applicable
-df = df.replace({'Marker': {"[r]": "revision", "[p]": "provisional",
+# [r] = revised, [p] = provisional, [z] = not applicable
+df = df.replace({'Marker': {"[r]": "revised", "[p]": "provisional",
                             "[z]": "not-applicable"}})
 df['Year'] = df['Year'].astype('str')     
 df['Year'] = df['Year'].str[:4]
