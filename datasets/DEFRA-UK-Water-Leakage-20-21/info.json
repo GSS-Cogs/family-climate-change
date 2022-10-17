@@ -1,9 +1,10 @@
 {
     "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
+
     "id": "defra-uk-water-leakage-20-21",
     "title": "UK Water Leakage 20 - 21",
     "publisher": "Department for Environment Food & Rural Affairs",
-    "description": "Part of The Outcome Indicator Framework, a comprehensive set of indicators describing environmental change that relates to the 10 goals within the 25 Year Environment Plan. The framework contains 66 indicators, arranged into 10 broad themes. The indicators are extensive; they cover natural capital assets (for example, land, freshwater, air and seas) and together they show the condition of these assets, the pressures acting upon them and the provision of services or benefits they provide.",
+    "description": "",
     "landingPage": "https://oifdata.defra.gov.uk/5/",
     "datasetNotes": [
         "On landing page, navigate to Table E8a: Water leakage in England, and download Table CSV."
@@ -22,7 +23,7 @@
             "Period": {
                 "type":"dimension",
                 "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-                "value": "http://reference.data.gov.uk/id/{+period}"
+                "value": "http://reference.data.gov.uk/id/government-year/{+year}"
             },
             "Value": {
                 "type": "observations",
