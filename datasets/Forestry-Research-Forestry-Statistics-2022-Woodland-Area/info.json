@@ -35,7 +35,8 @@
                 "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/million-hectares",
                 "datatype": "double"
             }
-        }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
     },
     "sizingNotes": "",
     "notes": "Data for 2021/22 or financial year ending 31 March 2022"

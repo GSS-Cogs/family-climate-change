@@ -16,7 +16,32 @@
     },
     "transform": {
         "airtable": "rec0yQ41dNjqs8P15",
-        "main_issue": 530
+        "main_issue": 530,
+        "columns": {
+            "Year": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Unit": {
+                "type": "units",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
+            },
+            "Value": {
+                "type": "observations",
+                "datatype": "double"
+            },
+            "Measure Type": {
+                "type": "measures",
+                "value": "http://gss-data.org.uk/def/climate-change/measure/{+measure_type}"
+            },
+            "Marker" : {
+                "type": "attribute",
+                "uri": "http://purl.org/linked-data/sdmx/2009/attribute#obsStatus",
+                "value": "http://gss-data.org.uk/def/concept/cogs-markers/{+marker}"
+            }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
     },
     "sizingNotes": "",
     "notes": "Data for 2021/22 or financial year ending 31 March 2022"

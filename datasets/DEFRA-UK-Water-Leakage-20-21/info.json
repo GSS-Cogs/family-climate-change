@@ -1,5 +1,6 @@
 {
     "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
+
     "id": "defra-uk-water-leakage-20-21",
     "title": "UK Water Leakage 20 - 21",
     "publisher": "Department for Environment Food & Rural Affairs",
@@ -19,7 +20,7 @@
         "airtable": "rec0bsZDDkNWbPCfW",
         "main_issue": 529,
         "columns": {
-            "Year": {
+            "Period": {
                 "type":"dimension",
                 "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
                 "value": "http://reference.data.gov.uk/id/government-year/{+year}"

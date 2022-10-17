@@ -90,7 +90,7 @@ df['Period'] = df['Period'].map(lambda x: 'year/' + str(x))
 df = df.drop_duplicates()
 
 # +
-for col in ['Final Demand Breakdown', 'Measure', 'Unit']:
+for col in ['Measure', 'Unit']:
     try:
         df[col] = df[col].apply(pathify)
     except Exception as err:
