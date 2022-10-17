@@ -55,8 +55,8 @@
             "Value": {
                 "type": "observations"
             }
-        }
-
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
     },
     "sizingNotes": "",
     "notes": "CO2 emissions now included in the regional GHG publication. Prior to the 2005 to 2020 publication the statistics covered emissions of CO2 only."
