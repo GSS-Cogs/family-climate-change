@@ -20,7 +20,7 @@ df['Measure Type'] = df['Measure Type'].str.replace(
 df = df.replace({'Measure Type': {"Conifers Total": "new-conifers", "Broadleaves Total": "new-broadleaves",
                                   "Total": "total-new"}})
 df['Unit'] = 'thousand-hectares'
-
+df['Value'] = df['Value'].round(2)
 # %%
 df.to_csv("observations.csv", index=False)
 # %%
