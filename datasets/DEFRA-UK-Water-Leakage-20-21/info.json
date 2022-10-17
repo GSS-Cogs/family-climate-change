@@ -19,10 +19,10 @@
         "airtable": "rec0bsZDDkNWbPCfW",
         "main_issue": 529,
         "columns": {
-            "Period": {
+            "Year": {
                 "type":"dimension",
                 "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-                "value": "http://reference.data.gov.uk/id/{+period}"
+                "value": "http://reference.data.gov.uk/id/government-year/{+year}"
             },
             "Value": {
                 "type": "observations",
