@@ -1,0 +1,43 @@
+{
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
+    "id": "forestry-research-forestry-statistics-2022-woodland-area",
+    "title": "Forestry Statistics 2022 Woodland Area",
+    "publisher": "https://www.gov.uk/government/organisations/forest-research",
+    "description": "",
+    "landingPage": "https://www.forestresearch.gov.uk/tools-and-resources/statistics/forestry-statistics/forestry-statistics-2022/1-woodland-area-planting/",
+    "datasetNotes": [
+        "On the landing page, navigate to Chapter 1 - Woodland Area & Planting data set (xlsx). The required data is on the sheet: Fig_1.1_data"
+    ],
+    "published": "2022-09-29",
+    "families": [
+        "Climate-Change"
+    ],
+    "extract": {
+        "source": ""
+    },
+    "transform": {
+        "airtable": "rect8nVhX1DQKRV2n",
+        "main_issue": 533,
+        "columns": {
+            "Year": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Country": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+                "value": "http://statistics.data.gov.uk/id/statistical-geography/{+country}"
+            },
+            "Value": {
+                "type": "observations",
+                "measure": "http://gss-data.org.uk/def/climate-change/measure/woodland",
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/million-hectares",
+                "datatype": "double"
+            }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
+    },
+    "sizingNotes": "",
+    "notes": "Data for 2021/22 or financial year ending 31 March 2022"
+}

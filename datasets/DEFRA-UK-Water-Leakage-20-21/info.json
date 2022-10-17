@@ -1,0 +1,42 @@
+{
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
+
+    "id": "defra-uk-water-leakage-20-21",
+    "title": "UK Water Leakage 20 - 21",
+    "publisher": "Department for Environment Food & Rural Affairs",
+    "description": "",
+    "landingPage": "https://oifdata.defra.gov.uk/5/",
+    "datasetNotes": [
+        "On landing page, navigate to Table E8a: Water leakage in England, and download Table CSV."
+    ],
+    "published": "2022-05-19",
+    "families": [
+        "Climate-Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "rec0bsZDDkNWbPCfW",
+        "main_issue": 529,
+        "columns": {
+            "Period": {
+                "type":"dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/government-year/{+year}"
+            },
+            "Value": {
+                "type": "observations",
+                "measure": {
+                    "label": "Water leakage"
+                },
+                "unit": {
+                    "label": "Megalitres per day"
+                }
+            }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
+    },
+    "sizingNotes": "",
+    "notes": ""
+}
