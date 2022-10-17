@@ -13,12 +13,13 @@ df['Marker'] = df['Year'].str.split(" ").str[1]
 # [r] = revised, [p] = provisional, [z] = not applicable
 df = df.replace({'Marker': {"[r]": "revised", "[p]": "provisional",
                             "[z]": "not-applicable"}})
-df['Year'] = df['Year'].astype('str')     
+df['Year'] = df['Year'].astype('str')
 df['Year'] = df['Year'].str[:4]
-df['Measure Type'] = df['Measure Type'].str.replace(r"\(.*?\)", "", regex=True).str.rstrip().str.strip("[note 3]").str.strip("United Kingdom ")
-df = df.replace({'Marker': {"Conifers Total": "new-conifers", "Broadleaves Total": "new-broadleaves",
-                            "Total": "total-new"}})
-df['Unit'] = 'thousand-hectares' 
+df['Measure Type'] = df['Measure Type'].str.replace(
+    r"\(.*?\)", "", regex=True).str.rstrip().str.strip("[note 3]").str.strip("United Kingdom ")
+df = df.replace({'Measure Type': {"Conifers Total": "new-conifers", "Broadleaves Total": "new-broadleaves",
+                                  "Total": "total-new"}})
+df['Unit'] = 'thousand-hectares'
 
 # %%
 df.to_csv("observations.csv", index=False)
@@ -32,7 +33,6 @@ catalog_metadata = CatalogMetadata(
         "https://uksa.statisticsauthority.gov.uk/themes/agriculture-energy-environment"],
     landing_page_uris=[
         "https://www.forestresearch.gov.uk/tools-and-resources/statistics/data-downloads/"],
-    #dataset_issue="2022-09-29",
+    # dataset_issue="2022-09-29",
 )
-
 catalog_metadata.to_json_file('catalog-metadata.json')
