@@ -27,15 +27,6 @@
             "Country": {
                 "type": "dimension"
             },
-            "Country Code": {
-                "type": "dimension"
-            },
-            "Region": {
-                "type": "dimension"
-            },
-            "Region Code": {
-                "type": "dimension"
-            },
             "Local Authority": {
                 "type": "dimension"
             },
