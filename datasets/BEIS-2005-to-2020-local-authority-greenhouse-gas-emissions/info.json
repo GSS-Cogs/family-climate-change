@@ -46,9 +46,6 @@
                 "uri" : "http://gss-data.org.uk/def/climate-change/property/dimension/ghg",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{greenhouse_gas}"
             },
-            "Second Tier Authority" :{
-                "type": "dimension"
-            },
             "Measure": {
                 "type": "measures"
             },
