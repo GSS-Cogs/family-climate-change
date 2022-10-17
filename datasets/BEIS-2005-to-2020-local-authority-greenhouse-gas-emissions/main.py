@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 from gssutils import *
 
+
 metadata = Scraper(seed='info.json')
 
 distribution = metadata.distribution(latest=True, mediaType="text/csv",
@@ -57,11 +58,20 @@ df['Value'] = df.apply(lambda x: 0 if np.isnan(
 df = df.fillna('unallocated consumption')
 df = df.drop_duplicates()
 
+# +
+# df['Local Authority Code'] = df.apply(lambda x: 'unallocated-consumption' if str(
+#     x['Local Authority Code']) == 'unallocated consumption' else x['Local Authority Code'], axis=1)
+# -
+
+df = df.replace({'Local Authority Code': {'LargeElec': 'unallocated-consumption',
+                                    'Unallocated': 'unallocated-consumption',
+                                    'unallocated consumption': 'unallocated-consumption' 
+                                    }})
+
+df = df.replace({'Local Authority': {'Large elec users (high voltage lines) unknown location': 'Unknown Location'}})
+
 df = df[['Year', 'Country', 'Local Authority', 'Local Authority Code',
          'LA GHG Sector', 'LA GHG Sub-sector', 'Greenhouse Gas', 'Measure', 'Value', 'Unit']]
-
-df['Local Authority Code'] = df.apply(lambda x: 'unallocated-consumption' if str(
-    x['Local Authority Code']) == 'unallocated consumption' else x['Local Authority Code'], axis=1)
 
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
