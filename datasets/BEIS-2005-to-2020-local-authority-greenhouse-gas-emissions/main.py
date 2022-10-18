@@ -68,6 +68,9 @@ df = df.replace({'Local Authority Code': {'LargeElec': 'unallocated-consumption'
                                     'unallocated consumption': 'unallocated-consumption' 
                                     }})
 
+indexNames = df[df['Local Authority Code'] == 'unallocated-consumption'].index
+df.drop(indexNames, inplace=True)
+
 df = df.replace({'Local Authority': {'Large elec users (high voltage lines) unknown location': 'Unknown Location'}})
 
 df = df[['Year', 'Country', 'Local Authority', 'Local Authority Code',
