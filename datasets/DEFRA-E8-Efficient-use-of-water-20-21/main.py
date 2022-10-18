@@ -1,5 +1,5 @@
 # DEFRA E8: Efficient use of water 20 - 21
-
+# %%
 import pandas as pd 
 from gssutils import *
 
@@ -24,7 +24,7 @@ df.drop(columns=['Series'], inplace=True)
 
 
 df['Year'] = df['Year'].str.replace(r'-20', r'-')
-df['Year'] = df.apply(lambda x: 'government-year/' + x['Year'], axis = 1)
+#df['Year'] = df.apply(lambda x: 'government-year/' + x['Year'], axis = 1)
 df = df.rename(columns={'Year' : 'Period'})
 df['Value'] = pd.to_numeric(df['Value'], downcast='float')
 df['Value'] = df['Value'].astype(str).astype(float).round(2)
