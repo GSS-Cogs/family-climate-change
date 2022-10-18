@@ -57,7 +57,14 @@ df = df[['Year', 'Fuel', 'Value']]
 metadata.dataset.family = 'climate-change'
 metadata.dataset.title = "Inland energy consumption: primary fuel input basis 2021"
 metadata.dataset.comment = """
-An overview of the trends in energy consumption in the United Kingdom.
+Inland energy consumption: primary fuel input basis, annual data
+"""
+metadata.dataset.description = """ 
+An overview of the trends in energy consumption in the
+United Kingdom, focusing on: 
+
+consumption, both primary and final by broad sector as well as 
+dependency rates of imports, fossil fuels and low carbon fuels. 
 """
 metadata.dataset.contactPoint = "energy.stats@beis.gov.uk"
 # -
