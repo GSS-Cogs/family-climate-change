@@ -6,6 +6,7 @@ from gssutils import *
 metadata = Scraper(seed='info.json')
 metadata.select_dataset(title = lambda x: 'E8: Efficient use of water' in x)
 
+metadata.dataset.title = "E8: Efficient use of water 20 - 21"
 metadata.dataset.comment = ""
 metadata.dataset.description = """
 Climate change and a growing population will put increasing pressure on our water supplies.
