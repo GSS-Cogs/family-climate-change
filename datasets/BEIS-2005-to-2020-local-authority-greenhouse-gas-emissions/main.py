@@ -1,4 +1,4 @@
-# ## BEIS 2005 to 2020 local authority greenhouse gas emissions
+# ### BEIS 2005 to 2020 local authority greenhouse gas emissions
 
 import json
 import pandas as pd
@@ -58,18 +58,10 @@ df['Value'] = df.apply(lambda x: 0 if np.isnan(
 df = df.fillna('unallocated consumption')
 df = df.drop_duplicates()
 
-# +
-# df['Local Authority Code'] = df.apply(lambda x: 'unallocated-consumption' if str(
-#     x['Local Authority Code']) == 'unallocated consumption' else x['Local Authority Code'], axis=1)
-# -
-
-df = df.replace({'Local Authority Code': {'LargeElec': 'unallocated-consumption',
-                                    'Unallocated': 'unallocated-consumption',
+df = df.replace({'Local Authority Code': {'LargeElec': 'large-elec',
+                                    'Unallocated': 'unallocated',
                                     'unallocated consumption': 'unallocated-consumption' 
                                     }})
-
-indexNames = df[df['Local Authority Code'] == 'unallocated-consumption'].index
-df.drop(indexNames, inplace=True)
 
 df = df.replace({'Local Authority': {'Large elec users (high voltage lines) unknown location': 'Unknown Location'}})
 
