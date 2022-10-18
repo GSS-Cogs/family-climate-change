@@ -57,6 +57,7 @@ for name, tab in tabs.items():
     # savepreviewhtml(tidy_sheet,fname=tab.name + "Preview.html")
 # -
 
+
 df = pd.concat(tidied_sheets, sort=True)
 
 df.rename(columns={'OBS' : 'Value'}, inplace=True)
@@ -73,6 +74,7 @@ df['Unit'] = df['Unit'].apply(pathify)
 df = df[['Period', 'Country', 'Measure', 'Unit', 'Value']]
 
 metadata.dataset.title = "Carbon Footprint - Summary Source Region 90-19"
+metadata.dataset.comment = "Annual greenhouse gas and carbon dioxide emissions relating to UK consumption." 
 metadata.dataset.description = """
 This publication looks at the carbon footprint for the UK.
 
