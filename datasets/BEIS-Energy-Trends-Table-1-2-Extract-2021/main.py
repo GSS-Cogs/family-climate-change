@@ -63,8 +63,8 @@ metadata.dataset.description = """
 An overview of the trends in energy consumption in the
 United Kingdom, focusing on: 
 
-consumption, both primary and final by broad sector as well as 
-dependency rates of imports, fossil fuels and low carbon fuels. 
+consumption, both primary and final by broad sector, as well as 
+\ndependency rates of imports, fossil fuels and low carbon fuels. 
 """
 metadata.dataset.contactPoint = "energy.stats@beis.gov.uk"
 # -
