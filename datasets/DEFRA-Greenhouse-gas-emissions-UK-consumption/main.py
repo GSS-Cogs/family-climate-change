@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
+# %% 
 import pandas as pd 
 from gssutils import *
 from csvcubed.models.cube.qb.catalog import CatalogMetadata
@@ -22,6 +23,7 @@ df.to_csv('observations.csv', index=False)
 catalog_metadata = CatalogMetadata(
     title = "Greenhouse gas emissions UK consumption",
     summary = "Greenhouse Gas (GHG) emissions associated with UK consumption (UK's carbon footprint)",
+    publisher_uri=["https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs"],
     landing_page_uris=[
         "https://www.gov.uk/government/statistics/uks-carbon-footprint/carbon-footprint-for-the-uk-and-england-to-2019#greenhouse-gas-emissions-associated-with-consumption"],
     description = """
@@ -45,3 +47,5 @@ catalog_metadata = CatalogMetadata(
     """
 )
 catalog_metadata.to_json_file('catalog-metadata.json')
+
+# %%
