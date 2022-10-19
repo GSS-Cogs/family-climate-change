@@ -3,7 +3,7 @@
     "id": "defra-carbon-footprint-summary-final-demand-90-19",
     "title": "Carbon Footprint - Summary Final Demand 90-19",
     "publisher": "Department for Environment Food & Rural Affairs",
-    "description": "Greenhouse gas emissions by; region, households, consumables, services...",
+    "description": "Annual greenhouse gas and carbon dioxide emissions relating to UK consumption.",
     "landingPage": "https://www.gov.uk/government/statistics/uks-carbon-footprint",
     "datasetNotes": [
         "Scroll down from landing page"
@@ -42,5 +42,5 @@
         "csvcubed_uri_style": "WithoutFileExtensions"
     },
     "sizingNotes": "",
-    "notes": "Tab required: Summary_final_demand_90-19"
+    "notes": ""
 }
