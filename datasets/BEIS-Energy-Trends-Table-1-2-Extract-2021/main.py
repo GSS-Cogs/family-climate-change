@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 # ### Energy Trends Table 1.2 - Extract 2021
-
+# %%
 import pandas as pd
 from gssutils import *
 
@@ -49,7 +49,7 @@ df.replace({'Coal [note 2]': 'Coal',
             'Primary electricity - net imports': 'Net imports'
             }, inplace=True)
 
-df['Fuel'] = df['Fuel'].apply(pathify)
+#df['Fuel'] = df['Fuel'].apply(pathify)
 df = df.drop_duplicates()
 df = df[['Year', 'Fuel', 'Value']]
 
