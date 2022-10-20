@@ -87,14 +87,14 @@ df['Period'] = df['Period'].map(lambda x: 'year/' + str(x))
 df = df.drop_duplicates()
 
 # +
-for col in ['Final Demand Breakdown', 'Measure', 'Unit']:
+for col in ['Measure', 'Unit']:
     try:
         df[col] = df[col].apply(pathify)
     except Exception as err:
         raise Exception("Failed to pathify column '{}'.".format(col)) from err
 
 df = df[['Period', 'Final Demand Breakdown', 'Measure', 'Unit', 'Value']]
-# -
+df['Value'] = df['Value'].round(2)
 
 metadata.dataset.title = "Carbon Footprint - Summary Final Demand 90-19"
 metadata.dataset.comment = "Annual greenhouse gas and carbon dioxide emissions relating to UK consumption."
