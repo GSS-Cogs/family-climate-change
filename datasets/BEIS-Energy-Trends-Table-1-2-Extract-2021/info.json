@@ -25,9 +25,7 @@
                 "value": "http://reference.data.gov.uk/id/year/{year}"
             },
             "Fuel": {
-                "type": "dimension",    
-                "uri": "http://gss-data.org.uk/def/energy/property/dimension/fuel",
-                "value": "http://gss-data.org.uk/def/energy/concept/fuel/{fuel}"
+                "type": "dimension"
             }, 
             "Value": {
                 "type": "observations",
