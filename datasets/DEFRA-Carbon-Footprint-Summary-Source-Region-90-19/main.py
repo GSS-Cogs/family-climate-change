@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 #     DEFRA-Carbon-Footprint-Summary-Source-Region-90-19
-
+# %%
 import pandas as pd
 from gssutils import *
 
@@ -72,6 +72,7 @@ df.drop(indexNames, inplace=True)
 df['Measure'] = df['Measure'].apply(pathify)
 df['Unit'] = df['Unit'].apply(pathify)
 df = df[['Period', 'Country', 'Measure', 'Unit', 'Value']]
+df['Value'] = df['Value'].round(2)
 
 metadata.dataset.title = "Carbon Footprint - Summary Source Region 90-19"
 metadata.dataset.comment = "Annual greenhouse gas and carbon dioxide emissions relating to UK consumption." 
