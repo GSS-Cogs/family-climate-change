@@ -373,7 +373,6 @@ Swansea,http://statistics.data.gov.uk/id/statistical-geography/W06000011,,372,,W
 Torfaen,http://statistics.data.gov.uk/id/statistical-geography/W06000020,,373,,W06000020
 Vale of Glamorgan,http://statistics.data.gov.uk/id/statistical-geography/W06000014,,374,,W06000014
 Wrexham,http://statistics.data.gov.uk/id/statistical-geography/W06000006,,375,,W06000006
-"Large elec users (high voltage lines) unknown location
-","http://gss-data.org.uk/data/gss_data/climate-change/beis-2005-to-2020-local-authority-greenhouse-gas-emissions#concept/local-authority-code/large-elec',",,376,,large-elec
-Unallocated consumption,"http://gss-data.org.uk/data/gss_data/climate-change/beis-2005-to-2020-local-authority-greenhouse-gas-emissions#concept/local-authority-code/unallocated-consumption',",,377,,unallocated-consumption
+Large elec users (high voltage lines) unknown location,http://gss-data.org.uk/data/gss_data/climate-change/beis-2005-to-2020-local-authority-greenhouse-gas-emissions#concept/local-authority-code/large-elec,,376,,large-elec
+Unallocated consumption,http://gss-data.org.uk/data/gss_data/climate-change/beis-2005-to-2020-local-authority-greenhouse-gas-emissions#concept/local-authority-code/unallocated-consumption,,377,,unallocated-consumption
 Unallocated electricity NI,http://gss-data.org.uk/data/gss_data/climate-change/beis-2005-to-2020-local-authority-greenhouse-gas-emissions#concept/local-authority-code/unallocated-elec-ni,,378,,unallocated-elec-ni

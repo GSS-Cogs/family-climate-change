@@ -52,7 +52,8 @@ df['Unit'] = df.apply(lambda x: 'kt CO2e' if x['Measure'] == 'Territorial emissi
 
 df['Value'] = df.apply(lambda x: 0 if np.isnan(
     x['Value']) else x['Value'], axis=1)
-
+df = df.fillna('unallocated consumption')
+df = df.drop_duplicates()
 # %%
 # Label : Large elec users (high voltage lines) unknown location
 # notation : large-elec
