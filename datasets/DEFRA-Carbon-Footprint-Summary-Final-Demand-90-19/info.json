@@ -2,7 +2,7 @@
     "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "defra-carbon-footprint-summary-final-demand-90-19",
     "title": "Carbon Footprint - Summary Final Demand 90-19",
-    "publisher": "Department for Environment Food & Rural Affairs",
+    "publisher": "https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs",
     "description": "Annual greenhouse gas and carbon dioxide emissions relating to UK consumption.",
     "landingPage": "https://www.gov.uk/government/statistics/uks-carbon-footprint",
     "datasetNotes": [
