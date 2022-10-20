@@ -37,9 +37,10 @@ df.rename(columns={"Calendar Year": "Year",
                    "Mid-year Population (thousands)": "Population",
                    "Area (km2)": "Area"}, inplace=True)
 
+# %%
 df["Territorial emissions per capita"] = df["Territorial emissions"]/df["Population"]
 df["Territorial emissions per area"] = df["Territorial emissions"]/df["Area"]
-
+df.replace([np.inf, -np.inf], 0, inplace=True)
 for col in ['Territorial emissions', 'Emissions within the scope of influence of LAs',
             'Territorial emissions per capita', 'Territorial emissions per area']:
     df[col] = df[col].astype(str).astype(float).round(4)
@@ -49,7 +50,7 @@ df = pd.melt(df, id_vars=['Country', 'Local Authority', 'Local Authority Code', 
 
 df['Unit'] = df.apply(lambda x: 'kt CO2e' if x['Measure'] == 'Territorial emissions' else 'kt CO2e' if x['Measure'] == 'Emissions within the scope of influence of LAs' else 'tonnes of CO2e' if x['Measure']
                       == 'Territorial emissions per capita' else 'CO2e/m2' if x['Measure'] == 'Territorial emissions per area' else ' ', axis=1)
-
+# %%
 df['Value'] = df.apply(lambda x: 0 if np.isnan(
     x['Value']) else x['Value'], axis=1)
 df = df.fillna('unallocated consumption')
@@ -104,3 +105,4 @@ df.rename(columns={'Local Authority Code': 'Local Authority'}, inplace=True)
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file('catalog-metadata.json')
+# %%
