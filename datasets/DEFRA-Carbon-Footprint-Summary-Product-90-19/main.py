@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 #      DEFRA-Carbon-Footprint-Summary-Product-90-19
-
+# %%
 import pandas as pd
 from gssutils import *
 
@@ -72,7 +72,7 @@ df['Measure'] = df['Measure'].map(lambda x: pathify(x))
 df['Value'] = df['Value'].astype(str).astype(float).round(4)
 df = df.drop_duplicates()
 df = df[['Period', 'Product', 'Measure', 'Unit', 'Value']]
-
+df['Value'] = df['Value'].round(2)
 metadata.dataset.title = "Carbon Footprint - Summary Product 90-19"
 metadata.dataset.comment = "Annual greenhouse gas and carbon dioxide emissions relating to UK consumption."
 metadata.dataset.description = """
