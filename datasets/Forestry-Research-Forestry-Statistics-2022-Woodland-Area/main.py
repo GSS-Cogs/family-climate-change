@@ -46,6 +46,7 @@ Statistics on woodland area are used to inform government policy and resource
 allocation, to provide context to UK forestry and land management issues and are
 reported to international organisations. They are also used in the compilation of
 natural capital accounts.
+
 Increases in woodland area result from the creation of new woodland. This can be
 achieved through new planting or by natural colonisation of trees. Further
 information is available https://cdn.forestresearch.gov.uk/2022/09/Ch1_Woodland_2022.pdf
