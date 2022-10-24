@@ -10,20 +10,6 @@ df = pd.read_excel("Ch1_Woodland_FS2022.xlsx",
 df = pd.melt(frame=df, id_vars=['Year'],
              var_name='Country', value_name='Value')
 df['Country'] = df['Country'].str.split(" \n").str[0]
-# Maping for local bespoke country codelist
-df["Country"] = (
-    df["Country"]
-    .replace({
-        "UK": "K02000001",
-        "England": "E92000001",
-        "Scotland": "S92000003",
-        "Northern Ireland": "N92000002",
-        "Wales": "W92000004",
-    })
-    .map(lambda x: (
-        f"http://statistics.data.gov.uk/id/statistical-geography/{x}"
-    ))
-)
 
 df.to_csv("observations.csv", index=False)
 catalog_metadata = CatalogMetadata(
@@ -46,7 +32,6 @@ Statistics on woodland area are used to inform government policy and resource
 allocation, to provide context to UK forestry and land management issues and are
 reported to international organisations. They are also used in the compilation of
 natural capital accounts.
-
 Increases in woodland area result from the creation of new woodland. This can be
 achieved through new planting or by natural colonisation of trees. Further
 information is available https://cdn.forestresearch.gov.uk/2022/09/Ch1_Woodland_2022.pdf
