@@ -10,8 +10,20 @@ df = pd.read_excel("Ch1_Woodland_FS2022.xlsx",
 df = pd.melt(frame=df, id_vars=['Year'],
              var_name='Country', value_name='Value')
 df['Country'] = df['Country'].str.split(" \n").str[0]
-df = df.replace({'Country': {"UK": "K02000001", "Northern Ireland": "N92000002",
-                             "Scotland": "S92000003", "Wales": "W92000004", "England": "E92000001"}})
+# Maping for local bespoke country codelist
+df["Country"] = (
+    df["Country"]
+    .replace({
+        "UK": "K02000001",
+        "England": "E92000001",
+        "Scotland": "S92000003",
+        "Northern Ireland": "N92000002",
+        "Wales": "W92000004",
+    })
+    .map(lambda x: (
+        f"http://statistics.data.gov.uk/id/statistical-geography/{x}"
+    ))
+)
 
 df.to_csv("observations.csv", index=False)
 catalog_metadata = CatalogMetadata(
@@ -22,7 +34,7 @@ catalog_metadata = CatalogMetadata(
         "https://uksa.statisticsauthority.gov.uk/themes/agriculture-energy-environment"],
     landing_page_uris=[
         "https://www.forestresearch.gov.uk/tools-and-resources/statistics/forestry-statistics/forestry-statistics-2022/1-woodland-area-planting/"],
-    #dataset_issue="2022-09-29",
+    # dataset_issue="2022-09-29",
     description=""" 
 Woodland is defined in UK forestry statistics as land under stands of trees with a
 minimum area of 0.5 hectares and a canopy cover of at least 20%, or having the
