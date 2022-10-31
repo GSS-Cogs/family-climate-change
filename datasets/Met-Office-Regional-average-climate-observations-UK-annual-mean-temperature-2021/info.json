@@ -1,0 +1,23 @@
+{
+    "id": "met-office-regional-average-climate-observations-uk-annual-mean-temperature-2021",
+    "title": "Regional average climate observations UK annual mean temperature 2021",
+    "publisher": "Meteorological Office",
+    "description": "",
+    "landingPage": "raw.csv",
+    "datasetNotes": [
+        "No landing page for this dataset as it is a bespoke dataset supplied to IDP-D as part of the Climate Change v2.0 project."
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": ""
+    },
+    "transform": {
+        "airtable": "recjUgQ1vYcWuTbz7",
+        "main_issue": 549
+    },
+    "sizingNotes": "",
+    "notes": ""
+}

@@ -1,0 +1,23 @@
+{
+    "id": "met-office-regional-average-climate-observations-uk-growing-season-length-2021",
+    "title": "Regional average climate observations UK growing season length 2021",
+    "publisher": "Meteorological Office",
+    "description": "",
+    "landingPage": "raw.csv",
+    "datasetNotes": [
+        "No landing page for this dataset as it is a bespoke dataset supplied to IDP-D as part of the Climate Change v2.0 project."
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": ""
+    },
+    "transform": {
+        "airtable": "rec29wkLkpUxKahGf",
+        "main_issue": 546
+    },
+    "sizingNotes": "",
+    "notes": ""
+}
