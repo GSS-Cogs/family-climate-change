@@ -1,22 +1,44 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "met-office-regional-average-climate-observations-uk-annual-rainfall-2021",
     "title": "Regional average climate observations UK annual rainfall 2021",
     "publisher": "Meteorological Office",
-    "description": "",
-    "landingPage": "raw.csv",
+    "description": "Priority dataset for Climate Change Platform project.",
+    "landingPage": "Not available",
     "datasetNotes": [
         "No landing page for this dataset as it is a bespoke dataset supplied to IDP-D as part of the Climate Change v2.0 project."
     ],
-    "published": "",
+    "published": "2022-11-01",
     "families": [
-        "Climate Change"
+        "Climate-Change"
     ],
     "extract": {
-        "source": ""
+        "source": "CSV"
     },
     "transform": {
         "airtable": "recLqYLz2Rx1krPF1",
-        "main_issue": 548
+        "main_issue": 548,
+        "columns": {
+            "Year": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Geography": {
+                "type": "dimension"
+            },
+            "Value": {
+                "type": "observations",
+                "measure": {
+                    "label": "Rainfall"
+                },
+                "unit": {
+                    "label": "Millimetres"
+                },
+                "datatype": "double"
+            }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
     },
     "sizingNotes": "",
     "notes": ""
