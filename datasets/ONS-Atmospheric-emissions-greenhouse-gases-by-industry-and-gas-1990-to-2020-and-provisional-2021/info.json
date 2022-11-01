@@ -41,7 +41,8 @@
                     "label": "Thousand Tonnes"
                 }
             }
-        }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
     },
     "sizingNotes": "",
     "notes": "Added at the request of Data Engineering (Shannon Black)"
