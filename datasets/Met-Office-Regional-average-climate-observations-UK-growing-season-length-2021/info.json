@@ -19,13 +19,17 @@
         "main_issue": 546,
         "columns": {
             "Year": {
-                "parent": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "type":"dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
                 "value": "http://reference.data.gov.uk/id/year/{year}"
             },
             "Geography": {
-                "description": "Met Office bespoke geography area"
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+                "value": "http://statistics.data.gov.uk/id/statistical-geography/{+geography}"
             },
             "Value": {
+                "type": "obserrvations",
                 "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/day",
                 "measure": "http://gss-data.org.uk/def/climate-change/measure/annual-growing-season",
                 "datatype": "double"
