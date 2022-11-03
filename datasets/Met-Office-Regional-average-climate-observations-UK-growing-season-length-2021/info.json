@@ -30,6 +30,7 @@
                 "measure": "http://gss-data.org.uk/def/climate-change/measure/annual-growing-season",
                 "datatype": "double"
             }
+        }
     },
     "sizingNotes": "",
     "notes": ""
