@@ -7,6 +7,9 @@ from csvcubed.models.cube.qb.catalog import CatalogMetadata
 
 df = pd.read_csv("regional-average-climate-observations-uk-growing-season-length.csv")
 
+# add measure type column to differentiate between actual value and trend value
+df['Measure Type'] = df.apply(lambda x: 'Annual Growing Season Length (Trend)' if 'trend' in x['Geography'] else 'Annual Growing Season Length', axis=1)
+
 ##rename columns
 #df.rename(columns={'Year' : 'Period'}, inplace=True)
 #%%
@@ -14,24 +17,22 @@ df = pd.read_csv("regional-average-climate-observations-uk-growing-season-length
 df = df.replace({'Geography' : {
     "uk":"K02000001"
     ,"england":"E92000001"
-    ,"wales":"W08000001" # this did come from W08 European Electoral Region so check with SB if suitable
+    ,"wales":"W92000004" # this did come from W08 European Electoral Region so check with SB if suitable
     ,"scotland":"S04000001"
-    ,"northern-ireland":"N07000001"
-    ## waiting from feedback from SB on how to handle trends
-    #,"uk-trend":"tbc"
-    #,"england-trend":"tbc"
-    #,"wales-trend":"tbc"
-    #,"scotland-trend":"tbc"
-    #,"northern-ireland-trend":"tbc"
+    ,"northern-ireland":"N92000002"
+    ,"uk-trend":"K02000001"
+    ,"england-trend":"E92000001"
+    ,"wales-trend":"W92000004"
+    ,"scotland-trend":"S04000001"
+    ,"northern-ireland-trend":"N92000002"
     }}
 )
-#%%
-#make output directory
-out = Path('out')
-out.mkdir(exist_ok=True)
+
+#pathify column values
+
 
 #create observation file
-df.to_csv(out/'regional-average-climate-observations-uk-growing-season-length.csv', index=False)
+df.to_csv('observations.csv', index=False)
 
 # ## No scraper present so we have create catalogue metadata manually
 catalog_metadata = CatalogMetadata(
@@ -44,5 +45,5 @@ catalog_metadata = CatalogMetadata(
         "https://www.ons.gov.uk/economy/grossdomesticproductgdp/datasets/quarterlycountryandregionalgdp"],
     # dataset_issue="2022-09-29",
 )
-catalog_metadata.to_json_file(out/'catalog-metadata.json')
+catalog_metadata.to_json_file('catalog-metadata.json')
 
