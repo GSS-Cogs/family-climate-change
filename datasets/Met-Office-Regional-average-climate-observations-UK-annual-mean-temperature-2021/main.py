@@ -5,7 +5,8 @@ from csvcubed.models.cube.qb.catalog import CatalogMetadata
 df = pd.read_csv("regional-average-climate-observations-uk-annual-mean-temperature.csv")
 
 df['Measure Type'] = df.apply(
-    lambda x: 'Rainfall (Trend)' if 'trend' in x['Geography'] else 'Rainfall', axis=1)
+    lambda x: 'Annual Mean Temperature (Trend)' if 'trend' in x['Geography'] 
+                else 'Annual Mean Temperature', axis=1)
 
 df['Geography'] = df['Geography'].apply(lambda x: 'K02000001' if 'uk' in x
                                         else ('N92000002' if 'northern-ireland' in x
