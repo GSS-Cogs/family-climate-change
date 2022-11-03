@@ -31,9 +31,11 @@
             "Value": {
                 "type": "observations",
                 "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/day",
-                "measure": "http://gss-data.org.uk/def/climate-change/measure/annual-growing-season",
                 "datatype": "double"
-            }
+            },
+            "Measure Type": {
+                "type":"measures",
+                "value": "http://gss-data.org.uk/def/climate-change/measure/{measure_type}"
         }
     },
     "sizingNotes": "",
