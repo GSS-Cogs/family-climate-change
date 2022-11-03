@@ -29,7 +29,7 @@
                 "value": "http://statistics.data.gov.uk/id/statistical-geography/{+geography}"
             },
             "Value": {
-                "type": "obserrvations",
+                "type": "observations",
                 "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/day",
                 "measure": "http://gss-data.org.uk/def/climate-change/measure/annual-growing-season",
                 "datatype": "double"
