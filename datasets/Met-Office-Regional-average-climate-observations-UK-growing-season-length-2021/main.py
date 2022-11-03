@@ -11,41 +11,23 @@ df = pd.read_csv("regional-average-climate-observations-uk-growing-season-length
 #rename columns
 df.rename(columns={'Year' : 'Period'}, inplace=True)
 
-
-df.to_csv('regional-average-climate-observations-uk-growing-season-length.csv', index=False)
-catalog_metadata = metadata.as_csvqb_catalog_metadata()
-catalog_metadata.to_json_file('regional-average-climate-observations-uk-growing-season-length-catalog-metadata.json')
-
-#%%
-'''
-df = pd.melt(df, id_vars=['period-start'])
-df.rename(columns={'period-start': 'Month',
-                'variable': 'Geography',
-                'value': 'Value'
-                }, inplace=True)
-
-df['Month'] = pd.to_datetime(df['Month'], dayfirst=True).dt.strftime('%Y-%m')
-
-#df['Geography'].replace({'ondon': 'london'}, inplace=True)
-df['Geography'] = df['Geography'].apply(pathify)
-#df['Rainfall'] = df['Rainfall'].astype(str).astype(float).round(2)
-
+#make output directory
 out = Path('out')
 out.mkdir(exist_ok=True)
-df.to_csv(out/'growing-season.csv', index = False)
 
-# ## No scraper present so we have created this manually
+#create observation file
+df.to_csv(out/'regional-average-climate-observations-uk-growing-season-length.csv', index=False)
 
-# +
+# ## No scraper present so we have create catalogue metadata manually
 with open('info.json') as f:
     info_json = json.load(f)
 csvw_mapping = CSVWMapping()
 csvw_mapping.set_mapping(info_json)
-csvw_mapping.set_csv(out/"growing-season.csv")
+csvw_mapping.set_csv(out/'regional-average-climate-observations-uk-growing-season-length.csv')
 csvw_mapping.set_dataset_uri(f"http://gss-data.org.uk/data/gss_data/climate-change/{info_json['id']}")
-csvw_mapping.write(out/'growing-season.csv-metadata.json')
+csvw_mapping.write(out/'regional-average-climate-observations-uk-growing-season-length.csv-metadata.json')
 
-shutil.copy("growing-season.csv-metadata.trig", out/"growing-season.csv-metadata.trig")
-'''
+shutil.copy("regional-average-climate-observations-uk-growing-season-length.csv-metadata.trig", out/"regional-average-climate-observations-uk-growing-season-length.csv-metadata.trig")
+
 
 
