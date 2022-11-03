@@ -42,8 +42,6 @@ catalog_metadata = CatalogMetadata(
     title="Regional average climate observations UK growing season length 2021",
     summary="Regional average climate observations UK growing season length, 1960 - 2021",
     publisher_uri="https://www.gov.uk/government/organisations/met-office",
-    landing_page_uris=[
-        "https://www.ons.gov.uk/economy/grossdomesticproductgdp/datasets/quarterlycountryandregionalgdp"],
     # dataset_issue="2022-09-29",
 )
 catalog_metadata.to_json_file(out/'catalog-metadata.json')
