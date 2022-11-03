@@ -7,10 +7,16 @@ import shutil
 from gssutils.csvw.mapping import CSVWMapping
 
 df = pd.read_csv("regional-average-climate-observations-uk-growing-season-length.csv")
-#df.drop(columns='daycount', axis=1, inplace=True)
+
+#rename columns
+df.rename(columns={'Year' : 'Period'}, inplace=True)
+
+
+df.to_csv('regional-average-climate-observations-uk-growing-season-length.csv', index=False)
+catalog_metadata = metadata.as_csvqb_catalog_metadata()
+catalog_metadata.to_json_file('regional-average-climate-observations-uk-growing-season-length-catalog-metadata.json')
 
 #%%
-
 '''
 df = pd.melt(df, id_vars=['period-start'])
 df.rename(columns={'period-start': 'Month',
