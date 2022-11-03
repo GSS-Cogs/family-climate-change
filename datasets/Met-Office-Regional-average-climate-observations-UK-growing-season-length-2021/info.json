@@ -7,7 +7,7 @@
     "datasetNotes": [
         "No landing page for this dataset as it is a bespoke dataset supplied to IDP-D as part of the Climate Change v2.0 project."
     ],
-    "published": "",
+    "published": "2022-11-03",
     "families": [
         "Climate Change"
     ],
@@ -30,8 +30,8 @@
             },
             "Value": {
                 "type": "observations",
-                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/day",
-                "datatype": "double"
+                "datatype": "double",
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/day"
             },
             "Measure Type": {
                 "type": "measures"
