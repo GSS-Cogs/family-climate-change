@@ -7,7 +7,7 @@
     "datasetNotes": [
         "No landing page for this dataset as it is a bespoke dataset supplied to IDP-D as part of the Climate Change v2.0 project."
     ],
-    "published": "",
+    "published": "2022-11-03",
     "families": [
         "Climate Change"
     ],
@@ -16,7 +16,28 @@
     },
     "transform": {
         "airtable": "rec29wkLkpUxKahGf",
-        "main_issue": 546
+        "main_issue": 546,
+        "columns": {
+            "Year": {
+                "type":"dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Geography": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+                "value": "http://statistics.data.gov.uk/id/statistical-geography/{+geography}"
+            },
+            "Value": {
+                "type": "observations",
+                "datatype": "double",
+                "unit": "http://gss-data.org.uk/def/climate-change/concept/measurement-unit/day"
+            },
+            "Measure Type": {
+                "type": "measures"
+            }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
     },
     "sizingNotes": "",
     "notes": ""
