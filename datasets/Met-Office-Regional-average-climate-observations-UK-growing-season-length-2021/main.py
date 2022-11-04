@@ -30,12 +30,8 @@ df = df.replace({'Geography' : {
 
 
 #%%
-#make output directory
-out = Path('out')
-out.mkdir(exist_ok=True)
-
 #create observation file
-df.to_csv(out/'observations.csv', index=False)
+df.to_csv('observations.csv', index=False)
 
 # ## No scraper present so we have create catalogue metadata manually
 catalog_metadata = CatalogMetadata(
@@ -44,5 +40,7 @@ catalog_metadata = CatalogMetadata(
     publisher_uri="https://www.gov.uk/government/organisations/met-office",
     # dataset_issue="2022-09-29",
 )
-catalog_metadata.to_json_file(out/'catalog-metadata.json')
+catalog_metadata.to_json_file('catalog-metadata.json')
 
+
+# %%
