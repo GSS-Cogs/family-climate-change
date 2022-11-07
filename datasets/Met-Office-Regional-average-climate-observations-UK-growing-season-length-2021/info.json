@@ -19,8 +19,11 @@
         "main_issue": 546,
         "columns": {
             "Year": {
-                "type":"dimension",
-                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "type": "dimension",
+                "new": {
+                    "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                    "codelist": true
+                },
                 "value": "http://reference.data.gov.uk/id/year/{+year}"
             },
             "Geography": {

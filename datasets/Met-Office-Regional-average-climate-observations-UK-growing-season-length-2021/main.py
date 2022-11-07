@@ -36,9 +36,10 @@ df.to_csv('observations.csv', index=False)
 # ## No scraper present so we have create catalogue metadata manually
 catalog_metadata = CatalogMetadata(
     title="Regional average climate observations UK growing season length 2021",
-    summary="Regional average climate observations UK growing season length, 1960 - 2021",
+    summary="Data for the Regional average climate observations UK growing season length, with trends 1960 - 2021",
+    creator_uri="https://www.gov.uk/government/organisations/the-meteorological-office",
     publisher_uri="https://www.gov.uk/government/organisations/met-office",
-    # dataset_issue="2022-09-29",
+    theme_uris=["https://www.ons.gov.uk/economy/environmentalaccounts"]
 )
 catalog_metadata.to_json_file('catalog-metadata.json')
 

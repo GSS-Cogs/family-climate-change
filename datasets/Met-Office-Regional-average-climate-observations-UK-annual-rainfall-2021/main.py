@@ -23,8 +23,10 @@ df
 # %%
 df.to_csv('observations.csv', index=False)
 catalog_metadata = CatalogMetadata(
-    title="Regional annual average rainfall with trends 1836 - 2021",
+    title="Regional average climate observations, UK annual rainfall",
+    summary="Data for the Regional annual average rainfall with trends 1836 - 2021",
     creator_uri="https://www.gov.uk/government/organisations/the-meteorological-office",
-    publisher_uri="https://www.gov.uk/government/organisations/met-office"
+    publisher_uri="https://www.gov.uk/government/organisations/met-office",
+    theme_uris=["https://www.ons.gov.uk/economy/environmentalaccounts"]
 )
 catalog_metadata.to_json_file('catalog-metadata.json')
