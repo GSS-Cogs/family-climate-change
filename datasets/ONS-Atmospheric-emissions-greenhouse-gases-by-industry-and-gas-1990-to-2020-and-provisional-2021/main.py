@@ -8,6 +8,7 @@ metadata.dataset.title = info['title']
 distribution = metadata.distribution(
     mediaType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", latest=True)
 
+# +
 # reterieve the id from info.json for URI's (use later)
 title_id = info['id']
 
@@ -21,6 +22,7 @@ def pathify_section_values(section):
     else:
         return section
 
+# -
 tabs = distribution.as_databaker()
 
 tidied_sheets = []
@@ -28,7 +30,7 @@ for tab in tabs:
     if 'Contents' in tab.name:
         continue
     elif 'Total GHG' in tab.name:
-        remove_bottom_section = tab.excel_ref('A26').expand(DOWN).expand(RIGHT)
+        remove_bottom_section = tab.excel_ref('A28').expand(DOWN).expand(RIGHT)
         year = tab.excel_ref('D4').expand(RIGHT).is_not_blank()
         section = tab.excel_ref('A5').expand(DOWN) - remove_bottom_section
         section_name = tab.excel_ref('C5').expand(DOWN) - remove_bottom_section
@@ -36,10 +38,8 @@ for tab in tabs:
         measure_type = tab.excel_ref('AH3')
 
         dimensions = [
-            HDim(section, 'Section breakdown',
-                 DIRECTLY, LEFT),  # will be dropped
-            HDim(section_name, 'Industry Section Name',
-                 DIRECTLY, LEFT),  # will be dropped
+            HDim(section, 'Section breakdown', DIRECTLY, LEFT),  # will be dropped
+            HDim(section_name, 'Industry Section Name', DIRECTLY, LEFT),  # will be dropped
             HDim(year, 'Year', DIRECTLY, ABOVE),
             HDimConst('Emission Type', tab.name),
             HDim(measure_type, 'Measure Type', CLOSEST, ABOVE),
@@ -47,13 +47,16 @@ for tab in tabs:
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         #savepreviewhtml(tidy_sheet, fname = tab.name+ "Preview.html")
         table = tidy_sheet.topandas()
-        table['Section'] = table.apply(lambda x: x['Industry Section Name'] if x['Section breakdown'] == '-'
-                                       else x['Section breakdown'], axis=1)
+        table.replace({'                      - Not travel': 'Consumer expenditure - Not travel',
+                        '                      - Travel': 'Consumer expenditure - travel'
+            }, inplace=True)
+        table['Section'] = table.apply(lambda x: x['Industry Section Name'] if x['Section breakdown'] == '-' else (x['Industry Section Name'] if x['Section breakdown'] == ''
+                                    else x['Section breakdown']), axis=1)
         table['Section'] = table['Section'].apply(pathify_section_values)
         tidied_sheets.append(table)
 
     else:
-        remove_bottom_section = tab.excel_ref('A26').expand(DOWN).expand(RIGHT)
+        remove_bottom_section = tab.excel_ref('A28').expand(DOWN).expand(RIGHT)
         year = tab.excel_ref('D4').expand(RIGHT).is_not_blank()
         section = tab.excel_ref('A5').expand(DOWN) - remove_bottom_section
         section_name = tab.excel_ref('C5').expand(DOWN) - remove_bottom_section
@@ -61,10 +64,8 @@ for tab in tabs:
         measure_type = tab.excel_ref('AH3')
 
         dimensions = [
-            HDim(section, 'Section breakdown',
-                 DIRECTLY, LEFT),  # will be dropped
-            HDim(section_name, 'Industry Section Name',
-                 DIRECTLY, LEFT),  # will be dropped
+            HDim(section, 'Section breakdown', DIRECTLY, LEFT),  # will be dropped
+            HDim(section_name, 'Industry Section Name', DIRECTLY, LEFT),  # will be dropped
             HDim(year, 'Year', DIRECTLY, ABOVE),
             HDimConst('Emission Type', tab.name),
             HDim(measure_type, 'Measure Type', CLOSEST, ABOVE),
@@ -72,8 +73,11 @@ for tab in tabs:
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         #savepreviewhtml(tidy_sheet, fname = tab.name+ "Preview.html")
         table = tidy_sheet.topandas()
-        table['Section'] = table.apply(lambda x: x['Industry Section Name'] if x['Section breakdown'] == '-'
-                                       else x['Section breakdown'], axis=1)
+        table.replace({'                      - Not travel': 'Consumer expenditure - Not travel',
+                        '                      - Travel': 'Consumer expenditure - travel'
+            }, inplace=True)
+        table['Section'] = table.apply(lambda x: x['Industry Section Name'] if x['Section breakdown'] == '-' else (x['Industry Section Name'] if x['Section breakdown'] == ''
+                                    else x['Section breakdown']), axis=1)
         table['Section'] = table['Section'].apply(pathify_section_values)
         tidied_sheets.append(table)
 
@@ -89,10 +93,8 @@ for tab in tabs:
 
         dimensions = [
             HDim(sic_group, 'SIC(07)Group', DIRECTLY, LEFT),
-            HDim(section, 'Section breakdown',
-                 DIRECTLY, LEFT),  # will be dropped
-            HDim(section_name, 'Industry Section Name',
-                 DIRECTLY, LEFT),  # will be dropped
+            HDim(section, 'Section breakdown', DIRECTLY, LEFT),  # will be dropped
+            HDim(section_name, 'Industry Section Name', DIRECTLY, LEFT),  # will be dropped
             HDim(year, 'Year', DIRECTLY, ABOVE),
             HDim(measure_type, 'Measure Type', CLOSEST, ABOVE),
             HDimConst('Emission Type', tab.name),
@@ -116,7 +118,11 @@ df = pd.concat(tidied_sheets, sort=True)
 # +
 df.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inplace=True)
 df = df.replace(
-    {'Section': {'Total': 'total', 'Consumer expenditure': 'consumer-expenditure'}})
+    {'Section': {'Total': 'total', 
+                'Consumer expenditure': 'consumer-expenditure',
+                'Consumer expenditure - Not travel': 'consumer-expenditure-not-travel',
+                'Consumer expenditure - Travel': 'consumer-expenditure-travel',
+                }})
 df['Year'] = df['Year'].astype(str).replace('\.0', '', regex=True)
 # # +
 # info needed to create URI's for section
