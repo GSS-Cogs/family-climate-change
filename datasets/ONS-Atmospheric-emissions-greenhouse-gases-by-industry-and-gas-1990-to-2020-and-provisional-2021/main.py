@@ -48,10 +48,10 @@ for tab in tabs:
         #savepreviewhtml(tidy_sheet, fname = tab.name+ "Preview.html")
         table = tidy_sheet.topandas()
         table.replace({'                      - Not travel': 'Consumer expenditure - Not travel',
-                        '                      - Travel': 'Consumer expenditure - travel'
-            }, inplace=True)
-        table['Section'] = table.apply(lambda x: x['Industry Section Name'] if x['Section breakdown'] == '-' else (x['Industry Section Name'] if x['Section breakdown'] == ''
-                                    else x['Section breakdown']), axis=1)
+                       '                      - Travel': 'Consumer expenditure - travel'
+                       }, inplace=True)
+        table['Section'] = table.apply(lambda x: x['Industry Section Name'] if x['Section breakdown'] == '-' else x['Industry Section Name'] if x['Section breakdown'] == ''
+                                                                                                                   else x['Section breakdown'], axis=1)
         table['Section'] = table['Section'].apply(pathify_section_values)
         tidied_sheets.append(table)
 
@@ -74,10 +74,10 @@ for tab in tabs:
         #savepreviewhtml(tidy_sheet, fname = tab.name+ "Preview.html")
         table = tidy_sheet.topandas()
         table.replace({'                      - Not travel': 'Consumer expenditure - Not travel',
-                        '                      - Travel': 'Consumer expenditure - travel'
-            }, inplace=True)
-        table['Section'] = table.apply(lambda x: x['Industry Section Name'] if x['Section breakdown'] == '-' else (x['Industry Section Name'] if x['Section breakdown'] == ''
-                                    else x['Section breakdown']), axis=1)
+                       '                      - Travel': 'Consumer expenditure - travel'
+                       }, inplace=True)
+        table['Section'] = table.apply(lambda x: x['Industry Section Name'] if x['Section breakdown'] == '-' else x['Industry Section Name'] if x['Section breakdown'] == ''
+                                                                                                                   else x['Section breakdown'], axis=1)
         table['Section'] = table['Section'].apply(pathify_section_values)
         tidied_sheets.append(table)
 
@@ -118,11 +118,11 @@ df = pd.concat(tidied_sheets, sort=True)
 # +
 df.rename(columns={'OBS': 'Value', 'DATAMARKER': 'Marker'}, inplace=True)
 df = df.replace(
-    {'Section': {'Total': 'total', 
-                'Consumer expenditure': 'consumer-expenditure',
-                'Consumer expenditure - Not travel': 'consumer-expenditure-not-travel',
-                'Consumer expenditure - Travel': 'consumer-expenditure-travel',
-                }})
+    {'Section': {'Total': 'total',
+                 'Consumer expenditure': 'consumer-expenditure',
+                 'Consumer expenditure - Not travel': 'consumer-expenditure-not-travel',
+                 'Consumer expenditure - Travel': 'consumer-expenditure-travel',
+                 }})
 df['Year'] = df['Year'].astype(str).replace('\.0', '', regex=True)
 # # +
 # info needed to create URI's for section
