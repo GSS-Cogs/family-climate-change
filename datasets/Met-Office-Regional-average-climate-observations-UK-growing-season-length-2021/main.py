@@ -37,7 +37,7 @@ df.to_csv('observations.csv', index=False)
 catalog_metadata = CatalogMetadata(
     title="Regional average climate observations UK growing season length 2021",
     summary="Data for the Regional average climate observations UK growing season length, with trends 1960 - 2021",
-    creator_uri="https://www.gov.uk/government/organisations/the-meteorological-office",
+    creator_uri="https://www.gov.uk/government/organisations/met-office",
     publisher_uri="https://www.gov.uk/government/organisations/met-office",
     theme_uris=["https://www.ons.gov.uk/economy/environmentalaccounts"]
 )

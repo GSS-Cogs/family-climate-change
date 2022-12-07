@@ -19,7 +19,7 @@ df.to_csv('observations.csv', index=False)
 catalog_metadata = CatalogMetadata(
     title="Regional average climate observations, UK annual mean temperature 2021",
     summary="Data for the Regional average mean temperature with trends 1884 - 2021",
-    creator_uri="https://www.gov.uk/government/organisations/the-meteorological-office",
+    creator_uri="https://www.gov.uk/government/organisations/met-office",
     publisher_uri="https://www.gov.uk/government/organisations/met-office",
     theme_uris=["https://www.ons.gov.uk/economy/environmentalaccounts"]
 )
