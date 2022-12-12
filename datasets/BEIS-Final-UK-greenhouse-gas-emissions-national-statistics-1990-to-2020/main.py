@@ -172,8 +172,6 @@ for col in df.columns.values.tolist():
     except Exception as err:
         raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
-# # +
-
 df = df.replace(
     {
         "Breakdown": {
@@ -189,9 +187,6 @@ df = df.replace({'Gas' : {'Nitrous Oxide N2O' : 'Nitrous oxide (N2O)',
                           'Carbon Dioxide CO2' :'Carbon dioxide (CO2)'
                           ''
                           }})
-
-df['Unit'] = "millions-of-tonnes-of-co2-equivalent"
-df['Measure Type'] = "gas-emissions"
 # -
 df = df[
     [
@@ -203,6 +198,8 @@ df = df[
         "Value"
     ]
 ]
+
+df = df.drop_duplicates()
 
 df.to_csv("observations.csv", index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
