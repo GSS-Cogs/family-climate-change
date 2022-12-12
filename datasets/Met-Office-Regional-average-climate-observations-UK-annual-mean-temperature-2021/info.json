@@ -1,0 +1,50 @@
+{
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
+    "id": "met-office-regional-average-climate-observations-uk-annual-mean-temperature-2021",
+    "title": "Regional average climate observations UK annual mean temperature 2021",
+    "publisher": "Meteorological Office",
+    "description": "",
+    "landingPage": "https://www.metoffice.gov.uk/research/climate/maps-and-data/uk-temperature-rainfall-and-sunshine-time-series",
+    "datasetNotes": [
+        "No landing page for this dataset as it is a bespoke dataset supplied to IDP-D as part of the Climate Change v2.0 project."
+    ],
+    "published": "2022-11-01",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "CSV"
+    },
+    "transform": {
+        "airtable": "recjUgQ1vYcWuTbz7",
+        "main_issue": 549,
+        "columns": {
+            "Year": {
+                "type": "dimension",
+                "new": {
+                    "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                    "codelist": true
+                },
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Geography": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+                "value": "http://statistics.data.gov.uk/id/statistical-geography/{+geography}"
+            },
+            "Measure Type": {
+                "type": "measures"
+            },
+            "Value": {
+                "type": "observations",
+                "unit": {
+                    "label": "Degrees centigrade"
+                },
+                "datatype": "double"
+            }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
+    },
+    "sizingNotes": "",
+    "notes": ""
+}

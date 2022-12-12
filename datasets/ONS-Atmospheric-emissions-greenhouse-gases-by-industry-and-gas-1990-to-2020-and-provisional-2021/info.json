@@ -1,0 +1,49 @@
+{
+    "id": "ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas-1990-to-2020-and-provisional-2021",
+    "title": "Atmospheric emissions: greenhouse gases by industry and gas 1990 to 2020 and provisional 2021",
+    "publisher": "https://www.gov.uk/government/organisations/office-for-national-statistics",
+    "description": "The emissions of carbon dioxide, methane, nitrous oxide, hydro-fluorocarbons, perfluorocarbons, sulphur hexafluoride, nitrogen trifluoride and total greenhouse gas emissions, by industry (SIC 2007 group - around 130 categories), UK, 1990 to 2020.",
+    "landingPage": "https://www.ons.gov.uk/economy/environmentalaccounts/datasets/ukenvironmentalaccountsatmosphericemissionsgreenhousegasemissionsbyeconomicsectorandgasunitedkingdom",
+    "published": "2022-11-01",
+    "datasetNotes": [
+        "Scroll down to \"current edition\" towards top of page."
+    ],
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "XLS"
+    },
+    "transform": {
+        "airtable": "recbqWTlAXSpouW7z",
+        "columns": {
+            "Year": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Section": {
+                "type" : "dimension",
+                "new": {
+                    "codelist": "./codelists/section.csv-metadata.json"
+                },
+                "value": "{+section}"
+            },
+            "Emission Type": {
+                "type": "dimension"
+            },
+            "Measure Type": {
+                "type": "measures"
+            },
+            "Value": {
+                "type": "observations",
+                "unit": {
+                    "label": "Thousand Tonnes"
+                }
+            }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
+    },
+    "sizingNotes": "",
+    "notes": "Added at the request of Data Engineering (Shannon Black)"
+}

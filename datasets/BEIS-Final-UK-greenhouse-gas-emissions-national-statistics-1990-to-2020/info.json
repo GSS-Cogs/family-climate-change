@@ -41,6 +41,9 @@
                 "uri" : "http://gss-data.org.uk/def/climate-change/property/dimension/ghg",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{gas}"
             },
+            "Gas": {
+                "type" : "dimension"
+            },
             "Value": {
                 "type": "observations",
                 "measure": {
@@ -48,7 +51,7 @@
                 },
                 "unit": {
                     "label": "Million of tonnes of carbon dioxide equivalent (MtCO2e)"
-                }     
+                }            
             }
         },
         "csvcubed_uri_style": "WithoutFileExtensions"

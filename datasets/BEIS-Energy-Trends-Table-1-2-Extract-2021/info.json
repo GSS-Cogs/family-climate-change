@@ -1,0 +1,46 @@
+{
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
+    "id": "beis-energy-trends-table-1-2-extract-2021",
+    "title": "Energy Trends Table 1.2 - Extract 2021",
+    "publisher": "Department for Business, Energy and Industrial Strategy",
+    "description": "",
+    "landingPage": "https://www.gov.uk/government/statistics/total-energy-section-1-energy-trends",
+    "datasetNotes": [
+        "On landing page, navigate to the spreadsheet 'Inland energy consumption: primary fuel input basis (ET 1.2 - monthly)'"
+    ],
+    "published": "2022-09-29",
+    "families": [
+        "Climate-Change"
+    ],
+    "extract": {
+        "source": "XLSX"
+    },
+    "transform": {
+        "airtable": "rect0gFc8uVpxFsa9",
+        "main_issue": 523,
+        "columns": {
+            "Year": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/year/{year}"
+            },
+            "Fuel": {
+                "type": "dimension",    
+                "uri": "http://gss-data.org.uk/def/energy/property/dimension/fuel",
+                "value": "http://gss-data.org.uk/def/energy/concept/fuel/{+fuel}"
+            }, 
+            "Value": {
+                "type": "observations",
+                "unit": {
+                    "label": "Millions of tonnes of oil equivalent"
+                },
+                "measure": {
+                    "label": "Energy Consumption"
+                }
+            }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
+    },
+    "sizingNotes": "",
+    "notes": ""
+}

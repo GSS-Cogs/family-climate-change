@@ -1,0 +1,71 @@
+{
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
+    "id": "beis-2005-to-2020-local-authority-greenhouse-gas-emissions",
+    "title": "2005 to 2020 local authority greenhouse gas emissions",
+    "publisher": "https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy",
+    "description": "",
+    "landingPage": "https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-national-statistics-2005-to-2020",
+    "datasetNotes": [
+        "On landing page, navigate to the csv file - 2005 to 2020 local authority greenhouse gas emissions dataset"
+    ],
+    "published": "2022-06-30",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "XLS, ODS, CSV"
+    },
+    "transform": {
+        "airtable": "recJkE35jlY1W74gG",
+        "main_issue": 524,
+        "columns": {
+            "Year": {
+                "type": "dimension",
+                "new": {
+                    "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                    "codelist": true
+                },
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Country": {
+                "type" : "dimension",
+                "new": {
+                    "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+                    "codelist": "./codelists/country.csv-metadata.json"
+                },
+                "value": "{+country}"
+            },
+            "Local Authority": {
+                "type" : "dimension",
+                "new": {
+                    "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+                    "codelist": "./codelists/local-authority-code.csv-metadata.json"
+                },
+                "value": "{+local_authority}"
+            },
+            "LA GHG Sector": {
+                "type": "dimension"
+            },
+            "LA GHG Sub-sector": {
+                "type": "dimension"
+            },
+            "Greenhouse Gas": {
+                "type": "dimension",
+                "uri" : "http://gss-data.org.uk/def/climate-change/property/dimension/ghg",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{+greenhouse_gas}"
+            },
+            "Measure": {
+                "type": "measures"
+            },
+            "Unit": {
+                "type": "units"
+            },
+            "Value": {
+                "type": "observations"
+            }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
+    },
+    "sizingNotes": "",
+    "notes": "CO2 emissions now included in the regional GHG publication. Prior to the 2005 to 2020 publication the statistics covered emissions of CO2 only."
+}

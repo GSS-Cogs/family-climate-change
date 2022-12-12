@@ -44,19 +44,20 @@ for tab in tabs:
             gas = "Total Fluorinated Gases"
 
         observations = period.waffle(nc_category).is_not_blank().is_not_whitespace()
-
+        
         dimensions = [
             HDim(period, "Period", DIRECTLY, ABOVE),
             HDim(nc_category, "NC Category", DIRECTLY, LEFT),
             HDim(nc_sector, "NC Sector", CLOSEST, ABOVE),
-            HDim(nc_sub_sector, "NC Sub Sector", CLOSEST, ABOVE),
-            HDimConst("Gas", gas),
-            HDimConst("Unit", unit),
+            HDimConst("Gas", gas)
         ]
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         df = tidy_sheet.topandas()
+        indexNames = df[df["NC Category"] == ""].index
+        df.drop(indexNames, inplace=True)
         tidied_sheets.append(df)
+df = pd.concat(tidied_sheets, ignore_index=True)
 
     elif tab.name == "3_1":
         cell = tab.filter("Geographic coverage")
@@ -163,10 +164,7 @@ df = df.replace(
 )
 
 COLUMNS_TO_NOT_PATHIFY = ["Period", "Geographic Coverage", "Breakdown", "Gas", "Value",]
-
-for col in df.columns.values.tolist():
-    if col in COLUMNS_TO_NOT_PATHIFY:
-        continue
+for col in ['NC Sector', 'NC Category']:
     try:
         df[col] = df[col].apply(pathify)
     except Exception as err:
