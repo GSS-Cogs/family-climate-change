@@ -25,15 +25,10 @@
                 "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
                 "value": "http://reference.data.gov.uk/id/{+period}"
             },
-            "NC Sector": {
+            "Sector": {
                 "type": "dimension",
                 "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{nc_sector}"
-            },
-            "NC Sub sector": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sub-sector",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{nc_sub_sector}"
+                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{sector}"
             },
             "Geographic Coverage" : {
                 "type" : "dimension"
@@ -42,7 +37,9 @@
                 "type" : "dimension"
             },
             "Gas": {
-                "type" : "dimension"
+                "type": "dimension",
+                "uri" : "http://gss-data.org.uk/def/climate-change/property/dimension/ghg",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{gas}"
             },
             "Value": {
                 "type": "observations",
@@ -51,8 +48,7 @@
                 },
                 "unit": {
                     "label": "Million of tonnes of carbon dioxide equivalent (MtCO2e)"
-                }
-                
+                }     
             }
         },
         "csvcubed_uri_style": "WithoutFileExtensions"
