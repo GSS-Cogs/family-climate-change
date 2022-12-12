@@ -88,7 +88,7 @@ df.rename(
         "OBS": "Value","DATAMARKER": "Marker","Inclusions-Exclusions": "Breakdown",},inplace=True)
 
 df["Value"] = pd.to_numeric(df["Value"], errors="raise", downcast="float")
-df["Value"] = df["Value"].astype(float).round(3)
+df["Value"] = df["Value"].astype(float).round(6)
 df["Period"] = df["Period"].astype(float).astype(int)
 df['Period'] = 'year/' + df['Period'].astype(str)
 
@@ -148,6 +148,7 @@ df = df.replace(
         "Geographic Coverage": {"United Kingdom only": "United Kingdom"},
     }
 )
+
 
 indexNames = df[df["Breakdown"] == "Net emissions/removals from LULUCF"].index
 df.drop(indexNames, inplace=True)
