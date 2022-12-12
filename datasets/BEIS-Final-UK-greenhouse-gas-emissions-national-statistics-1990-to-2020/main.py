@@ -16,7 +16,7 @@ distribution = metadata.distribution(
     title=lambda x: "UK greenhouse gas emissions: final figures - data tables (alternative ODS format)"
     in x,
 )
-# -
+# +
 tabs = distribution.as_databaker()
 tabs = [
     tab for tab in tabs if tab.name in ["1_1", "1_2", "1_3", "1_4", "1_5", "1_6", "3_1"]
@@ -88,7 +88,11 @@ df.rename(
         "OBS": "Value","DATAMARKER": "Marker","Inclusions-Exclusions": "Breakdown",},inplace=True)
 
 df["Value"] = pd.to_numeric(df["Value"], errors="raise", downcast="float")
-df["Value"] = df["Value"].astype(float).round(6)
+df["Value"] = df["Value"].astype(float).round(5)
+
+
+df['Value'] = df.apply(lambda x: '%.4f' % x['Value'], axis=1)
+
 df["Period"] = df["Period"].astype(float).astype(int)
 df['Period'] = 'year/' + df['Period'].astype(str)
 
@@ -148,7 +152,6 @@ df = df.replace(
         "Geographic Coverage": {"United Kingdom only": "United Kingdom"},
     }
 )
-
 
 indexNames = df[df["Breakdown"] == "Net emissions/removals from LULUCF"].index
 df.drop(indexNames, inplace=True)
