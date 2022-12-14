@@ -163,7 +163,7 @@ df = df.replace(
 )
 
 # +
-COLUMNS_TO_NOT_PATHIFY = ["Period", "Geographic Coverage", "Breakdown", "Value",]
+COLUMNS_TO_NOT_PATHIFY = ["Period", "Geographic Coverage", "Breakdown", "Gas", "Value",]
 
 for col in df.columns.values.tolist():
     if col in COLUMNS_TO_NOT_PATHIFY:
