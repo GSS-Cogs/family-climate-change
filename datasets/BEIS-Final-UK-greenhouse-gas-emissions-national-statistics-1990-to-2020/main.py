@@ -16,7 +16,7 @@ distribution = metadata.distribution(
     title=lambda x: "UK greenhouse gas emissions: final figures - data tables (alternative ODS format)"
     in x,
 )
-# +
+# -
 tabs = distribution.as_databaker()
 tabs = [
     tab for tab in tabs if tab.name in ["1_1", "1_2", "1_3", "1_4", "1_5", "1_6", "3_1"]
@@ -27,8 +27,8 @@ for tab in tabs:
         cell = tab.filter("NC Sector")
         period = cell.shift(RIGHT).fill(RIGHT).is_not_blank().is_not_whitespace()
         unit = "Million of tonnes of carbon dioxide equivalent (MtCO2e)"
-        stop_cell = tab.filter("Grand Total")
-        nc_category = tab.filter("NC Category").fill(DOWN)
+        stop_cell = tab.filter("Grand Total").fill(DOWN).fill(RIGHT)
+        nc_category = tab.filter("NC Category").fill(DOWN) - stop_cell
         nc_sector = nc_category.is_blank().shift(LEFT)
         nc_sub_sector = nc_category.shift(LEFT).is_not_blank()
 
@@ -47,25 +47,27 @@ for tab in tabs:
 
         dimensions = [
             HDim(period, "Period", DIRECTLY, ABOVE),
-            HDim(nc_category, "NC Category", DIRECTLY, LEFT),
             HDim(nc_sector, "NC Sector", CLOSEST, ABOVE),
-            HDim(nc_sub_sector, "NC Sub Sector", CLOSEST, ABOVE),
+            HDim(nc_sub_sector, "NC Sub Sector",CLOSEST, ABOVE),
+            HDim(nc_category, "NC Category", DIRECTLY, LEFT),
             HDimConst("Gas", gas),
-            HDimConst("Unit", unit),
+            HDimConst("Unit", unit)
         ]
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         df = tidy_sheet.topandas()
         tidied_sheets.append(df)
+        # print(tab.name)
 
     elif tab.name == "3_1":
         cell = tab.filter("Geographic coverage")
+        stop_cell = tab.filter("Total greenhouse gas emissions reported to the UNFCC").expand(DOWN).expand(RIGHT)
 
         period = cell.shift(2).fill(RIGHT).is_not_whitespace()
-        gas = cell.shift(2).fill(DOWN).is_not_whitespace()
-        inclusions = cell.shift(1).fill(DOWN).is_not_whitespace()
+        gas = cell.shift(2).fill(DOWN).is_not_whitespace() - stop_cell
+        inclusions = cell.shift(1).fill(DOWN).is_not_whitespace() - stop_cell
 
-        geographic_coverage = cell.fill(DOWN).is_not_whitespace()
+        geographic_coverage = cell.fill(DOWN).is_not_whitespace() - stop_cell
 
         observations = period.waffle(gas)
         unit = "Million of tonnes of carbon dioxide equivalent (MtCO2e)"
@@ -80,26 +82,24 @@ for tab in tabs:
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         df = tidy_sheet.topandas()
         tidied_sheets.append(df)
-# +
+        # print(tab.name)
 df = pd.concat(tidied_sheets, sort=False).fillna("")
 
+# +
 df.rename(
     columns={
         "OBS": "Value","DATAMARKER": "Marker","Inclusions-Exclusions": "Breakdown",},inplace=True)
 
 df["Value"] = pd.to_numeric(df["Value"], errors="raise", downcast="float")
-df["Value"] = df["Value"].astype(float).round(5)
-
-
-df['Value'] = df.apply(lambda x: '%.4f' % x['Value'], axis=1)
+df["Value"] = df["Value"].astype(float).round(4)
 
 df["Period"] = df["Period"].astype(float).astype(int)
 df['Period'] = 'year/' + df['Period'].astype(str)
 
-# df["NC Sub Sector"] = df.apply(
-#     lambda x: "All" if x["NC Sub Sector"] == x["NC Sector"] else x["NC Sub Sector"],
-#     axis=1,
-# )
+df["NC Sub Sector"] = df.apply(
+    lambda x: "" if x["NC Sub Sector"] == x["NC Sector"] else x["NC Sub Sector"],
+    axis=1
+)
 
 # Fix missing sub-sector
 combustion_categories = ["Stationary and mobile combustion", "Incidental lubricant combustion in engines - agriculture"]
@@ -113,6 +113,7 @@ def sector(row):
             return(row["NC Sector"])
     else:
         return(row["NC Category"])
+
 df["Sector"] =  df.apply(sector, axis=1)
  
 df["Sector"] = df["Sector"].str.replace("/", "-")
@@ -127,26 +128,20 @@ badInheritance = [
     "Aviation between UK and Overseas Territories",
     "Shipping between UK and Overseas Territories"
 ]
-df["Geographic Coverage"] = df.apply(
-    lambda x: "" if x["Geographic Coverage"] in badInheritance else x["Geographic Coverage"],
-    axis=1
-)
-
+# -
 df["Breakdown"] = df.apply(
     lambda x: "" if x["Geographic Coverage"] in badInheritance else x["Breakdown"],
     axis=1,
 )
+
 df["Breakdown"] = df.apply(
     lambda x: "None"
-    if "" in x["Breakdown"] and x["Geographic Coverage"] == "United Kingdom"
+    if "" in x["Breakdown"] and x["Geographic Coverage"] in badInheritance
     else x["Breakdown"],
     axis=1,
 )
-df["Breakdown"] = df.apply(
-    lambda x: "None" if x["Geographic Coverage"] in badInheritance else x["Breakdown"],
-    axis=1,
-)
 
+# +
 df = df.replace(
     {
         "Geographic Coverage": {"United Kingdom only": "United Kingdom"},
@@ -158,6 +153,7 @@ df.drop(indexNames, inplace=True)
 
 indexNames = df[df["Gas"] == "Total"].index
 df.drop(indexNames, inplace=True)
+# -
 
 df = df.replace(
     {
@@ -166,6 +162,7 @@ df = df.replace(
     }
 )
 
+# +
 COLUMNS_TO_NOT_PATHIFY = ["Period", "Geographic Coverage", "Breakdown", "Gas", "Value",]
 
 for col in df.columns.values.tolist():
@@ -192,6 +189,7 @@ df = df.replace({'Gas' : {'Nitrous Oxide N2O' : 'Nitrous oxide (N2O)',
                           ''
                           }})
 # -
+
 df = df[
     [
         "Period",
