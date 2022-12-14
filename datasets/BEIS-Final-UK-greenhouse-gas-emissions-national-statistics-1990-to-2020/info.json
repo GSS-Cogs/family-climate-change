@@ -37,7 +37,9 @@
                 "type" : "dimension"
             },
             "Gas": {
-                "type": "dimension"
+                "type": "dimension",
+                "uri" : "http://gss-data.org.uk/def/climate-change/property/dimension/ghg",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{+gas}"
             },
             "Value": {
                 "type": "observations",
