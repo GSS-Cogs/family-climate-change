@@ -1,46 +1,117 @@
 {
     "@context": "http://www.w3.org/ns/csvw",
-    "@id": "local-authority.csv#code-list",
-    "url": "local-authority.csv",
-    "tableSchema": "local-authority.table.json",
+    "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-area",
+    "url": "local-authority-area.csv",
+    "rdfs:label": "Local Authority Area",
+    "dc:title": "Local Authority Area",
+    "tableSchema": {
+        "columns": [
+            {
+                "titles": "Label",
+                "name": "label",
+                "datatype": "string",
+                "required": true,
+                "propertyUrl": "rdfs:label"
+            },
+            {
+                "titles": "Notation",
+                "name": "notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*$"
+                },
+                "required": true,
+                "propertyUrl": "skos:notation"
+            },
+            {
+                "titles": "Parent Notation",
+                "name": "parent_notation",
+                "datatype": {
+                    "base": "string",
+                    "format": "^(-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*|)$"
+                },
+                "required": false,
+                "propertyUrl": "skos:broader",
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept/local-authority-area/{+parent_notation}"
+            },
+            {
+                "titles": "Sort Priority",
+                "name": "sort_priority",
+                "datatype": "integer",
+                "required": false,
+                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "rdf:type",
+                "valueUrl": "skos:Concept"
+            },
+            {
+                "virtual": true,
+                "propertyUrl": "skos:inScheme",
+                "valueUrl": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-area"
+            }
+        ],
+        "primaryKey": "notation",
+        "aboutUrl": "http://gss-data.org.uk/def/climate-change/concept/local-authority-area/{+notation}"
+    },
+    "prov:hadDerivation": {
+        "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-area",
+        "@type": [
+            "skos:ConceptScheme",
+            "http://publishmydata.com/pmdcat#ConceptScheme"
+        ]
+    },
     "rdfs:seeAlso": [
         {
-            "@id": "local-authority.csv#code-list",
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-area/dataset",
             "@type": [
-                "http://www.w3.org/2000/01/rdf-schema#Resource",
-                "http://www.w3.org/ns/dcat#Resource",
-                "http://www.w3.org/2004/02/skos/core#ConceptScheme",
-                "http://www.w3.org/ns/dcat#Dataset"
+                "dcat:Dataset",
+                "http://publishmydata.com/pmdcat#Dataset"
             ],
-            "http://purl.org/dc/terms/identifier": [
-                {
-                    "@value": "Local Authority"
-                }
-            ],
-            "http://purl.org/dc/terms/issued": [
-                {
-                    "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
-                    "@value": "2022-08-18T14:28:44.589265"
-                }
-            ],
-            "http://purl.org/dc/terms/modified": [
-                {
-                    "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
-                    "@value": "2022-08-18T14:28:44.589265"
-                }
-            ],
-            "http://purl.org/dc/terms/title": [
-                {
-                    "@language": "en",
-                    "@value": "Local Authority"
-                }
-            ],
-            "http://www.w3.org/2000/01/rdf-schema#label": [
-                {
-                    "@language": "en",
-                    "@value": "Local Authority"
-                }
-            ]
+            "http://publishmydata.com/pmdcat#datasetContents": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-area"
+            },
+            "http://publishmydata.com/pmdcat#graph": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-area"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-10-22T16:45:07.958014"
+            },
+            "rdfs:label": "Local Authority Area",
+            "dc:title": "Local Authority Area",
+            "rdfs:comment": "Dataset representing the 'Local Authority Area' code list.",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-10-22T16:45:07.958014"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/catalog/vocabularies",
+            "dcat:record": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-area/catalog-record"
+            }
+        },
+        {
+            "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-area/catalog-record",
+            "@type": "dcat:CatalogRecord",
+            "foaf:primaryTopic": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-area/dataset"
+            },
+            "http://publishmydata.com/pmdcat#metadataGraph": {
+                "@id": "http://gss-data.org.uk/def/climate-change/concept-scheme/local-authority-area"
+            },
+            "dc:title": "Local Authority Area Catalog Record",
+            "rdfs:label": "Local Authority Area Catalog Record",
+            "dc:issued": {
+                "@type": "dateTime",
+                "@value": "2021-10-22T16:45:07.958014"
+            },
+            "dc:modified": {
+                "@type": "dateTime",
+                "@value": "2021-10-22T16:45:07.958014"
+            }
         }
     ]
 }
