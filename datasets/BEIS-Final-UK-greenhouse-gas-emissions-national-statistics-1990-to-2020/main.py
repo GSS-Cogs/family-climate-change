@@ -33,7 +33,7 @@ for tab in tabs:
         nc_sub_sector = nc_category.shift(LEFT).is_not_blank()
 
         if tab.name == "1_2":
-            gas = "Total Greenhouse Gases"
+            gas = "total-greenhouse-gases"
         elif tab.name == "1_3":
             gas = "Carbon Dioxide CO2"
         elif tab.name == "1_4":
@@ -41,7 +41,7 @@ for tab in tabs:
         elif tab.name == "1_5":
             gas = "Nitrous Oxide N2O"
         elif tab.name == "1_6":
-            gas = "Total Fluorinated Gases"
+            gas = "total-fluorinated-gases"
 
         observations = period.waffle(nc_category).is_not_blank().is_not_whitespace()
 
