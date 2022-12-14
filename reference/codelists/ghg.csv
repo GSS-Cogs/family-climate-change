@@ -1,7 +1,7 @@
 Label,Notation,Parent Notation,Sort Priority,Description
 Methane (CH4),CH4,,1,"One of the six greenhouse gases (GHGs) to be mitigated under the Kyoto Protocol and is the major component of natural gas and associated with all hydrocarbon fuels. Significant emissions occur as a result of animal husbandry and agriculture, and their management represents a major mitigation option."
 Carbon dioxide (CO2),CO2,,2,"A naturally occurring gas, CO2 is also a by-product of burning fossil fuels (such as oil, gas and coal), of burning biomass, of land-use changes (LUC) and of industrial processes (e.g., cement production). It is the principal anthropogenic greenhouse gas (GHG) that affects the Earth’s radiative balance. It is the reference gas against which other GHGs are measured and therefore has a global warming potential (GWP) of 1."
-Hydrofluorocarbons (HFCs),HFCs,F-gases,3,"Hydrofluorocarbons (HFCs) are organic compounds that contain fluorine and hydrogen atoms, and are the most common type of organofluorine compounds. Most are gases at room temperature and pressure. They are frequently used in air conditioning and as refrigerants; R-134a is one of the most commonly used HFC refrigerants. In order to aid the recovery of the stratospheric ozone layer, HFCs were adopted to replace the more potent chlorofluorocarbons (CFCs) which were phased out from use by the Montreal protocol and hydrochlorofluorocarbons (HCFCs) that are presently being phased out."
+Hydrofluorocarbons (HFCs),HFCs,F gases,3,"Hydrofluorocarbons (HFCs) are organic compounds that contain fluorine and hydrogen atoms, and are the most common type of organofluorine compounds. Most are gases at room temperature and pressure. They are frequently used in air conditioning and as refrigerants; R-134a is one of the most commonly used HFC refrigerants. In order to aid the recovery of the stratospheric ozone layer, HFCs were adopted to replace the more potent chlorofluorocarbons (CFCs) which were phased out from use by the Montreal protocol and hydrochlorofluorocarbons (HCFCs) that are presently being phased out."
 HFC-125,HFC-125,HFCs,4,
 HFC-134a,HFC-134a,HFCs,5,
 HFC-143a,HFC-143a,HFCs,6,
@@ -13,15 +13,15 @@ HFC-32,HFC-32,HFCs,11,
 HFC-365mfc,HFC-365mfc,HFCs,12,
 HFC-43-10mee,HFC-43-10mee,HFCs,13,
 Nitrous oxide (N2O),N2O,,14,"One of the six greenhouse gases (GHGs) to be mitigated under the Kyoto Protocol. The main anthropogenic source of N2O is agriculture (soil and animal manure management), but important contributions also come from sewage treatment, fossil fuel combustion, and chemical industrial processes. N2O is also produced naturally from a wide variety of biological sources in soil and water, particularly microbial action in wet tropical forests."
-Nitrogen Trifluoride (NF3),NF3,F-gases,15,"Nitrogen trifluoride is an inorganic nitrogen-fluorine compound that acts as a replacement for PFCs, specifically hexafluoroethane (C2F6). It is used most frequently in the electronics industry during various processes including plasma etching, cleaning chambers in which silicon chips are made, and semi-conductor and LCD panel manufacture. Additionally, it has several important applications within the photovoltaic and chemical laser industries. Its 100-year global warming potential of 17,200 is second only to sulphur hexafluoride among the gases covered by the Kyoto Protocol, meaning that it is highly effective at trapping atmospheric heat, and it has a lifetime of 740 years."
-Perfluorocarbons (PFCs),PFCs,F-gases,16,Perfluorocarbons are a group of human-made chemicals composed of carbon and fluorine only. Perfluorocarbons are powerful greenhouse gases that were introduced as alternatives to ozone depleting substances. PFCs replace chlorofluorocarbons (CFCs) in manufacturing semiconductors.
+Nitrogen Trifluoride (NF3),NF3,F gases,15,"Nitrogen trifluoride is an inorganic nitrogen-fluorine compound that acts as a replacement for PFCs, specifically hexafluoroethane (C2F6). It is used most frequently in the electronics industry during various processes including plasma etching, cleaning chambers in which silicon chips are made, and semi-conductor and LCD panel manufacture. Additionally, it has several important applications within the photovoltaic and chemical laser industries. Its 100-year global warming potential of 17,200 is second only to sulphur hexafluoride among the gases covered by the Kyoto Protocol, meaning that it is highly effective at trapping atmospheric heat, and it has a lifetime of 740 years."
+Perfluorocarbons (PFCs),PFCs,F gases,16,Perfluorocarbons are a group of human-made chemicals composed of carbon and fluorine only. Perfluorocarbons are powerful greenhouse gases that were introduced as alternatives to ozone depleting substances. PFCs replace chlorofluorocarbons (CFCs) in manufacturing semiconductors.
 C2F6,C2F6,PFCs,17,
 C3F8,C3F8,PFCs,18,
 C4F10,C4F10,PFCs,19,
 C4F8,C4F8,PFCs,20,
 CF4,CF4,PFCs,21,
 PFC_C_Equiv_AR4,PFC_C_Equiv_AR4,PFCs,22,
-Sulphur hexafluoride (SF6),SF6,F-gases,23,"Sulphur hexafluoride is an extremely potent and persistent greenhouse gas that is primarily utilized as an electrical insulator and arc suppressant. SF6 is the most potent greenhouse gas that has been evaluated, with a global warming potential of 23,900 times that of CO2 when compared over a 100-year period.",
-Fluorinated gases (F gases),F-gases,,24,,
-Total Fluorinated Gases,total-fluorinated-gases,,25,,
-Total Greenhouse Gases,total-greenhouse-gases,,26,,
+Sulphur hexafluoride (SF6),SF6,F gases,23,"Sulphur hexafluoride is an extremely potent and persistent greenhouse gas that is primarily utilized as an electrical insulator and arc suppressant. SF6 is the most potent greenhouse gas that has been evaluated, with a global warming potential of 23,900 times that of CO2 when compared over a 100-year period.",
+Fluorinated gases (F gases),F gases,,24,
+Total Fluorinated Gases,Total Fluorinated Gases,,25,
+Total Greenhouse Gases,Total Greenhouse Gases,,26
