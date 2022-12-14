@@ -3,7 +3,8 @@
 # +
 # ## BEIS-Final-UK-greenhouse-gas-emissions-national-statistics-1990-to-2020
 
-# +
+# %%
+
 import json
 import pandas as pd
 from gssutils import *
@@ -16,7 +17,7 @@ distribution = metadata.distribution(
     title=lambda x: "UK greenhouse gas emissions: final figures - data tables (alternative ODS format)"
     in x,
 )
-# -
+# %%
 tabs = distribution.as_databaker()
 tabs = [
     tab for tab in tabs if tab.name in ["1_1", "1_2", "1_3", "1_4", "1_5", "1_6", "3_1"]
@@ -83,9 +84,10 @@ for tab in tabs:
         df = tidy_sheet.topandas()
         tidied_sheets.append(df)
         # print(tab.name)
+ # %%       
 df = pd.concat(tidied_sheets, sort=False).fillna("")
 
-# +
+# %%
 df.rename(
     columns={
         "OBS": "Value","DATAMARKER": "Marker","Inclusions-Exclusions": "Breakdown",},inplace=True)
@@ -100,7 +102,7 @@ df["NC Sub Sector"] = df.apply(
     lambda x: "" if x["NC Sub Sector"] == x["NC Sector"] else x["NC Sub Sector"],
     axis=1
 )
-
+# %%
 # Fix missing sub-sector
 combustion_categories = ["Stationary and mobile combustion", "Incidental lubricant combustion in engines - agriculture"]
 df.loc[df["NC Category"].isin(combustion_categories), "NC Sub Sector"] = "Combustion"
@@ -141,7 +143,7 @@ df["Breakdown"] = df.apply(
     axis=1,
 )
 
-# +
+# %%
 df = df.replace(
     {
         "Geographic Coverage": {"United Kingdom only": "United Kingdom"},
@@ -153,7 +155,7 @@ df.drop(indexNames, inplace=True)
 
 indexNames = df[df["Gas"] == "Total"].index
 df.drop(indexNames, inplace=True)
-# -
+# %%
 
 df = df.replace(
     {
@@ -162,8 +164,8 @@ df = df.replace(
     }
 )
 
-# +
-COLUMNS_TO_NOT_PATHIFY = ["Period", "Geographic Coverage", "Breakdown", "Gas", "Value",]
+# %%
+COLUMNS_TO_NOT_PATHIFY = ["Period", "Geographic Coverage", "Breakdown", "Value",]
 
 for col in df.columns.values.tolist():
     if col in COLUMNS_TO_NOT_PATHIFY:
@@ -183,12 +185,17 @@ df = df.replace(
 
 df["Breakdown"] = df["Breakdown"].str.replace("/", " and ")
 
-df = df.replace({'Gas' : {'Nitrous Oxide N2O' : 'Nitrous oxide (N2O)',
-                          'Methane CH4' : 'Methane (CH4)',
-                          'Carbon Dioxide CO2' :'Carbon dioxide (CO2)'
-                          ''
+
+#Matching Gas dimension to the notations of the codelist it is mapped to. 
+df = df.replace({'Gas' : {'carbon-dioxide-co2' : 'CO2',
+                          'methane-ch4' : 'CH4',
+                          'nitrous-oxide-n2o' :'N2O',
+                          'hydrofluorocarbons-hfc' : 'HFCs',
+                          'perfluorocarbons-pfc' : 'PFCs',
+                          'sulphur-hexafluoride-sf6' : 'SF6',
+                          'nitrogen-trifluoride-nf3' : 'NF3'
                           }})
-# -
+# %%
 
 df = df[
     [
@@ -200,7 +207,7 @@ df = df[
         "Value"
     ]
 ]
-
+# %%
 df = df.drop_duplicates()
 
 df.to_csv("observations.csv", index=False)
