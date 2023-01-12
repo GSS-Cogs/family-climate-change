@@ -1,0 +1,23 @@
+{
+    "id": "beis-energy-intensity-extract-1970-2021",
+    "title": "Energy Intensity Extract 1970 - 2021",
+    "publisher": "Department for Business, Energy and Industrial Strategy",
+    "description": "Information for overall energy consumption in the UK with details of the industry, transport, domestic and services sectors.",
+    "landingPage": "https://www.gov.uk/government/statistics/energy-consumption-in-the-uk-2022",
+    "datasetNotes": [
+        "On the landing page, navigate to ECUK 2022: Energy intensity data tables (ODS)"
+    ],
+    "published": "",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": "XLS, ODS"
+    },
+    "transform": {
+        "airtable": "recaogW6O8WXboo0Y",
+        "main_issue": 598
+    },
+    "sizingNotes": "",
+    "notes": ""
+}
