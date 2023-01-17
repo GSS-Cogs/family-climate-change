@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "beis-energy-intensity-extract-1970-2021",
     "title": "Energy Intensity Extract 1970 - 2021",
     "publisher": "Department for Business, Energy and Industrial Strategy",
@@ -7,16 +8,41 @@
     "datasetNotes": [
         "On the landing page, navigate to ECUK 2022: Energy intensity data tables (ODS)"
     ],
-    "published": "",
+    "published": "2023-01-12",
     "families": [
-        "Climate Change"
+        "Climate-Change"
     ],
     "extract": {
         "source": "XLS, ODS"
     },
     "transform": {
         "airtable": "recaogW6O8WXboo0Y",
-        "main_issue": 598
+        "main_issue": 598,
+        "columns": {
+            "Year": {
+                "type": "dimension",
+                "new": {
+                    "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                    "codelist": true
+                },
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Sector": {
+                "type": "dimension",
+                "value": "http://gss-data.org.uk/def/climate-change/concept-scheme/sector"
+            },
+            "Measure Type": {
+                "type": "measures",
+                "value": "http://gss-data.org.uk/def/climate-change/measure/{measure_type}"
+            },
+            "Value": {
+                "type": "observations",
+                "unit": {
+                    "label": "kilotonnes of oil equivalent"
+                }
+            }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
     },
     "sizingNotes": "",
     "notes": ""
