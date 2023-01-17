@@ -40,6 +40,11 @@ dimensions = [
 
 tidy_sheet = ConversionSegment(tab, dimensions, observations)
 tab_I2 = tidy_sheet.topandas()
+tab_I2.replace({"Measure Type": {'Consumption (ktoe)': 'Road Passenger Consumption',
+                                'Output (billion passenger kilometres)': 'Output',
+                                'Energy consumption per billion passenger kilometres (ktoe)': 'Energy consumption per unit of output'
+                                }}, inplace=True)
+df = tidied_sheets.append(tab_I2)
 
 # from table I3
 tab = tabs["Table I3"]
@@ -61,6 +66,11 @@ dimensions = [
 
 tidy_sheet = ConversionSegment(tab, dimensions, observations)
 tab_I3 = tidy_sheet.topandas()
+tab_I3.replace({"Measure Type": {'Total Final Consumption (ktoe)': 'Total Final Domestic Consumption',
+                                "No Households ('000s)": 'No Houeholds 000s',
+                                'Consumption per household (ktoe)': 'Consumption Per Household'
+                                 }}, inplace=True)
+df = tidied_sheets.append(tab_I3)
 
 # from table I4
 tab = tabs['Table I4']        
@@ -82,6 +92,11 @@ dimensions = [
 
 tidy_sheet = ConversionSegment(tab, dimensions, observations)
 tab_I4 = tidy_sheet.topandas()
+tab_I4.replace({"Measure Type": {'Consumption (ktoe)': 'Industrial Consumption',
+                                'Output': 'Industrial Output',
+                                'Consumption per unit of output (ktoe)': 'Consumption Per Unit of Unit'
+                                }}, inplace=True)
+df = tidied_sheets.append(tab_I4)    
 
 # from table I5
 tab = tabs['Table I5']             
@@ -102,33 +117,12 @@ dimensions = [
 
 tidy_sheet = ConversionSegment(tab, dimensions, observations)
 tab_I5 = tidy_sheet.topandas()
-
-# +
-tab_I2.replace({'Consumption (ktoe)': 'Road Passenger Consumption',
-        'Output (billion passenger kilometres)': 'Output',
-       'Energy consumption per billion passenger kilometres (ktoe)': 'Energy consumption per unit of output'
-       }, inplace=True)
-
-tab_I3.replace({'Total Final Consumption (ktoe)': 'Total Final Domestic Consumption',
-                "No Households ('000s)": 'No Houeholds 000s',
-                'Consumption per household (ktoe)': 'Consumption Per Household'
-                }, inplace=True)
-
-tab_I4.replace({'Consumption (ktoe)': 'Industrial Consumption',
-                'Output': 'Industrial Output',
-                'Consumption per unit of output (ktoe)': 'Consumption Per Unit of Unit'
-                }, inplace=True)
-
-tab_I5.replace({'Consumption (ktoe)': 'Service Consumption',
-                'Output': 'Service Output',
-                'Consumption per unit of output (ktoe)': 'Energy Consumption Per Unit of Unit 1'
-                }, inplace=True)
+tab_I5.replace({"Measure Type": {'Consumption (ktoe)': 'Service Consumption',
+                                'Output': 'Service Output',
+                                'Consumption per unit of output (ktoe)': 'Energy Consumption Per Unit of Unit 1'
+                                }}, inplace=True)
+df = tidied_sheets.append(tab_I5)  
 # -
-
-df = tidied_sheets.append(tab_I2)
-df = tidied_sheets.append(tab_I3)
-df = tidied_sheets.append(tab_I4)
-df = tidied_sheets.append(tab_I5)
 
 df = pd.concat(tidied_sheets, sort=True).fillna('')
 df = df.rename(columns={'OBS': 'Value'})
