@@ -28,7 +28,7 @@ unwanted_cells_2 = tab.excel_ref("E7").expand(RIGHT).expand(DOWN).is_not_blank()
 year = tab.excel_ref("A7").expand(DOWN).is_not_blank().is_not_whitespace() - unwanted_cells
 measure_type = tab.excel_ref("B7").expand(RIGHT).is_not_blank() - unwanted_cells_2
 sector = "road"
-unit = "kilotonnes of oil equivalent"
+unit = "ktoe"
 observations = tab.excel_ref("B8").expand(DOWN).expand(RIGHT).is_not_blank().is_not_whitespace() - unwanted_cells_1
 
 dimensions = [
@@ -54,7 +54,7 @@ unwanted_cells_2 = tab.excel_ref("E5").expand(RIGHT).expand(DOWN).is_not_blank()
 year = tab.excel_ref("A5").expand(DOWN).is_not_blank().is_not_whitespace() - unwanted_cells
 measure_type = tab.excel_ref("B5").expand(RIGHT).is_not_blank() - unwanted_cells_2
 sector = "household"
-unit = "kilotonnes of oil equivalent"
+unit = "ktoe"
 observations = tab.excel_ref("B6").expand(DOWN).expand(RIGHT).is_not_blank().is_not_whitespace() - unwanted_cells_1
 
 dimensions = [
@@ -80,7 +80,7 @@ unwanted_cells_2 = tab.excel_ref("CG7").expand(RIGHT).expand(DOWN).is_not_blank(
 year = tab.excel_ref("CC7").expand(DOWN).is_not_blank().is_not_whitespace() - unwanted_cells
 measure_type = tab.excel_ref("CD7").expand(RIGHT).is_not_blank() - unwanted_cells_2
 sector = "industrial"
-unit = "kilotonnes of oil equivalent"
+unit = "ktoe"
 observations = tab.excel_ref("CD8").expand(DOWN).expand(RIGHT).is_not_blank().is_not_whitespace() - unwanted_cells_1
 
 dimensions = [
@@ -105,7 +105,7 @@ unwanted_cells_2 = tab.excel_ref("U7").expand(RIGHT).expand(DOWN).is_not_blank()
 year = tab.excel_ref("Q7").expand(DOWN).is_not_blank().is_not_whitespace()
 measure_type = tab.excel_ref("R7").expand(RIGHT).is_not_blank() - unwanted_cells_2
 sector = "services"
-unit = "kilotonnes of oil equivalent"
+unit = "ktoe"
 observations = tab.excel_ref("R8").expand(DOWN).expand(RIGHT).is_not_blank().is_not_whitespace() - unwanted_cells_1
 
 dimensions = [
@@ -130,7 +130,6 @@ df.replace({'2008 3': '2008'}, inplace=True)
 df['Year'] = df['Year'].astype(float).astype(int)
 df['Value'] = df['Value'].astype(str).astype(float).round(2)
 df['Measure Type'] = df['Measure Type'].apply(pathify)
-df['Unit'] = df['Unit'].apply(pathify)
 df = df[['Year', 'Sector', 'Measure Type', 'Unit', 'Value']]
 
 df.to_csv('observations.csv', index=False)
