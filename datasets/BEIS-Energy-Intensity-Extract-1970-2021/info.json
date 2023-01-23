@@ -32,12 +32,10 @@
                 "value": "http://gss-data.org.uk/def/climate-change/concept-scheme/sector"
             },
             "Measure Type": {
-                "type": "measures",
-                "value": "http://gss-data.org.uk/def/climate-change/measure/{measure_type}"
+                "type": "measures"
             },
             "Unit": {
-                "type": "units",
-                "value": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-unit/{unit}"
+                "type": "units"
             },
             "Value": {
                 "type": "observations"
