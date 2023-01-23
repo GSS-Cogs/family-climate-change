@@ -29,7 +29,7 @@
             },
             "Sector": {
                 "type": "dimension",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/sector"
+                "value":  "http://gss-data.org.uk/def/climate-change/concept/sector/{sector}"
             },
             "Measure Type": {
                 "type": "measures"
