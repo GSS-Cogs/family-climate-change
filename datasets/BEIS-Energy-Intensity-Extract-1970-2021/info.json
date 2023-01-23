@@ -35,11 +35,12 @@
                 "type": "measures",
                 "value": "http://gss-data.org.uk/def/climate-change/measure/{measure_type}"
             },
+            "Unit": {
+                "type": "units",
+                "value": "http://gss-data.org.uk/def/climate-change/concept-scheme/measurement-unit/{unit}"
+            },
             "Value": {
-                "type": "observations",
-                "unit": {
-                    "label": "kilotonnes of oil equivalent"
-                }
+                "type": "observations"
             }
         },
         "csvcubed_uri_style": "WithoutFileExtensions"
