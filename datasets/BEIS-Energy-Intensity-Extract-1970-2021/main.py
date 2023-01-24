@@ -148,9 +148,7 @@ df.replace({'Unit': {"'000s": "count", }}, inplace=True)
 df["Unit"].fillna("unknown", inplace=True)
 df['Unit'] = df['Unit'].str.capitalize()
 
-# df['Unit'] = df['Unit'].apply(pathify)
 df['Sector'] = df['Sector'].apply(pathify)
-# df['Measure Type'] = df['Measure Type'].apply(pathify)
 
 df = df.replace(r'^\s*$', np.nan, regex=True)
 df = df.dropna(subset=['Value'])
