@@ -1,0 +1,5 @@
+Label,Notation,Parent Notation,Sort Priority,Description
+Household,household,,0,
+Industrial,industrial,,1,
+Road,road,,2,
+Services,services,,3,
