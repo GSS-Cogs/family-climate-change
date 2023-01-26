@@ -28,11 +28,7 @@
                 "value": "http://reference.data.gov.uk/id/year/{+year}"
             },
             "Sector": {
-                "type": "dimension",
-                "new": {
-                    "codelist": "./codelists/sector.csv-metadata.json"       
-                },
-                "value": "{+sector}"
+                "type": "dimension"
             },
             "Measure Type": {
                 "type": "measures"
