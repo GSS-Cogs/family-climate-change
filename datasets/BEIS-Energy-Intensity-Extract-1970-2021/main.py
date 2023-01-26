@@ -2,12 +2,11 @@
 # coding: utf-8
 # ## Energy Intensity Extract 1970-2021
 
-#
 import pandas as pd
 from gssutils import *
 import numpy as np
 
-metadata = Scraper(seed='info.json')
+metadata = Scraper(seed="info.json")
 metadata.dataset.family = 'climate-change'
 metadata.dataset.title = 'Energy Intensity Extract 1970 - 2021'
 metadata.dataset.contactPoint = "energy.stats@beis.gov.uk"
@@ -18,6 +17,7 @@ distribution = metadata.distribution(mediaType="application/vnd.openxmlformats-o
                                      )
 
 tabs = {tab.name: tab for tab in distribution.as_databaker()}
+
 # +
 tidied_sheets = []
 
@@ -127,9 +127,9 @@ dimensions = [
 
 tidy_sheet = ConversionSegment(tab, dimensions, observations)
 df = tidy_sheet.topandas()
-df.replace({"Measure Type": {'Consumption (ktoe)': 'Service Consumption Excluding Agriculture (ktoe)',
+df.replace({"Measure Type": {'Consumption (ktoe)': 'Service Consumption excluding Agriculture (ktoe)',
                              'Output': 'Service Output',
-                             'Consumption per unit of output (ktoe)': 'Energy Consumption per unit of output 1 (ktoe)'
+                             'Consumption per unit of output (ktoe)': 'Energy consumption per unit of output 1 (ktoe)'
                              }}, inplace=True)
 tidied_sheets.append(df)
 # -
@@ -147,6 +147,8 @@ df.replace(
 df.replace({'Unit': {"'000s": "count", }}, inplace=True)
 df["Unit"].fillna("unknown", inplace=True)
 df['Unit'] = df['Unit'].str.capitalize()
+
+df['Sector'] = df['Sector'].apply(pathify)
 
 df = df.replace(r'^\s*$', np.nan, regex=True)
 df = df.dropna(subset=['Value'])
