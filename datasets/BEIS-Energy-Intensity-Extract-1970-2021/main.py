@@ -9,7 +9,17 @@ import numpy as np
 metadata = Scraper(seed="info.json")
 metadata.dataset.family = 'climate-change'
 metadata.dataset.title = 'Energy Intensity Extract 1970 - 2021'
-metadata.dataset.contactPoint = "energy.stats@beis.gov.uk"
+metadata.dataset.contactPoint = "mailto:energy.stats@beis.gov.uk"
+metadata.dataset.description = """ 
+Energy Intensity is the amount of energy per unit of output.  Units of output vary depending on the sector and sub-sector and relate to such economic activity as number of passengers and distance travelled for the transport sector, whilst changes in the ONS' Index of Production data are used to estimate trends in output for the industrial sector.
+
+The datacube is split into sectors; transport (road), domestic (household), industrial, and services with the datacube showing energy consumption for that sector/sub sector, output factor, and consumption per unit of output.
+
+"""
+
+metadata
+
+metadata.dataset
 
 distribution = metadata.distribution(mediaType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                                      title=lambda x: "ECUK 2022: Energy intensity data tables (Excel)"
@@ -18,7 +28,6 @@ distribution = metadata.distribution(mediaType="application/vnd.openxmlformats-o
 
 tabs = {tab.name: tab for tab in distribution.as_databaker()}
 
-# +
 tidied_sheets = []
 
 # from table I2
@@ -132,7 +141,6 @@ df.replace({"Measure Type": {'Consumption (ktoe)': 'Service Consumption excludin
                              'Consumption per unit of output (ktoe)': 'Energy consumption per unit of output 1 (ktoe)'
                              }}, inplace=True)
 tidied_sheets.append(df)
-# -
 
 df = pd.concat(tidied_sheets, sort=True, axis=0).fillna('')
 
@@ -147,6 +155,8 @@ df.replace(
 df.replace({'Unit': {"'000s": "count", }}, inplace=True)
 df["Unit"].fillna("unknown", inplace=True)
 df['Unit'] = df['Unit'].str.capitalize()
+
+df['Unit'] = df['Unit'].apply(pathify)
 
 df = df.replace(r'^\s*$', np.nan, regex=True)
 df = df.dropna(subset=['Value'])
