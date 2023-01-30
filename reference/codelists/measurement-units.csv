@@ -1,8 +1,8 @@
 Path,Label,Notation,Description,Parent,Source,Sort Priority
 mt-gwp-co2-ar4,MT GWP CO2_ar4,,,,,1
 rainfall,Rainfall,,,,,2
-kt-co2,KT CO2,,,,,3
-km2,KM2,,,,,4
+kt-co2,Kt CO2,,,,,3
+km2,Km2,,,,,4
 thousands,Thousands,,,,,5
 millilitres,Millilitres,,,,,6
 millimetres,Millimetres,,,,,7
@@ -12,17 +12,17 @@ degrees-centigrade,Degrees Centigrade,,,,,10
 day,Day,,,,,11
 thousand-tonnes,Thousand Tonnes,,,,,12
 megalitres,Megalitres,,,,,13
-terajoules,tj,,,,,14
+terajoules,TJ,,,,,14
 million-tonnes-of-oil-equivalent,mtoe,,,,,15
-terajoules-per-million-pounds,tj/ps-million,,,,,16
+terajoules-per-million-pounds,TJ/ps-million,,,,,16
 million-hectares,Million Hectares,,,,,17
 thousand-hectares,Thousand Hectares,,,,,18
 mtoe,Million tonnes of oil equivalent,,,,,19
-billion-passenger-kilometres,Billion Passenger Kilometres,,,,,20
-ktoe,KTOE,,,,,21
-count,"Count ",,,,,22
+billion-passenger-kilometres,Billion passenger kilometres,,,,,20
+ktoe,Ktoe,,,,,21
+count,Count,,,,,22
 unknown,Unknown,,,,,23
 hectares,Hectares,,,,,24
 percentage,Percentage,,,,,25
-rain-days,"Rain Days",,,,,26
-index-2000-100,"Index, 2000 = 100",,,,,27
+rain-days,Rain days,,,,,26
+index-2000-100,Index, 2000 = 100,,,,,27
