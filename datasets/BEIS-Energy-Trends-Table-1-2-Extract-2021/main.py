@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
+# +
 # ### Energy Trends Table 1.2 - Extract 2021
-# %%
+# +
 import pandas as pd
 from gssutils import *
 
@@ -53,7 +54,6 @@ df['Fuel'] = df['Fuel'].apply(pathify)
 df = df.drop_duplicates()
 df = df[['Year', 'Fuel', 'Value']]
 
-# +
 metadata.dataset.family = 'climate-change'
 metadata.dataset.title = "Inland energy consumption: primary fuel input basis 2021"
 metadata.dataset.comment = """
@@ -66,8 +66,7 @@ United Kingdom, focusing on:
 consumption, both primary and final by broad sector, as well as 
 \ndependency rates of imports, fossil fuels and low carbon fuels. 
 """
-metadata.dataset.contactPoint = "energy.stats@beis.gov.uk"
-# -
+metadata.dataset.contactPoint = "mailto:energy.stats@beis.gov.uk"
 
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
