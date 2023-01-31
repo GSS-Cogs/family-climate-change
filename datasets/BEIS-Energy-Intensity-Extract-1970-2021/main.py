@@ -13,7 +13,7 @@ metadata.dataset.contactPoint = "mailto:energy.stats@beis.gov.uk"
 metadata.dataset.description = """ 
 Energy Intensity is the amount of energy per unit of output.  Units of output vary depending on the sector and sub-sector and relate to such economic activity as number of passengers and distance travelled for the transport sector, whilst changes in the ONS' Index of Production data are used to estimate trends in output for the industrial sector.
 
-The datacube is split into sectors; transport (road), domestic (household), industrial, and services with the datacube showing energy consumption for that sector/sub sector, output factor, and consumption per unit of output.
+The datacube is split into sectors: transport (road), domestic (household), industrial, and services, with the datacube showing energy consumption for that sector/sub sector, output factor, and consumption per unit of output.
 
 """
 
