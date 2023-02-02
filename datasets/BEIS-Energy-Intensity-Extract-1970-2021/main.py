@@ -17,10 +17,6 @@ The datacube is split into sectors: transport (road), domestic (household), indu
 
 """
 
-metadata
-
-metadata.dataset
-
 distribution = metadata.distribution(mediaType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                                      title=lambda x: "ECUK 2022: Energy intensity data tables (Excel)"
                                      in x,
@@ -136,8 +132,8 @@ dimensions = [
 
 tidy_sheet = ConversionSegment(tab, dimensions, observations)
 df = tidy_sheet.topandas()
-df.replace({"Measure Type": {'Consumption (ktoe)': 'Service Consumption excluding Agriculture (ktoe)',
-                             'Output': 'Service Output',
+df.replace({"Measure Type": {'Consumption (ktoe)': 'Services Consumption excluding Agriculture (ktoe)',
+                             'Output': 'Services Output',
                              'Consumption per unit of output (ktoe)': 'Energy consumption per unit of output 1 (ktoe)'
                              }}, inplace=True)
 tidied_sheets.append(df)
