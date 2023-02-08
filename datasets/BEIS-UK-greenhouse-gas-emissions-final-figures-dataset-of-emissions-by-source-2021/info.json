@@ -1,0 +1,23 @@
+{
+    "id": "beis-uk-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-source-2021",
+    "title": "UK greenhouse gas emissions: final figures - dataset of emissions by source 2021.",
+    "publisher": "Department for Business, Energy and Industrial Strategy",
+    "description": "",
+    "landingPage": "https://www.gov.uk/government/statistics/final-uk-greenhouse-gas-emissions-national-statistics-1990-to-2021",
+    "datasetNotes": [
+        "On the landing page, navigate down to 2021 UK greenhouse gas emissions: final figures - dataset of emissions by source."
+    ],
+    "published": "2023-02-07",
+    "families": [
+        "Climate Change"
+    ],
+    "extract": {
+        "source": ""
+    },
+    "transform": {
+        "airtable": "rec3nP6L7n8WSmjrA",
+        "main_issue": 666
+    },
+    "sizingNotes": "",
+    "notes": "Dataset added as requested by Data Engineers (David)."
+}
