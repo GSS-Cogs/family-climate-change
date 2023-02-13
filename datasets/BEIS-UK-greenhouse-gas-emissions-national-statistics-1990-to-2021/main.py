@@ -169,6 +169,25 @@ df.replace(
         "Geographic Coverage": {"United Kingdom only": "United Kingdom"},
     }, inplace=True
 )
+df.replace(
+    {
+        "Breakdown": {
+            "Excluding net emissions/removals from LULUCF": "Excluding net emissions and removals from LULUCF",
+            "Including net emissions/removals from LULUCF": "Including net emissions and removals from LULUCF",
+            "Net emissions/removals from LULUCF": "Net emissions and removals from LULUCF"
+        }
+    }, inplace=True
+)
+
+df.replace(
+    {
+        "Sector": {"Direct N2O emissions from N mineralization/immobilisation - Forest land": "Direct N2O emissions from N mineralization immobilisation - Forest land",
+                    "Direct N2O emissions from N mineralization/immobilisation - Cropland": "Direct N2O emissions from N mineralization immobilisation - Cropland",
+                    "Direct N2O emissions from N mineralization/immobilisation - Grassland": "Direct N2O emissions from N mineralization immobilisation - Grassland",
+                    "Direct N2O emissions from N mineralization/immobilisation - Settlements": "Direct N2O emissions from N mineralization immobilisation - Settlements"
+        }
+    }, inplace=True
+)
 
 COLUMNS_TO_NOT_PATHIFY = ["Year", "Geographic Coverage", "Breakdown", "Value",]
 
@@ -179,16 +198,6 @@ for col in df.columns.values.tolist():
         df[col] = df[col].apply(pathify)
     except Exception as err:
         raise Exception('Failed to pathify column "{}".'.format(col)) from err
-
-df.replace(
-    {
-        "Breakdown": {
-            "Excluding net emissions/removals from LULUCF": "Excluding net emissions and removals from LULUCF",
-            "Including net emissions/removals from LULUCF": "Including net emissions and removals from LULUCF",
-            "Net emissions/removals from LULUCF": "Net emissions and removals from LULUCF"
-        }
-    }, inplace=True
-)
 
 df["Breakdown"] = df["Breakdown"].str.replace("/", " and ")
 
