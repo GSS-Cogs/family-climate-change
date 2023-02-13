@@ -5,19 +5,52 @@
     "description": "",
     "landingPage": "https://www.gov.uk/government/statistics/final-uk-greenhouse-gas-emissions-national-statistics-1990-to-2021",
     "datasetNotes": [
-        "On the landing page, navigate down to 2021 UK greenhouse gas emissions: final figures - data tables (alternative ODS)."
+        "On the landing page, navigate down to 2021 UK greenhouse gas emissions: final figures - data tables (Excel)."
     ],
     "published": "2023-02-07",
     "families": [
-        "Climate Change"
+        "Climate-Change"
     ],
     "extract": {
         "source": ""
     },
     "transform": {
         "airtable": "recqvgYArXSUgUJnG",
-        "main_issue": 667
+        "main_issue": 667,
+        "columns": {
+            "Year": {
+                "type": "dimension",
+                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "value": "http://reference.data.gov.uk/id/{+year}"
+            },
+            "Sector": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{sector}"
+            },
+            "Geographic Coverage" : {
+                "type" : "dimension"
+            },
+            "Breakdown": {
+                "type" : "dimension"
+            },
+            "Gas": {
+                "type": "dimension",
+                "uri" : "http://gss-data.org.uk/def/climate-change/property/dimension/ghg",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{gas}"
+            },
+            "Value": {
+                "type": "observations",
+                "measure": {
+                    "label": "Gas Emissions"
+                },
+                "unit": {
+                    "label": "Million tonnes of carbon dioxide equivalent (MtCO2e)"
+                }            
+            }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
     },
     "sizingNotes": "",
-    "notes": "Dataset added as requested by Data Engineers (David)."
+    "notes": ""
 }
