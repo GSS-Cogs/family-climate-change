@@ -41,17 +41,14 @@ for col in df.columns.values.tolist()[4:-2]:
         except Exception as err:
             raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
-df = df[['GHG',
-         'GHG Grouped',
-         'IPCC Code',
-         'Year',
-         'National Communication Sector',
-         'National Communication Sub-sector',
+df = df[['Year',
+         'GHG',   
          'National Communication Category',
-         'Source',
          'National Communication Fuel Group',
          'National Communication Fuel',
          'Activity Name',
+         'Source',
+         'IPCC Code',
          'Value']]
 
 df.to_csv("observations.csv", index=False)
