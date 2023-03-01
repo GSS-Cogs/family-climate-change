@@ -19,21 +19,6 @@
         "airtable": "rec3nP6L7n8WSmjrA",
         "main_issue": 666,
         "columns": {
-            "GHG": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/ghg",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{ghg}"
-            },
-            "GHG Grouped": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/ghg-grouped",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{ghg_grouped}"
-            },
-            "IPCC Code": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/ipcc-code",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/ipcc-code/{ipcc_code}" 
-            },
             "Year": {
                 "type": "dimension",
                 "new": {
@@ -42,20 +27,23 @@
                 },
                 "value": "http://reference.data.gov.uk/id/year/{+year}"
             },
-            "National Communication Sector": {
+            "GHG": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/ghg",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{ghg}"
+            },
+            "GHG Grouped": "false",
+            "IPCC Code": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/ipcc-code",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/ipcc-code/{ipcc_code}" 
+            },
+            "National Communication Sector": "false",
+            "National Communication Sub-sector": "false",
+            "Sector": {
                 "type": "dimension",
                 "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_sector}"
-            },
-            "National Communication Sub-sector": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sub-sector",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_sub_sector}"
-            },
-            "National Communication Category": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-category",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_category}"
+                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{sector}"
             },
             "Source": {
                 "type": "dimension"
@@ -76,10 +64,10 @@
             "Value": {
                 "type": "observations",
                 "measure": {
-                    "label": "Emissions"
+                    "label": "Greenhouse Gas Emissions"
                 },
                 "unit": {
-                    "label": "Millions Tonnes of Carbon Dioxide Equivalent"
+                    "label": "Millions tonnes of carbon dioxide equivalent (MtCO2e)"
                 }
             }
         },
