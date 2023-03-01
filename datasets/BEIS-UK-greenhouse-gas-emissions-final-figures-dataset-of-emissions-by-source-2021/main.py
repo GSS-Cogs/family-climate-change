@@ -73,9 +73,10 @@ df = pd.melt(
 
 df['Value'] = pd.to_numeric(df['Value'], errors="raise", downcast="float")
 df["Value"] = df["Value"].astype(float).round(3)
-df.replace({"Measure": {'Emissions (MtCO2e)': 'Emissions'}}, inplace=True)
+df.replace({"Measure": {'Emissions (MtCO2e)': 'Greenhouse Gas Emissions'}}, inplace=True)
+df.rename(columns={ 'National Communication Category': 'Sector'}, inplace=True)
 
-for col in df.columns.values.tolist()[4:-2]:
+for col in df.columns.values.tolist()[4:-1]:
     if col == 'Source':
         continue
     else:
@@ -90,7 +91,7 @@ df = df[['GHG',
          'Year',
          'National Communication Sector',
          'National Communication Sub-sector',
-         'National Communication Category',
+         'Sector',
          'Source',
          'National Communication Fuel Group',
          'National Communication Fuel',
@@ -101,3 +102,5 @@ df = df[['GHG',
 df.to_csv("observations.csv", index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file("catalog-metadata.json")
+
+df
