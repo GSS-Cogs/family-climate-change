@@ -1,4 +1,5 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "beis-uk-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-source-2021",
     "title": "UK greenhouse gas emissions: final figures - dataset of emissions by source 2021.",
     "publisher": "Department for Business, Energy and Industrial Strategy",
@@ -9,15 +10,67 @@
     ],
     "published": "2023-02-07",
     "families": [
-        "Climate Change"
+        "Climate-Change"
     ],
     "extract": {
-        "source": ""
+        "source": "CSV"
     },
     "transform": {
         "airtable": "rec3nP6L7n8WSmjrA",
-        "main_issue": 666
+        "main_issue": 666,
+        "columns": {
+            "Year": {
+                "type": "dimension",
+                "new": {
+                    "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                    "codelist": true
+                },
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "GHG": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/ghg",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{ghg}"
+            },
+            "GHG Grouped": "false",
+            "National Communication Sector": "false",
+            "National Communication Sub-sector": "false",
+            "IPCC Code": {
+                "type": "dimension"
+            },
+            "Source": {
+                "type": "dimension"
+            },
+            "Activity Name": {
+                "type": "dimension"
+            },
+            "National Communication Category": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-category",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_category}"
+            },
+            "National Communication Fuel Group": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel-group",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{national_communication_fuel_group}"
+            },
+            "National Communication Fuel": {
+                "type": "dimension",
+                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-fuel",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/{national_communication_fuel}"
+            },
+            "Value": {
+                "type": "observations",
+                "measure": {
+                    "label": "Greenhouse Gas Emissions"
+                },
+                "unit": {
+                    "label": "Millions tonnes of carbon dioxide equivalent (MtCO2e)"
+                }
+            }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
     },
     "sizingNotes": "",
-    "notes": "Dataset added as requested by Data Engineers (David)."
+    "notes": ""
 }
