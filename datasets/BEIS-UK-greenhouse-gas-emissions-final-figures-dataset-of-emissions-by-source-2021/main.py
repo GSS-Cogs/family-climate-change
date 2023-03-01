@@ -41,7 +41,7 @@ df = distribution.as_pandas(encoding="ISO-8859-1").fillna(" ")
 
 df.loc[
     (df["National Communication Sub-sector"] == "(blank)"),"National Communication Sub-sector",] = "Not Applicable"
-df.rename(columns={"ActivityName": "Activity Name"}, inplace=True)    
+df.rename(columns={"ActivityName": "Activity Name", "Emissions (MtCO2e)": "Value"}, inplace=True)    
 df.drop(columns="TerritoryName", axis=1, inplace=True)
 df.drop(df.columns[df.columns.str.contains("Unnamed", case=False)], axis=1, inplace=True)
 
@@ -51,30 +51,8 @@ df["National Communication Fuel"] = df["National Communication Fuel"].str.replac
 df["Activity Name"] = df["Activity Name"].str.replace("/", "-")
 df["Source"] = df["Source"].str.replace("/", "-").str.replace("-+", "-", regex=True)
 
-df = pd.melt(
-    df,
-    id_vars=[
-        "GHG",
-        "GHG Grouped",
-        "IPCC Code",
-        "Year",
-        "National Communication Sector",
-        "National Communication Sub-sector",
-        "National Communication Category",
-        "Source",
-        "National Communication Fuel Group",
-        "National Communication Fuel",
-        "Activity Name",
-    ],
-    value_vars=["Emissions (MtCO2e)"],
-    var_name="Measure",
-    value_name="Value",
-)
-
 df['Value'] = pd.to_numeric(df['Value'], errors="raise", downcast="float")
 df["Value"] = df["Value"].astype(float).round(3)
-df.replace({"Measure": {'Emissions (MtCO2e)': 'Greenhouse Gas Emissions'}}, inplace=True)
-df.rename(columns={ 'National Communication Category': 'Sector'}, inplace=True)
 
 for col in df.columns.values.tolist()[4:-1]:
     if col == 'Source':
@@ -91,16 +69,13 @@ df = df[['GHG',
          'Year',
          'National Communication Sector',
          'National Communication Sub-sector',
-         'Sector',
+         'National Communication Category',
          'Source',
          'National Communication Fuel Group',
          'National Communication Fuel',
          'Activity Name',
-         'Measure',
          'Value']]
 
 df.to_csv("observations.csv", index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file("catalog-metadata.json")
-
-df
