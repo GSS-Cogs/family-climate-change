@@ -7,28 +7,6 @@ import pandas as pd
 from gssutils import *
 
 metadata = Scraper(seed="info.json")
-metadata.dataset.description = """
-This publication provides the final estimates of UK territorial greenhouse gas 
-emissions going back to 1990. Figures for all years since 1990 have been 
-revised since the last publication to incorporate methodological 
-improvements and new data, so the estimates presented here supersede 
-previous ones.
-
-Estimates are presented by source in February of each year. They are updated 
-in March of each year to include estimates with energy supply emissions on an 
-end-user basis, and in June to include estimates by Standard Industrial 
-Classification (SIC).
-
-The statistics cover emissions that occur within the UK's borders. When 
-emissions are reported by source, emissions are attributed to the sector that 
-emits them directly. When emissions are reported by end-user, energy supply 
-emissions by source are reallocated in accordance with where the end-use 
-activity occurred. This reallocation of emissions is based on a modelling 
-process. For example, all the carbon dioxide produced by a power station is 
-allocated to the power station when reporting on a source basis.
-
-Email Greenhousegas.statistics@beis.gov.uk
-"""
 
 distribution = metadata.distribution(
     mediaType="text/csv",
