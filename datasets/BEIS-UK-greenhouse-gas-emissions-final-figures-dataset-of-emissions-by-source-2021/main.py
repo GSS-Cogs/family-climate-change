@@ -32,7 +32,7 @@ df["Source"] = df["Source"].str.replace("/", "-").str.replace("-+", "-", regex=T
 df['Value'] = pd.to_numeric(df['Value'], errors="raise", downcast="float")
 df["Value"] = df["Value"].astype(float).round(3)
 
-for col in df.columns.values.tolist()[4:-1]:
+for col in df.columns.values.tolist()[4:-2]:
     if col == 'Source':
         continue
     else:
