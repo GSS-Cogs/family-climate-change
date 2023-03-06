@@ -8,8 +8,8 @@ from gssutils import *
 
 metadata = Scraper(seed="info.json")
 
-metadata.dataset.title = "UK greenhouse gas emissions: final figures - dataset of emissions by source 2021."
-metadata.dataset.comment = "Final estimates of UK territorial greenhouse gas emissions by source, 1990 to 2021, with emissions attributed to the sector that emitted them directly"
+metadata.dataset.title = "UK greenhouse gas emissions: final figures - dataset of emissions by source 2021"
+metadata.dataset.comment = "Final estimates of UK territorial greenhouse gas emissions by source, 1990 to 2021, with emissions attributed to the sector that emitted them directly."
 
 distribution = metadata.distribution(
     mediaType="text/csv",
