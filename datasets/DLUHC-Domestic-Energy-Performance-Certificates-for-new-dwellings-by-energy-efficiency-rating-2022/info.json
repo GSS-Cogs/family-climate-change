@@ -1,0 +1,23 @@
+{
+    "id": "dluhc-domestic-energy-performance-certificates-for-new-dwellings-by-energy-efficiency-rating-2022",
+    "title": "Domestic Energy Performance Certificates for new dwellings by energy efficiency rating 2022",
+    "publisher": "DLUHC",
+    "description": "",
+    "landingPage": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-energy-performance-of-buildings-certificates",
+    "datasetNotes": [
+        "On the landing page, navigate down to Table NB1: domestic Energy Performance Certificates for new dwellings by energy efficiency rating"
+    ],
+    "published": "2023-01-26",
+    "families": [
+        "Climate-Change"
+    ],
+    "extract": {
+        "source": ""
+    },
+    "transform": {
+        "airtable": "reczIpD1qC1mPLRHO",
+        "main_issue": 685
+    },
+    "sizingNotes": "",
+    "notes": ""
+}
