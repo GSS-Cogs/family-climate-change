@@ -173,7 +173,7 @@ class PostProcessing:
         'Efficieny Rating', 'Value', 'Measure Type', 'Unit']]
 
         #valid to drop
-        df = df.drop_duplicates()
+        # df = df.drop_duplicates()
 
         return df
 
