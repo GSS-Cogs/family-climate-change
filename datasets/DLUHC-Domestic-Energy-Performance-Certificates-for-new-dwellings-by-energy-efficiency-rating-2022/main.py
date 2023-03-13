@@ -197,3 +197,7 @@ if __name__ == "__main__":
     clean_df = PostProcessing(tidy, title_id)
     df = clean_df.postprocessing_the_dataframe()
     # print(df.head(5))
+
+    df.to_csv('observations.csv', index=False)
+    catalog_metadata = metadata.as_csvqb_catalog_metadata()
+    catalog_metadata.to_json_file('catalog-metadata.json')
