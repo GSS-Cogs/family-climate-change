@@ -7,6 +7,7 @@ title_id = info['id']
 
 metadata = Scraper(seed="info.json")
 metadata.dataset.title = "Domestic Energy Performance Certificates for existing dwellings by energy efficiency rating 2022"
+metadata.dataset.comment = "Data from certificates lodged on the Energy Performance of existing Buildings Register by average energy efficiency rating."
 metadata.dataset.description = "This data relates to the Energy Performance of Buildings Certificates published alongside the Energy Performance of Buildings Certificates Statistical release 26 January 2023."
 
 distribution = [x for x in metadata.distributions if 'Table EB1' in x.title][0]
@@ -71,7 +72,6 @@ df.rename(columns={'OBS': 'Value'}, inplace=True)
 df['Year'] = df['Year'].astype(str).replace('\.0', '', regex=True)
 df['Period'] = df['Quarter'] + df['Year']
 
-
 #Format Date/Quarter
 def left(s, amount):
     return s[:amount]
@@ -84,7 +84,6 @@ def date_time(date):
         return 'quarter/' + left(date,4) + '-0' + right(date,1)
     else:
         return ""
-
 
 df["Period"] =  df["Period"].apply(date_time)
 df = df.drop(["Year", "Quarter"], axis=1)
@@ -105,7 +104,6 @@ df = df.replace({'Location': {
     "England and Wales" : 'http://gss-data.org.uk/data/gss_data/climate-change/' +
     title_id + '#concept/local-authority-code/england-wales'
 }})
-
 # info needed to create URI's for section
 sic = 'http://statistics.data.gov.uk/id/statistical-geography/'
 df['Location'] = df['Location'].map(
@@ -116,9 +114,6 @@ df = df.replace({'Efficiency Rating': {
     "not-recorded": 'Not Recorded'
     }})
 # -
-df['Lodgements'] = pd.to_numeric(df['Lodgements'], errors="coerce", downcast="float")
-df['Total Floor Area (m2)'] = pd.to_numeric(df['Total Floor Area (m2)'], errors="coerce", downcast="float")
-
 df['Measure Type'] = 'energy-performance-certificates'
 df['Unit'] = 'Count'
 df = df[['Period', 'Efficiency Rating', 'Location', 'Lodgements', 'Total Floor Area (m2)','Measure Type', 'Unit', 'Value']]
