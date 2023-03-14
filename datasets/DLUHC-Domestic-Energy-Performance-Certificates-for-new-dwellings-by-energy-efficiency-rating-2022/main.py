@@ -32,6 +32,7 @@ class StageOne:
         info = json.load(open(info_json))
         title_id = info['id']
         return title_id
+    
 class SpecificSheet:
     """
     Name of the sheets to be transformed is validated
