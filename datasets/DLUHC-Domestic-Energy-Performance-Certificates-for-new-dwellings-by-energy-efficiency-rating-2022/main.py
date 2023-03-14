@@ -14,7 +14,7 @@ class StageOne:
         Gets distribution from landing page using info.json based on title of the sheet
         """
         metadata = Scraper(seed=self.info_json)
-        return  metadata.distribution(title = lambda x: "Table NB1: domestic Energy Performance Certificates for new dwellings by energy efficiency rating" in x)
+        return  metadata.distribution(title = lambda x: "Table NB1:" in x)
 
     @staticmethod
     def get_metadata(info_json):
