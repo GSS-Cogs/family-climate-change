@@ -91,6 +91,7 @@ class TransformationStageOne:
             elif dict_key == "NB1_England_Only":
                 df2 = pd.DataFrame(every_list[1])
                 df2["Location"] = "http://statistics.data.gov.uk/id/statistical-geography/E92000001"
+                df2.drop(df2[df2["F"] == "F/G"].index, inplace = True)
 
             elif dict_key == "NB1_Wales_Only":
                 df3 = pd.DataFrame(every_list[2])
@@ -124,6 +125,7 @@ class TransformationStageOne:
         """
         The dataframe is melted from wide to long format
         """
+
         tidy_df = pd.melt(df7, id_vars = ['Period', 'Lodgements', 'Total Floor Area (m2)', 'Location'], value_vars = ['A', 'B',
             'C', 'D', 'E', 'F', 'G', 'Not Recorded'], var_name = "Efficieny Rating", ignore_index=False)
         return tidy_df
