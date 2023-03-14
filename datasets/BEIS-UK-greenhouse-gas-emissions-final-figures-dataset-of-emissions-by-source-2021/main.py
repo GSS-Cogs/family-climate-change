@@ -6,6 +6,8 @@ import json
 import pandas as pd
 from gssutils import *
 
+pd.set_option('display.float_format', lambda x: f'{x:.6f}')
+
 metadata = Scraper(seed="info.json")
 
 metadata.dataset.title = "UK greenhouse gas emissions: final figures - dataset of emissions by source 2021"
@@ -18,7 +20,7 @@ distribution = metadata.distribution(
     in x,
 )
 
-df = distribution.as_pandas(encoding="ISO-8859-1")
+df = distribution.as_pandas(encoding="ISO-8859-1").fillna("")
 
 df.loc[
     (df["National Communication Sub-sector"] == "(blank)"),"National Communication Sub-sector",] = "Not Applicable"
@@ -32,8 +34,8 @@ df["National Communication Fuel"] = df["National Communication Fuel"].str.replac
 df["Activity Name"] = df["Activity Name"].str.replace("/", "-")
 df["Source"] = df["Source"].str.replace("/", "-").str.replace("-+", "-", regex=True)
 
+df['Value'] = df.apply(lambda x: '{:20.6f}'.format(x['Value']), axis=1)
 df['Value'] = pd.to_numeric(df['Value'], errors="raise", downcast="float")
-df["Value"] = df["Value"].astype(float).round(7)
 
 for col in df.columns.values.tolist()[4:-2]:
     if col == 'Source':
