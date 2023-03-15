@@ -62,7 +62,7 @@
                     "label": "Greenhouse Gas Emissions"
                 },
                 "unit": {
-                    "label": "Millions tonnes of carbon dioxide equivalent (MtCO2e)"
+                    "label": "Kilotonnes of carbon dioxide equivalent (Kt CO2e)"
                 }
             }
         },
