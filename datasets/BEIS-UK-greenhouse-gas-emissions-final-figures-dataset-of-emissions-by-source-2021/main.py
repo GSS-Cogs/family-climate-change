@@ -35,7 +35,7 @@ df["Activity Name"] = df["Activity Name"].str.replace("/", "-")
 df["Source"] = df["Source"].str.replace("/", "-").str.replace("-+", "-", regex=True)
 
 df['Value'] = pd.to_numeric(df['Value'], errors="raise", downcast="float")
-df["Value"] = df["Value"].astype(float).round(3)
+df["Value"] = df["Value"].astype(float).round(6)
 
 for col in df.columns.values.tolist()[4:-2]:
     if col == 'Source':
