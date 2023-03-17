@@ -25,10 +25,7 @@
                 "value": "http://reference.data.gov.uk/id/{+period}"
             },
             "Location" : {
-                "type": "dimension",
-                "new": {
-                    "codelist": "./codelists/location.csv-metadata.json"
-                }
+                "type": "dimension"
             },
             "Lodgements" : {
                 "type" : "attribute"
