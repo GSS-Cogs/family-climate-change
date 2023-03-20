@@ -157,9 +157,16 @@ g["URI"] = (
          else x)
     ))
 )
-g["Local Notation"] = g["URI"]
-g["Parent URI"] = None
 
+g["Local Notation"] = g["Label"].map(lambda x: 
+    x if 'E0' in x else 
+    x if 'W0' in x else
+    x if 'E9' in x else
+    x if 'W9' in x else
+    pathify(x)
+)
+
+g["Parent URI"] = None
 g["Sort Priority"] = None
 g["Description"] = None
 
