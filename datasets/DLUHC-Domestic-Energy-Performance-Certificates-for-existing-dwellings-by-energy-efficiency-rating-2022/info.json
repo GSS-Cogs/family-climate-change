@@ -25,10 +25,7 @@
                 "value": "http://reference.data.gov.uk/id/{+period}"
             },
             "Local Authority": {
-                "type" : "dimension",
-                "new": {
-                    "codelist": "./codelists/local-authority.csv-metadata.json"
-                }
+                "type" : "dimension"
             },
             "Efficiency Rating" : {
                 "type" : "dimension"
