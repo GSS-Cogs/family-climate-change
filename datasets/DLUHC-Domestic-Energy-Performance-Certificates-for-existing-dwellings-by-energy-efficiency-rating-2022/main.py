@@ -19,11 +19,11 @@ for tab in tabs:
     if tab.name in ["EB1", "EB1_England_Only", "EB1_Wales_Only"]:   #["EB1_By_Region", "EB1_by_LA"]:
         # efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() + tab.excel_ref("C4")
         year = tab.filter("Year").shift(0, 1).fill(
-        DOWN)  # refPeriod for all tabs
+            DOWN) - tab.excel_ref("A77").expand(DOWN)
         quarter = tab.filter("Quarter").shift(
-            0, 1).fill(DOWN)  # refPeriod for all tabs
+            0, 1).fill(DOWN) - tab.excel_ref("B77").expand(DOWN)
         lodgements = tab.filter("Number of Lodgements").shift(
-            0, 1).fill(DOWN) # observations for all tabs
+            0, 1).fill(DOWN) - tab.excel_ref("C77").expand(DOWN)
         efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("C4") 
         observations = efficieny_rating.shift(0, 1).fill(DOWN).is_not_blank()
         if tab.name == "EB1":
@@ -44,19 +44,19 @@ for tab in tabs:
 
     else:
         if tab.name == "EB1_By_Region":
-            location = tab.excel_ref("A15").expand(DOWN)
-            quarter =  tab.excel_ref("B15").expand(DOWN)
-            lodgements = tab.excel_ref("C15").expand(DOWN)
+            location = tab.excel_ref("A15").expand(DOWN) - tab.excel_ref("A584").expand(DOWN)
+            quarter =  tab.excel_ref("B15").expand(DOWN) - tab.excel_ref("B584").expand(DOWN)
+            lodgements = tab.excel_ref("C15").expand(DOWN)- tab.excel_ref("B584").expand(DOWN)
             efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("C4")
             observations = tab.excel_ref('E15').expand(
                     RIGHT).expand(DOWN).is_not_blank() | lodgements
         if tab.name == "EB1_by_LA":
-            quarter = tab.filter("Quarter").fill(DOWN) 
+            quarter = tab.filter("Quarter").fill(DOWN).is_not_blank() 
             location = tab.filter(
-                "Local Authority Code").fill(DOWN)
-            lodgements = tab.filter("Number of Lodgements").fill(DOWN) 
+                "Local Authority Code").fill(DOWN).is_not_blank()
+            lodgements = tab.filter("Number of Lodgements").fill(DOWN).is_not_blank() 
             efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("D4")
-            observations = efficieny_rating.fill(DOWN).is_not_blank()
+            observations = efficieny_rating.fill(DOWN).is_not_blank() | lodgements
 
         dimensions = [
             HDim(quarter, 'Quarter', DIRECTLY, LEFT),
@@ -70,13 +70,11 @@ for tab in tabs:
         dataframes.append(df)
     print(tab.name)
 
-
 df = pd.concat(dataframes, sort=True).fillna("")
 df.rename(columns={'OBS': 'Value'}, inplace=True)
 df['Year'] = df['Year'].astype(str).replace('\.0', '', regex=True)
 df['Period'] = df['Quarter'] + df['Year']
 
-# +
 # Format Date/Quarter
 def left(s, amount):
     return s[:amount]
@@ -151,12 +149,12 @@ df['Unit'] = 'Count'
 # )
 # g.to_csv("./local-authority.csv", index=False)
 
+df = df.drop_duplicates()
+
 df = df.replace("", "not-available")
 
 df = df[['Period', 'Efficiency Rating', 'Local Authority',
          'Measure Type', 'Unit', 'Value']]
-
-df = df.drop_duplicates()
 
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
