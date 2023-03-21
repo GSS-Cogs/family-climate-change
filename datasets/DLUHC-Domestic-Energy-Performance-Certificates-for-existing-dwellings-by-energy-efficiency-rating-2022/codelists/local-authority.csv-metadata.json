@@ -1,127 +1,46 @@
 {
     "@context": "http://www.w3.org/ns/csvw",
-    "@id": "http://gss-data.org.uk/data/gss_data/climate-change/dluhc-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating-2022#scheme/local-authority",
+    "@id": "local-authority#code-list",
     "url": "local-authority.csv",
-    "rdfs:label": "Local Authority",
-    "dc:title": "Local Authority",
-    "tableSchema": {
-        "columns": [
-            {
-                "titles": "Label",
-                "name": "label",
-                "datatype": "string",
-                "required": true,
-                "propertyUrl": "rdfs:label"
-            },
-            {
-                "titles": "URI",
-                "name": "uri",
-                "datatype": "string",
-                "required": true,
-                "suppressOutput": true
-            },
-            {
-                "titles": "Parent URI",
-                "name": "parent_uri",
-                "required": false,
-                "propertyUrl": "skos:broader",
-                "valueUrl": "{+parent_uri}"
-            },
-            {
-                "titles": "Sort Priority",
-                "name": "sort_priority",
-                "datatype": "integer",
-                "required": false,
-                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
-            },
-            {
-                "titles": "Description",
-                "name": "description",
-                "datatype": "string",
-                "required": false,
-                "propertyUrl": "rdfs:comment"
-            },
-            {
-                "titles": "Local Notation",
-                "name": "notation",
-                "datatype": {
-                    "base": "string",
-                    "format": "^-?[\\w\\.\\/\\+]+(-[\\w\\.\\/\\+]+)*$"
-                },
-                "required": true,
-                "propertyUrl": "skos:notation"
-            },
-            {
-                "virtual": true,
-                "propertyUrl": "rdf:type",
-                "valueUrl": "skos:Concept"
-            },
-            {
-                "virtual": true,
-                "propertyUrl": "skos:inScheme",
-                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/dluhc-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating-2022#scheme/local-authority"
-            }
-        ],
-        "primaryKey": "notation",
-        "aboutUrl": "{+uri}"
-    },
-    "prov:hadDerivation": {
-        "@id": "http://gss-data.org.uk/data/gss_data/climate-change/dluhc-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating-2022#scheme/local-authority",
-        "@type": [
-            "skos:ConceptScheme",
-            "http://publishmydata.com/pmdcat#ConceptScheme"
-        ]
-    },
+    "tableSchema": "local-authority.table.json",
     "rdfs:seeAlso": [
         {
-            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/dluhc-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating-2022#scheme/local-authority/dataset",
+            "@id": "local-authority#code-list",
             "@type": [
-                "dcat:Dataset",
-                "http://publishmydata.com/pmdcat#Dataset"
+                "http://www.w3.org/2000/01/rdf-schema#Resource",
+                "http://www.w3.org/2004/02/skos/core#ConceptScheme",
+                "http://www.w3.org/ns/dcat#Dataset",
+                "http://www.w3.org/ns/dcat#Resource"
             ],
-            "http://publishmydata.com/pmdcat#datasetContents": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/dluhc-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating-2022#scheme/local-authority"
-            },
-            "http://publishmydata.com/pmdcat#graph": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/dluhc-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating-2022#scheme/local-authority"
-            },
-            "dc:modified": {
-                "@type": "dateTime",
-                "@value": "2023-03-17T11:36:45.100201"
-            },
-            "rdfs:label": "Local Authority",
-            "dc:title": "Local Authority",
-            "rdfs:comment": "Dataset representing the 'Local Authority' code list.",
-            "dc:issued": {
-                "@type": "dateTime",
-                "@value": "2023-03-17T11:36:45.100201"
-            }
-        },
-        {
-            "@id": "http://gss-data.org.uk/catalog/vocabularies",
-            "dcat:record": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/dluhc-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating-2022s#scheme/local-authority/catalog-record"
-            }
-        },
-        {
-            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/dluhc-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating-2022#scheme/local-authority/catalog-record",
-            "@type": "dcat:CatalogRecord",
-            "foaf:primaryTopic": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/dluhc-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating-2022#scheme/local-authority/dataset"
-            },
-            "http://publishmydata.com/pmdcat#metadataGraph": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/dluhc-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating-2022#scheme/local-authority"
-            },
-            "dc:title": "Local Authority Catalog Record",
-            "rdfs:label": "Local Authority Catalog Record",
-            "dc:issued": {
-                "@type": "dateTime",
-                "@value": "2023-03-17T11:36:45.100201"
-            },
-            "dc:modified": {
-                "@type": "dateTime",
-                "@value": "2023-03-17T11:36:45.100201"
-            }
+            "http://purl.org/dc/terms/identifier": [
+                {
+                    "@value": "Local Authority"
+                }
+            ],
+            "http://purl.org/dc/terms/issued": [
+                {
+                    "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+                    "@value": "2023-03-21T17:40:13.357727"
+                }
+            ],
+            "http://purl.org/dc/terms/modified": [
+                {
+                    "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+                    "@value": "2023-03-21T17:40:13.357727"
+                }
+            ],
+            "http://purl.org/dc/terms/title": [
+                {
+                    "@language": "en",
+                    "@value": "Local Authority"
+                }
+            ],
+            "http://www.w3.org/2000/01/rdf-schema#label": [
+                {
+                    "@language": "en",
+                    "@value": "Local Authority"
+                }
+            ]
         }
     ]
 }
