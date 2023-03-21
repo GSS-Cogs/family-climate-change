@@ -25,17 +25,15 @@
                 "value": "http://reference.data.gov.uk/id/{+period}"
             },
             "Local Authority": {
-                "type" : "dimension"
-            },
-            "Lodgements" : {
-                "type" : "attribute"
+                "type" : "dimension",
+                "new": {
+                    "codelist": "./codelists/local-authority.csv-metadata.json"
+                }
             },
             "Efficiency Rating" : {
                 "type" : "dimension"
             }, 
-            "Total Floor Area (m2)" : {
-                "type" : "attribute"
-            },
+            
             "Measure Type": {
                 "type" :"measures",
                 "value": "http://gss-data.org.uk/def/climate-change/measure/{+measure_type}"
