@@ -30,9 +30,9 @@ for tab in tabs:
         if tab.name == "EB1":
             location = 'England and Wales'
         elif tab.name == "EB1_England_Only":
-            location = "England"
+            location = "E92000001"
         elif tab.name == "EB1_Wales_Only":
-            location = "Wales"
+            location = "W92000004"
         dimensions = [
             HDim(year, 'Year', DIRECTLY, LEFT),
             HDim(quarter, 'Quarter', DIRECTLY, LEFT),
@@ -90,84 +90,45 @@ def date_time(date):
 df["Period"] = df["Period"].apply(date_time)
 df = df.drop(["Year", "Quarter"], axis=1)
 
-# df = df.replace({'Location': {
-# "East Midlands": "http://data.europa.eu/nuts/code/UKF", #Check if we need uri
-# "London": "http://data.europa.eu/nuts/code/UKI",
-# "North East": "http://data.europa.eu/nuts/code/UKC",
-# "North West": "http://data.europa.eu/nuts/code/UKD",
-# "South East": "http://data.europa.eu/nuts/code/UKJ",
-# "South West": "http://data.europa.eu/nuts/code/UKK",
-# "East of England": "http://data.europa.eu/nuts/code/UKH",
-# "West Midlands": "http://data.europa.eu/nuts/code/UKG",
-# "Yorkshire and The Humber": "http://data.europa.eu/nuts/code/UKE",
-# "Unknown": 'http://gss-data.org.uk/data/gss_data/climate-change/' +
-# title_id + '#concept/local-authority-code/unknown',
-# "England and Wales" : 'http://gss-data.org.uk/data/gss_data/climate-change/' +
-# title_id + '#concept/local-authority-code/england-wales'
-# }})
+df['Local Authority'] = df['Location']
 
-# info needed to create URI's for section
-# sic = 'http://statistics.data.gov.uk/id/statistical-geography/'
-# df['Location'] = df['Location'].map(
-#     lambda x: sic + x if 'E0' in x else (sic + x if 'W0' in x else x))
+df = df.replace({'Local Authority': {
+"East Midlands": "http://data.europa.eu/nuts/code/UKF", 
+"London": "http://data.europa.eu/nuts/code/UKI",
+"North East": "http://data.europa.eu/nuts/code/UKC",
+"North West": "http://data.europa.eu/nuts/code/UKD",
+"South East": "http://data.europa.eu/nuts/code/UKJ",
+"South West": "http://data.europa.eu/nuts/code/UKK",
+"East of England": "http://data.europa.eu/nuts/code/UKH",
+"West Midlands": "http://data.europa.eu/nuts/code/UKG",
+"Yorkshire and The Humber": "http://data.europa.eu/nuts/code/UKE",
+"Unknown": 'http://gss-data.org.uk/data/gss_data/climate-change/' +
+title_id + '#concept/local-authority-code/unknown',
+"England and Wales" : 'http://gss-data.org.uk/data/gss_data/climate-change/' +
+title_id + '#concept/local-authority-code/england-wales'
+}})
+
+# info needed to create URI's for LA codes
+sic = 'http://statistics.data.gov.uk/id/statistical-geography/'
+df['Local Authority'] = df['Local Authority'].map(lambda x: 
+        sic + x if 'E0' in x else
+        sic + x if 'W0' in x else
+        sic + x if 'E9' in x else
+        sic + x if 'W9' in x
+        else x
+)
 
 df = df.replace({'Efficiency Rating': {
     "Not recorded": "Not Recorded",
     "not-recorded": 'Not Recorded'
 }})
-# -
-df['Measure Type'] = 'energy-performance-certificates'
+
+df['Measure Type'] = 'energy-performance'
 df['Unit'] = 'Count'
-df = df[['Period', 'Efficiency Rating', 'Location', 'Lodgements',
+
+df = df[['Period', 'Efficiency Rating', 'Local Authority', 'Lodgements',
          'Total Floor Area (m2)', 'Measure Type', 'Unit', 'Value']]
 
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file('catalog-metadata.json')
-
-# Creating a local codelist that fits the dataset
-g = pd.DataFrame()
-g["Label"] = df["Location"]
-
-sic = 'http://statistics.data.gov.uk/id/statistical-geography/'
-g["URI"] = (
-    g["Label"]
-    .replace({
-        "England": "http://statistics.data.gov.uk/id/statistical-geography/E92000001",
-        "Wales": "http://data.europa.eu/nuts/code/UKL",
-        "East Midlands": "http://data.europa.eu/nuts/code/UKF",  # Check if we need uri
-        "London": "http://data.europa.eu/nuts/code/UKI",
-        "North East": "http://data.europa.eu/nuts/code/UKC",
-        "North West": "http://data.europa.eu/nuts/code/UKD",
-        "South East": "http://data.europa.eu/nuts/code/UKJ",
-        "South West": "http://data.europa.eu/nuts/code/UKK",
-        "East of England": "http://data.europa.eu/nuts/code/UKH",
-        "West Midlands": "http://data.europa.eu/nuts/code/UKG",
-        "Yorkshire and The Humber": "http://data.europa.eu/nuts/code/UKE",
-        "Unknown": 'http://gss-data.org.uk/data/gss_data/climate-change/' +
-        title_id + '#concept/local-authority-code/unknown',
-        "England and Wales": 'http://gss-data.org.uk/data/gss_data/climate-change/' +
-        title_id + '#concept/local-authority-code/england-wales'
-    })
-    .map(lambda x: (
-        sic + x if 'E0' in x else
-        (sic + x if 'W0' in x else
-         sic + x if 'E9' in x else
-         sic + x if 'W9' in x
-         else x)
-    ))
-)
-
-g["Local Notation"] = g["Label"].map(lambda x: 
-    x if 'E0' in x else 
-    x if 'W0' in x else
-    x if 'E9' in x else
-    x if 'W9' in x else
-    pathify(x)
-)
-
-g["Parent URI"] = None
-g["Sort Priority"] = None
-g["Description"] = None
-
-g.to_csv("./location.csv", index=False)
