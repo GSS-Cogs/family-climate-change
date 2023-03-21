@@ -33,7 +33,6 @@
             "Efficiency Rating" : {
                 "type" : "dimension"
             }, 
-            
             "Measure Type": {
                 "type" :"measures",
                 "value": "http://gss-data.org.uk/def/climate-change/measure/{+measure_type}"
