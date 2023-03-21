@@ -13,6 +13,7 @@ metadata.dataset.description = "This data relates to the Energy Performance of B
 distribution = [x for x in metadata.distributions if 'Table EB1' in x.title][0]
 excluded = ['Cover_sheet', 'Notes', 'Table_of_contents']
 tabs = [x for x in distribution.as_databaker() if x.name not in excluded]
+
 dataframes = []
 for tab in tabs:
     year = tab.filter("Year").shift(0, 1).expand(
@@ -20,12 +21,11 @@ for tab in tabs:
     quarter = tab.filter("Quarter").shift(
         0, 1).expand(DOWN)  # refPeriod for all tabs
     lodgements = tab.filter("Number of Lodgements").shift(
-        0, 1).expand(DOWN)  # attribute for all tabs
-    area = tab.filter("Total Floor Area (m2)").shift(
-        0, 1).expand(DOWN)  # attribute for all tabs
-    efficieny_rating = tab.filter("A").expand(RIGHT)  # dimension for all tabs
+        0, 1).expand(DOWN) # observations for all tabs
+    efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("C4") 
 
-    if tab.name not in ["EB1_By_Region", "EB1_by_LA"]:
+    if tab.name in ["EB1", "EB1_England_Only", "EB1_Wales_Only"]:   #["EB1_By_Region", "EB1_by_LA"]:
+        # efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() + tab.excel_ref("C4")
         observations = efficieny_rating.shift(0, 1).fill(DOWN).is_not_blank()
         if tab.name == "EB1":
             location = 'England and Wales'
@@ -36,9 +36,8 @@ for tab in tabs:
         dimensions = [
             HDim(year, 'Year', DIRECTLY, LEFT),
             HDim(quarter, 'Quarter', DIRECTLY, LEFT),
-            HDim(lodgements, 'Lodgements', DIRECTLY, LEFT),
+            #HDim(lodgements, 'Lodgements', DIRECTLY, LEFT),
             HDim(efficieny_rating, 'Efficiency Rating', DIRECTLY, ABOVE),
-            HDim(area, 'Total Floor Area (m2)', DIRECTLY, LEFT),
             HDimConst('Location', location)
         ]
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
@@ -46,27 +45,30 @@ for tab in tabs:
         dataframes.append(df)
 
     else:
-        observations = efficieny_rating.fill(DOWN).is_not_blank()
-
         if tab.name == "EB1_By_Region":
-            location = tab.filter("Region").shift(0, 1).expand(DOWN)
+            location = tab.excel_ref("A15").expand(DOWN)
+            quarter =  tab.excel_ref("B15").expand(DOWN)
+            lodgements = tab.excel_ref("C15").expand(DOWN)
             observations = tab.excel_ref('E15').expand(
-                RIGHT).expand(DOWN).is_not_blank()
+                    RIGHT).expand(DOWN).is_not_blank() | lodgements
         if tab.name == "EB1_by_LA":
             location = tab.filter(
                 "Local Authority Code").shift(0, 1).expand(DOWN)
+            efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("D4")
+            observations = efficieny_rating.shift(0, 1).fill(DOWN).is_not_blank()
 
         dimensions = [
             HDim(quarter, 'Quarter', DIRECTLY, LEFT),
-            HDim(lodgements, 'Lodgements', DIRECTLY, LEFT),
+            # HDim(lodgements, 'Lodgements', DIRECTLY, LEFT),
             HDim(efficieny_rating, 'Efficiency Rating', DIRECTLY, ABOVE),
-            HDim(area, 'Total Floor Area (m2)', DIRECTLY, LEFT),
             HDim(location, 'Location', DIRECTLY, LEFT),
             HDimConst('Year', "")
         ]
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         df = tidy_sheet.topandas()
         dataframes.append(df)
+    # print(tab.name)
+
 df = pd.concat(dataframes, sort=True)
 df.rename(columns={'OBS': 'Value'}, inplace=True)
 df['Year'] = df['Year'].astype(str).replace('\.0', '', regex=True)
@@ -90,7 +92,7 @@ def date_time(date):
 df["Period"] = df["Period"].apply(date_time)
 df = df.drop(["Year", "Quarter"], axis=1)
 
-df['Local Authority'] = df['Location']
+df['Local Authority'] = df['Location'] # for the purpose of getting labels for codelist
 
 df = df.replace({'Local Authority': {
 "East Midlands": "http://data.europa.eu/nuts/code/UKF", 
@@ -120,14 +122,35 @@ df['Local Authority'] = df['Local Authority'].map(lambda x:
 
 df = df.replace({'Efficiency Rating': {
     "Not recorded": "Not Recorded",
-    "not-recorded": 'Not Recorded'
+    "not-recorded": 'Not Recorded',
+    "Number of Lodgements": "Grand total"
 }})
-
-df['Measure Type'] = 'energy-performance'
+# -
+df['Measure Type'] = 'energy-performance-certificates'
 df['Unit'] = 'Count'
 
-df = df[['Period', 'Efficiency Rating', 'Local Authority', 'Lodgements',
-         'Total Floor Area (m2)', 'Measure Type', 'Unit', 'Value']]
+# #Codes for creating local codelist
+# g = pd.DataFrame()
+# g["Label"] = df["Location"]
+# g["URI"] = df["Local Authority"]
+
+# g["Parent URI"] = None
+# g.index += 1
+# g["Sort Priority"] = g.index
+# g["Description"] = None
+# g["Local Notation"] = g["Label"].map(lambda x:                            
+#     x if 'E0' in x else 
+#     x if 'W0' in x else 
+#     x if 'E9' in x else 
+#     x if 'W9' in x 
+#     else pathify(x)
+# )
+# g.to_csv("./local-authority.csv", index=False)
+
+df = df[['Period', 'Efficiency Rating', 'Local Authority',
+         'Measure Type', 'Unit', 'Value']]
+
+df = df.drop_duplicates()
 
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
