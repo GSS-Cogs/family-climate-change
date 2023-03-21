@@ -22,13 +22,13 @@ for tab in tabs:
             DOWN) - tab.excel_ref("A77").expand(DOWN)
         quarter = tab.filter("Quarter").shift(
             0, 1).fill(DOWN) - tab.excel_ref("B77").expand(DOWN)
-        lodgements = tab.filter("Number of Lodgements").shift(
-            0, 1).fill(DOWN) - tab.excel_ref("C77").expand(DOWN)
-        efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("C4") 
+        # lodgements = tab.filter("Number of Lodgements").shift(
+        #     0, 1).fill(DOWN) - tab.excel_ref("C77").expand(DOWN)
+        efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank()
         observations = efficieny_rating.shift(0, 1).fill(DOWN).is_not_blank()
         if tab.name == "EB1":
             location = 'England and Wales'
-        elif tab.name == "EB1_England_Only":
+        if tab.name == "EB1_England_Only":
             location = "E92000001"
         elif tab.name == "EB1_Wales_Only":
             location = "W92000004"
@@ -42,21 +42,21 @@ for tab in tabs:
         df = tidy_sheet.topandas()
         dataframes.append(df)
 
-    else:
+    elif tab.name in ["EB1_By_Region", "EB1_by_LA"]:
         if tab.name == "EB1_By_Region":
             location = tab.excel_ref("A15").expand(DOWN) - tab.excel_ref("A584").expand(DOWN)
             quarter =  tab.excel_ref("B15").expand(DOWN) - tab.excel_ref("B584").expand(DOWN)
-            lodgements = tab.excel_ref("C15").expand(DOWN)- tab.excel_ref("B584").expand(DOWN)
-            efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("C4")
+            # lodgements = tab.excel_ref("C15").expand(DOWN)- tab.excel_ref("B584").expand(DOWN)
+            efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() 
             observations = tab.excel_ref('E15').expand(
-                    RIGHT).expand(DOWN).is_not_blank() | lodgements
+                    RIGHT).expand(DOWN).is_not_blank()
         if tab.name == "EB1_by_LA":
             quarter = tab.filter("Quarter").fill(DOWN).is_not_blank() 
             location = tab.filter(
                 "Local Authority Code").fill(DOWN).is_not_blank()
-            lodgements = tab.filter("Number of Lodgements").fill(DOWN).is_not_blank() 
-            efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("D4")
-            observations = efficieny_rating.fill(DOWN).is_not_blank() | lodgements
+            # lodgements = tab.filter("Number of Lodgements").fill(DOWN).is_not_blank() 
+            efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank()
+            observations = efficieny_rating.fill(DOWN).is_not_blank()
 
         dimensions = [
             HDim(quarter, 'Quarter', DIRECTLY, LEFT),
@@ -70,11 +70,14 @@ for tab in tabs:
         dataframes.append(df)
     print(tab.name)
 
-df = pd.concat(dataframes, sort=True).fillna("")
+
+df = pd.concat(dataframes, sort=True)
 df.rename(columns={'OBS': 'Value'}, inplace=True)
 df['Year'] = df['Year'].astype(str).replace('\.0', '', regex=True)
 df['Period'] = df['Quarter'] + df['Year']
 
+
+# +
 # Format Date/Quarter
 def left(s, amount):
     return s[:amount]
@@ -90,11 +93,15 @@ def date_time(date):
     else:
         return ""
 
+
+# -
+
 df["Period"] = df["Period"].apply(date_time)
 df = df.drop(["Year", "Quarter"], axis=1)
 
 df['Local Authority'] = df['Location']
 
+# +
 df = df.replace({'Local Authority': {
 "East Midlands": "http://data.europa.eu/nuts/code/UKF", 
 "London": "http://data.europa.eu/nuts/code/UKI",
@@ -124,12 +131,13 @@ df['Local Authority'] = df['Local Authority'].map(lambda x:
 df = df.replace({'Efficiency Rating': {
     "Not recorded": "Not Recorded",
     "not-recorded": 'Not Recorded',
-    "Number of Lodgements": "Grand total"
+    # "Number of Lodgements": "Grand total"
 }})
 # -
 df['Measure Type'] = 'energy-performance-certificates'
 df['Unit'] = 'Count'
 
+# +
 # #Codes for creating local codelist
 # g = pd.DataFrame()
 
@@ -147,11 +155,18 @@ df['Unit'] = 'Count'
 #     x if 'W9' in x 
 #     else pathify(x)
 # )
+
 # g.to_csv("./local-authority.csv", index=False)
+
+# -
+
+df
 
 df = df.drop_duplicates()
 
 df = df.replace("", "not-available")
+
+df
 
 df = df[['Period', 'Efficiency Rating', 'Local Authority',
          'Measure Type', 'Unit', 'Value']]
