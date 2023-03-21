@@ -16,16 +16,15 @@ tabs = [x for x in distribution.as_databaker() if x.name not in excluded]
 
 dataframes = []
 for tab in tabs:
-    year = tab.filter("Year").shift(0, 1).expand(
-        DOWN)  # refPeriod for all tabs
-    quarter = tab.filter("Quarter").shift(
-        0, 1).expand(DOWN)  # refPeriod for all tabs
-    lodgements = tab.filter("Number of Lodgements").shift(
-        0, 1).expand(DOWN) # observations for all tabs
-    efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("C4") 
-
     if tab.name in ["EB1", "EB1_England_Only", "EB1_Wales_Only"]:   #["EB1_By_Region", "EB1_by_LA"]:
         # efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() + tab.excel_ref("C4")
+        year = tab.filter("Year").shift(0, 1).fill(
+        DOWN)  # refPeriod for all tabs
+        quarter = tab.filter("Quarter").shift(
+            0, 1).fill(DOWN)  # refPeriod for all tabs
+        lodgements = tab.filter("Number of Lodgements").shift(
+            0, 1).fill(DOWN) # observations for all tabs
+        efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("C4") 
         observations = efficieny_rating.shift(0, 1).fill(DOWN).is_not_blank()
         if tab.name == "EB1":
             location = 'England and Wales'
@@ -36,7 +35,6 @@ for tab in tabs:
         dimensions = [
             HDim(year, 'Year', DIRECTLY, LEFT),
             HDim(quarter, 'Quarter', DIRECTLY, LEFT),
-            #HDim(lodgements, 'Lodgements', DIRECTLY, LEFT),
             HDim(efficieny_rating, 'Efficiency Rating', DIRECTLY, ABOVE),
             HDimConst('Location', location)
         ]
@@ -49,13 +47,16 @@ for tab in tabs:
             location = tab.excel_ref("A15").expand(DOWN)
             quarter =  tab.excel_ref("B15").expand(DOWN)
             lodgements = tab.excel_ref("C15").expand(DOWN)
+            efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("C4")
             observations = tab.excel_ref('E15').expand(
                     RIGHT).expand(DOWN).is_not_blank() | lodgements
         if tab.name == "EB1_by_LA":
+            quarter = tab.filter("Quarter").fill(DOWN) 
             location = tab.filter(
-                "Local Authority Code").shift(0, 1).expand(DOWN)
+                "Local Authority Code").fill(DOWN)
+            lodgements = tab.filter("Number of Lodgements").fill(DOWN) 
             efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("D4")
-            observations = efficieny_rating.shift(0, 1).fill(DOWN).is_not_blank()
+            observations = efficieny_rating.fill(DOWN).is_not_blank()
 
         dimensions = [
             HDim(quarter, 'Quarter', DIRECTLY, LEFT),
@@ -67,13 +68,15 @@ for tab in tabs:
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         df = tidy_sheet.topandas()
         dataframes.append(df)
-    # print(tab.name)
+    print(tab.name)
 
-df = pd.concat(dataframes, sort=True)
+
+df = pd.concat(dataframes, sort=True).fillna("")
 df.rename(columns={'OBS': 'Value'}, inplace=True)
 df['Year'] = df['Year'].astype(str).replace('\.0', '', regex=True)
 df['Period'] = df['Quarter'] + df['Year']
 
+# +
 # Format Date/Quarter
 def left(s, amount):
     return s[:amount]
@@ -92,7 +95,7 @@ def date_time(date):
 df["Period"] = df["Period"].apply(date_time)
 df = df.drop(["Year", "Quarter"], axis=1)
 
-df['Local Authority'] = df['Location'] # for the purpose of getting labels for codelist
+df['Local Authority'] = df['Location']
 
 df = df.replace({'Local Authority': {
 "East Midlands": "http://data.europa.eu/nuts/code/UKF", 
@@ -131,6 +134,7 @@ df['Unit'] = 'Count'
 
 # #Codes for creating local codelist
 # g = pd.DataFrame()
+
 # g["Label"] = df["Location"]
 # g["URI"] = df["Local Authority"]
 
@@ -146,6 +150,8 @@ df['Unit'] = 'Count'
 #     else pathify(x)
 # )
 # g.to_csv("./local-authority.csv", index=False)
+
+df = df.replace("", "not-available")
 
 df = df[['Period', 'Efficiency Rating', 'Local Authority',
          'Measure Type', 'Unit', 'Value']]
