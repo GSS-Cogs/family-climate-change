@@ -22,9 +22,9 @@ for tab in tabs:
             DOWN) - tab.excel_ref("A77").expand(DOWN)
         quarter = tab.filter("Quarter").shift(
             0, 1).fill(DOWN) - tab.excel_ref("B77").expand(DOWN)
-        # lodgements = tab.filter("Number of Lodgements").shift(
-        #     0, 1).fill(DOWN) - tab.excel_ref("C77").expand(DOWN)
-        efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank()
+        lodgements = tab.filter("Number of Lodgements").shift(
+            0, 1).fill(DOWN) - tab.excel_ref("C77").expand(DOWN)
+        efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("C4")
         observations = efficieny_rating.shift(0, 1).fill(DOWN).is_not_blank()
         if tab.name == "EB1":
             location = 'England and Wales'
@@ -46,21 +46,20 @@ for tab in tabs:
         if tab.name == "EB1_By_Region":
             location = tab.excel_ref("A15").expand(DOWN) - tab.excel_ref("A584").expand(DOWN)
             quarter =  tab.excel_ref("B15").expand(DOWN) - tab.excel_ref("B584").expand(DOWN)
-            # lodgements = tab.excel_ref("C15").expand(DOWN)- tab.excel_ref("B584").expand(DOWN)
-            efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() 
+            lodgements = tab.excel_ref("C15").expand(DOWN)- tab.excel_ref("B584").expand(DOWN)
+            efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("C4")
             observations = tab.excel_ref('E15').expand(
-                    RIGHT).expand(DOWN).is_not_blank()
+                    RIGHT).expand(DOWN).is_not_blank() | lodgements
         if tab.name == "EB1_by_LA":
             quarter = tab.filter("Quarter").fill(DOWN).is_not_blank() 
             location = tab.filter(
                 "Local Authority Code").fill(DOWN).is_not_blank()
-            # lodgements = tab.filter("Number of Lodgements").fill(DOWN).is_not_blank() 
-            efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank()
+            lodgements = tab.filter("Number of Lodgements").fill(DOWN).is_not_blank() 
+            efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("D4")
             observations = efficieny_rating.fill(DOWN).is_not_blank()
 
         dimensions = [
             HDim(quarter, 'Quarter', DIRECTLY, LEFT),
-            # HDim(lodgements, 'Lodgements', DIRECTLY, LEFT),
             HDim(efficieny_rating, 'Efficiency Rating', DIRECTLY, ABOVE),
             HDim(location, 'Location', DIRECTLY, LEFT),
             HDimConst('Year', "")
@@ -73,11 +72,9 @@ for tab in tabs:
 
 df = pd.concat(dataframes, sort=True)
 df.rename(columns={'OBS': 'Value'}, inplace=True)
-df['Year'] = df['Year'].astype(str).replace('\.0', '', regex=True)
-df['Period'] = df['Quarter'] + df['Year']
+df['Value'] = df['Value'].astype(int)
+df['Period'] = df['Year'] + df['Quarter'] 
 
-
-# +
 # Format Date/Quarter
 def left(s, amount):
     return s[:amount]
@@ -90,19 +87,14 @@ def date_time(date):
         return 'year/' + date
     elif len(date) == 6:
         return 'quarter/' + left(date, 4) + '-0' + right(date, 1)
+    elif len(date) > 6:
+        return 'quarter/' + left(date, 4) + '-0' + right(date, 1)
     else:
         return ""
 
+df['Location Label'] = df['Location'] # for creating labels on local codelist
 
-# -
-
-df["Period"] = df["Period"].apply(date_time)
-df = df.drop(["Year", "Quarter"], axis=1)
-
-df['Local Authority'] = df['Location']
-
-# +
-df = df.replace({'Local Authority': {
+df = df.replace({'Location': {
 "East Midlands": "http://data.europa.eu/nuts/code/UKF", 
 "London": "http://data.europa.eu/nuts/code/UKI",
 "North East": "http://data.europa.eu/nuts/code/UKC",
@@ -120,7 +112,7 @@ title_id + '#concept/local-authority-code/england-wales'
 
 # info needed to create URI's for LA codes
 sic = 'http://statistics.data.gov.uk/id/statistical-geography/'
-df['Local Authority'] = df['Local Authority'].map(lambda x: 
+df['Location'] = df['Location'].map(lambda x: 
         sic + x if 'E0' in x else
         sic + x if 'W0' in x else
         sic + x if 'E9' in x else
@@ -131,18 +123,19 @@ df['Local Authority'] = df['Local Authority'].map(lambda x:
 df = df.replace({'Efficiency Rating': {
     "Not recorded": "Not Recorded",
     "not-recorded": 'Not Recorded',
-    # "Number of Lodgements": "Grand total"
+    "Number of Lodgements": "Grand total"
 }})
 # -
 df['Measure Type'] = 'energy-performance-certificates'
 df['Unit'] = 'Count'
 
-# +
+df['Location'].unique()
+
 # #Codes for creating local codelist
 # g = pd.DataFrame()
 
-# g["Label"] = df["Location"]
-# g["URI"] = df["Local Authority"]
+# g["Label"] = df["Location Label"].unique()
+# g["URI"] = df["Location"].unique()
 
 # g["Parent URI"] = None
 # g.index += 1
@@ -155,21 +148,12 @@ df['Unit'] = 'Count'
 #     x if 'W9' in x 
 #     else pathify(x)
 # )
+# g.to_csv("./location.csv", index=False)
 
-# g.to_csv("./local-authority.csv", index=False)
-
-# -
-
-df
+df = df[['Period', 'Location', 'Efficiency Rating', 
+         'Measure Type', 'Unit', 'Value']]
 
 df = df.drop_duplicates()
-
-df = df.replace("", "not-available")
-
-df
-
-df = df[['Period', 'Efficiency Rating', 'Local Authority',
-         'Measure Type', 'Unit', 'Value']]
 
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
