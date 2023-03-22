@@ -28,12 +28,7 @@
                 "value": "http://reference.data.gov.uk/id/{+period}"
             },
             "Location": {
-                "type" : "dimension",
-                "new": {
-                    "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
-                    "codelist": "./codelists/location.csv-metadata.json"
-                },
-                "value": "{+location}"
+                "type" : "dimension"
             },
             "Efficiency Rating" : {
                 "type" : "dimension"
