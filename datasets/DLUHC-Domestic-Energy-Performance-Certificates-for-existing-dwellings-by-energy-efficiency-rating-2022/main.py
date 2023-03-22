@@ -96,15 +96,15 @@ df = df.drop(["Year", "Quarter"], axis=1)
 df['Location Label'] = df['Location'] # for creating labels on local codelist
 
 df = df.replace({'Location': {
-"East Midlands": "http://data.europa.eu/nuts/code/ukf", 
-"London": "http://data.europa.eu/nuts/code/uki",
-"North East": "http://data.europa.eu/nuts/code/ukc",
-"North West": "http://data.europa.eu/nuts/code/ukd",
-"South East": "http://data.europa.eu/nuts/code/ukj",
-"South West": "http://data.europa.eu/nuts/code/ukk",
-"East of England": "http://data.europa.eu/nuts/code/ukh",
-"West Midlands": "http://data.europa.eu/nuts/code/ukg",
-"Yorkshire and The Humber": "http://data.europa.eu/nuts/code/uke",
+"East Midlands": "http://data.europa.eu/nuts/code/UKF", 
+"London": "http://data.europa.eu/nuts/code/UKI",
+"North East": "http://data.europa.eu/nuts/code/UKC",
+"North West": "http://data.europa.eu/nuts/code/UKD",
+"South East": "http://data.europa.eu/nuts/code/UKJ",
+"South West": "http://data.europa.eu/nuts/code/UKK",
+"East of England": "http://data.europa.eu/nuts/code/UKH",
+"West Midlands": "http://data.europa.eu/nuts/code/UKG",
+"Yorkshire and The Humber": "http://data.europa.eu/nuts/code/UKE",
 "Unknown": 'http://gss-data.org.uk/data/gss_data/climate-change/' +
 title_id + '#concept/local-authority-code/unknown',
 "England and Wales" : 'http://gss-data.org.uk/data/gss_data/climate-change/' +
