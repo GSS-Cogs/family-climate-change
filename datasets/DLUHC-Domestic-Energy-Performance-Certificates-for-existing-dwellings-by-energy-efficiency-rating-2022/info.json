@@ -23,12 +23,17 @@
                 "type": "dimension",
                 "new": {
                     "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-                    "codelist": true
+                    "codelist": false
                 },
                 "value": "http://reference.data.gov.uk/id/{+period}"
             },
             "Location": {
-                "type" : "dimension"
+                "type" : "dimension",
+                "new": {
+                    "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+                    "codelist": "./codelists/location.csv-metadata.json"
+                },
+                "value": "{+location}"
             },
             "Efficiency Rating" : {
                 "type" : "dimension"
