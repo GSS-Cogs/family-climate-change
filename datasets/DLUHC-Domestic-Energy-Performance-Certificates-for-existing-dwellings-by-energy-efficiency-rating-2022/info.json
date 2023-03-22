@@ -19,9 +19,12 @@
         "airtable": "recRFTGdeZTkDzMQk",
         "main_issue": 684,
         "columns": {
-            "Period" : {
+            "Period": {
                 "type": "dimension",
-                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "new": {
+                    "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                    "codelist": true
+                },
                 "value": "http://reference.data.gov.uk/id/{+period}"
             },
             "Location": {
