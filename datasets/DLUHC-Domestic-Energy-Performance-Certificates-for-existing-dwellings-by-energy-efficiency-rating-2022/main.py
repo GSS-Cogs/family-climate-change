@@ -67,9 +67,7 @@ for tab in tabs:
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         df = tidy_sheet.topandas()
         dataframes.append(df)
-    print(tab.name)
-
-
+    
 df = pd.concat(dataframes, sort=True)
 df.rename(columns={'OBS': 'Value'}, inplace=True)
 df['Value'] = df['Value'].astype(int)
@@ -91,6 +89,9 @@ def date_time(date):
         return 'quarter/' + left(date, 4) + '-0' + right(date, 1)
     else:
         return ""
+    
+df["Period"] = df["Period"].apply(date_time)
+df = df.drop(["Year", "Quarter"], axis=1)
 
 df['Location Label'] = df['Location'] # for creating labels on local codelist
 
