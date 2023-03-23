@@ -1,0 +1,10 @@
+Label,Notation,Parent Notation,Sort Priority,Description
+Grand total,grand-total,,1,
+A,a,grand-total,2,
+B,b,grand-total,3,
+C,c,grand-total,4,
+D,d,grand-total,5,
+E,e,grand-total,6,
+F,f,grand-total,7,
+G,g,grand-total,8,
+Not Recorded,not-recorded,grand-total,9,
