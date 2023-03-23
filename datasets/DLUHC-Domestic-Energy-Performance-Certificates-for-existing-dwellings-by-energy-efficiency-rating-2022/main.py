@@ -95,23 +95,23 @@ df = df.drop(["Year", "Quarter"], axis=1)
 df['Location Label'] = df['Location'] # for creating labels on local codelist
 
 df = df.replace({'Location': {
-"East Midlands": "http://data.europa.eu/nuts/code/ukf", 
-"London": "http://data.europa.eu/nuts/code/uki",
-"North East": "http://data.europa.eu/nuts/code/ukc",
-"North West": "http://data.europa.eu/nuts/code/ukd",
-"South East": "http://data.europa.eu/nuts/code/ukj",
-"South West": "http://data.europa.eu/nuts/code/ukk",
-"East of England": "http://data.europa.eu/nuts/code/ukh",
-"West Midlands": "http://data.europa.eu/nuts/code/ukg",
-"Yorkshire and The Humber": "http://data.europa.eu/nuts/code/uke",
-"Unknown": 'http://gss-data.org.uk/data/gss_data/climate-change/' +
+"East Midlands": "http-//data.europa.eu/nuts/code/ukf", 
+"London": "http-//data.europa.eu/nuts/code/uki",
+"North East": "http-//data.europa.eu/nuts/code/ukc",
+"North West": "http-//data.europa.eu/nuts/code/ukd",
+"South East": "http-//data.europa.eu/nuts/code/ukj",
+"South West": "http-//data.europa.eu/nuts/code/ukk",
+"East of England": "http-//data.europa.eu/nuts/code/ukh",
+"West Midlands": "http-//data.europa.eu/nuts/code/ukg",
+"Yorkshire and The Humber": "http-//data.europa.eu/nuts/code/uke",
+"Unknown": 'http-//gss-data.org.uk/data/gss_data/climate-change/' +
 title_id + '#concept/local-authority-code/unknown',
-"England and Wales" : 'http://gss-data.org.uk/data/gss_data/climate-change/' +
-title_id + '#concept/local-authority-code/england-wales'
+"England and Wales" : 'http-//gss-data.org.uk/data/gss_data/climate-change/' +
+title_id + '-concept/local-authority-code/england-wales'
 }})
 
 # info needed to create URI's for LA codes
-sic = 'http://statistics.data.gov.uk/id/statistical-geography/'
+sic = 'http-//statistics.data.gov.uk/id/statistical-geography/'
 df['Location'] = df['Location'].map(lambda x: 
         sic + x if 'E0' in x else
         sic + x if 'W0' in x else
@@ -131,29 +131,29 @@ df['Efficiency Rating'] = df['Efficiency Rating'].apply(pathify)
 df['Measure Type'] = 'energy-performance-certificates'
 df['Unit'] = 'Count'
 
-# #Codes for creating local codelist
-# g = pd.DataFrame()
+#Codes for creating local codelist
+g = pd.DataFrame()
 
-# g["Label"] = df["Location Label"].unique()
+g["Label"] = df["Location Label"].unique()
 
-# g["Notation"] = df["Location"].unique()
+g["Notation"] = df["Location"].unique()
 
-# g["Parent Notation"] = None
+g["Parent Notation"] = None
 
-# # g["Local Notation"] = g["Label"].map(lambda x:                            
-# #     x if 'E0' in x else 
-# #     x if 'W0' in x else 
-# #     x if 'E9' in x else 
-# #     x if 'W9' in x 
-# #     else pathify(x)
-# # )
-# # g["Local Notation"] = g["Label"]
-# g = g.sort_values("Parent Notation", ascending=True)
-# g.index += 1
-# g["Sort Priority"] = g.index
-# g["Description"] = None
+# g["Local Notation"] = g["Label"].map(lambda x:                            
+#     x if 'E0' in x else 
+#     x if 'W0' in x else 
+#     x if 'E9' in x else 
+#     x if 'W9' in x 
+#     else pathify(x)
+# )
+# g["Local Notation"] = g["Label"]
+g = g.sort_values("Parent Notation", ascending=True)
+g.index += 1
+g["Sort Priority"] = g.index
+g["Description"] = None
 
-# g.to_csv("./location.csv", index=False)
+g.to_csv("./location.csv", index=False)
 
 df = df[['Period', 'Location', 'Efficiency Rating', 
          'Measure Type', 'Unit', 'Value']]
