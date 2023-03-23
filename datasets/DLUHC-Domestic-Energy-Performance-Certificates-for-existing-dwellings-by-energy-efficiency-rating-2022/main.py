@@ -17,7 +17,6 @@ tabs = [x for x in distribution.as_databaker() if x.name not in excluded]
 dataframes = []
 for tab in tabs:
     if tab.name in ["EB1", "EB1_England_Only", "EB1_Wales_Only"]:   #["EB1_By_Region", "EB1_by_LA"]:
-        # efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() + tab.excel_ref("C4")
         year = tab.filter("Year").shift(0, 1).fill(
             DOWN) - tab.excel_ref("A77").expand(DOWN)
         quarter = tab.filter("Quarter").shift(
@@ -126,11 +125,11 @@ df = df.replace({'Efficiency Rating': {
     "not-recorded": 'Not Recorded',
     "Number of Lodgements": "Grand total"
 }})
+
+df['Efficiency Rating'] = df['Efficiency Rating'].apply(pathify)
 # -
 df['Measure Type'] = 'energy-performance-certificates'
 df['Unit'] = 'Count'
-
-df['Location'].unique()
 
 # #Codes for creating local codelist
 # g = pd.DataFrame()
@@ -142,13 +141,14 @@ df['Location'].unique()
 # g.index += 1
 # g["Sort Priority"] = g.index
 # g["Description"] = None
-# g["Local Notation"] = g["Label"].map(lambda x:                            
-#     x if 'E0' in x else 
-#     x if 'W0' in x else 
-#     x if 'E9' in x else 
-#     x if 'W9' in x 
-#     else pathify(x)
-# )
+# # g["Local Notation"] = g["Label"].map(lambda x:                            
+# #     x if 'E0' in x else 
+# #     x if 'W0' in x else 
+# #     x if 'E9' in x else 
+# #     x if 'W9' in x 
+# #     else pathify(x)
+# # )
+# g["Local Notation"] = g["Label"]
 # g.to_csv("./location.csv", index=False)
 
 df = df[['Period', 'Location', 'Efficiency Rating', 
