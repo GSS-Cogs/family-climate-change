@@ -1,17 +1,17 @@
 Label,URI,Parent URI,Sort Priority,Description,Local Notation
-England and Wales,http://gss-data.org.uk/data/gss_data/climate-change/dluhc-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating-2022#concept/local-authority-code/england-wales,,1,,england-and-wales
+England and Wales,http://gss-data.org.uk/data/gss_data/climate-change/dluhc-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating-2022#concept/local-authority-code/england-wales,,1,,England and Wales
 E92000001,http://statistics.data.gov.uk/id/statistical-geography/E92000001,,2,,E92000001
 W92000004,http://statistics.data.gov.uk/id/statistical-geography/W92000004,,3,,W92000004
-East of England,http://data.europa.eu/nuts/code/ukh,,4,,east-of-england
-East Midlands,http://data.europa.eu/nuts/code/ukf,,5,,east-midlands
-London,http://data.europa.eu/nuts/code/uki,,6,,london
-North East,http://data.europa.eu/nuts/code/ukc,,7,,north-east
-North West,http://data.europa.eu/nuts/code/ukd,,8,,north-west
-South East,http://data.europa.eu/nuts/code/ukj,,9,,south-east
-South West,http://data.europa.eu/nuts/code/ukk,,10,,south-west
-West Midlands,http://data.europa.eu/nuts/code/ukg,,11,,west-midlands
-Yorkshire and The Humber,http://data.europa.eu/nuts/code/uke,,12,,yorkshire-and-the-humber
-Unknown,http://gss-data.org.uk/data/gss_data/climate-change/dluhc-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating-2022#concept/local-authority-code/unknown,,13,,unknown
+East of England,http://data.europa.eu/nuts/code/UKH,,4,,East of England
+East Midlands,http://data.europa.eu/nuts/code/UKF,,5,,East Midlands
+London,http://data.europa.eu/nuts/code/UKI,,6,,London
+North East,http://data.europa.eu/nuts/code/UKC,,7,,North East
+North West,http://data.europa.eu/nuts/code/UKD,,8,,North West
+South East,http://data.europa.eu/nuts/code/UKJ,,9,,South East
+South West,http://data.europa.eu/nuts/code/UKK,,10,,South West
+West Midlands,http://data.europa.eu/nuts/code/UKG,,11,,West Midlands
+Yorkshire and The Humber,http://data.europa.eu/nuts/code/UKE,,12,,Yorkshire and The Humber
+Unknown,http://gss-data.org.uk/data/gss_data/climate-change/dluhc-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating-2022#concept/local-authority-code/unknown,,13,,Unknown
 E07000223,http://statistics.data.gov.uk/id/statistical-geography/E07000223,,14,,E07000223
 E07000026,http://statistics.data.gov.uk/id/statistical-geography/E07000026,,15,,E07000026
 E07000032,http://statistics.data.gov.uk/id/statistical-geography/E07000032,,16,,E07000032

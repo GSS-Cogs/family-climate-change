@@ -62,7 +62,7 @@
                 "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/dluhc-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating-2022#scheme/location"
             }
         ],
-        "primaryKey": "uri",
+        "primaryKey": "notation",
         "aboutUrl": "{+uri}"
     },
     "prov:hadDerivation": {
