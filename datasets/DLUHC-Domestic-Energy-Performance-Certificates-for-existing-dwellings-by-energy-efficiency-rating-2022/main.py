@@ -121,8 +121,6 @@ df['Location'] = df['Location'].map(lambda x:
 )
 
 df = df.replace({'Efficiency Rating': {
-    "Not recorded": "Not Recorded",
-    "not-recorded": 'Not Recorded',
     "Number of Lodgements": "Grand total"
 }})
 
