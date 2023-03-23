@@ -105,7 +105,7 @@ df = df.replace({'Location': {
 "West Midlands": "http-//data.europa.eu/nuts/code/ukg",
 "Yorkshire and The Humber": "http-//data.europa.eu/nuts/code/uke",
 "Unknown": 'http-//gss-data.org.uk/data/gss_data/climate-change/' +
-title_id + '#concept/local-authority-code/unknown',
+title_id + '-concept/local-authority-code/unknown',
 "England and Wales" : 'http-//gss-data.org.uk/data/gss_data/climate-change/' +
 title_id + '-concept/local-authority-code/england-wales'
 }})
@@ -131,29 +131,29 @@ df['Efficiency Rating'] = df['Efficiency Rating'].apply(pathify)
 df['Measure Type'] = 'energy-performance-certificates'
 df['Unit'] = 'Count'
 
-# #Codes for creating local codelist
-# g = pd.DataFrame()
+#Codes for creating local codelist
+g = pd.DataFrame()
 
-# g["Label"] = df["Location Label"].unique()
+g["Label"] = df["Location Label"].unique()
 
-# g["Notation"] = df["Location"].unique()
+g["Notation"] = df["Location"].unique()
 
-# g["Parent Notation"] = None
+g["Parent Notation"] = None
 
-# # g["Local Notation"] = g["Label"].map(lambda x:                            
-# #     x if 'E0' in x else 
-# #     x if 'W0' in x else 
-# #     x if 'E9' in x else 
-# #     x if 'W9' in x 
-# #     else pathify(x)
-# # )
-# # g["Local Notation"] = g["Label"]
-# g = g.sort_values("Parent Notation", ascending=True)
-# g.index += 1
-# g["Sort Priority"] = g.index
-# g["Description"] = None
+# g["Local Notation"] = g["Label"].map(lambda x:                            
+#     x if 'E0' in x else 
+#     x if 'W0' in x else 
+#     x if 'E9' in x else 
+#     x if 'W9' in x 
+#     else pathify(x)
+# )
+# g["Local Notation"] = g["Label"]
+g = g.sort_values("Parent Notation", ascending=True)
+g.index += 1
+g["Sort Priority"] = g.index
+g["Description"] = None
 
-# g.to_csv("./location.csv", index=False)
+g.to_csv("./location.csv", index=False)
 
 df = df[['Period', 'Location', 'Efficiency Rating', 
          'Measure Type', 'Unit', 'Value']]
