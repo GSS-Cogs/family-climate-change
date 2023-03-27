@@ -15,11 +15,14 @@
             },
             {
                 "titles": "URI",
-                "name": "uri"
+                "name": "uri",
+                "required": true,
+                "propertyUrl": "skos:uri"
             },
             {
                 "titles": "Parent URI",
-                "name": "parent_uri"
+                "name": "parent_uri",
+                "required": false
             },
             {
                 "titles": "Sort Priority",
@@ -37,21 +40,26 @@
             },
             {
                 "titles": "Local Notation",
-                "name": "local_notation"
+                "name": "local_notation",
+                "required": false
             },
             {
                 "virtual": true,
+                "name": "virt_inScheme",
+                "required": true,
+                "propertyUrl": "skos:inScheme",
+                "valueUrl": "location.csv#code-list"
+            },
+            {
+                "virtual": true,
+                "name": "virt_type",
+                "required": true,
                 "propertyUrl": "rdf:type",
                 "valueUrl": "skos:Concept"
-            },
-            {
-                "virtual": true,
-                "propertyUrl": "skos:inScheme",
-                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/mhclg-table-eb1-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating#scheme/location"
             }
         ],
-        "primaryKey": "uri",
-        "aboutUrl": "{+uri}"
+        "aboutUrl": "location.csv#{+uri}",
+        "primaryKey": "uri"
     },
     "prov:hadDerivation": {
         "@id": "http://gss-data.org.uk/data/gss_data/climate-change/mhclg-table-eb1-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating#scheme/location",

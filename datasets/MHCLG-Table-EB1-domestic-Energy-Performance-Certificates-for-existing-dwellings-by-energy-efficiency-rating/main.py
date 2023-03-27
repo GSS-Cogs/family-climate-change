@@ -100,9 +100,9 @@ df = df.replace({'Location': {
     "West Midlands": "http://data.europa.eu/nuts/code/UKG",
     "Yorkshire and The Humber": "http://data.europa.eu/nuts/code/UKE",
     "Unknown": 'http://gss-data.org.uk/data/gss_data/climate-change/' +
-    title_id + '#concept/local-authority-code/unknown',
+    title_id + '-concept/local-authority-code/unknown',
     "England and Wales" : 'http://gss-data.org.uk/data/gss_data/climate-change/' +
-    title_id + '#concept/local-authority-code/england-wales'
+    title_id + '-concept/local-authority-code/england-wales'
 }})
 # %%
 # info needed to create URI's for section
