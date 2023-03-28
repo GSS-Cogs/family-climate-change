@@ -7,17 +7,17 @@
             "propertyUrl": "rdfs:label"
         },
         {
-            "titles": "Notation",
-            "name": "notation",
+            "titles": "URI",
+            "name": "uri",
             "required": true,
-            "propertyUrl": "skos:notation"
+            "propertyUrl": "skos:uri"
         },
         {
-            "titles": "Parent Notation",
-            "name": "parent_notation",
+            "titles": "Parent URI",
+            "name": "parent_uri",
             "required": false,
             "propertyUrl": "skos:broader",
-            "valueUrl": "location#{+parent_notation}"
+            "valueUrl": "location#{+parent_uri}"
         },
         {
             "titles": "Sort Priority",
@@ -47,6 +47,6 @@
             "valueUrl": "skos:Concept"
         }
     ],
-    "aboutUrl": "location#{+notation}",
-    "primaryKey": "notation"
+    "aboutUrl": "location#{+uri}",
+    "primaryKey": "uri"
 }
