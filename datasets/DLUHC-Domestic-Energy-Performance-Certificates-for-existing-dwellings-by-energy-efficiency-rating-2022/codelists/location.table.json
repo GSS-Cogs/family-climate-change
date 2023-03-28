@@ -10,7 +10,8 @@
             "titles": "URI",
             "name": "uri",
             "required": true,
-            "propertyUrl": "skos:uri"
+            "propertyUrl": "skos:uri",
+            "valueUrl": "location#{+uri}"
         },
         {
             "titles": "Parent URI",
@@ -31,6 +32,11 @@
             "name": "description",
             "required": false,
             "propertyUrl": "rdfs:comment"
+        },
+        {
+            "titles": "Local Notation",
+            "name": "local_notation",
+            "required": false
         },
         {
             "virtual": true,
