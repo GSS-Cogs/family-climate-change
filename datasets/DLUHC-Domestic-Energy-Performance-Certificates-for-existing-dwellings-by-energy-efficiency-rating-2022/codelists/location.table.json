@@ -10,8 +10,8 @@
             "titles": "URI",
             "name": "uri",
             "required": true,
-            "propertyUrl": "skos:broader",
-            "valueUrl": "location#{+uri}"
+            "propertyUrl": "owl:sameAs",
+            "valueUrl": "{+uri}"
         },
         {
             "titles": "Parent URI",
