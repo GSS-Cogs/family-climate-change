@@ -10,7 +10,7 @@
             "titles": "URI",
             "name": "uri",
             "required": true,
-            "propertyUrl": "skos:uri",
+            "propertyUrl": "skos:broader",
             "valueUrl": "location#{+uri}"
         },
         {
