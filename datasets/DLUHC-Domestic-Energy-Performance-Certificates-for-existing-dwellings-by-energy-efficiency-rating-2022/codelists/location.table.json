@@ -11,7 +11,7 @@
             "name": "uri",
             "required": true,
             "propertyUrl": "owl:sameAs",
-            "valueUrl": "{+uri}"
+            "valueUrl": "location#{+uri}"
         },
         {
             "titles": "Parent URI",
