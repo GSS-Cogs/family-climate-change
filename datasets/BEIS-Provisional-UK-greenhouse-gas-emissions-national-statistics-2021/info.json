@@ -52,7 +52,7 @@
             "Marker": {
                 "type": "attribute",
                 "uri": "http://purl.org/linked-data/sdmx/2009/attribute#obsStatus",
-                "value": "https://purl.org/csv-cubed/resources/attributes/af-obs-marker#{+observation_status}"   
+                "value": "http://gss-data.org.uk/def/concept/cogs-markers/{marker}" 
             },
             "Measure": {
                 "type": "measures"
