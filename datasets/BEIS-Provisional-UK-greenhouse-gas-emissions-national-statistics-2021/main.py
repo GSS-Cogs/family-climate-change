@@ -16,30 +16,24 @@ tabs = distribution.as_databaker()
 sheets = []
 tabs = [tab for tab in tabs if tab.name not in ['Cover', 'Contents', 'Notes']]
 for tab in tabs:
-    if tab.name not in ['Table3', 'Table4']:  # tables 3 and 4 are moving averages
-        if tab.name not in ['Table2']:
-            ncSector = tab.filter("NC Sector").fill(DOWN).is_not_blank()
-            fuel = 'Total'
-            period = tab.filter("NC Sector").fill(RIGHT).is_not_blank()
-        else:
+    # tables 3 and 4 are moving averages
+    if tab.name in ['Table1', 'Table2', 'Table5', 'Table6', 'AR5_Table1']:
+        if tab.name == 'Table2':
             sector = tab.filter('Sector').fill(DOWN).is_not_blank()
             fuel = tab.filter('Fuel Type').fill(DOWN).is_not_blank()
             period = tab.filter('Fuel Type').fill(RIGHT).is_not_blank()
+            measureType = 'Carbon-dioxide Emissions'
+        else:
+            ncSector = tab.filter("NC Sector").fill(DOWN).is_not_blank()
+            fuel = 'Total Fuel'
+            period = tab.filter("NC Sector").fill(RIGHT).is_not_blank()
 
         if tab.name in ['Table1', 'Table5']:
             measureType = 'Greenhouse Gas Emissions'
-
-        elif tab.name == 'Table2':
-            measureType = 'Carbon-dioxide Emissions'
-
-        elif tab.name in ['Table6']:
+        elif tab.name == 'Table6':
             measureType = 'Temperature-adjusted Greenhouse Gas Emissions'
-
-        elif tab.name in ['AR5_Table1']:
+        elif tab.name == 'AR5_Table1':
             measureType = 'Greenhouse Gas Emissions(GWPs AR5)'
-
-        else:
-            continue
 
         area = 'K02000001'
         observations = period.fill(DOWN).is_not_blank()
@@ -85,7 +79,8 @@ df = df.replace({'National Communication Sector': {'Agriculture [note 5]': 'Agri
                                                    'Waste management [note 5]': 'Waste management',
                                                    'LULUCF [note 4, 5]': 'LULUCF',
                                                    'Other greenhouse gases [note 6]': 'Other greenhouse gases',
-                                                   'Other sectors [note 8]': 'Other sectors'}})
+                                                   'Other sectors [note 8]': 'Other sectors',
+                                                   'Total greenhouse gas emissions': 'Total greenhouse gases'}})
 
 df = df.replace({'National Communication Sector': {'     from power stations': 'Power Stations',
                                                    '     other Energy supply': 'Other Energy Supply',
@@ -97,8 +92,22 @@ df.drop(indexNames, inplace=True)
 df = df.rename(columns={'OBS': 'Value'})
 df['Value'] = df['Value'].map(lambda x: round(x, 1))
 
+df['Gas'] = 'CO2'
+df['Gas'] = df.apply(lambda x: 'CO2' if x['National Communication Sector'] == 'Total CO2'
+                     else 'other-greenhouse-gases' if x['National Communication Sector'] == 'Other greenhouse gases'
+                     else 'total-greenhouse-gases' if x['National Communication Sector'] == 'Total greenhouse gases'
+                     else x['Gas'], axis=1
+                     )
+
+df['National Communication Sector'] = df.apply(lambda x: 'Grand Total' if x['National Communication Sector'] == 'Total CO2'
+                                               else 'Grand Total' if x['National Communication Sector'] == 'Other greenhouse gases'
+                                               else 'Grand Total' if x['National Communication Sector'] == 'Total greenhouse gases'
+                                               else x['National Communication Sector'], axis=1
+                                               )
+
 df = df[['Period', 'Area', 'National Communication Sector',
-         'Fuel', 'Marker', 'Measure', 'Value']]
+         'Fuel', 'Gas', 'Measure', 'Value', 'Marker']]
+
 
 for col in ['National Communication Sector', 'Fuel', 'Marker']:
     try:
