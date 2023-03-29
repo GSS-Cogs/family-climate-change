@@ -35,7 +35,7 @@ for tab in tabs:
         elif tab.name == 'AR5_Table1':
             measureType = 'Greenhouse Gas Emissions(GWPs AR5)'
 
-        area = 'k02000001'
+        area = 'K02000001'
         observations = period.fill(DOWN).is_not_blank()
 
         if tab.name not in ['Table2']:
