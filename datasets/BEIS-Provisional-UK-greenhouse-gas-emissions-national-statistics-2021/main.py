@@ -100,15 +100,12 @@ df['Value'] = df['Value'].map(lambda x: round(x, 1))
 df = df[['Period', 'Area', 'National Communication Sector',
          'Fuel', 'Marker', 'Measure', 'Value']]
 
-for col in df.columns.values.tolist()[2:-2]:
-    if col == 'Fuel':
-        continue
-    else:
-        try:
-            df[col] = df[col].apply(pathify)
-        except Exception as err:
-            raise Exception(
-                'Failed to pathify column "{}".'.format(col)) from err
+for col in ['National Communication Sector', 'Fuel', 'Marker']:
+    try:
+        df[col] = df[col].apply(pathify)
+    except Exception as err:
+        raise Exception(
+            'Failed to pathify column "{}".'.format(col)) from err
 
 df.to_csv("observations.csv", index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
