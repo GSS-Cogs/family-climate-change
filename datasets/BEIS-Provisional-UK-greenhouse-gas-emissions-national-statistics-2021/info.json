@@ -21,7 +21,7 @@
                 "type": "dimension",
                 "new": {
                     "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-                    "codelist": false
+                    "codelist": true
                 },
                 "value": "http://reference.data.gov.uk/id/{+period}"
             },
@@ -30,6 +30,11 @@
                 "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
                 "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_sector}"
             },
+            "Gas": {
+                "type": "dimension",
+                "uri" : "http://gss-data.org.uk/def/climate-change/property/dimension/ghg",
+                "value": "http://gss-data.org.uk/def/climate-change/concept/ghg/{gas}"
+            },
             "Fuel": {
                 "type": "dimension",
                 "new": {
@@ -37,14 +42,17 @@
                 }
             },
             "Area": {
-                "type": "dimension",
-                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
-                "value": "http://statistics.data.gov.uk/id/statistical-geography/{area}" 
+                "type" : "dimension",
+                "new": {
+                    "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+                    "codelist": false
+                },
+                "value": "http://statistics.data.gov.uk/id/statistical-geography/{+area}"
             },
             "Marker": {
                 "type": "attribute",
                 "uri": "http://purl.org/linked-data/sdmx/2009/attribute#obsStatus",
-                "value": "http://gss-data.org.uk/def/concept/cogs-markers/{marker}"   
+                "value": "https://purl.org/csv-cubed/resources/attributes/af-obs-marker#{+observation_status}"   
             },
             "Measure": {
                 "type": "measures"
