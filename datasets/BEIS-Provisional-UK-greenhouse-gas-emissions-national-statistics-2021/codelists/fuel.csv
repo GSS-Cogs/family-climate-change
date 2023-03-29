@@ -1,0 +1,7 @@
+Label,Notation,Parent Notation,Sort Priority,Description
+Total,total,,1,
+Coal,coal,total,2,
+Gaseous fuels,gaseous-fuels,total,3,
+Other emissions,other-emissions,total,4,
+Other solid fuels,other-solid-fuels,total,5,
+Petroleum,petroleum,total,6,

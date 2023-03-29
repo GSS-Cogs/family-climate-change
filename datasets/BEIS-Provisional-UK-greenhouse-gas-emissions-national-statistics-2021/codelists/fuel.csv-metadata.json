@@ -1,0 +1,46 @@
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "@id": "fuel.csv#code-list",
+    "url": "fuel.csv",
+    "tableSchema": "fuel.table.json",
+    "rdfs:seeAlso": [
+        {
+            "@id": "fuel.csv#code-list",
+            "@type": [
+                "http://www.w3.org/ns/dcat#Dataset",
+                "http://www.w3.org/2004/02/skos/core#ConceptScheme",
+                "http://www.w3.org/ns/dcat#Resource",
+                "http://www.w3.org/2000/01/rdf-schema#Resource"
+            ],
+            "http://purl.org/dc/terms/identifier": [
+                {
+                    "@value": "Fuel"
+                }
+            ],
+            "http://purl.org/dc/terms/issued": [
+                {
+                    "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+                    "@value": "2022-05-13T11:27:42.666443"
+                }
+            ],
+            "http://purl.org/dc/terms/modified": [
+                {
+                    "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+                    "@value": "2022-05-13T11:27:42.666443"
+                }
+            ],
+            "http://purl.org/dc/terms/title": [
+                {
+                    "@language": "en",
+                    "@value": "Fuel"
+                }
+            ],
+            "http://www.w3.org/2000/01/rdf-schema#label": [
+                {
+                    "@language": "en",
+                    "@value": "Fuel"
+                }
+            ]
+        }
+    ]
+}
