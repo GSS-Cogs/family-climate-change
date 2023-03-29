@@ -19,7 +19,7 @@ for tab in tabs:
     if tab.name not in ['Table3', 'Table4']:  # tables 3 and 4 are moving averages
         if tab.name not in ['Table2']:
             ncSector = tab.filter("NC Sector").fill(DOWN).is_not_blank()
-            fuel = 'All'
+            fuel = 'Total'
             period = tab.filter("NC Sector").fill(RIGHT).is_not_blank()
         else:
             sector = tab.filter('Sector').fill(DOWN).is_not_blank()
@@ -68,7 +68,6 @@ for tab in tabs:
 
 df = pd.concat(sheets).fillna('')
 
-# +
 df['Marker'] = df.apply(
     lambda x: 'note 5' if '[note 5]' in x['National Communication Sector'] else 'note 4, 5' if '[note 4, 5]' in x['National Communication Sector']
     else 'note 6' if '[note 6]' in x['National Communication Sector'] else 'note 8' if '[note 8]' in x['National Communication Sector']
@@ -97,10 +96,6 @@ df.drop(indexNames, inplace=True)
 
 df = df.rename(columns={'OBS': 'Value'})
 df['Value'] = df['Value'].map(lambda x: round(x, 1))
-
-# -
-
-df = df.drop_duplicates()
 
 df = df[['Period', 'Area', 'National Communication Sector',
          'Fuel', 'Marker', 'Measure', 'Value']]
