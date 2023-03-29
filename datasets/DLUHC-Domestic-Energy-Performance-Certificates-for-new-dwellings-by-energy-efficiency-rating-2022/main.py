@@ -41,15 +41,15 @@ for tab in tabs:
         df = tidy_sheet.topandas()
         dataframes.append(df)
 
-    elif tab.name in ["NB1_By_Region", "NB1_by_LA"]:
+    elif tab.name in ["NB1_By_Region", "NB1_By_LA"]:
         if tab.name == "NB1_By_Region":
-            location = tab.excel_ref("A15").expand(DOWN) - tab.excel_ref("A584").expand(DOWN)
-            quarter =  tab.excel_ref("B15").expand(DOWN) - tab.excel_ref("B584").expand(DOWN)
-            lodgements = tab.excel_ref("C15").expand(DOWN)- tab.excel_ref("B584").expand(DOWN)
+            location = tab.excel_ref("A15").expand(DOWN) - tab.excel_ref("A579").expand(DOWN)
+            quarter =  tab.excel_ref("B15").expand(DOWN) - tab.excel_ref("B579").expand(DOWN)
+            lodgements = tab.excel_ref("C15").expand(DOWN)- tab.excel_ref("C579").expand(DOWN)
             efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("C4")
             observations = tab.excel_ref('E15').expand(
                     RIGHT).expand(DOWN).is_not_blank() | lodgements
-        if tab.name == "NB1_by_LA":
+        if tab.name == "NB1_By_LA":
             quarter = tab.filter("Quarter").fill(DOWN).is_not_blank() 
             location = tab.filter(
                 "Local Authority Code").fill(DOWN).is_not_blank()
@@ -66,7 +66,7 @@ for tab in tabs:
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         df = tidy_sheet.topandas()
         dataframes.append(df)
-    
+
 df = pd.concat(dataframes, sort=True)
 df.rename(columns={'OBS': 'Value'}, inplace=True)
 df['Value'] = df['Value'].astype(int)
@@ -88,7 +88,7 @@ def date_time(date):
         return 'quarter/' + left(date, 4) + '-0' + right(date, 1)
     else:
         return ""
-    
+
 df["Period"] = df["Period"].apply(date_time)
 df = df.drop(["Year", "Quarter"], axis=1)
 
@@ -114,10 +114,10 @@ title_id + '-concept/local-authority-code/england-wales'
 sic = 'http://statistics.data.gov.uk/id/statistical-geography/'
 df['Location'] = df['Location'].map(lambda x: 
         sic + x if 'E0' in x else
-        sic + x if 'W0' in x else
+        (sic + x if 'W0' in x else
         sic + x if 'E9' in x else
         sic + x if 'W9' in x
-        else x
+        else x)
 )
 
 df = df.replace({'Efficiency Rating': {
