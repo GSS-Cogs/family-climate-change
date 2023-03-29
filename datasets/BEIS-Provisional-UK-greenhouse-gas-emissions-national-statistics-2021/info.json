@@ -19,7 +19,10 @@
         "columns": {
             "Period": {
                 "type": "dimension",
-                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                "new": {
+                    "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                    "codelist": false
+                },
                 "value": "http://reference.data.gov.uk/id/{+period}"
             },
             "National Communication Sector": {
@@ -28,12 +31,18 @@
                 "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{national_communication_sector}"
             },
             "Fuel": {
-                "type": "dimension"
+                "type": "dimension",
+                "new": {
+                    "codelist": "./codelists/fuel.csv-metadata.json"
+                }
             },
             "Area": {
-                "type": "dimension",
-                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
-                "value": "http://statistics.data.gov.uk/id/statistical-geography/{area}"  
+                "type" : "dimension",
+                "new": {
+                    "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+                    "codelist": true
+                },
+                "value": "http://statistics.data.gov.uk/id/statistical-geography/{area}"
             },
             "Marker": {
                 "type": "attribute",
