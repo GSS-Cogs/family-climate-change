@@ -1,0 +1,23 @@
+{
+    "id": "beis-provisional-uk-greenhouse-gas-emissions-national-statistics-2022",
+    "title": "Provisional UK greenhouse gas emissions national statistics 2022",
+    "publisher": "Department for Business, Energy and Industrial Strategy",
+    "description": "",
+    "landingPage": "https://www.gov.uk/government/statistics/provisional-uk-greenhouse-gas-emissions-national-statistics-2022",
+    "datasetNotes": [
+        "On the landing page, navigate down to 2022 UK greenhouse gas emissions: provisional figures - data tables (alternative ODS)."
+    ],
+    "published": "2023-03-30",
+    "families": [
+        "Climate-Change"
+    ],
+    "extract": {
+        "source": ""
+    },
+    "transform": {
+        "airtable": "recVcNM2Z2Tl603q4",
+        "main_issue": 748
+    },
+    "sizingNotes": "",
+    "notes": ""
+}
