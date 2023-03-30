@@ -22,13 +22,12 @@ for tab in tabs:
             sector = tab.filter('Sector').fill(DOWN).is_not_blank()
             fuel = tab.filter('Fuel Type').fill(DOWN).is_not_blank()
             period = tab.filter('Fuel Type').fill(RIGHT).is_not_blank()
-            measureType = 'Carbon-dioxide Emissions'
         else:
             ncSector = tab.filter("NC Sector").fill(DOWN).is_not_blank()
             fuel = 'Total Fuel'
             period = tab.filter("NC Sector").fill(RIGHT).is_not_blank()
 
-        if tab.name in ['Table1', 'Table5']:
+        if tab.name in ['Table1', 'Table2', 'Table5']:
             measureType = 'Greenhouse Gas Emissions'
         elif tab.name == 'Table6':
             measureType = 'Temperature-adjusted Greenhouse Gas Emissions'
