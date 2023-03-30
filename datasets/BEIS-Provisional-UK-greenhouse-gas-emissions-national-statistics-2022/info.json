@@ -54,7 +54,8 @@
                     "label": "Millions of tonnes of Carbon-dioxide equivalent (MtCO2e)"
                 }
             }
-        }    
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"    
     },
     "sizingNotes": "",
     "notes": ""
