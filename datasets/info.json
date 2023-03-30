@@ -4,7 +4,7 @@
     "github": "https://github.com/GSS-Cogs/family-climate-change",
     "project": "https://github.com/orgs/GSS-Cogs/projects/19",
     "jenkins": {
-        "base": "https://ci.floop.org.uk",
+        "base": "https://ci.ukstats.dev",
         "path": [
             "GSS_data",
             "ClimateChange"
