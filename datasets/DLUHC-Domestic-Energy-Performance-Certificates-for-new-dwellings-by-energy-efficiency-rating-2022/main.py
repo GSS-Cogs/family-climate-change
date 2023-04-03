@@ -27,7 +27,7 @@ for tab in tabs:
         observations = efficieny_rating.shift(0, 1).fill(DOWN).is_not_blank() - tab.excel_ref("J77") #There is an outlier on J77 on "NB1_England_Only" 
         if tab.name == "NB1":
             location = 'England and Wales'
-        if tab.name == "NB1_England_Only":
+        elif tab.name == "NB1_England_Only":
             location = "E92000001"
         elif tab.name == "NB1_Wales_Only":
             location = "W92000004"
@@ -49,7 +49,7 @@ for tab in tabs:
             efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("C4")
             observations = tab.excel_ref('E15').expand(
                     RIGHT).expand(DOWN).is_not_blank() | lodgements
-        if tab.name == "NB1_By_LA":
+        elif tab.name == "NB1_By_LA":
             quarter = tab.filter("Quarter").fill(DOWN).is_not_blank() 
             location = tab.filter(
                 "Local Authority Code").fill(DOWN).is_not_blank()
@@ -83,9 +83,9 @@ def date_time(date):
     if len(date) == 4:
         return 'year/' + date
     elif len(date) == 6:
-        return 'quarter/' + left(date, 4) + '-0' + right(date, 1)
+        return 'quarter/' + left(date, 4) + '-Q' + right(date, 1)
     elif len(date) > 6:
-        return 'quarter/' + left(date, 4) + '-0' + right(date, 1)
+        return 'quarter/' + left(date, 4) + '-Q' + right(date, 1)
     else:
         return ""
 
