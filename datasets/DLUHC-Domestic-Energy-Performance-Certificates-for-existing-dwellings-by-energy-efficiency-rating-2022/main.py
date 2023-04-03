@@ -83,9 +83,9 @@ def date_time(date):
     if len(date) == 4:
         return 'year/' + date
     elif len(date) == 6:
-        return 'quarter/' + left(date, 4) + '-0' + right(date, 1)
+        return 'quarter/' + left(date, 4) + '-Q' + right(date, 1)
     elif len(date) > 6:
-        return 'quarter/' + left(date, 4) + '-0' + right(date, 1)
+        return 'quarter/' + left(date, 4) + '-Q' + right(date, 1)
     else:
         return ""
     
@@ -130,30 +130,6 @@ df['Efficiency Rating'] = df['Efficiency Rating'].apply(pathify)
 # -
 df['Measure Type'] = 'energy-performance-certificates'
 df['Unit'] = 'Count'
-
-# #Codes for creating local codelist
-# g = pd.DataFrame()
-
-# g["Label"] = df["Location Label"].unique()
-
-# g["Notation"] = df["Location"].unique()
-
-# g["Parent Notation"] = None
-
-# # g["Local Notation"] = g["Label"].map(lambda x:                            
-# #     x if 'E0' in x else 
-# #     x if 'W0' in x else 
-# #     x if 'E9' in x else 
-# #     x if 'W9' in x 
-# #     else pathify(x)
-# # )
-# # g["Local Notation"] = g["Label"]
-# g = g.sort_values("Parent Notation", ascending=True)
-# g.index += 1
-# g["Sort Priority"] = g.index
-# g["Description"] = None
-
-# g.to_csv("./location.csv", index=False)
 
 df = df[['Period', 'Location', 'Efficiency Rating', 
          'Measure Type', 'Unit', 'Value']]
