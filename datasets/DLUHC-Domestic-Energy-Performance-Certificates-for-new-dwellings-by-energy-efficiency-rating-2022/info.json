@@ -39,20 +39,14 @@
                     "codelist": "./codelists/efficiency-rating.csv-metadata.json"
                 }
             }, 
-            "Measure Type": {
-                "type" :"measures",
-                "value": "http://gss-data.org.uk/def/climate-change/measure/{+measure_type}"
-            },
-            "Unit": {
-                    "type": "units",
-                    "new": [
-                        {
-                            "label": "Count"
-                        }
-                    ]
-            },
             "Value": {
-                "type" : "observations"
+                "type": "observations",
+                "measure": {
+                    "label": "Count of Energy Performance Certificates"
+                },
+                "unit": {
+                    "label": "Number"
+                }            
             }
         },
         "csvcubed_uri_style": "WithoutFileExtensions"
