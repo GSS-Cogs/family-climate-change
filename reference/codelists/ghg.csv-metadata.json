@@ -47,6 +47,11 @@
                 "propertyUrl": "rdfs:comment"
             },
             {
+                "titles": "Same As",
+                "name": "same_as",
+                "suppressOutput": true
+            },
+            {
                 "virtual": true,
                 "propertyUrl": "rdf:type",
                 "valueUrl": "skos:Concept"
