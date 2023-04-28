@@ -23,14 +23,14 @@ tabs = [x for x in distribution.as_databaker() if x.name not in excluded]
 
 dataframes = []
 for tab in tabs:
-    if tab.name in ["EB1", "EB1_England_Only", "EB1_Wales_Only"]:   
+    if tab.name in ["EB1_England_and_Wales", "EB1_England_Only", "EB1_Wales_Only"]:   
         year = tab.filter("Year").shift(0, 1).fill(
             DOWN)
         quarter = tab.filter("Quarter").shift(
             0, 1).fill(DOWN) 
         efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("C4")
         observations = efficieny_rating.shift(0, 1).fill(DOWN).is_not_blank()
-        if tab.name == "EB1":
+        if tab.name == "EB1_England_and_Wales":
             location = 'England and Wales'
         if tab.name == "EB1_England_Only":
             location = "E92000001"
@@ -45,18 +45,18 @@ for tab in tabs:
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         df = tidy_sheet.topandas()
         dataframes.append(df)
+        print(tab.name)
 
-    elif tab.name in ["EB1_By_Region", "EB1_by_LA"]:
-        if tab.name == "EB1_By_Region":
-            location = tab.excel_ref("A15").expand(DOWN)
+    elif tab.name in ["EB1_by_Region", "EB1_by_LA"]:
+        if tab.name == "EB1_by_Region":
+            location = tab.excel_ref("A15").expand(DOWN) 
             quarter =  tab.excel_ref("B15").expand(DOWN) 
-            
             efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("C4")
-            observations = efficieny_rating.shift(0, 1).fill(DOWN).is_not_blank()
+            observations = efficieny_rating.shift(0, 14).fill(DOWN)
         if tab.name == "EB1_by_LA":
-            quarter = tab.filter("Quarter").fill(DOWN).is_not_blank() 
+            quarter = tab.filter("Quarter").fill(DOWN)
             location = tab.filter(
-                "Local Authority Code").fill(DOWN).is_not_blank()
+                "Local Authority Code").fill(DOWN)
         
             efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("D4")
             observations = efficieny_rating.fill(DOWN).is_not_blank()
@@ -70,6 +70,7 @@ for tab in tabs:
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         df = tidy_sheet.topandas()
         dataframes.append(df)
+        print(tab.name)
 
 df = pd.concat(dataframes, sort=True)
 df.rename(columns={'OBS': 'Value'}, inplace=True)
