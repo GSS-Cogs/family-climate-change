@@ -6,7 +6,7 @@ info = json.load(open('info.json'))
 title_id = info['id']
 
 metadata = Scraper(seed="info.json")
-metadata.dataset.title = "Domestic Energy Performance Certificates for existing dwellings by energy efficiency rating 2022"
+metadata.dataset.title = "Domestic Energy Performance Certificates for existing dwellings by energy efficiency rating (updated)"
 metadata.dataset.comment = "Data from certificates for existing domestic properties lodged on the Energy Performance of Buildings Registers, by average energy efficiency rating."
 metadata.dataset.description = """
 This data relates to the Energy Performance of Buildings Certificates published alongside the Energy Performance of Buildings Certificates Statistical release 27 April 2023.
@@ -14,7 +14,6 @@ The data is drawn from certificates for existing domestic properties lodged on t
 
 The Energy Performance Certificates (EPC) register does not hold data for every domestic and non-domestic building or every building occupied by public authorities in England and Wales. 
 Buildings only require an EPC when, sold, let or constructed.  These statistics should, therefore, not be interpreted as a true representation of the whole of the building stock in England and Wales, but viewed as part of a wider package of Government’s provision of information on the energy efficiency of buildings. 
-
 """
 
 distribution = [x for x in metadata.distributions if 'Table EB1' in x.title][0]

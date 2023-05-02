@@ -1,8 +1,9 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "dluhc-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating-updated",
     "title": "Domestic Energy Performance Certificates for existing dwellings by energy efficiency rating (updated)",
-    "publisher": "DLUHC",
-    "description": "",
+    "publisher": "Department for Levelling Up, Housing and Communities",
+    "description": "This data relates to the Energy Performance of Buildings Certificates published alongside the Energy Performance of Buildings Certificates Statistical release 27 April 2023.",
     "landingPage": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-energy-performance-of-buildings-certificates",
     "datasetNotes": [
         "On the landing page, navigate down to Table EB1: domestic Energy Performance Certificates for existing dwellings by energy efficiency rating"
@@ -12,11 +13,44 @@
         "Climate-Change"
     ],
     "extract": {
-        "source": ""
+        "source": "ODS"
     },
     "transform": {
         "airtable": "reccUF7DdY8eKmy7b",
-        "main_issue": 751
+        "main_issue": 751,
+        "columns": {
+            "Period": {
+                "type": "dimension",
+                "new": {
+                    "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                    "codelist": true
+                },
+                "value": "http://reference.data.gov.uk/id/{+period}"
+            },
+            "Location": {
+                "type" : "dimension",
+                "new": {
+                    "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+                    "codelist": "./codelists/location.csv-metadata.json"
+                }
+            },
+            "Efficiency Rating" : {
+                "type" : "dimension",
+                "new": {
+                    "codelist": "./codelists/efficiency-rating.csv-metadata.json"
+                }
+            }, 
+            "Value": {
+                "type": "observations",
+                "measure": {
+                    "label": "Count of Energy Performance Certificates"
+                },
+                "unit": {
+                    "label": "Number"
+                }            
+            }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
     },
     "sizingNotes": "",
     "notes": ""

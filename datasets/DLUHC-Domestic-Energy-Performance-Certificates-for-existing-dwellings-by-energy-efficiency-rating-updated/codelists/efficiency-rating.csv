@@ -1,0 +1,10 @@
+Label,Notation,Parent Notation,Sort Priority,Description
+Total Efficiency Rating,total-efficiency-rating,,1,
+A,a,total-efficiency-rating,2,
+B,b,total-efficiency-rating,3,
+C,c,total-efficiency-rating,4,
+D,d,total-efficiency-rating,5,
+E,e,total-efficiency-rating,6,
+F,f,total-efficiency-rating,7,
+G,g,total-efficiency-rating,8,
+Not recorded,not-recorded,total-efficiency-rating,9,
