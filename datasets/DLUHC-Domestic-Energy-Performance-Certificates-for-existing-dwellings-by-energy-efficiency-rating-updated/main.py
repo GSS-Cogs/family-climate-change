@@ -125,7 +125,7 @@ df['Location'] = df['Location'].map(lambda x:
 df = df.replace({'Efficiency Rating': {
     "Not recorded": "Not Recorded",
     "not-recorded": 'Not Recorded',
-    "Number of Lodgements": "Total Efficiency Rating"
+    "Number Lodgements": "Total Efficiency Rating"
 }})
 
 df['Efficiency Rating'] = df['Efficiency Rating'].apply(pathify)
