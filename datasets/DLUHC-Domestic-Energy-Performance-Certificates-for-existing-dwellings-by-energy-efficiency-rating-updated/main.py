@@ -31,7 +31,7 @@ for tab in tabs:
         observations = efficieny_rating.shift(0, 1).fill(DOWN).is_not_blank()
         if tab.name == "EB1_England_and_Wales":
             location = 'England and Wales'
-        if tab.name == "EB1_England_Only":
+        elif tab.name == "EB1_England_Only":
             location = "E92000001"
         elif tab.name == "EB1_Wales_Only":
             location = "W92000004"
@@ -52,7 +52,7 @@ for tab in tabs:
             quarter =  tab.excel_ref("B15").expand(DOWN) 
             efficieny_rating = tab.filter("A").expand(RIGHT).is_not_blank() | tab.excel_ref("C4")
             observations = efficieny_rating.shift(0, 14).fill(DOWN)
-        if tab.name == "EB1_by_LA":
+        elif tab.name == "EB1_by_LA":
             quarter = tab.filter("Quarter").fill(DOWN)
             location = tab.filter(
                 "Local Authority Code").fill(DOWN)
