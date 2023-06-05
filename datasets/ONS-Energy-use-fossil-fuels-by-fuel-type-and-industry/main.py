@@ -1,26 +1,14 @@
 #!/usr/bin/env python
 # coding: utf-8
-# %%
 import json
 import pandas as pandas
 from gssutils import *
-
-cubes = Cubes('info.json')
-info = json.load(open('info.json'))
-landingPage = info['landingPage']
 metadata = Scraper(seed="info.json")
-distribution = metadata.distribution(latest = True, mediaType = Excel)
-title = distribution.title
+distribution = metadata.distribution(latest = True)
 
-tabs = distribution.as_databaker(data_only=True)
-tabs = [tab for tab in tabs if tab.name not in ['Contents', 'Summary']]
+tabs = distribution.as_databaker()
+tabs = tabs[2:]
 
-#reterieve the id from info.json for URI's (use later)
-with open("info.json", "r") as read_file:
-    data = json.load(read_file)
-    title_id = data['id']
-
-# %%
 dataframes = []
 for tab in tabs:
     pivot = tab.excel_ref("A1").shift(0, 4)
@@ -37,58 +25,54 @@ for tab in tabs:
         if tab.name == 'Fuel oil':
             fueltype = 'Oil'
         elif tab.name == 'Gas oil':
-            fueltype = 'Gas Oil Including Marine Oil Excluding DERV'
+            fueltype = 'Gas oil including marine oil excluding Derv'
+        elif tab.name == 'Other':
+            fueltype = 'Other fuel'    
         else:
             fueltype = tab.name
             
         dimensions = [
-            HDim(year, 'Period', DIRECTLY, ABOVE),
+            HDim(year, 'Year', DIRECTLY, ABOVE),
             HDim(industry, 'Industry', DIRECTLY, LEFT),
             HDim(sicSection, 'SIC Section', DIRECTLY, LEFT),
             HDim(sicGroup, 'SIC Group', DIRECTLY, LEFT),
             HDimConst('Fuel', fueltype)
         ]
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
-        #savepreviewhtml(tidy_sheet,fname=tab.name + "Preview.html")
+        # savepreviewhtml(tidy_sheet,fname=tab.name + "Preview.html")
         df = tidy_sheet.topandas()
         df['SIC Group'] = df['SIC Group'].str.rstrip("0")
         df['SIC Group'] = df['SIC Group'].str.rstrip(".")
         dataframes.append(df)
-   
+
     elif tab.name == "Aviation fuel":
+        remove = tab.filter("Notes").expand(DOWN).expand(RIGHT) | tab.filter("SIC (07) group") | tab.filter("Section")
         industry = tab.excel_ref('C6').expand(DOWN) - remove
-        fuel = tab.excel_ref('D6').expand(DOWN) - tab.excel_ref('D25').expand(DOWN)
+        fuel = tab.excel_ref('D6').expand(DOWN).is_not_blank() - tab.excel_ref('D25').expand(DOWN).is_not_blank()
         observations = fuel.fill(RIGHT).is_not_blank() - remove
         
         dimensions = [
-                HDim(year, 'Period', DIRECTLY, ABOVE),
+                HDim(year, 'Year', DIRECTLY, ABOVE),
                 HDim(industry, 'Industry', DIRECTLY, LEFT),
                 HDim(sicSection, 'SIC Section', DIRECTLY, LEFT),
                 HDim(sicGroup, 'SIC Group', DIRECTLY, LEFT),
                 HDim(fuel, 'Fuel', DIRECTLY, LEFT)
             ]
-
+        # savepreviewhtml(tidy_sheet,fname=tab.name + "Preview.html")
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         df = tidy_sheet.topandas()
         df['SIC Group'] = df['SIC Group'].str.rstrip("0")
         df['SIC Group'] = df['SIC Group'].str.rstrip(".")
-        #savepreviewhtml(tidy_sheet,fname=tab.name + "Preview.html")
+        # savepreviewhtml(tidy_sheet,fname=tab.name + "Preview.html")
         dataframes.append(df)
 
-# %%
 df = pd.concat(dataframes)
-df = df.rename(columns = {'DATAMARKER' : 'Marker', 'OBS' : 'Value'})
 
-df = df.replace({'Marker' : {'c' : 'confidential'},
-                 'Fuel' : {"('DERV',)" : 'DERV'}})
+df.rename(columns = {'DATAMARKER' : 'Marker', 'OBS' : 'Value'}, inplace=True)
+df.replace({'Marker' : {'c' : 'confidential'},
+                 'Fuel' : {"('DERV',)" : 'DERV'}},  inplace=True)
 
-df['Period'] = df['Period'].astype(float).astype(int)
-df['Measure Type'] = 'gross caloric values'
-df['Unit'] = 'millions-of-tonnes-of-oil-equivalent'
-
-df['Fuel'] = df['Fuel'].fillna('all')
-df = df.replace({'Fuel' : {'' : 'all'}})
-
+df['Year'] = df['Year'].astype(float).astype(int)
 df['Industry'] = df['Industry'].apply(pathify)
 df['SIC Group'] = df['SIC Group'].apply(pathify)
 
@@ -96,20 +80,20 @@ df['SIC Group'] = df.apply(lambda x: x['SIC Section'] if x['SIC Group'] == '' or
 df['SIC Group'] = df.apply(lambda x: x['Industry'] if x['SIC Group'] == '-' and x['SIC Section'] == '-' else x['SIC Group'], axis=1)
 df['SIC Group'] = df.apply(lambda x: x['Industry'] if x['SIC Group'] == '' and x['SIC Section'] == '' else x['SIC Group'], axis=1)
 
+# +
 #info needed to create URI's for section 
 unique = 'http://gss-data.org.uk/data/gss_data/climate-change/' + title_id + '#concept/sic-2007/'
 sic = 'http://business.data.gov.uk/companies/def/sic-2007/'
 
 #create the URI's from the section column 
 df['SIC Group'] = df['SIC Group'].map(lambda x: unique + x if '-' in x else (unique + x if 'total' in x else sic + x))
-df = df.drop(['SIC Section', 'Industry'], axis = 1)
+df.drop(['SIC Section', 'Industry'], axis = 1,  inplace=True)
+# -
 
-# %%
-df = df.rename(columns = {'SIC Group' : 'Section', 'Period' : 'Year'})
+df.rename(columns = {'SIC Group' : 'Section', 'Period' : 'Year'},  inplace=True)
+df = df[['Year', 'Section','Fuel', 'Value', 'Marker']]
 
-df = df[['Year', 'Section', 'Fuel', 'Value', 'Marker', 'Measure Type', 'Unit']]
-
-COLUMNS_TO_NOT_PATHIFY = ['Period', 'Marker', 'Value', 'Section', 'Year']
+COLUMNS_TO_NOT_PATHIFY = ['Year', 'Section','Fuel', 'Marker', 'Value']
 for col in df.columns.values.tolist():
 	if col in COLUMNS_TO_NOT_PATHIFY:
 		continue
@@ -118,10 +102,8 @@ for col in df.columns.values.tolist():
 	except Exception as err:
 		raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
-df
+df = df.drop_duplicates()
 
-
-# %%
-cubes.add_cube(metadata, df.drop_duplicates(), metadata.dataset.title)
-cubes.output_all()
-
+df.to_csv('observations.csv', index=False)
+catalog_metadata = metadata.as_csvqb_catalog_metadata()
+catalog_metadata.to_json_file('catalog-metadata.json')
