@@ -143,9 +143,8 @@ for tab in tabs:
 df = pd.concat(tidied_sheets, sort=True)
 
 df.rename(columns={"OBS": "Value", "DATAMARKER": "Marker"}, inplace=True)
-df.replace(
-    {"Section": {"Total": "total", "Consumer expenditure": "consumer-expenditure"}}
-)
+df = df.replace(
+    {'Section': {'Total': 'total', 'Consumer expenditure': 'consumer-expenditure'}})
 df["Year"] = df["Year"].astype(str).replace("\.0", "", regex=True)
 # # +
 # info needed to create URI's for section
