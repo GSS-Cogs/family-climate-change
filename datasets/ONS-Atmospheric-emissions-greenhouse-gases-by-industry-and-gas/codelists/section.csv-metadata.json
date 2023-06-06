@@ -1,115 +1,46 @@
 {
     "@context": "http://www.w3.org/ns/csvw",
-    "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas#scheme/section",
+    "@id": "section#code-list",
     "url": "section.csv",
-    "rdfs:label": "Section",
-    "dc:title": "Section",
-    "tableSchema": {
-        "columns": [
-            {
-                "titles": "Label",
-                "name": "label",
-                "datatype": "string",
-                "required": true,
-                "propertyUrl": "rdfs:label"
-            },
-            {
-                "titles": "URI",
-                "name": "uri"
-            },
-            {
-                "titles": "Parent URI",
-                "name": "parent_uri"
-            },
-            {
-                "titles": "Sort Priority",
-                "name": "sort_priority",
-                "datatype": "integer",
-                "required": false,
-                "propertyUrl": "http://www.w3.org/ns/ui#sortPriority"
-            },
-            {
-                "titles": "Description",
-                "name": "description",
-                "datatype": "string",
-                "required": false,
-                "propertyUrl": "rdfs:comment"
-            },
-            {
-                "titles": "Local Notation",
-                "name": "local_notation"
-            },
-            {
-                "virtual": true,
-                "propertyUrl": "rdf:type",
-                "valueUrl": "skos:Concept"
-            },
-            {
-                "virtual": true,
-                "propertyUrl": "skos:inScheme",
-                "valueUrl": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas#scheme/section"
-            }
-        ],
-        "primaryKey": "uri",
-        "aboutUrl": "{+uri}"
-    },
-    "prov:hadDerivation": {
-        "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas#scheme/section",
-        "@type": [
-            "skos:ConceptScheme",
-            "http://publishmydata.com/pmdcat#ConceptScheme"
-        ]
-    },
+    "tableSchema": "section.table.json",
     "rdfs:seeAlso": [
         {
-            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas#scheme/section/dataset",
+            "@id": "section#code-list",
             "@type": [
-                "dcat:Dataset",
-                "http://publishmydata.com/pmdcat#Dataset"
+                "http://www.w3.org/2004/02/skos/core#ConceptScheme",
+                "http://www.w3.org/ns/dcat#Dataset",
+                "http://www.w3.org/2000/01/rdf-schema#Resource",
+                "http://www.w3.org/ns/dcat#Resource"
             ],
-            "http://publishmydata.com/pmdcat#datasetContents": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas#scheme/section"
-            },
-            "http://publishmydata.com/pmdcat#graph": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas#scheme/section"
-            },
-            "dc:modified": {
-                "@type": "dateTime",
-                "@value": "2021-10-11T14:56:19.346232"
-            },
-            "rdfs:label": "Section",
-            "dc:title": "Section",
-            "rdfs:comment": "Dataset representing the 'Section' code list.",
-            "dc:issued": {
-                "@type": "dateTime",
-                "@value": "2021-10-11T14:56:19.346232"
-            }
-        },
-        {
-            "@id": "http://gss-data.org.uk/catalog/vocabularies",
-            "dcat:record": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas#scheme/section/catalog-record"
-            }
-        },
-        {
-            "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas#scheme/section/catalog-record",
-            "@type": "dcat:CatalogRecord",
-            "foaf:primaryTopic": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas#scheme/section/dataset"
-            },
-            "http://publishmydata.com/pmdcat#metadataGraph": {
-                "@id": "http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas#scheme/section"
-            },
-            "dc:title": "Section Catalog Record",
-            "rdfs:label": "Section Catalog Record",
-            "dc:issued": {
-                "@type": "dateTime",
-                "@value": "2021-10-11T14:56:19.346232"
-            },
-            "dc:modified": {
-                "@type": "dateTime",
-                "@value": "2021-10-11T14:56:19.346232"
-            }
+            "http://purl.org/dc/terms/identifier": [
+                {
+                    "@value": "Section"
+                }
+            ],
+            "http://purl.org/dc/terms/issued": [
+                {
+                    "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+                    "@value": "2023-06-06T17:41:58.197255"
+                }
+            ],
+            "http://purl.org/dc/terms/modified": [
+                {
+                    "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+                    "@value": "2023-06-06T17:41:58.197255"
+                }
+            ],
+            "http://purl.org/dc/terms/title": [
+                {
+                    "@language": "en",
+                    "@value": "Section"
+                }
+            ],
+            "http://www.w3.org/2000/01/rdf-schema#label": [
+                {
+                    "@language": "en",
+                    "@value": "Section"
+                }
+            ]
         }
     ]
 }
