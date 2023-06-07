@@ -1,0 +1,22 @@
+{
+    "id": "defra-carbon-footprint-summary-product",
+    "title": "Carbon Footprint - Summary Product",
+    "publisher": "Department for Environment Food & Rural Affairs",
+    "description": "",
+    "landingPage": "https://www.gov.uk/government/statistics/uks-carbon-footprint",
+    "datasetNotes": [
+        "On the landing page, navigate down to UK full dataset 1990 - 2020, including conversion factors by SIC code (Navigate to Summary Product tab)"
+    ],
+    "published": "2023-06-07",
+    "families": [
+        "Climate-Change"
+    ],
+    "extract": {
+        "source": ""
+    },
+    "transform": {
+        "airtable": "rec9WMliEircdAY8Y"
+    },
+    "sizingNotes": "",
+    "notes": ""
+}

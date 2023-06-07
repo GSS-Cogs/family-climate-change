@@ -1,0 +1,22 @@
+{
+    "id": "defra-carbon-footprint-summary-final-demand",
+    "title": "Carbon Footprint - Summary Final Demand",
+    "publisher": "Department for Environment Food & Rural Affairs",
+    "description": "",
+    "landingPage": "https://www.gov.uk/government/statistics/uks-carbon-footprint",
+    "datasetNotes": [
+        "On the landing page, navigate down to UK full dataset 1990 - 2020, including conversion factors by SIC code (Navigate to Summary Final Demand tab)"
+    ],
+    "published": "2023-06-07",
+    "families": [
+        "Climate-Change"
+    ],
+    "extract": {
+        "source": ""
+    },
+    "transform": {
+        "airtable": "recvyRtlVuL5wtJ0O"
+    },
+    "sizingNotes": "",
+    "notes": ""
+}
