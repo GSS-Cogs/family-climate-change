@@ -1,4 +1,3 @@
-# +
 import json
 import pandas as pandas
 from gssutils import *
@@ -42,7 +41,7 @@ for tab in tabs:
             ),  # will be dropped
             HDim(year, "Year", DIRECTLY, ABOVE),
             HDimConst("Emission Type", tab.name),
-            HDimConst("Measure Type", measure_type),
+            HDimConst("Measure Type", measure_type)
         ]
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         # savepreviewhtml(tidy_sheet, fname = tab.name+ "Preview.html")
@@ -56,7 +55,7 @@ for tab in tabs:
             else x["Industry Section Name"]
             if x["Section Notation"] == ""
             else x["Section Notation"],
-            axis=1,
+            axis=1
         )
         table["Section"] = table["Section"].apply(pathify_section_values)
         tidied_sheets.append(table)
@@ -79,7 +78,7 @@ for tab in tabs:
             ),  # will be dropped
             HDim(year, "Year", DIRECTLY, ABOVE),
             HDimConst("Emission Type", tab.name),
-            HDimConst("Measure Type", measure_type),
+            HDimConst("Measure Type", measure_type)
         ]
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         # savepreviewhtml(tidy_sheet, fname = tab.name+ "Preview.html")
@@ -97,7 +96,7 @@ for tab in tabs:
             else x["Industry Section Name"]
             if x["Section Notation"] == ""
             else x["Section Notation"],
-            axis=1,
+            axis=1
         )
       
         table["Section"] = table["Section"].apply(pathify_section_values)
@@ -120,7 +119,7 @@ for tab in tabs:
             ),  # will be dropped
             HDim(year, "Year", DIRECTLY, ABOVE),
             HDimConst("Emission Type", tab.name),
-            HDimConst("Measure Type", measure_type),
+            HDimConst("Measure Type", measure_type)
         ]
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
@@ -130,7 +129,7 @@ for tab in tabs:
             lambda x: x["Industy Section Name"]
             if x["SIC(07)Group"] == "-"
             else x["SIC(07)Group"],
-            axis=1,
+            axis=1
         )
         
         table["Section"] = table["Section"].str.rstrip("0")
@@ -151,7 +150,7 @@ df["Year"] = df["Year"].astype(str).replace("\.0", "", regex=True)
 unique = (
     "http://gss-data.org.uk/data/gss_data/climate-change/"
     + title_id
-    + "#concept/sic-2007/"
+    + "-concept/sic-2007/"
 )
 sic = "http://business.data.gov.uk/companies/def/sic-2007/"
 # create the URI's from the section column
