@@ -35,8 +35,7 @@
                 "type" : "dimension",
                 "new": {
                     "codelist": "./codelists/section.csv-metadata.json"
-                },
-                "value": "{+section}"
+                }
             },
             "Emission Type": {
                 "type": "dimension",
