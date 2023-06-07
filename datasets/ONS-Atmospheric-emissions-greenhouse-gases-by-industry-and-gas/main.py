@@ -4,6 +4,8 @@ from gssutils import *
 
 info = json.load(open("info.json"))
 metadata = Scraper(seed="info.json")
+metadata.dataset.comment = "The emissions of carbon dioxide, methane, nitrous oxide, hydro-fluorocarbons, perfluorocarbons, sulphur hexafluoride, nitrogen trifluoride and total greenhouse gas emissions, by industry (SIC 2007 group – around 130 categories), UK, 1990 to 2021"
+metadata.dataset.description = "The emissions of carbon dioxide, methane, nitrous oxide, hydro-fluorocarbons, perfluorocarbons, sulphur hexafluoride, nitrogen trifluoride and total greenhouse gas emissions, by industry (SIC 2007 group – around 130 categories), UK, 1990 to 2021."
 # -
 distribution = metadata.distribution(latest=True)
 
