@@ -18,7 +18,7 @@
     "transform": {
         "airtable": "recvyRtlVuL5wtJ0O",
         "columns": {
-            "Period": {
+            "Year": {
                 "type": "dimension",
                 "new": {
                     "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
@@ -27,7 +27,10 @@
                 "value": "http://reference.data.gov.uk/id/year/{+year}"
             },
             "Final Demand Breakdown": {
-                "type": "dimension"
+                "type" : "dimension",
+                "new": {
+                    "codelist": "./codelists/final-demand-breakdown.csv-metadata.json"
+                }
             },
             "Measure": {
                 "type": "measures",
@@ -38,7 +41,8 @@
                 "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
             },
             "Value": {
-                "type": "observations"
+                "type": "observations",
+                "datatype": "decimal"
             }
         },
         "csvcubed_uri_style": "WithoutFileExtensions"
