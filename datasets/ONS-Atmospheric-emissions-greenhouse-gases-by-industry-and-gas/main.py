@@ -59,7 +59,7 @@ for tab in tabs:
             else x["Section Notation"],
             axis=1,
         )
-
+        table["Section"] = table["Section"].apply(pathify_section_values)
         tidied_sheets.append(table)
 
     else:
@@ -100,7 +100,7 @@ for tab in tabs:
             else x["Section Notation"],
             axis=1,
         )
-
+        table["Section"] = table["Section"].apply(pathify_section_values)
         tidied_sheets.append(table)
 
         # Bottom part
@@ -136,7 +136,8 @@ for tab in tabs:
         table["Section"] = table["Section"].str.rstrip("0")
         table["Section"] = table["Section"].str.rstrip(".")
         table["Section"] = table["Section"].apply(lambda x: "{0:0>2}".format(x))
-    
+        table["Section"] = table["Section"].apply(pathify_section_values)
+        table["Section"] = table["Section"].apply(pathify)
         tidied_sheets.append(table)
 
 df = pd.concat(tidied_sheets, sort=True)
@@ -149,20 +150,17 @@ df = df.replace(
     {
         "Section": {
             "Consumer expenditure": "consumer-expenditure",
-            "Total greenhouse gas emissions": "grand-total",
-            "Total CO2 emissions": "grand-total",
-            "Total CH4 emissions": "grand-total",
-            "Total N2O emissions": "grand-total",
-            "Total HFC emissions": "grand-total",
-            "Total PFC emissions": "grand-total",
-            "Total NF3 emissions": "grand-total",
-            "Total SF6 emissions": "grand-total",
+            "total-greenhouse-gas-emissions": "grand-total",
+            "total-co2-emissions": "grand-total",
+            "total-ch4-emissions": "grand-total",
+            "total-n2o-emissions": "grand-total",
+            "total-hfc-emissions": "grand-total",
+            "total-pfc-emissions": "grand-total",
+            "total-nf3-emissions": "grand-total",
+            "total-sf6-emissions": "grand-total",
         }
     }
 )
-
-# df["Section"] = df["Section"].apply(pathify_section_values)
-# df["Section"] = df["Section"].apply(pathify)
 
 # info needed to create URI's for section
 unique = (
