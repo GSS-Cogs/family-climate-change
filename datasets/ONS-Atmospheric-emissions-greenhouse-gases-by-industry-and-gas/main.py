@@ -161,8 +161,8 @@ df = df.replace(
     }
 )
 
-df["Section"] = df["Section"].apply(pathify_section_values)
-df["Section"] = df["Section"].apply(pathify)
+# df["Section"] = df["Section"].apply(pathify_section_values)
+# df["Section"] = df["Section"].apply(pathify)
 
 # info needed to create URI's for section
 unique = (
