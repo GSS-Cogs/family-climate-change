@@ -1,6 +1,5 @@
 Label,URI,Parent URI,Sort Priority,Description,Local Notation
 Grand Total,http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas-concept/sic-2007/grand-total,,,,grand-total
-
 "Agriculture, forestry and fishing",http://business.data.gov.uk/companies/def/sic-2007/A,http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas-concept/sic-2007/grand-total,,,A
 Mining and quarrying,http://business.data.gov.uk/companies/def/sic-2007/B,http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas-concept/sic-2007/grand-total,,,B
 Manufacturing,http://business.data.gov.uk/companies/def/sic-2007/C,http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas-concept/sic-2007/grand-total,,,C
@@ -21,7 +20,6 @@ Human health and social work activities,http://business.data.gov.uk/companies/de
 "Arts, entertainment and recreation",http://business.data.gov.uk/companies/def/sic-2007/R,http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas-concept/sic-2007/grand-total,,,R
 Other service activities,http://business.data.gov.uk/companies/def/sic-2007/S,http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas-concept/sic-2007/grand-total,,,S
 Activities of households as employers; undifferentiated goods and services-producing activities of households for own use,http://business.data.gov.uk/companies/def/sic-2007/T,http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas-concept/sic-2007/grand-total,,,T
-
 "Products of agriculture, hunting and related services",http://business.data.gov.uk/companies/def/sic-2007/01,http://business.data.gov.uk/companies/def/sic-2007/A,,,1
 "Products of forestry, logging and related services",http://business.data.gov.uk/companies/def/sic-2007/02,http://business.data.gov.uk/companies/def/sic-2007/A,,,2
 Fish and other fishing products; aquaculture products; support services to fishing,http://business.data.gov.uk/companies/def/sic-2007/03,http://business.data.gov.uk/companies/def/sic-2007/A,,,3
@@ -153,7 +151,6 @@ Other personal services,http://business.data.gov.uk/companies/def/sic-2007/96,ht
 Services of households as employers of domestic personnel,http://business.data.gov.uk/companies/def/sic-2007/97,http://business.data.gov.uk/companies/def/sic-2007/T,,,97
 Consumer expenditure - not travel,http://business.data.gov.uk/companies/def/sic-2007/100,http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas-concept/sic-2007/grand-total,,,100
 Consumer expenditure - travel,http://business.data.gov.uk/companies/def/sic-2007/101,http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas-concept/sic-2007/grand-total,,,101
-
 Consumer expenditure,http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas-concept/sic-2007/consumer-expenditure,http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas-concept/sic-2007/grand-total,,,consumer-expenditure
 Consumer expenditure Not travel,http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas-concept/sic-2007/-not-travel,http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas-concept/sic-2007/grand-total,,,-not-travel
 Consumer expenditure Travel,http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas-concept/sic-2007/-travel,http://gss-data.org.uk/data/gss_data/climate-change/ons-atmospheric-emissions-greenhouse-gases-by-industry-and-gas-concept/sic-2007/grand-total,,,-travel
