@@ -25,8 +25,8 @@ for tab in tabs:
         final_demand = tab.excel_ref("C2").expand(RIGHT) - tab.excel_ref("L2").expand(RIGHT)
         final_demand_breakdown = tab.excel_ref("C3").expand(RIGHT) - tab.excel_ref("L3").expand(RIGHT)
         observations = period.waffle(final_demand_breakdown)
-        measure = 'Greenhouse gas emissions'
-        unit = 'Ktonnes CO2e'
+        measure = 'greenhouse-gas-emissions'
+        unit = 'kt-co2e'
         
         dimensions = [
             HDim(period,'Period',DIRECTLY,LEFT),
@@ -43,8 +43,8 @@ for tab in tabs:
         final_demand = tab.excel_ref("C37").expand(RIGHT) - tab.excel_ref("L37").expand(RIGHT)
         final_demand_breakdown = tab.excel_ref("C38").expand(RIGHT) - tab.excel_ref("L38").expand(RIGHT)
         observations = period.waffle(final_demand_breakdown)
-        measure = 'Carbon dioxide emissions'
-        unit = 'Ktonnes CO2'
+        measure = 'carbon-dioxide-emissions'
+        unit = 'kt-co2'
 
         dimensions = [
             HDim(period,'Period',DIRECTLY,LEFT),
@@ -67,7 +67,6 @@ df = df.replace({'Final Demand Breakdown': {
 df['Final Demand Code'] = df.apply(lambda x: 'UK FD 1' if x['Final Demand Breakdown'] == 'Households direct' else x['Final Demand Code'], axis=1)
 df["Final Demand Code"] = df["Final Demand Code"].str.replace("UK ", "")
 
-# +
 indexNames = df[df['Final Demand Breakdown'] == 'Total'].index
 df.drop(indexNames, inplace=True)
 
@@ -75,17 +74,10 @@ indexNames = df[df['Final Demand Code'] == 'Total'].index
 df.drop(indexNames, inplace=True)
 
 df.drop(columns ='Final Demand Code', inplace=True)
-# -
 
 df.rename(columns={'OBS' : 'Value'}, inplace=True)
 df["Value"] = df["Value"].astype(float).round(2)
 df['Period'] = df['Period'].astype(float).astype(int)
-
-for col in ['Measure', 'Unit']:
-    try:
-        df[col] = df[col].apply(pathify)
-    except Exception as err:
-        raise Exception("Failed to pathify column '{}'.".format(col)) from err
 
 df = df[['Period', 'Final Demand Breakdown', 'Measure', 'Unit', 'Value']]
 
