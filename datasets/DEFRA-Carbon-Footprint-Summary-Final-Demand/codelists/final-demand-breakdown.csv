@@ -1,0 +1,10 @@
+Label,Notation,Parent Notation,Sort Priority,Description
+Grand Total,grand-total,,1,
+Central Government,central-government,grand-total,2,
+Changes in inventories,changes-in-inventories,grand-total,3,
+Gross fixed capital formation,gross-fixed-capital-formation,grand-total,4,
+Households,households,grand-total,5,
+Households direct,households-direct,grand-total,6,
+Local Government,local-government,grand-total,7,
+Non-profit institutions serving households,non-profit-institutions-serving-households,grand-total,8,
+Valuables,valuables,grand-total,9,
