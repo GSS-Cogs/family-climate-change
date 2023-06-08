@@ -21,7 +21,7 @@ def pathify_section_values(section):
         return section
     else:
         return section
-# -
+
 tabs = distribution.as_databaker()
 
 tidied_sheets = []
@@ -43,7 +43,7 @@ for tab in tabs:
             ),  # will be dropped
             HDim(year, "Year", DIRECTLY, ABOVE),
             HDimConst("Emission Type", tab.name),
-            HDimConst("Measure Type", measure_type)
+            HDimConst("Measure Type", measure_type),
         ]
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         # savepreviewhtml(tidy_sheet, fname = tab.name+ "Preview.html")
@@ -57,9 +57,9 @@ for tab in tabs:
             else x["Industry Section Name"]
             if x["Section Notation"] == ""
             else x["Section Notation"],
-            axis=1
+            axis=1,
         )
-        table["Section"] = table["Section"].apply(pathify_section_values)
+
         tidied_sheets.append(table)
 
     else:
@@ -80,7 +80,7 @@ for tab in tabs:
             ),  # will be dropped
             HDim(year, "Year", DIRECTLY, ABOVE),
             HDimConst("Emission Type", tab.name),
-            HDimConst("Measure Type", measure_type)
+            HDimConst("Measure Type", measure_type),
         ]
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
         # savepreviewhtml(tidy_sheet, fname = tab.name+ "Preview.html")
@@ -98,10 +98,9 @@ for tab in tabs:
             else x["Industry Section Name"]
             if x["Section Notation"] == ""
             else x["Section Notation"],
-            axis=1
+            axis=1,
         )
-      
-        table["Section"] = table["Section"].apply(pathify_section_values)
+
         tidied_sheets.append(table)
 
         # Bottom part
@@ -121,7 +120,7 @@ for tab in tabs:
             ),  # will be dropped
             HDim(year, "Year", DIRECTLY, ABOVE),
             HDimConst("Emission Type", tab.name),
-            HDimConst("Measure Type", measure_type)
+            HDimConst("Measure Type", measure_type),
         ]
 
         tidy_sheet = ConversionSegment(tab, dimensions, observations)
@@ -131,23 +130,40 @@ for tab in tabs:
             lambda x: x["Industy Section Name"]
             if x["SIC(07)Group"] == "-"
             else x["SIC(07)Group"],
-            axis=1
+            axis=1,
         )
-        
+
         table["Section"] = table["Section"].str.rstrip("0")
         table["Section"] = table["Section"].str.rstrip(".")
         table["Section"] = table["Section"].apply(lambda x: "{0:0>2}".format(x))
-        table["Section"] = table["Section"].apply(pathify_section_values)
-        table["Section"] = table["Section"].apply(pathify)
+    
         tidied_sheets.append(table)
 
 df = pd.concat(tidied_sheets, sort=True)
 
+# +
 df.rename(columns={"OBS": "Value", "DATAMARKER": "Marker"}, inplace=True)
-df = df.replace(
-    {'Section': {'Total': 'total', 'Consumer expenditure': 'consumer-expenditure'}})
 df["Year"] = df["Year"].astype(str).replace("\.0", "", regex=True)
-# # +
+
+df = df.replace(
+    {
+        "Section": {
+            "Consumer expenditure": "consumer-expenditure",
+            "Total greenhouse gas emissions": "grand-total",
+            "Total CO2 emissions": "grand-total",
+            "Total CH4 emissions": "grand-total",
+            "Total N2O emissions": "grand-total",
+            "Total HFC emissions": "grand-total",
+            "Total PFC emissions": "grand-total",
+            "Total NF3 emissions": "grand-total",
+            "Total SF6 emissions": "grand-total",
+        }
+    }
+)
+
+df["Section"] = df["Section"].apply(pathify_section_values)
+df["Section"] = df["Section"].apply(pathify)
+
 # info needed to create URI's for section
 unique = (
     "http://gss-data.org.uk/data/gss_data/climate-change/"
@@ -156,17 +172,18 @@ unique = (
 )
 sic = "http://business.data.gov.uk/companies/def/sic-2007/"
 # create the URI's from the section column
+
 df["Section"] = df["Section"].map(
     lambda x: unique + x if "-" in x else (unique + x if "total" in x else sic + x)
 )
 
-df['Emission Type'] = df['Emission Type'].str.rstrip(" ")
+df["Emission Type"] = df["Emission Type"].str.rstrip(" ")
 df = df.replace(
     {
         "Emission Type": {
             "GHG total": "total-greenhouse-gases",
             "GHG Total": "total-greenhouse-gases",
-            "Total GHG": "total-greenhouse-gases"
+            "Total GHG": "total-greenhouse-gases",
         }
     }
 )
@@ -179,15 +196,13 @@ df["Unit"] = df.apply(
 )
 # -
 for col in ["Measure Type", "Unit"]:
-	try:
-		df[col] = df[col].apply(pathify)
-	except Exception as err:
-		raise Exception('Failed to pathify column "{}".'.format(col)) from err
+    try:
+        df[col] = df[col].apply(pathify)
+    except Exception as err:
+        raise Exception('Failed to pathify column "{}".'.format(col)) from err
 
 # only need the following columns
 df = df[["Year", "Section", "Emission Type", "Measure Type", "Unit", "Value"]]
-
-df = df.drop_duplicates()
 
 df.to_csv("observations.csv", index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
