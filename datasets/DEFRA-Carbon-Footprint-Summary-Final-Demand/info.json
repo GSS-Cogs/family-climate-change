@@ -1,8 +1,9 @@
 {
+    "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "defra-carbon-footprint-summary-final-demand",
     "title": "Carbon Footprint - Summary Final Demand",
     "publisher": "Department for Environment Food & Rural Affairs",
-    "description": "",
+    "description": "Annual greenhouse gas and carbon dioxide emissions relating to UK consumption.",
     "landingPage": "https://www.gov.uk/government/statistics/uks-carbon-footprint",
     "datasetNotes": [
         "On the landing page, navigate down to UK full dataset 1990 - 2020, including conversion factors by SIC code (Navigate to Summary Final Demand tab)"
@@ -12,10 +13,35 @@
         "Climate-Change"
     ],
     "extract": {
-        "source": ""
+        "source": "ODS"
     },
     "transform": {
-        "airtable": "recvyRtlVuL5wtJ0O"
+        "airtable": "recvyRtlVuL5wtJ0O",
+        "columns": {
+            "Period": {
+                "type": "dimension",
+                "new": {
+                    "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                    "codelist": true
+                },
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
+            },
+            "Final Demand Breakdown": {
+                "type": "dimension"
+            },
+            "Measure": {
+                "type": "measures",
+                "value": "http://gss-data.org.uk/def/measure/{+measure}"
+            },
+            "Unit": {
+                "type": "units",
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{+unit}"
+            },
+            "Value": {
+                "type": "observations"
+            }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
     },
     "sizingNotes": "",
     "notes": ""
