@@ -66,6 +66,7 @@ df = df.replace({'Final Demand Breakdown': {
 
 df['Final Demand Code'] = df.apply(lambda x: 'UK FD 1' if x['Final Demand Breakdown'] == 'Households direct' else x['Final Demand Code'], axis=1)
 df["Final Demand Code"] = df["Final Demand Code"].str.replace("UK ", "")
+df.drop(columns ='Final Demand Code', inplace=True)
 
 # indexNames = df[df['Final Demand Breakdown'] == 'Total'].index
 # df.drop(indexNames, inplace=True)
@@ -73,7 +74,7 @@ df["Final Demand Code"] = df["Final Demand Code"].str.replace("UK ", "")
 # indexNames = df[df['Final Demand Code'] == 'Total'].index
 # df.drop(indexNames, inplace=True)
 
-df.drop(columns ='Final Demand Code', inplace=True)
+df["Final Demand Breakdown"] = df["Final Demand Breakdown"].apply(pathify)
 
 df.rename(columns={'OBS' : 'Value', 'Period' : 'Year'}, inplace=True)
 df["Value"] = df["Value"].astype(float).round(2)
