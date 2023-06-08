@@ -62,24 +62,24 @@ df = pd.concat(tidied_sheets).fillna('')
 df = df.replace({'Final Demand Breakdown': {
                                    'Non-profitinstitutions servinghouseholds' : 'Non-profit institutions serving households',
                                    'Gross fixedcapitalformation' : 'Gross fixed capital formation',
-                                   '' : 'Total'}}) 
+                                   '' : 'Grand Total'}}) 
 
 df['Final Demand Code'] = df.apply(lambda x: 'UK FD 1' if x['Final Demand Breakdown'] == 'Households direct' else x['Final Demand Code'], axis=1)
 df["Final Demand Code"] = df["Final Demand Code"].str.replace("UK ", "")
 
-indexNames = df[df['Final Demand Breakdown'] == 'Total'].index
-df.drop(indexNames, inplace=True)
+# indexNames = df[df['Final Demand Breakdown'] == 'Total'].index
+# df.drop(indexNames, inplace=True)
 
-indexNames = df[df['Final Demand Code'] == 'Total'].index
-df.drop(indexNames, inplace=True)
+# indexNames = df[df['Final Demand Code'] == 'Total'].index
+# df.drop(indexNames, inplace=True)
 
 df.drop(columns ='Final Demand Code', inplace=True)
 
-df.rename(columns={'OBS' : 'Value'}, inplace=True)
+df.rename(columns={'OBS' : 'Value', 'Period' : 'Year'}, inplace=True)
 df["Value"] = df["Value"].astype(float).round(2)
-df['Period'] = df['Period'].astype(float).astype(int)
+df['Year'] = df['Year'].astype(float).astype(int)
 
-df = df[['Period', 'Final Demand Breakdown', 'Measure', 'Unit', 'Value']]
+df = df[['Year', 'Final Demand Breakdown', 'Measure', 'Unit', 'Value']]
 
 metadata.dataset.title = "Carbon Footprint - Summary Final Demand"
 metadata.dataset.comment = "Annual greenhouse gas and carbon dioxide emissions relating to UK consumption."
