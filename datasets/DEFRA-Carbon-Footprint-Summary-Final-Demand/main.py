@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 #         DEFRA-Carbon-Footprint-Summary-Final-Demand
-
 import pandas as pd
 from gssutils import *
 
@@ -82,6 +81,8 @@ df['Year'] = df['Year'].astype(float).astype(int)
 
 df = df[['Year', 'Final Demand Breakdown', 'Measure', 'Unit', 'Value']]
 
+metadata.dataset.issued = "2023-06-07T09:30:00.738324+00:00"
+metadata.dataset.contactPoint = "mailto:enviro.statistics@defra.gov.uk"
 metadata.dataset.title = "Carbon Footprint - Summary Final Demand"
 metadata.dataset.comment = "Annual greenhouse gas and carbon dioxide emissions relating to UK consumption."
 metadata.dataset.description = """
@@ -95,7 +96,6 @@ motoring and burning fuel to heat homes. These emissions are often referred
 to as 'consumption emissions' to distinguish them from estimates relating to
 the emissions 'produced' within a country's territory or economic sphere.
 
-Email enviro.statistics@defra.gov.uk
 """
 
 df.to_csv('observations.csv', index=False)
