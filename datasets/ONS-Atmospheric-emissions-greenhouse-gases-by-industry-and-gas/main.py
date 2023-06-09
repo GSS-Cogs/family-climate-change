@@ -28,12 +28,12 @@ tidied_sheets = []
 for tab in tabs:
     if "Contents" in tab.name:
         continue
-    elif tab.name in ["GHG total", "Total GHG"]:
-        remove_bottom_section = tab.excel_ref("A28").expand(DOWN).expand(RIGHT)
+    elif tab.name == "GHG total ":
+        remove_bottom_section1 = tab.excel_ref("A28").expand(DOWN).expand(RIGHT)
         year = tab.excel_ref("D4").expand(RIGHT).is_not_blank()
-        section = tab.excel_ref("A5").expand(DOWN) - remove_bottom_section
-        section_name = tab.excel_ref("C5").expand(DOWN) - remove_bottom_section
-        observations = year.fill(DOWN).is_not_blank() - remove_bottom_section
+        section = tab.excel_ref("A5").expand(DOWN) - remove_bottom_section1
+        section_name = tab.excel_ref("C5").expand(DOWN) - remove_bottom_section1
+        observations = section_name.fill(RIGHT).is_not_blank()
         measure_type = "Mass of air emissions of carbon dioxide equivalent"
 
         dimensions = [
@@ -63,11 +63,11 @@ for tab in tabs:
         tidied_sheets.append(table)
 
     else:
-        remove_bottom_section = tab.excel_ref("A28").expand(DOWN).expand(RIGHT)
+        remove_bottom_section2 = tab.excel_ref("A28").expand(DOWN).expand(RIGHT)
         year = tab.excel_ref("D4").expand(RIGHT).is_not_blank()
-        section = tab.excel_ref("A5").expand(DOWN) - remove_bottom_section
-        section_name = tab.excel_ref("C5").expand(DOWN) - remove_bottom_section
-        observations = year.fill(DOWN).is_not_blank() - remove_bottom_section
+        section = tab.excel_ref("A5").expand(DOWN) - remove_bottom_section2
+        section_name = tab.excel_ref("C5").expand(DOWN) - remove_bottom_section2
+        observations = section_name.fill(RIGHT).is_not_blank()
         if tab.name == "CO2":
             measure_type = "Mass of air emissions"
         else:
