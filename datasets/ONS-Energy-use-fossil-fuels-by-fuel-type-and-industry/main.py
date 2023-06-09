@@ -3,8 +3,14 @@
 import json
 import pandas as pandas
 from gssutils import *
+
 metadata = Scraper(seed="info.json")
 distribution = metadata.distribution(latest = True)
+
+#reterieve the id from info.json for URI's (use later)
+with open("info.json", "r") as read_file:
+    data = json.load(read_file)
+    title_id = data['id']
 
 tabs = distribution.as_databaker()
 tabs = tabs[2:]
@@ -107,3 +113,4 @@ df = df.drop_duplicates()
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
 catalog_metadata.to_json_file('catalog-metadata.json')
+
