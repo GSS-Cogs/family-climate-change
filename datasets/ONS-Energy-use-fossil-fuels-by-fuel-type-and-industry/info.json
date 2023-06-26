@@ -49,7 +49,7 @@
                     "label": "Energy Consumption"
                 },
                 "unit": {
-                    "label": "Millions tonnes of oil equivalent (Mtoe)"
+                    "label": "Million tonnes of oil equivalent (Mtoe)"
                 }
             },
             "Marker": {
