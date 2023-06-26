@@ -321,6 +321,7 @@ try:
 except Exception as err:
     raise Exception('Failed to pathify column "{}".'.format(df["Fuel"])) from err
 
+df = df.fillna("")
 df = df[["Year", "Section", "Fuel", "Value", "Marker"]]
 
 df.to_csv("observations.csv", index=False)
