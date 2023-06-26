@@ -23,7 +23,6 @@ with open("info.json", "r") as read_file:
     data = json.load(read_file)
     title_id = data["id"]
 
-
 def pathify_section_values(section):
     if "Total" in section:
         section = pathify(section)
@@ -33,7 +32,6 @@ def pathify_section_values(section):
         return section
     else:
         return section
-
 
 tabs = distribution.as_databaker()
 
