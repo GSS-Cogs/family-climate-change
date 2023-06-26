@@ -43,10 +43,16 @@
                     "codelist": "./codelists/fuel.csv-metadata.json"
                 }
             },
+            "Measure": {
+                "type": "measures",
+                "value": "http://gss-data.org.uk/def/measure/{measure"
+            },
+            "Unit": {
+                "type": "units", 
+                "value": "http://gss-data.org.uk/def/concept/measurement-units/{unit}"
+            },
             "Value": {
-                "type": "observations",
-                "measure": "http://gss-data.org.uk/def/measure/energy-consumption",
-                "unit": "http://gss-data.org.uk/def/concept/measurement-units/millions-of-tonnes-of-oil-equivalent"
+                "type": "observations"
             },
             "Marker": {
                 "type": "attribute",
