@@ -1,30 +1,30 @@
-Label,Notation,Parent Notation,Sort Priority
-Carbon based fuels,carbon-based-fuels,,1
-Coal,coal,carbon-based-fuels,2
-Natural gas,natural-gas,carbon-based-fuels,3
-Petrol,petrol,carbon-based-fuels,4
-Diesel oil for road vehicles (DERV),diesel-oil-for-road-vehicles-derv,carbon-based-fuels,5
-Fuel oil,fuel-oil,carbon-based-fuels,6
-Gas oil including marine oil excluding DERV,gas-oil-including-marine-oil-excluding-derv,carbon-based-fuels,7
-Aviation fuel,aviation-fuel,carbon-based-fuels,8
-Other fuels,other-fuels,carbon-based-fuels,9
-Aviation spirit,aviation-spirit,aviation-fuel,10
-Aviation turbine fuel,aviation-turbine-fuel,aviation-fuel,11
-Anthracite,anthracite,other-fuels,12
-Blast furnace gas,blast-furnace-gas,other-fuels,13
-Burning oil,burning-oil,other-fuels,14
-Coke,coke,other-fuels,15
-Coke oven gas,coke-oven-gas,other-fuels,16
-Colliery methane,colliery-methane,other-fuels,17
-LPG,lpg,other-fuels,18
-Lubricants,lubricants,other-fuels,19
-Naphtha,naphtha,other-fuels,20
-OPG,opg,other-fuels,21
-Orimulsion,orimulsion,other-fuels,22
-Peat,peat,other-fuels,23
-Petroleum coke,petroleum-coke,other-fuels,24
-Refinery miscellaneous,refinery-miscellaneous,other-fuels,25
-Sour gas,sour-gas,other-fuels,26
-SSF,ssf,other-fuels,27
-Waste oils,waste-oils,other-fuels,28
-Waste solvent,waste-solvent,other-fuels,29
+Label,Notation,Parent Notation,Sort Priority,Description
+Carbon based fuels,carbon-based-fuels,,1,
+Coal,coal,carbon-based-fuels,2,
+Natural gas,natural-gas,carbon-based-fuels,3,
+Petrol,petrol,carbon-based-fuels,4,
+Diesel oil for road vehicles (DERV),diesel-oil-for-road-vehicles-derv,carbon-based-fuels,5,
+Fuel oil,fuel-oil,carbon-based-fuels,6,
+Gas oil including marine oil excluding DERV,gas-oil-including-marine-oil-excluding-derv,carbon-based-fuels,7,
+Aviation fuel,aviation-fuel,carbon-based-fuels,8,
+Other fuels,other-fuels,carbon-based-fuels,9,
+Aviation spirit,aviation-spirit,aviation-fuel,10,
+Aviation turbine fuel,aviation-turbine-fuel,aviation-fuel,11,
+Anthracite,anthracite,other-fuels,12,
+Blast furnace gas,blast-furnace-gas,other-fuels,13,
+Burning oil,burning-oil,other-fuels,14,
+Coke,coke,other-fuels,15,
+Coke oven gas,coke-oven-gas,other-fuels,16,
+Colliery methane,colliery-methane,other-fuels,17,
+LPG,lpg,other-fuels,18,
+Lubricants,lubricants,other-fuels,19,
+Naphtha,naphtha,other-fuels,20,
+OPG,opg,other-fuels,21,
+Orimulsion,orimulsion,other-fuels,22,
+Peat,peat,other-fuels,23,
+Petroleum coke,petroleum-coke,other-fuels,24,
+Refinery miscellaneous,refinery-miscellaneous,other-fuels,25,
+Sour gas,sour-gas,other-fuels,26,
+SSF,ssf,other-fuels,27,
+Waste oils,waste-oils,other-fuels,28,
+Waste solvent,waste-solvent,other-fuels,29,
