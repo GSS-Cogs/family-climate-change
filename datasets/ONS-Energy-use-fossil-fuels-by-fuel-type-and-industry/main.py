@@ -67,7 +67,7 @@ for tab in tabs:
             else x["Industry Section Name"]
             if x["Section Notation"] == ""
             else x["Section Notation"],
-            axis=1,
+            axis=1
         )
         table["Section"] = table["Section"].apply(pathify_section_values)
         tidied_sheets.append(table)
@@ -100,7 +100,7 @@ for tab in tabs:
             else x["Industry Section Name"]
             if x["Section Notation"] == ""
             else x["Section Notation"],
-            axis=1,
+            axis=1
         )
         table["Section"] = table["Section"].apply(pathify_section_values)
         tidied_sheets.append(table)
@@ -132,10 +132,8 @@ for tab in tabs:
         table["Section"] = table.apply(
             lambda x: x["Industy Section Name"]
             if x["SIC(07)Group"] == "-"
-            else x["Industry Section Name"]
-            if x["Section Notation"] == ""
             else x["SIC(07)Group"],
-            axis=1,
+            axis=1
         )
 
         table["Section"] = table["Section"].str.rstrip("0")
@@ -176,7 +174,7 @@ for tab in tabs:
             else x["Industry Section Name"]
             if x["Section Notation"] == ""
             else x["Section Notation"],
-            axis=1,
+            axis=1
         )
         table["Section"] = table["Section"].apply(pathify_section_values)
         tidied_sheets.append(table)
@@ -211,10 +209,8 @@ for tab in tabs:
         table["Section"] = table.apply(
             lambda x: x["Industy Section Name"]
             if x["SIC(07)Group"] == "-"
-            else x["Industry Section Name"]
-            if x["Section Notation"] == ""
             else x["SIC(07)Group"],
-            axis=1,
+            axis=1
         )
 
         table["Section"] = table["Section"].str.rstrip("0")
@@ -253,7 +249,7 @@ for tab in tabs:
             else x["Industry Section Name"]
             if x["Section Notation"] == ""
             else x["Section Notation"],
-            axis=1,
+            axis=1
         )
         table["Section"] = table["Section"].apply(pathify_section_values)
         tidied_sheets.append(table)
@@ -285,10 +281,8 @@ for tab in tabs:
         table["Section"] = table.apply(
             lambda x: x["Industy Section Name"]
             if x["SIC(07)Group"] == "-"
-            else x["Industry Section Name"]
-            if x["Section Notation"] == ""
             else x["SIC(07)Group"],
-            axis=1,
+            axis=1
         )
 
         table["Section"] = table["Section"].str.rstrip("0")
