@@ -43,16 +43,14 @@
                     "codelist": "./codelists/fuel.csv-metadata.json"
                 }
             },
-            "Measure": {
-                "type": "measures",
-                "value": "http://gss-data.org.uk/def/measure/{measure"
-            },
-            "Unit": {
-                "type": "units", 
-                "value": "http://gss-data.org.uk/def/concept/measurement-units/{unit}"
-            },
             "Value": {
-                "type": "observations"
+                "type": "observations",
+                "measure": {
+                    "label": "Energy Consumption"
+                },
+                "unit": {
+                    "label": "Millions tonnes of oil equivalent (Mtoe)"
+                }
             },
             "Marker": {
                 "type": "attribute",
