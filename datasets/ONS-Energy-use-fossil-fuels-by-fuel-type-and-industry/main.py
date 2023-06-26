@@ -321,7 +321,10 @@ try:
 except Exception as err:
     raise Exception('Failed to pathify column "{}".'.format(df["Fuel"])) from err
 
-df = df[["Year", "Section", "Fuel", "Value", "Marker"]]
+df['Measure'] = 'energy-consumption'
+df['Unit'] = 'millions-of-tonnes-of-oil-equivalent'
+
+df = df[["Year", "Section", "Fuel", "Measure", "Unit", "Value", "Marker"]]
 
 df.to_csv("observations.csv", index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
