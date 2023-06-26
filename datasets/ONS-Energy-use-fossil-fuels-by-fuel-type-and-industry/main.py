@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
 import json
 import pandas as pandas
 from gssutils import *
@@ -36,8 +34,6 @@ def pathify_section_values(section):
         return section
 
 tabs = distribution.as_databaker()
-for tab in tabs:
-    print(tab.name, end=", ")
 
 tidied_sheets = []
 for tab in tabs:
@@ -322,7 +318,7 @@ df.replace(
     inplace=True,
 )
 
-df["Fuel"] = df["Fuel"].str.rstrip(" ")
+# df["Fuel"] = df["Fuel"].str.rstrip(" ")
 df["Year"] = df["Year"].astype(float).astype(int)
 
 indexNames = df[df['Section'] == ''].index
