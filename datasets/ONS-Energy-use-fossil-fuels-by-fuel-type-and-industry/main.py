@@ -324,7 +324,7 @@ except Exception as err:
 
 df["Marker"] = df["Marker"].fillna("")
 
-df['Value'] = pd.to_numeric(df['Value'])
+df['Value'] = pd.to_numeric(df['Value'],  errors='coerce')
 
 df = df[["Year", "Section", "Fuel", "Value", "Marker"]]
 
