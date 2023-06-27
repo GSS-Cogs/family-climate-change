@@ -45,8 +45,12 @@
             },
             "Value": {
                 "type": "observations",
-                "measure": "http://gss-data.org.uk/def/measure/energy-consumption",
-                "unit": "http://gss-data.org.uk/def/concept/measurement-units/millions-of-tonnes-of-oil-equivalent"
+                "measure": {
+                    "label": "Energy Consumption"
+                },
+                "unit": {
+                    "label": "Million tonnes of oil equivalent (Mtoe)"
+                }
             },
             "Marker": {
                 "type": "attribute",
