@@ -282,7 +282,7 @@ df["Year"] = df["Year"].astype(str).replace("\.0", "", regex=True)
 
 df.replace(
     {
-        "Marker": {"c": "confidential"},
+        "Marker": {"c": "suppressed"},
         "Fuel": {
             "('DERV',)": "Derv",
             "Derv": "Diesel oil for road vehicles (DERV)",
