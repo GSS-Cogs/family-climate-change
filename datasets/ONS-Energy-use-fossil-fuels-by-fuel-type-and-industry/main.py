@@ -325,6 +325,7 @@ except Exception as err:
 df["Marker"] = df["Marker"].fillna("")
 
 df['Value'] = pd.to_numeric(df['Value'],  errors='coerce')
+df['Value'] = df.apply(lambda x: 0 if (np.isnan(x["Value"])) else x['Value'], axis=1)
 
 df = df[["Year", "Section", "Fuel", "Value", "Marker"]]
 
