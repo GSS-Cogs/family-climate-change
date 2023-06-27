@@ -1,4 +1,5 @@
 import json
+import numpy as np
 import pandas as pandas
 from gssutils import *
 
@@ -321,7 +322,10 @@ try:
 except Exception as err:
     raise Exception('Failed to pathify column "{}".'.format(df["Fuel"])) from err
 
-df = df.fillna("")
+df["Marker"] = df["Marker"].fillna("")
+
+df['Value'] = pd.to_numeric(df['Value'])
+
 df = df[["Year", "Section", "Fuel", "Value", "Marker"]]
 
 df.to_csv("observations.csv", index=False)
