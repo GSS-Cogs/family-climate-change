@@ -1,0 +1,23 @@
+{
+    "id": "beis-local-authority-greenhouse-gas-emissions",
+    "title": "Local authority greenhouse gas emissions",
+    "publisher": "Department for Business, Energy and Industrial Strategy",
+    "description": "",
+    "landingPage": "https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-national-statistics-2005-to-2021",
+    "datasetNotes": [
+        "On the landing page, navigate down to the CSV file - 2005 to 2021 local authority greenhouse gas emissions dataset"
+    ],
+    "published": "2023-06-29",
+    "families": [
+        "Climate-Change"
+    ],
+    "extract": {
+        "source": ""
+    },
+    "transform": {
+        "airtable": "recTOX5dAADKQYbY2",
+        "main_issue": 760
+    },
+    "sizingNotes": "",
+    "notes": ""
+}
