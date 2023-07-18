@@ -114,8 +114,6 @@ df["Local Authority"] = df["Local Authority"].map(
     )
 )
 
-df.replace({"Greenhouse Gas": {"CO2": "co2", "CH4": "ch4", "N2O": "n2o"}}, inplace=True)
-
 try:
     df["Sub Sector"] = df["Sub Sector"].apply(pathify)
 except Exception as err:
