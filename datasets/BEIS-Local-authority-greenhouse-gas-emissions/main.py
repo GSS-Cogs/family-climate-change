@@ -80,7 +80,7 @@ df["Country"] = (
     )
     .map(
         lambda x: (
-            f"http://gss-data.org.uk/data/gss_data/climate-change/local-authority-greenhouse-gas-emissions#concept/country/{pathify(x)}"
+            f"http://gss-data.org.uk/data/gss_data/climate-change/beis-local-authority-greenhouse-gas-emissions#concept/country/{pathify(x)}"
             if x == "Unallocated"
             else f"http://statistics.data.gov.uk/id/statistical-geography/{x}"
         )
@@ -99,22 +99,22 @@ df["Local Authority Code"] = df.apply(
     axis=1,
 )
 
-df["Local Authority Code"] = df["Local Authority Code"].map(
-    lambda x: (
-        f"http://gss-data.org.uk/data/gss_data/climate-change/local-authority-greenhouse-gas-emissions#concept/local-authority-code/{x}"
-        if x in [("large-elec"), ("unallocated-consumption"), ("unallocated-elec-ni")]
-        else f"http://statistics.data.gov.uk/id/statistical-geography/{x}"
-    )
-)
-
-df.replace({"Greenhouse Gas": {"CO2": "co2", "CH4": "ch4", "N2O": "n2o"}}, inplace=True)
-
 df.drop(columns=["Local Authority", "LA GHG Sector"], inplace=True)
 df.rename(
     {"Local Authority Code": "Local Authority", "LA GHG Sub-sector": "Sub Sector"},
     axis=1,
     inplace=True,
 )
+
+df["Local Authority"] = df["Local Authority"].map(
+    lambda x: (
+        f"http://gss-data.org.uk/data/gss_data/climate-change/beis-local-authority-greenhouse-gas-emissions#concept/local-authority/{x}"
+        if x in [("large-elec"), ("unallocated-consumption"), ("unallocated-elec-ni")]
+        else f"http://statistics.data.gov.uk/id/statistical-geography/{x}"
+    )
+)
+
+df.replace({"Greenhouse Gas": {"CO2": "co2", "CH4": "ch4", "N2O": "n2o"}}, inplace=True)
 
 try:
     df["Sub Sector"] = df["Sub Sector"].apply(pathify)
