@@ -80,7 +80,7 @@ df["Country"] = (
     )
     .map(
         lambda x: (
-            f"http://gss-data.org.uk/data/gss_data/climate-change/beis-local-authority-greenhouse-gas-emissions#concept/country/{pathify(x)}"
+            f"http://gss-data.org.uk/data/gss_data/climate-change/beis-local-authority-greenhouse-gas-emissions-concept/country/{pathify(x)}"
             if x == "Unallocated"
             else f"http://statistics.data.gov.uk/id/statistical-geography/{x}"
         )
@@ -108,7 +108,7 @@ df.rename(
 
 df["Local Authority"] = df["Local Authority"].map(
     lambda x: (
-        f"http://gss-data.org.uk/data/gss_data/climate-change/beis-local-authority-greenhouse-gas-emissions#concept/local-authority/{x}"
+        f"http://gss-data.org.uk/data/gss_data/climate-change/beis-local-authority-greenhouse-gas-emissions-concept/local-authority/{x}"
         if x in [("large-elec"), ("unallocated-consumption"), ("unallocated-elec-ni")]
         else f"http://statistics.data.gov.uk/id/statistical-geography/{x}"
     )
