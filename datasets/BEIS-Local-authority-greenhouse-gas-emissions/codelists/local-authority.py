@@ -2,7 +2,7 @@ import json
 import pandas as pd
 from gssutils import Cubes, Scraper, pathify
 
-df = pd.read_csv("../2005-2021-local-authority-ghg-emissions-raw-dataset.csv")
+df = pd.read_csv("../raw.csv")
 df.drop(columns=df.columns.values.tolist()[1:5], axis=1, inplace=True)
 
 df["Local Authority Code"] = df.apply(
@@ -30,7 +30,7 @@ g['Notation'] = df["Local Authority Code"].unique()
 #  Maping for local bespoke codelist for Local Authority code with URI 
 g["URI"] = g['Notation'].map(
     lambda x: (
-        f"http://gss-data.org.uk/data/gss_data/climate-change/local-authority-greenhouse-gas-emissions#concept/local-authority-code/{x}"
+        f"http://gss-data.org.uk/data/gss_data/climate-change/beis-local-authority-greenhouse-gas-emissions#concept/local-authority/{x}"
         if x in [("large-elec"), ("unallocated-consumption"), ("unallocated-elec-ni")]
         else f"http://statistics.data.gov.uk/id/statistical-geography/{x}"
     )
