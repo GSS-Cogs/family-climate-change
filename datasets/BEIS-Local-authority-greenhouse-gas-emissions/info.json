@@ -44,9 +44,7 @@
                 "value": "{+local_authority}"
             },
             "Sub Sector": {
-                "type": "dimension",
-                "uri": "http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector",
-                "value": "http://gss-data.org.uk/def/climate-change/concept/national-communication-sector/{sub_sector}"
+                "type": "dimension"
             },
             "Greenhouse Gas": {
                 "type": "dimension",
