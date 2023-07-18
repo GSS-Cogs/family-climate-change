@@ -308,7 +308,7 @@ Tower Hamlets,http://statistics.data.gov.uk/id/statistical-geography/E09000030,,
 Waltham Forest,http://statistics.data.gov.uk/id/statistical-geography/E09000031,,307,,E09000031
 Wandsworth,http://statistics.data.gov.uk/id/statistical-geography/E09000032,,308,,E09000032
 Westminster,http://statistics.data.gov.uk/id/statistical-geography/E09000033,,309,,E09000033
-Large electricity users (high voltage lines) unknown location,http://gss-data.org.uk/data/gss_data/climate-change/beis-local-authority-greenhouse-gas-emissions#concept/local-authority/large-elec,,310,,large-elec
+Large electricity users (high voltage lines) unknown location,http://gss-data.org.uk/data/gss_data/climate-change/beis-local-authority-greenhouse-gas-emissions-concept/local-authority/large-elec,,310,,large-elec
 Antrim and Newtownabbey,http://statistics.data.gov.uk/id/statistical-geography/N09000001,,311,,N09000001
 "Armagh City, Banbridge and Craigavon",http://statistics.data.gov.uk/id/statistical-geography/N09000002,,312,,N09000002
 Belfast,http://statistics.data.gov.uk/id/statistical-geography/N09000003,,313,,N09000003
@@ -352,8 +352,8 @@ Fife,http://statistics.data.gov.uk/id/statistical-geography/S12000047,,350,,S120
 Perth and Kinross,http://statistics.data.gov.uk/id/statistical-geography/S12000048,,351,,S12000048
 Glasgow City,http://statistics.data.gov.uk/id/statistical-geography/S12000049,,352,,S12000049
 North Lanarkshire,http://statistics.data.gov.uk/id/statistical-geography/S12000050,,353,,S12000050
-Unallocated electricity NI,http://gss-data.org.uk/data/gss_data/climate-change/beis-local-authority-greenhouse-gas-emissions#concept/local-authority/unallocated-elec-ni,,354,,unallocated-elec-ni
-Unallocated consumption,http://gss-data.org.uk/data/gss_data/climate-change/beis-local-authority-greenhouse-gas-emissions#concept/local-authority/unallocated-consumption,,355,,unallocated-consumption
+Unallocated electricity NI,http://gss-data.org.uk/data/gss_data/climate-change/beis-local-authority-greenhouse-gas-emissions-concept/local-authority/unallocated-elec-ni,,354,,unallocated-elec-ni
+Unallocated consumption,http://gss-data.org.uk/data/gss_data/climate-change/beis-local-authority-greenhouse-gas-emissions-concept/local-authority/unallocated-consumption,,355,,unallocated-consumption
 Isle of Anglesey,http://statistics.data.gov.uk/id/statistical-geography/W06000001,,356,,W06000001
 Gwynedd,http://statistics.data.gov.uk/id/statistical-geography/W06000002,,357,,W06000002
 Conwy,http://statistics.data.gov.uk/id/statistical-geography/W06000003,,358,,W06000003

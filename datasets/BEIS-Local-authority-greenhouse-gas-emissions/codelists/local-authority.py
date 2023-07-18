@@ -30,7 +30,7 @@ g['Notation'] = df["Local Authority Code"].unique()
 #  Maping for local bespoke codelist for Local Authority code with URI 
 g["URI"] = g['Notation'].map(
     lambda x: (
-        f"http://gss-data.org.uk/data/gss_data/climate-change/beis-local-authority-greenhouse-gas-emissions#concept/local-authority/{x}"
+        f"http://gss-data.org.uk/data/gss_data/climate-change/beis-local-authority-greenhouse-gas-emissions-concept/local-authority/{x}"
         if x in [("large-elec"), ("unallocated-consumption"), ("unallocated-elec-ni")]
         else f"http://statistics.data.gov.uk/id/statistical-geography/{x}"
     )
