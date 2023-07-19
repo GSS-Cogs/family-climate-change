@@ -142,7 +142,6 @@ catalog_metadata = CatalogMetadata(
         "country"
     ],
     license_uri="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-    creator_uri="[Department for Energy Security and Net Zero](https://www.gov.uk/government/organisations/department-for-energy-security-and-net-zero)",
     theme_uris=["http://gss-data.org.uk/def/gdp#climate-change"],
     description="""
     These statistics provide a breakdown of greenhouse gas emissions across the
