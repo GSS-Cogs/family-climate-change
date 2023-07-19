@@ -133,24 +133,23 @@ catalog_metadata = CatalogMetadata(
     title="Local authority greenhouse gas emissions",
     summary="UK local authority estimates of greenhouse gas emissions",
     dataset_issued="2023-06-29T09:30:00",
+    dataset_modified="2023-07-06T09:30:00",
     keywords=[
-        "emissions"
+        "emissions",
         "greenhouse-gas",
         "carbon-dioxide",
         "local-authority",
         "country"
     ],
     license_uri="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-    public_contact_point_uri="GreenhouseGas.Statistics@energysecurity.gov.uk",
-    creator_uri="https://www.gov.uk/government/organisations/department-for-energy-security-and-net-zero",
-    publisher_uri="https://www.gov.uk/government/organisations/department-for-energy-security-and-net-zero",
+    creator_uri="[Department for Energy Security and Net Zero](https://www.gov.uk/government/organisations/department-for-energy-security-and-net-zero)",
     theme_uris=["http://gss-data.org.uk/def/gdp#climate-change"],
     description="""
     These statistics provide a breakdown of greenhouse gas emissions across the
     UK, using nationally available datasets going back to 2005. This year
     emissions estimates for all sectors and gases span the entire timeseries.
     
-    The main data sources are the UK National Atmospheric Emissions Inventory
+    \nThe main data sources are the UK National Atmospheric Emissions Inventory
     and the Department of Energy Security and Net Zero (DESNZ) National
     Statistics of energy consumption for local authority areas. All emissions
     included in the national inventory are covered except those from aviation,
