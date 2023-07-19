@@ -2,13 +2,13 @@
     "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "beis-local-authority-greenhouse-gas-emissions",
     "title": "Local authority greenhouse gas emissions",
-    "publisher": "Department for Energy Security and Net Zero",
+    "publisher": "[Department for Energy Security and Net Zero](https://www.gov.uk/government/organisations/department-for-energy-security-and-net-zero)",
     "description": "",
     "landingPage": "https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-national-statistics-2005-to-2021",
     "datasetNotes": [
         "On the landing page, navigate down to the CSV file - 2005 to 2021 local authority greenhouse gas emissions dataset"
     ],
-    "published": "2023-06-29",
+    "published": "2023-06-29T09:30:00",
     "families": [
         "Climate-Change"
     ],
