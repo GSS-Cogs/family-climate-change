@@ -2,7 +2,7 @@
     "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "defra-e8-efficient-use-of-water-20-21",
     "title": "E8: Efficient use of water 20 - 21",
-    "publisher": "Department for Environment Food & Rural Affairs",
+    "publisher": "[Department for Environment Food & Rural Affairs](https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs)",
     "description": "Part of The Outcome Indicator Framework, a comprehensive set of indicators describing environmental change that relates to the 10 goals within the 25 Year Environment Plan. The framework contains 66 indicators, arranged into 10 broad themes. The indicators are extensive; they cover natural capital assets (for example, land, freshwater, air and seas) and together they show the condition of these assets, the pressures acting upon them and the provision of services or benefits they provide.",
     "landingPage": "https://oifdata.defra.gov.uk/5/",
     "datasetNotes": [
