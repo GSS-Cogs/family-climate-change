@@ -133,7 +133,6 @@ catalog_metadata = CatalogMetadata(
     title="Local authority greenhouse gas emissions",
     summary="UK local authority estimates of greenhouse gas emissions",
     dataset_issued="2023-06-29T09:30:00",
-    dataset_modified="2023-07-06T09:30:00",
     keywords=[
         "emissions",
         "greenhouse-gas",
@@ -141,7 +140,6 @@ catalog_metadata = CatalogMetadata(
         "local-authority",
         "country"
     ],
-    license_uri="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
     theme_uris=["http://gss-data.org.uk/def/gdp#climate-change"],
     description="""
     These statistics provide a breakdown of greenhouse gas emissions across the
