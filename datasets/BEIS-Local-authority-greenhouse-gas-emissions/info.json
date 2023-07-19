@@ -2,7 +2,7 @@
     "$schema": "http://gss-cogs.github.io/family-schemas/dataset-schema-1.1.0.json",
     "id": "beis-local-authority-greenhouse-gas-emissions",
     "title": "Local authority greenhouse gas emissions",
-    "publisher": "Department for Business, Energy and Industrial Strategy",
+    "publisher": "Department for Energy Security and Net Zero",
     "description": "",
     "landingPage": "https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-national-statistics-2005-to-2021",
     "datasetNotes": [
@@ -32,16 +32,14 @@
                 "new": {
                     "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
                     "codelist": "./codelists/country.csv-metadata.json"
-                },
-                "value": "{+country}"
+                }
             },
             "Local Authority": {
                 "type" : "dimension",
                 "new": {
                     "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
                     "codelist": "./codelists/local-authority.csv-metadata.json"
-                },
-                "value": "{+local_authority}"
+                }
             },
             "Sub Sector": {
                 "type": "dimension"
