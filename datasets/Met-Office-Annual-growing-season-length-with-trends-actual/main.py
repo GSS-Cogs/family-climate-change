@@ -11,7 +11,10 @@ df['Year'] = df['Year'].astype(str).astype(int)
 
 df.to_csv('observations.csv', index=False)
 catalog_metadata = CatalogMetadata(
-    title = "Annual growing season length with trends actual",
-    description = "Priority dataset for Climate Change Platform project."
+    title="Annual growing season length with trends actual",
+    description="Priority dataset for Climate Change Platform project.",
+    license_uri="[OGLv3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)",
+    creator_uri="[Met Office Organization](https://www.gov.uk/government/organisations/the-meteorological-office)"
 )
 catalog_metadata.to_json_file('catalog-metadata.json')
+

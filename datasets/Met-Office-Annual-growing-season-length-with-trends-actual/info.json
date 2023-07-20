@@ -4,7 +4,7 @@
     "title": "Annual growing season length with trends actual",
     "publisher": "Meteorological Office",
     "description": "Priority dataset for Climate Change Platform project.",
-    "landingPage": "Not available",
+    "landingPage": "https://www.metoffice.gov.uk/",
     "datasetNotes": [
         "No landing page for this dataset as it is a bespoke dataset supplied by Met Office directly to IDP-D as part of the Climate Change Platform project. It is a subset of the Met Office HAD large dataset."
     ],
