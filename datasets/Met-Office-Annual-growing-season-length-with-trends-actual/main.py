@@ -13,6 +13,7 @@ df.to_csv('observations.csv', index=False)
 catalog_metadata = CatalogMetadata(
     title="Annual growing season length with trends actual",
     description="Priority dataset for Climate Change Platform project.",
+    dataset_issued="2023-06-29T09:30:00",
     license_uri="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
     creator_uri="https://www.gov.uk/government/organisations/the-meteorological-office",
     theme_uris=["http://gss-data.org.uk/def/gdp#climate-change"]
