@@ -5,10 +5,11 @@
     "publisher": "Department for Levelling Up, Housing and Communities",
     "description": "This data relates to the Energy Performance of Buildings Certificates published alongside the Energy Performance of Buildings Certificates Statistical release 27 April 2023.",
     "landingPage": "https://www.gov.uk/government/statistical-data-sets/live-tables-on-energy-performance-of-buildings-certificates",
+    "dataURL": "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1174160/EB1-_Existing_Domestic_Properties.ods",
     "datasetNotes": [
         "On the landing page, navigate down to Table EB1: domestic Energy Performance Certificates for existing dwellings by energy efficiency rating"
     ],
-    "published": "2023-04-27",
+    "published": "2023-07-27",
     "families": [
         "Climate-Change"
     ],
@@ -30,7 +31,6 @@
             "Location": {
                 "type" : "dimension",
                 "new": {
-                    "subPropertyOf": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
                     "codelist": "./codelists/location.csv-metadata.json"
                 }
             },
