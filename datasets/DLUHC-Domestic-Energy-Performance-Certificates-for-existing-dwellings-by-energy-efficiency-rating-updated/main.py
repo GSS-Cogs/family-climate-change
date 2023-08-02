@@ -10,6 +10,7 @@ metadata = Scraper(seed="info.json")
 metadata.dataset.title = "Domestic Energy Performance Certificates for existing dwellings by energy efficiency rating (updated)"
 metadata.dataset.comment = "Data from certificates for existing domestic properties lodged on the Energy Performance of Buildings Registers, by average energy efficiency rating."
 metadata.dataset.issued = "2023-07-27T09:30:00"
+metadata.dataset.license = "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
 metadata.dataset.description = """
 This data relates to the Energy Performance of Buildings Certificates published alongside the Energy Performance of Buildings Certificates Statistical release.
 The data is drawn from certificates for existing domestic properties lodged on the Energy Performance of Buildings Registers since 2008, including average energy efficiency ratings and numbers of certificates recorded.
@@ -18,6 +19,7 @@ The Energy Performance Certificates (EPC) register does not hold data for every 
 Buildings only require an EPC when, sold, let or constructed.  These statistics should, therefore, not be interpreted as a true representation of the whole of the building stock in England and Wales, but viewed as part of a wider package of Government’s provision of information on the energy efficiency of buildings. 
 """
 
+metadata.dataset.keyword = ["energy", "domestic-energy", "efficiency-rating", "existing-dwellings", "energy-performance-certificates"]
 # distribution = [x for x in metadata.distributions if 'Table EB1' in x.title][0]
 distribution = metadata.distribution(
     mediaType="application/vnd.oasis.opendocument.spreadsheet")
