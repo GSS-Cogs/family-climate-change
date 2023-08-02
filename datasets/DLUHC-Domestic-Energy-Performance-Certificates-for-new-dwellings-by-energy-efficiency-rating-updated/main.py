@@ -6,9 +6,11 @@ info = json.load(open('info.json'))
 title_id = info['id']
 
 metadata = Scraper(seed="info.json")
+
 metadata.dataset.title = "Domestic Energy Performance Certificates for new dwellings by energy efficiency rating (updated)"
 metadata.dataset.comment = "Data from certificates for new domestic properties lodged on the Energy Performance of Buildings Register, by average energy efficiency rating."
-metadata.dataset.issued = "2023-05-03T13:48:45.403621+00:00"
+metadata.dataset.issued = "2023-07-27T09:30:00"
+metadata.dataset.license = "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
 metadata.dataset.description = """
 This data relates to the Energy Performance of Buildings Certificates published alongside the Energy Performance of Buildings Certificates Statistical release.
 The data is drawn from certificates for new domestic properties lodged on the Energy Performance of Buildings Registers since 2008, including average energy efficiency ratings and numbers of certificates recorded.
@@ -17,7 +19,12 @@ The Energy Performance Certificates (EPC) register does not hold data for every 
 Buildings only require an EPC when, sold, let or constructed.  These statistics should, therefore, not be interpreted as a true representation of the whole of the building stock in England and Wales, but viewed as part of a wider package of Government’s provision of information on the energy efficiency of buildings. 
 """
 
-distribution = [x for x in metadata.distributions if 'Table NB1' in x.title][0]
+metadata.dataset.keyword = ["energy", "domestic-energy", "efficiency-rating", "new-dwellings", "energy-performance-certificates"]
+
+distribution = metadata.distribution(
+    mediaType="application/vnd.oasis.opendocument.spreadsheet")
+# distribution = [x for x in metadata.distributions if 'Table NB1' in x.title][0]
+
 excluded = ['Cover_sheet', 'Notes', 'Table_of_contents']
 tabs = [x for x in distribution.as_databaker() if x.name not in excluded]
 
