@@ -5,46 +5,43 @@
     "publisher": "Department for Business, Energy and Industrial Strategy",
     "description": "",
     "landingPage": "https://www.gov.uk/government/statistics/total-energy-section-1-energy-trends",
+    "dataURL": "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1173868/ET_1.2_JUL_23.xlsx",
     "datasetNotes": [
-        "No landing page for this dataset as it is a bespoke dataset supplied by BEIS (Warren Evans) directly to IDS-D as part of the Climate Change Platform project. It is an extract of BEIS published data of the same name, landing page: https://www.gov.uk/government/statistics/total-energy-section-1-energy-trends"
+        "On landing page, navigate to the spreadsheet 'Inland energy consumption: primary fuel input basis (ET 1.2 - monthly)'"
     ],
-    "published": "24-02-2022",
+    "published": "2023-08-27",
     "families": [
         "Climate-Change"
     ],
     "extract": {
-        "source": "CSV"
+        "source": "XLSX"
     },
     "transform": {
-        "airtable": "recZeJg9wyH5NBPXN",
-        "main_issue": 47,
+        "airtable": "rect0gFc8uVpxFsa9",
+        "main_issue": 523,
         "columns": {
-            "Period": {
+            "Year": {
                 "type": "dimension",
                 "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
-                "value": "http://reference.data.gov.uk/id/{+period}"
-            },
-            "Region": {
-                "type": "dimension",
-                "uri": "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
-                "value": "http://statistics.data.gov.uk/id/statistical-geography/{region}"
+                "value": "http://reference.data.gov.uk/id/year/{+year}"
             },
             "Fuel": {
                 "type": "dimension",    
                 "uri": "http://gss-data.org.uk/def/energy/property/dimension/fuel",
-                "value": "http://gss-data.org.uk/def/energy/concept/fuel/{fuel}"
-            },
-            "Measure Type": {
-                "type": "measures"
-            },
-            "Unit":{
-                "type": "units"
-            },  
+                "value": "http://gss-data.org.uk/def/energy/concept/fuel/{+fuel}"
+            }, 
             "Value": {
-                "type": "observations"
+                "type": "observations",
+                "unit": {
+                    "label": "Millions of tonnes of oil equivalent"
+                },
+                "measure": {
+                    "label": "Energy Consumption"
+                }
             }
-        }
+        },
+        "csvcubed_uri_style": "WithoutFileExtensions"
     },
     "sizingNotes": "",
-    "notes": "Priority dataset for Climate Change Platform project."
+    "notes": ""
 }
