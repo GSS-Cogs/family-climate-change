@@ -1,50 +1,76 @@
-#!/usr/bin/env python
-# coding: utf-8
+# ---
+# jupyter:
+#   jupytext:
+#     text_representation:
+#       extension: .py
+#       format_name: light
+#       format_version: '1.5'
+#       jupytext_version: 1.13.8
+#   kernelspec:
+#     display_name: Python 3
+#     language: python
+#     name: python3
+# ---
+
 import pandas as pd
 from gssutils import *
 
 metadata = Scraper(seed='info.json')
 
-# +
+metadata.dataset.title = "Inland energy consumption: primary fuel input basis"
+metadata.dataset.comment = "Inland energy consumption: primary fuel input basis, annual data"
+metadata.dataset.issued = "2023-07-27T09:30:00"
+metadata.dataset.keyword = ["fuel", "energy", "energy-trend", "oil-equivalent", "energy-consumption"]
+metadata.dataset.license = "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+metadata.dataset.description = """ 
+An overview of the trends in energy consumption in the
+United Kingdom, focusing on: 
 
-distribution = metadata.distribution(title = lambda x: "Energy Trends total energy table(ODS) in x, metaType = (ODF Spreadsheet)",latest=True)
+consumption, both primary and final by broad sector, as well as 
+\ndependency rates of imports, fossil fuels and low carbon fuels. 
+"""
+metadata.dataset.contactPoint = "mailto:energy.stats@beis.gov.uk"
 
+distribution = metadata.distribution(mediaType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 
-# +
-df = pd.read_csv("Energy Trends 1.2 IDP Extract.csv")
+tabs = distribution.as_databaker()
 
-df = df[:-5]
-df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
+tidied_sheets = []
+for tab in tabs:
+    if tab.name == 'Annual':
 
-df = pd.melt(df, id_vars = ['Year'], var_name = 'Fuel', value_name = 'Value', ignore_index = True)
+        pivot = tab.filter("Year")
+        unwanted_cells = tab.excel_ref("J5").expand(RIGHT).is_not_blank()
+        year = pivot.fill(DOWN).is_not_blank().is_not_whitespace()
+        fuel = pivot.shift(2, 0).expand(
+            RIGHT).is_not_blank().is_not_whitespace() - unwanted_cells
+        observations = fuel.fill(DOWN).is_not_blank().is_not_whitespace()
 
-df = df.rename(columns={'Year' : 'Period'})
+        dimensions = [
+            HDim(year, 'Year', CLOSEST, ABOVE),
+            HDim(fuel, 'Fuel', DIRECTLY, ABOVE),
+        ]
 
-df['Period'] = df.apply(lambda x: 'year/' + str(x['Period'])[:-2], axis = 1)
+        tidy_sheet = ConversionSegment(tab, dimensions, observations)
+        tidied_sheets.append(tidy_sheet.topandas())
 
-df['Region'] = 'K02000001'
+df = pd.concat(tidied_sheets, sort=True).fillna('')
 
-df['Measure Type'] = 'Energy Consumption'
+df = df.rename(columns={'OBS': 'Value'})
+df['Year'] = df['Year'].astype(float).astype(int)
+df['Value'] = df['Value'].astype(str).astype(float).round(2)
 
-df['Unit'] = 'Millions of Tonnes of Oil Equivalent'
+df.replace({'Coal [note 2]': 'Coal',
+            'Petroleum [note 3]': 'Petroleum',
+            'Natural gas [note 4]': 'Natural gas',
+            'Bioenergy & waste [note 5 ] [note 6] [note 7]': 'Bioenergy and waste',
+            'Primary electricity - nuclear': 'Nuclear',
+            'Primary electricity - wind, solar and hydro [note 8]': 'Wind, solar and hydro',
+            'Primary electricity - net imports': 'Net imports'
+            }, inplace=True)
 
-df = df[['Period', 'Region', 'Fuel', 'Measure Type', 'Unit', 'Value']]
-
-
-# +
-COLUMNS_TO_NOT_PATHIFY = ['Value', 'Period', 'Region', 'Marker']
-
-for col in df.columns.values.tolist():
-	if col in COLUMNS_TO_NOT_PATHIFY:
-		continue
-	try:
-		df[col] = df[col].apply(pathify)
-	except Exception as err:
-		raise Exception('Failed to pathify column "{}".'.format(col)) from err
-
-df = df.replace({'Fuel' : {'-natural-gas' : 'natural-gas','total' : 'all','biogenergy-and-waste' : 'bioenergy-and-waste'}})
-# -
-
+df['Fuel'] = df['Fuel'].apply(pathify)
+df = df[['Year', 'Fuel', 'Value']]
 
 df.to_csv('observations.csv', index=False)
 catalog_metadata = metadata.as_csvqb_catalog_metadata()
