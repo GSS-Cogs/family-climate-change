@@ -1,17 +1,3 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.13.8
-#   kernelspec:
-#     display_name: Python 3
-#     language: python
-#     name: python3
-# ---
-
 import pandas as pd
 from gssutils import *
 
@@ -27,12 +13,12 @@ An overview of the trends in energy consumption in the
 United Kingdom, focusing on: 
 
 consumption, both primary and final by broad sector, as well as 
-\ndependency rates of imports, fossil fuels and low carbon fuels. 
+dependency rates of imports, fossil fuels and low carbon fuels. 
 """
+
 metadata.dataset.contactPoint = "mailto:energy.stats@beis.gov.uk"
 
 distribution = metadata.distribution(mediaType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
-
 tabs = distribution.as_databaker()
 
 tidied_sheets = []
