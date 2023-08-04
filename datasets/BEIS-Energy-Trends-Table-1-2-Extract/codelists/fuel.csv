@@ -1,0 +1,8 @@
+Label,Notation,Parent Notation,Sort Priority,Description
+Bioenergy and waste,bioenergy-and-waste,,0,
+Coal,coal,,1,
+Natural gas,natural-gas,,2,
+Net imports,net-imports,,3,
+Nuclear,nuclear,,4,
+Petroleum,petroleum,,5,
+"Wind, solar and hydro",wind-solar-and-hydro,,6,
