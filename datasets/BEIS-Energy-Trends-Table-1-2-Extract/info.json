@@ -28,13 +28,14 @@
                 },
                 "value": "http://reference.data.gov.uk/id/year/{+year}"
             },
-            "Fuel": {  
-                "type" : "dimension",
+            "Fuel": {
+                "type": "dimension",
                 "new": {
                     "subPropertyOf": "http://gss-data.org.uk/def/energy/property/dimension/fuel",
-                    "codelist": "./codelists/fuel.csv-metadata.json"
-                }
-            }, 
+                    "codelist": true
+                },
+                "value": "http://gss-data.org.uk/def/energy/concept/fuel/{+fuel}"
+            },
             "Value": {
                 "type": "observations",
                 "unit": {
