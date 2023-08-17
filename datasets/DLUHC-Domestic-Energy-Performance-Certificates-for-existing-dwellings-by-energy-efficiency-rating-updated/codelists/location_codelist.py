@@ -35,7 +35,7 @@ for tab in tabs:
             RIGHT).is_not_blank() | tab.excel_ref("C4")
         observations = efficieny_rating.shift(0, 1).fill(DOWN).is_not_blank()
         if tab.name == "EB1_England_and_Wales":
-            location = 'England and Wales'
+            location = 'K04000001'
         elif tab.name == "EB1_England_Only":
             location = "E92000001"
         elif tab.name == "EB1_Wales_Only":
@@ -97,6 +97,8 @@ df['Value'] = df['Value'].astype(int)
 df['Period'] = df['Year'] + df['Quarter']
 
 # Format Date/Quarter
+
+
 def left(s, amount):
     return s[:amount]
 
@@ -119,37 +121,40 @@ df = df.drop(["Year", "Quarter"], axis=1)
 df['Local Authority'] = df.apply(
     lambda x: x['Location'] if x['Local Authority'] == '' else x['Local Authority'], axis=1)
 
-df['Local Authority'] = df.apply(lambda x: 'England' if x['Local Authority'] ==
-                                 'E92000001' else 'Wales' if x['Local Authority'] == 'W92000004' else x['Local Authority'], axis=1)
-
-# for creating labels on local codelist
-df['Location Notation'] = df['Location']
+df['Local Authority'] = df.apply(lambda x: 'England' if x['Local Authority'] == 'E92000001' else 
+                                 'Wales' if x['Local Authority'] == 'W92000004' else 
+                                 'England and Wales' if x['Local Authority'] == 'K04000001' else 
+                                 x['Local Authority'], axis=1)
 
 df = df.replace({'Location': {
-    "East Midlands": "http://data.europa.eu/nuts/code/UKF",
-    "London": "http://data.europa.eu/nuts/code/UKI",
-    "North East": "http://data.europa.eu/nuts/code/UKC",
-    "North West": "http://data.europa.eu/nuts/code/UKD",
-    "South East": "http://data.europa.eu/nuts/code/UKJ",
-    "South West": "http://data.europa.eu/nuts/code/UKK",
-    "East of England": "http://data.europa.eu/nuts/code/UKH",
-    "West Midlands": "http://data.europa.eu/nuts/code/UKG",
-    "Yorkshire and The Humber": "http://data.europa.eu/nuts/code/UKE",
-    "Unknown": 'http://gss-data.org.uk/data/gss_data/climate-change/' +
-    title_id + '-concept/local-authority-code/unknown',
-    "England and Wales": 'http://gss-data.org.uk/data/gss_data/climate-change/' +
-    title_id + '-concept/local-authority-code/england-wales'
+    "East of England": "E12000006",
+    "East Midlands": "E12000004",
+    "London": "E12000007",
+    "North East": "E12000001",
+    "North West": "E12000002",
+    "South East": "E12000008",
+    "South West": "E12000009",
+    "West Midlands": "E12000005",
+    "Yorkshire and The Humber": "E12000003",
+    "Unknown": 'unknown'
 }})
+
+# for creating local notation on local codelist
+df['Location Notation'] = df['Location']
 
 # info needed to create URI's for LA codes
 sic = 'http://statistics.data.gov.uk/id/statistical-geography/'
 df['Location'] = df['Location'].map(lambda x:
-                                    sic + x if 'E0' in x else
-                                    sic + x if 'W0' in x else
-                                    sic + x if 'E9' in x else
-                                    sic + x if 'W9' in x
-                                    else x
-                                    )
+                    sic + x if 'E0' in x else
+                    sic + x if 'W0' in x else
+                    sic + x if 'E9' in x else
+                    sic + x if 'W9' in x else
+                    sic + x if 'E1' in x else
+                    sic + x if 'K0' in x else
+                    'http://gss-data.org.uk/data/gss_data/climate-change/' +
+    title_id + '-concept/local-authority-code/unknown' if x == 'unknown'
+                    else x 
+)
 
 df = df.replace({'Efficiency Rating': {
     "Not recorded": "Not Recorded",
@@ -171,13 +176,7 @@ g["URI"] = df["Location"].unique()
 g["Parent URI"] = None
 
 g["Local Notation"] = df["Location Notation"].unique()
-g["Local Notation"] = g["Local Notation"].map(lambda x:
-                                              x if 'E0' in x else
-                                              x if 'W0' in x else
-                                              x if 'E9' in x else
-                                              x if 'W9' in x
-                                              else pathify(x)
-                                              )
+
 g.index += 1
 g["Sort Priority"] = g.index
 g["Description"] = None

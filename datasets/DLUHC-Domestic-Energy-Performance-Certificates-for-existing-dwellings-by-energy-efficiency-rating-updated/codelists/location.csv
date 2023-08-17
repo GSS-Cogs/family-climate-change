@@ -1,16 +1,16 @@
 Label,URI,Parent URI,Sort Priority,Description,Local Notation
-England and Wales,http://gss-data.org.uk/data/gss_data/climate-change/dluhc-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating-updated-concept/local-authority-code/england-wales,,1,,england-and-wales
+England and Wales,http://statistics.data.gov.uk/id/statistical-geography/K04000001,,1,,K04000001
 England,http://statistics.data.gov.uk/id/statistical-geography/E92000001,,2,,E92000001
 Wales,http://statistics.data.gov.uk/id/statistical-geography/W92000004,,3,,W92000004
-East of England,http://data.europa.eu/nuts/code/UKH,,4,,east-of-england
-East Midlands,http://data.europa.eu/nuts/code/UKF,,5,,east-midlands
-London,http://data.europa.eu/nuts/code/UKI,,6,,london
-North East,http://data.europa.eu/nuts/code/UKC,,7,,north-east
-North West,http://data.europa.eu/nuts/code/UKD,,8,,north-west
-South East,http://data.europa.eu/nuts/code/UKJ,,9,,south-east
-South West,http://data.europa.eu/nuts/code/UKK,,10,,south-west
-West Midlands,http://data.europa.eu/nuts/code/UKG,,11,,west-midlands
-Yorkshire and The Humber,http://data.europa.eu/nuts/code/UKE,,12,,yorkshire-and-the-humber
+East of England,http://statistics.data.gov.uk/id/statistical-geography/E12000006,,4,,E12000006
+East Midlands,http://statistics.data.gov.uk/id/statistical-geography/E12000004,,5,,E12000004
+London,http://statistics.data.gov.uk/id/statistical-geography/E12000007,,6,,E12000007
+North East,http://statistics.data.gov.uk/id/statistical-geography/E12000001,,7,,E12000001
+North West,http://statistics.data.gov.uk/id/statistical-geography/E12000002,,8,,E12000002
+South East,http://statistics.data.gov.uk/id/statistical-geography/E12000008,,9,,E12000008
+South West,http://statistics.data.gov.uk/id/statistical-geography/E12000009,,10,,E12000009
+West Midlands,http://statistics.data.gov.uk/id/statistical-geography/E12000005,,11,,E12000005
+Yorkshire and The Humber,http://statistics.data.gov.uk/id/statistical-geography/E12000003,,12,,E12000003
 Unknown,http://gss-data.org.uk/data/gss_data/climate-change/dluhc-domestic-energy-performance-certificates-for-existing-dwellings-by-energy-efficiency-rating-updated-concept/local-authority-code/unknown,,13,,unknown
 Adur,http://statistics.data.gov.uk/id/statistical-geography/E07000223,,14,,E07000223
 Allerdale,http://statistics.data.gov.uk/id/statistical-geography/E07000026,,15,,E07000026
