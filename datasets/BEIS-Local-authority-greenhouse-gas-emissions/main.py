@@ -138,7 +138,8 @@ catalog_metadata = CatalogMetadata(
         "greenhouse-gas",
         "carbon-dioxide",
         "local-authority",
-        "country"
+        "country",
+        "subnational"
     ],
     license_uri="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
     publisher_uri="https://www.gov.uk/government/organisations/department-for-energy-security-and-net-zero",
