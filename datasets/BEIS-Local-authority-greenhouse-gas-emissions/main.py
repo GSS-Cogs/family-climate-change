@@ -133,6 +133,7 @@ catalog_metadata = CatalogMetadata(
     title="Local authority greenhouse gas emissions",
     summary="UK local authority estimates of greenhouse gas emissions",
     dataset_issued="2023-06-29T09:30:00",
+    dataset_modified="2023-10-31T12:30:00"
     keywords=[
         "emissions",
         "greenhouse-gas",
